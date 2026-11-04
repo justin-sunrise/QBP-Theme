@@ -1,0 +1,102 @@
+.qbp-collection-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin: 0 0 2rem;
+  padding: 0 0 1.2rem;
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.12);
+}
+
+.qbp-collection-filters__apply {
+  width: 100%;
+}
+
+.qbp-collection-filters__apply[aria-pressed='true'] {
+  background-color: rgba(var(--color-foreground), 0.08);
+}
+
+.qbp-collection-filters__customize {
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.qbp-collection-filters__status {
+  margin: 0;
+  color: rgba(var(--color-foreground), 0.7);
+}
+
+.qbp-collection-filters__status[role='alert'] {
+  color: rgb(var(--color-foreground));
+}
+
+.qbp-collection-filters__active-label {
+  margin: 0 0 0.6rem;
+  color: rgba(var(--color-foreground), 0.75);
+}
+
+.qbp-collection-filters__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.qbp-collection-filters__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 2rem;
+  background-color: rgba(var(--color-foreground), 0.08);
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+.qbp-collection-filters__chip-label {
+  font-weight: 600;
+  color: rgba(var(--color-foreground), 0.85);
+}
+
+.qbp-collection-filters__chip-value {
+  color: rgba(var(--color-foreground), 0.7);
+}
+
+.qbp-quiz-empty {
+  margin-top: 1.6rem;
+  padding: 2rem 1.6rem;
+  border-radius: var(--buttons-radius, 0.4rem);
+  background-color: rgba(var(--color-foreground), 0.04);
+  text-align: center;
+}
+
+.qbp-quiz-empty__title {
+  margin: 0 0 1rem;
+}
+
+.qbp-quiz-empty__text {
+  margin: 0 0 1.6rem;
+  color: rgba(var(--color-foreground), 0.75);
+}
+
+.qbp-quiz-empty__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.facets-vertical .qbp-collection-filters {
+  padding-right: 0.4rem;
+}
+
+.mobile-facets__main > .qbp-collection-filters {
+  margin: 0 2.5rem 1.6rem;
+  padding-bottom: 1.6rem;
+}
+
+.collection--empty .title-wrapper--qbp-hidden {
+  display: none;
+}

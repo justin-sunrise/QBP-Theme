@@ -8,6 +8,29 @@
     "theme_support_url": "https://support.shopify.com/"
   },
   {
+    "name": "Brand",
+    "settings": [
+      {
+        "type": "select",
+        "id": "store_brand",
+        "label": "Store brand",
+        "info": "Loads the matching assets/brand-<store>.css stylesheet.",
+        "options": [
+          { "value": "salsa", "label": "Salsa" },
+          { "value": "surly", "label": "Surly" }
+        ],
+        "default": "salsa"
+      },
+      {
+        "type": "text",
+        "id": "typekit_kit_id",
+        "label": "Adobe Typekit kit ID",
+        "info": "The ID from your use.typekit.net/<id>.css link. Leave blank to skip loading Adobe Fonts.",
+        "default": "ibk7xtq"
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.logo.name",
     "settings": [
       {
@@ -1281,6 +1304,20 @@
           }
         ],
         "default": "show"
+      },
+      {
+        "type": "checkbox",
+        "id": "sale_badge_product_pages_only",
+        "label": "Show sale badge in price on product pages only",
+        "info": "When off, the sale badge shows wherever prices show badges.",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_clearance_shop_local",
+        "label": "Enable clearance pricing and Shop Local badges",
+        "info": "Uses the variant custom.discount_type and product custom.product_is_sellable metafields. Shows Was/Now clearance pricing, Clearance and Shop Local badges, and marks non-sellable products as sold out.",
+        "default": false
       }
     ]
   },
@@ -1473,6 +1510,36 @@
         "id": "cart_drawer_collection",
         "label": "t:settings_schema.cart.settings.cart_drawer.collection.label",
         "info": "t:settings_schema.cart.settings.cart_drawer.collection.info"
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.cart.settings.free_delivery.header"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_free_delivery",
+        "label": "t:settings_schema.cart.settings.free_delivery.show.label",
+        "default": false
+      },
+      {
+        "type": "number",
+        "id": "free_delivery_threshold",
+        "label": "t:settings_schema.cart.settings.free_delivery.threshold.label",
+        "info": "t:settings_schema.cart.settings.free_delivery.threshold.info",
+        "default": 100
+      },
+      {
+        "type": "text",
+        "id": "free_delivery_progress_text",
+        "label": "t:settings_schema.cart.settings.free_delivery.progress_text.label",
+        "info": "t:settings_schema.cart.settings.free_delivery.progress_text.info",
+        "default": "You're [amount] away from free delivery"
+      },
+      {
+        "type": "text",
+        "id": "free_delivery_success_text",
+        "label": "t:settings_schema.cart.settings.free_delivery.success_text.label",
+        "default": "You've unlocked free delivery!"
       },
       {
         "type": "color_scheme",

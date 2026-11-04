@@ -3612,11 +3612,27 @@ details-disclosure > details {
   white-space: nowrap !important
 }
 
-/* Shopify Dawn Custom Adobe Fonts by codeandtonic.com
-p.s.   Make sure to add the Font snippet to theme.liquid
-*/
-:root {
-  --font-heading-family: "sinter", sans-serif  !important;
-  --font-heading-weight: 800  !important;
-  --font-heading-style: normal  !important;
+/* Brand fonts and per-store styling live in assets/brand-<store>.css */
+
+.sizing-grid{
+  display:flex;
+  flex-direction:column;
+}
+.sizing-grid .chart{
+  width:100%;
+}
+.sizing-grid .chart table{
+  width:100%;
+}
+@media screen and (min-width: 749px) {
+  .sizing-grid{
+    display:flex;
+    flex-direction:row;
+  }
+  .sizing-grid .chart{
+    width:65%;
+  }
+  .sizing-grid .chart table{
+    width:100%;
+  }
 }

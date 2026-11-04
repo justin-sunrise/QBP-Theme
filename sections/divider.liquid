@@ -12,14 +12,17 @@
     display: block;
     width: 100%; 
     height: {{section.settings.image_height}}px;
-    background-image: url({{section.settings.image | image_url}});
     background-repeat: repeat-x; /* Repeats the image horizontally */
     background-size: auto; /* Keeps the original size of the image */
+  }
+  .repeat-horizontal.no-repeat-divider{
+    transform: rotate(0deg);
+    background-size: cover;
   }
 {% endstyle %}
 <div class="divider-container">
   {%- if section.settings.image != blank -%}
-    <span class="repeat-horizontal"></span>
+    <span class="repeat-horizontal {% if section.settings.no_repeat %} no-repeat-divider{% endif %}" style="background-image: url({{section.settings.image | image_url}}); transform: rotate({% if section.settings.negative_rotate %}-{% endif %}{{ section.settings.rotate_degree }}deg);"></span>
   {% else %}
     <span class="default-divider color-{{ section.settings.color_scheme }}"></span>
   {% endif %}   
@@ -37,8 +40,8 @@
     {
       "type": "range",
       "id": "image_height",
-      "min": 0,
-      "max": 200,
+      "min": 50,
+      "max": 250,
       "step": 2,
       "unit": "px",
       "label": "t:sections.divider-section.settings.image-height.label",
@@ -79,6 +82,29 @@
       "label": "t:sections.divider-section.settings.line-height.label",
       "info": "t:sections.divider-section.settings.line-height.info",
       "default": 4,
+    },
+    {
+      "type": "range",
+      "id": "rotate_degree",
+      "min": 0,
+      "max": 14,
+      "step": 1,
+      "unit": "px",
+      "label": "Rotate Pattern",
+      "info": "Angle of rotation on the pattern",
+      "default": 0,
+    },
+    {
+      "type": "checkbox",
+      "id": "negative_rotate",
+      "default": false,
+      "label": "Flip the rotation"
+    },
+    {
+      "type": "checkbox",
+      "id": "no_repeat",
+      "default": false,
+      "label": "Don't Repeat Pattern"
     },
   ],
   "presets": [

@@ -7,6 +7,12 @@
   - enable_sorting: {Boolean} Show sorting when true
   - filter_type: {String} Type of filter
   - paginate: {Object}
+  - qbp_quiz_filters: {Boolean} Show QBP quiz answer filter button (logged-in customers)
+  - qbp_app_api_url: {String} QBP app API base URL
+  - qbp_quiz_button_label: {String}
+  - qbp_quiz_toggle_off_label: {String}
+  - qbp_quiz_customize_label: {String}
+  - qbp_quiz_customize_url: {String}
 
   Usage:
   {% render 'facets', results: collection, enable_filtering: true, enable_sorting: true, filter_type: 'vertical', paginate: paginate %}
@@ -105,6 +111,16 @@
                   {% endif %}
                 {%- endfor -%}
               </div>
+            {%- endif -%}
+
+            {%- if qbp_quiz_filters and customer and enable_filtering -%}
+              {% render 'qbp-quiz-collection-filters',
+                qbp_app_api_url: qbp_app_api_url,
+                qbp_quiz_button_label: qbp_quiz_button_label,
+                qbp_quiz_toggle_off_label: qbp_quiz_toggle_off_label,
+                qbp_quiz_customize_label: qbp_quiz_customize_label,
+                qbp_quiz_customize_url: qbp_quiz_customize_url
+              %}
             {%- endif -%}
 
             <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
@@ -507,6 +523,15 @@
               id="FacetsWrapperMobile"
               class="mobile-facets__main has-submenu gradient"
             >
+              {%- if qbp_quiz_filters and customer and enable_filtering -%}
+                {% render 'qbp-quiz-collection-filters',
+                  qbp_app_api_url: qbp_app_api_url,
+                  qbp_quiz_button_label: qbp_quiz_button_label,
+                  qbp_quiz_toggle_off_label: qbp_quiz_toggle_off_label,
+                  qbp_quiz_customize_label: qbp_quiz_customize_label,
+                  qbp_quiz_customize_url: qbp_quiz_customize_url
+                %}
+              {%- endif -%}
               {%- if enable_filtering -%}
                 {%- for filter in results.filters -%}
                   {% liquid

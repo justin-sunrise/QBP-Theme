@@ -184,7 +184,16 @@
     <tr>
         <th scope="row">Handlebar Width</th>
         {% for variant in product.variants %}
+          {% if variant.metafields.custom.handlebar_width.value != blank and variant.metafields.custom.handlebar_widths.value == blank %}
             <td><span data-unit="handle">{{ variant.metafields.custom.handlebar_width.value }}</span></td>
+          {% endif %}
+          {% if variant.metafields.custom.handlebar_widths.value != blank %}
+            <td>
+            {% for field in variant.metafields.custom.handlebar_widths.value %}
+                <span data-unit="handle">{{ field }}</span>{% unless forloop.last %}-{% endunless %}
+            {% endfor %}
+            </td>
+          {% endif %}
         {% endfor %}
     </tr>
     <tr>
@@ -216,7 +225,7 @@ var imperialSwitch = document.getElementById("imperial-switch");
 
 
 function mmToInches() {
-   if(imperialSwitch.classList.contains('active')){
+    if(imperialSwitch.classList.contains('active')){
       return  
     }
     metricSwitch.classList.toggle("active");

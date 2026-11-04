@@ -1,0 +1,47 @@
+{%- comment -%}
+  Free delivery progress bar. Threshold, messages and color scheme live in Theme settings > Cart.
+  Accepts: class (string, optional)
+{%- endcomment -%}
+{%- if settings.show_free_delivery and settings.free_delivery_threshold > 0 and cart != empty -%}
+  {%- liquid
+    assign fd_threshold = settings.free_delivery_threshold | times: 100 | round
+    assign fd_remaining = fd_threshold | minus: cart.total_price
+    assign fd_amount = fd_remaining | money
+    assign fd_progress = cart.total_price | times: 100 | divided_by: fd_threshold
+    if fd_progress > 100
+      assign fd_progress = 100
+    endif
+
+    if fd_remaining <= 0
+      assign fd_state = 'met'
+    elsif fd_progress >= 50
+      assign fd_state = 'near'
+    else
+      assign fd_state = 'low'
+    endif
+
+    assign fd_scheme_class = ''
+    if settings.free_delivery_color_scheme != blank
+      assign fd_scheme_class = 'color-' | append: settings.free_delivery_color_scheme | append: ' free-delivery--scheme'
+    endif
+  -%}
+  <div class="free-delivery free-delivery--{{ fd_state }} {{ fd_scheme_class }} {{ class }}" role="status">
+    <p class="free-delivery-text">
+      {%- if fd_state == 'met' -%}
+        {{ settings.free_delivery_success_text }}
+      {%- else -%}
+        {{ settings.free_delivery_progress_text | replace: '[amount]', fd_amount }}
+      {%- endif -%}
+    </p>
+    <div
+      class="free-delivery-track"
+      role="progressbar"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow="{{ fd_progress }}"
+      aria-label="{{ 'Progress toward free delivery' | escape }}"
+    >
+      <span class="free-delivery-fill" style="width: {{ fd_progress }}%;"></span>
+    </div>
+  </div>
+{%- endif -%}

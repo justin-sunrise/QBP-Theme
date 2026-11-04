@@ -99,7 +99,13 @@
 
     <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical page-width{% endif %}">
       {{ 'component-facets.css' | asset_url | stylesheet_tag }}
+      {%- if section.settings.qbp_enable_quiz_filters and customer -%}
+        {{ 'component-qbp-quiz-filters.css' | asset_url | stylesheet_tag }}
+      {%- endif -%}
       <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
+      {%- if section.settings.qbp_enable_quiz_filters and customer -%}
+        <script src="{{ 'qbp-collection-filters.js' | asset_url }}" defer="defer"></script>
+      {%- endif -%}
       {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
         <aside
           aria-labelledby="verticalTitle"
@@ -112,7 +118,13 @@
             enable_filtering: section.settings.enable_filtering,
             enable_sorting: section.settings.enable_sorting,
             filter_type: section.settings.filter_type,
-            paginate: paginate
+            paginate: paginate,
+            qbp_quiz_filters: section.settings.qbp_enable_quiz_filters,
+            qbp_app_api_url: section.settings.qbp_app_api_url,
+            qbp_quiz_button_label: section.settings.qbp_quiz_button_label,
+            qbp_quiz_toggle_off_label: section.settings.qbp_quiz_toggle_off_label,
+            qbp_quiz_customize_label: section.settings.qbp_quiz_customize_label,
+            qbp_quiz_customize_url: section.settings.qbp_quiz_customize_url
           %}
         </aside>
       {%- endif -%}
@@ -374,6 +386,48 @@
       "id": "enable_sorting",
       "default": true,
       "label": "t:sections.main-collection-product-grid.settings.enable_sorting.label"
+    },
+    {
+      "type": "header",
+      "content": "QBP quiz filters"
+    },
+    {
+      "type": "checkbox",
+      "id": "qbp_enable_quiz_filters",
+      "default": false,
+      "label": "Show quiz answer filter button",
+      "info": "Logged-in customers can apply saved quiz answers (customer metafields) to this collection."
+    },
+    {
+      "type": "text",
+      "id": "qbp_app_api_url",
+      "label": "QBP app API base URL",
+      "info": "App origin with no trailing slash. Must match the quiz app block setting."
+    },
+    {
+      "type": "text",
+      "id": "qbp_quiz_button_label",
+      "label": "Apply quiz answers button label",
+      "default": "Use my quiz answers"
+    },
+    {
+      "type": "text",
+      "id": "qbp_quiz_toggle_off_label",
+      "label": "Turn off quiz filters button label",
+      "default": "Turn off quiz answers",
+      "info": "Shown while quiz filters are active. Turning off removes filters from this page only; saved answers stay on the customer account."
+    },
+    {
+      "type": "text",
+      "id": "qbp_quiz_customize_label",
+      "label": "Customize fit link label",
+      "default": "Customize my fit"
+    },
+    {
+      "type": "url",
+      "id": "qbp_quiz_customize_url",
+      "label": "Customize fit page",
+      "info": "Optional link to retake a sizing or bike finder quiz."
     },
     {
       "type": "header",

@@ -124,6 +124,24 @@
               </a>
             </h3>
           </div>
+          {%- liquid
+            assign on_sale = false
+            assign is_clearance = false
+            if card_product.compare_at_price > card_product.price
+              assign on_sale = true
+            endif
+            if settings.enable_clearance_shop_local
+              for variant in card_product.variants
+                if variant.compare_at_price > variant.price
+                  assign on_sale = true
+                endif
+                assign discount_type = variant.metafields.custom.discount_type.value
+                if discount_type contains 'Clearance' or discount_type contains 'Final Sale'
+                  assign is_clearance = true
+                endif
+              endfor
+            endif
+          -%}
           {% unless card_product.tags contains 'Archived Bikes' %}
           <div class="card__badge {{ settings.badge_position }}">
             {%- if card_product.metafields.custom.coming_soon -%}
@@ -141,14 +159,32 @@
               >
                 {{- 'products.product.sold_out' | t -}}
               </span>
-            {%- elsif card_product.compare_at_price > card_product.price -%}
-              <span
-                id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
-                class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
-              >
-                {{- 'products.product.on_sale' | t -}}
-              </span>
+            {%- elsif on_sale or is_clearance -%}
+              {%- assign is_sellable = card_product.metafields.custom.product_is_sellable.value -%}
+              {%- if settings.enable_clearance_shop_local == false or is_sellable == true or is_sellable == 'true' -%}
+                <span
+                  id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
+                  class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
+                >
+                  {%- if is_clearance -%}
+                    Clearance
+                  {%- else -%}
+                    {{- 'products.product.on_sale' | t -}}
+                  {%- endif -%}
+                </span>
+              {%- else -%}
+                <span
+                  id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
+                  class="badge badge--bottom-left"
+                  style="background-color:#336b41; color:#fff;"
+                >
+                  Shop Local
+                </span>
+              {%- endif -%}
             {%- endif -%}
+            {% if settings.enable_clearance_shop_local and card_product.metafields.custom.product_is_sellable and card_product.title contains 'frameset' %}
+              <span>Available Online!</span>
+            {% endif %}
           </div>
           {% endunless %}
         </div>
@@ -215,6 +251,13 @@
             {%- endif -%}
             {% unless card_product.tags contains 'Archived Bikes' %}
             {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
+            {% comment %}
+            {% if card_product.metafields.custom.product_is_sellable.value == false %}
+              <p><small>Find this product near you</small></p>
+            {% elsif card_product.metafields.custom.product_is_sellable.value != blank %}
+              <p><small>Sold Online</small></p>
+            {% endif %}
+            {% endcomment %}
             {%- if card_product.quantity_price_breaks_configured? -%}
               {% if card_product.variants.size == 1 and quick_add == 'bulk' %}
                 {% liquid
@@ -236,6 +279,7 @@
                   <span class="caption">{{ 'products.product.volume_pricing.note' | t }}</span>
                 </div>
               {% endif %}
+              
               {% if card_product.variants.size == 1 and quick_add == 'bulk' %}
                 <div
                   class="global-settings-popup quantity-popover__info"
@@ -589,12 +633,16 @@
             >
               {{- 'products.product.sold_out' | t -}}
             </span>
-          {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
+          {%- elsif on_sale or is_clearance -%}
             <span
               id="Badge-{{ section_id }}-{{ card_product.id }}"
               class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
             >
-              {{- 'products.product.on_sale' | t -}} 12
+              {%- if is_clearance -%}
+                Clearance
+              {%- else -%}
+                {{- 'products.product.on_sale' | t -}}
+              {%- endif -%}
             </span>
           {%- endif -%}
         </div>

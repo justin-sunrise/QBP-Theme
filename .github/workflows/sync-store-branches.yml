@@ -1,0 +1,77 @@
+name: Sync main to store branches
+
+# Merges shared theme code from main into each store branch. Shopify's GitHub
+# integration then deploys each store branch to the theme it is connected to.
+# Per-store files (templates, settings_data, section groups, markets) are never
+# overwritten: the store branch's copy always wins.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: store-sync-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        branch: [Salsa-Theme, Surly-Theme]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ matrix.branch }}
+          fetch-depth: 0
+
+      - name: Merge main into ${{ matrix.branch }}
+        env:
+          BRANCH: ${{ matrix.branch }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config merge.ours.driver true
+
+          STORE_PATHS=(templates config/settings_data.json config/markets.json ':(glob)sections/*-group.json')
+
+          for attempt in 1 2 3; do
+            git fetch origin main "$BRANCH"
+            git reset --hard "origin/$BRANCH"
+            before=$(git rev-parse HEAD)
+
+            if git merge-base --is-ancestor origin/main HEAD; then
+              echo "$BRANCH already contains main."
+              exit 0
+            fi
+
+            if ! git merge --no-ff --no-commit origin/main; then
+              git merge --abort
+              echo "::error::Merge conflict merging main into $BRANCH. Merge it by hand: git checkout $BRANCH && git merge main"
+              exit 1
+            fi
+
+            # Keep the store's copy of every per-store file it already has.
+            # New files added on main (e.g. a new template) are kept.
+            for path in "${STORE_PATHS[@]}"; do
+              git checkout "$before" -- "$path" 2>/dev/null || true
+            done
+
+            git commit --no-edit -m "Sync shared theme code from main into $BRANCH"
+
+            if git push origin "HEAD:$BRANCH"; then
+              echo "Synced main into $BRANCH."
+              exit 0
+            fi
+            echo "Push rejected (the store probably committed a theme editor change). Retrying..."
+            sleep $((attempt * 10))
+          done
+
+          echo "::error::Could not push to $BRANCH after 3 attempts."
+          exit 1

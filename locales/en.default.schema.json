@@ -352,6 +352,23 @@
             "label": "Collection",
             "info": "Visible when cart drawer is empty."
           }
+        },
+        "free_delivery": {
+          "header": "Free delivery",
+          "show": {
+            "label": "Show free delivery bar in cart drawer and cart page"
+          },
+          "threshold": {
+            "label": "Free delivery threshold amount",
+            "info": "Cart total needed for free delivery, in your store currency. Match this to your shipping rates."
+          },
+          "progress_text": {
+            "label": "Progress message",
+            "info": "Use [amount] to show how much more the customer needs to spend."
+          },
+          "success_text": {
+            "label": "Success message"
+          }
         }
       }
     },
