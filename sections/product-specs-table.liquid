@@ -35,7 +35,7 @@
   
   /* Change background color of buttons on hover */
   .tab button:hover {
-    background-color: rgba(var(--color-button), 1);
+    background-color: rgba(var(--color-button), .2);
   }
   
   /* Create an active/current tablink class */
@@ -178,7 +178,11 @@
                                       endif
                                     -%}
                                          <th>
+                                          {% if metafield_name == 'casting' %}
+                                           {{ metafield_name | replace: '_', ' ' | remove: 't' | upcase }}
+                                          {% else %}
                                            {{ metafield_name | replace: '_', ' ' | upcase }}
+                                          {% endif %}
                                          </th>
                                   {% elsif block.settings.value_type == 'option' %}
                                       <th>
@@ -187,14 +191,12 @@
                                   {% endif %}
                                 {% endfor %}
                               </tr>
-                              {% for option in product.options_with_values %}
-                                {% if option.name == section.settings.tabs %}
-                                  {% for value in option.values %}
-                                    {% if value contains item %}
-                                      {% for optn in product.options_with_values %}
-                                        {% if optn.name == section.settings.rows %}
-                                          {% for val in optn.values %}
-                                            <tr data-row="{{ val }}">
+
+                                  
+                                      {% for variant in product.variants%}
+                                        {% if variant.title contains item %}
+                                         
+                                            <tr data-row="{{ variant.title }}-{{ item }}">
                                               {% for block in section.blocks %}
                                                 {% if block.settings.value_type == 'metafield' %}
                                                   {%- liquid
@@ -205,12 +207,12 @@
                                                     endif
                                                   -%}
                                                   {% assign stop = false %}
-                                                  {% for variant in product.variants %}
-                                                    {% if variant.options contains value %}
+
+
                                                       {% unless stop %}
                                                       {% assign stop = true %}
                                                         
-                                                       <td {% if block.settings.metaobject %}class="row-wide"{% endif %}>
+                                                       <td {% if block.settings.metaobject and block.settings.modal %}class="row-wide"{% endif %}>
                                                         {% if block.settings.metaobject %}
                                                           {% if block.settings.modal %}
                                                             {% if  variant.metafields[metafield_namespace][metafield_key] != blank %}
@@ -227,8 +229,12 @@
                                                             {% endif %}
                                                           {% else %}
                                                             {% if  variant.metafields[metafield_namespace][metafield_key] != blank %}
-                                                            <img src="{{ variant.metafields[metafield_namespace][metafield_key].value.icon | image_url: width: variant.metafields[metafield_namespace][metafield_key].value.icon.width, height: variant.metafields[metafield_namespace][metafield_key].value.icon.height }}" alt="{{ variant.metafields[metafield_namespace][metafield_key].value.title }}" height="40" width="40" /> 
-                                                            <p style="margin-top:0;">{{ variant.metafields[metafield_namespace][metafield_key].value.title.value }}</p>
+                                                              {% if variant.metafields[metafield_namespace][metafield_key].value.icon %}
+                                                                <img src="{{ variant.metafields[metafield_namespace][metafield_key].value.icon | image_url: width: variant.metafields[metafield_namespace][metafield_key].value.icon.width, height: variant.metafields[metafield_namespace][metafield_key].value.icon.height }}" alt="{{ variant.metafields[metafield_namespace][metafield_key].value.title }}" height="40" width="40" /> 
+                                                                <p style="margin-top:0;">{{ variant.metafields[metafield_namespace][metafield_key].value.title.value }}</p>
+                                                              {% else %}
+                                                                <p style="margin-top:0;">{{ variant.metafields[metafield_namespace][metafield_key].value.label.value }}</p>
+                                                              {% endif %}
                                                             {% endif %}
                                                           {% endif %}
                                                         {% else %}
@@ -236,26 +242,16 @@
                                                         {% endif %}
                                                        </td>
                                                       {% endunless %}
-                                                    {% endif %}
-                                                  {% endfor %}
-                                                {% elsif block.settings.value_type == 'option' %}
-                                                  <td data-key="{{ metafield_key }}">
-                                                    {% if block.settings.value  == section.settings.rows %}
-                                                      {{ val }}
-                                                    {% elsif block.settings.value ==  section.settings.tabs %}
-                                                      {{ value }}
-                                                    {% endif %}
-                                                  </td>
+
+                                        
                                                 {% endif %}
                                               {% endfor %}
                                             </tr>
-                                          {% endfor %}
+                                
                                         {% endif %}
                                       {% endfor %}
-                                    {% endif %}
-                                  {% endfor %}
-                                {% endif %}
-                              {% endfor %}
+                                    
+                             
                             </table>
                         </div>
                     {% endfor %}

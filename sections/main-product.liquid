@@ -148,7 +148,7 @@
                     {%- endif -%}
                   </div>
                 {%- endif -%}
-                {% if product.metafield.custom.product_is_sellable %}
+                {% if product.metafield.custom.product_is_sellable and block.settings.show_installments %}
                 <div {{ block.shopify_attributes }}>
                   {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
                   {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
@@ -492,6 +492,8 @@
                     show_pickup_availability: true
                   -%}
                 {% endif %}
+              {%- when 'buy_local_now_button' -%}
+                {% render 'buy-local-button', block: block, product: product, section_id: section.id, initial_variant_only: true %}
               {%- when 'locally_button' -%}
                   <!-- LOCALLY.COM WIDGET EMBED CODE -->
                   <div class="product-form__buttons buy-locally-button-container">
@@ -872,7 +874,16 @@
     {
       "type": "price",
       "name": "t:sections.main-product.blocks.price.name",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_installments",
+          "default": true,
+          "label": "Show Installments",
+          "info": "Toggle visibility of installments"
+        }
+      ]
     },
     {
       "type": "sku",
@@ -1064,6 +1075,47 @@
       "type": "description",
       "name": "t:sections.main-product.blocks.description.name",
       "limit": 1
+    },
+    {
+      "type": "buy_local_now_button",
+      "name": "Buy local button",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Buy Local (buylocalbuynow.com) button for products that are not sold online. The script only loads on pages that use this block."
+        },
+        {
+          "type": "text",
+          "id": "local_now_button_label",
+          "label": "Buy Local label",
+          "info": "Leave blank for BUY LOCAL."
+        },
+        {
+          "type": "number",
+          "id": "buy_local_account_id",
+          "label": "Buy Local account ID",
+          "default": 80
+        },
+        {
+          "type": "number",
+          "id": "buy_local_brand_id",
+          "label": "Buy Local brand ID",
+          "default": 95
+        },
+        {
+          "type": "color",
+          "id": "buy_local_background_color",
+          "label": "Button background",
+          "default": "#B2AAA0"
+        },
+        {
+          "type": "color",
+          "id": "buy_local_text_color",
+          "label": "Button text",
+          "default": "#111921"
+        }
+      ]
     },
     {
       "type": "share",

@@ -6,8 +6,10 @@
   are prefixed with "body" to win on specificity.
 */
 
-/* Shopify Dawn Custom Adobe Fonts by codeandtonic.com */
-:root {
+/* Shopify Dawn Custom Adobe Fonts by codeandtonic.com
+   Only applies when an Adobe Typekit kit ID is set (theme.liquid adds .typekit-fonts);
+   otherwise the fonts chosen under Theme settings > Typography are used. */
+:root.typekit-fonts {
   --font-heading-h1-family: "quatro-slab", Helvetica, sans-serif !important;
   --font-heading-h1-weight: 900  !important;
   --font-heading-h2-family: "quatro-slab", Helvetica, sans-serif !important;
@@ -36,19 +38,19 @@ h5,
 
 h1,
 .h1 {
-  font-family: var(--font-heading-h1-family);
-  font-weight: var(--font-heading-h1-weight);
+  font-family: var(--font-heading-h1-family, var(--font-heading-family));
+  font-weight: var(--font-heading-h1-weight, var(--font-heading-weight));
   text-transform: uppercase;
 }
 h2,
 .h2 {
-  font-family: var(--font-heading-h2-family);
-  font-weight: var(--font-heading-h2-weight);
+  font-family: var(--font-heading-h2-family, var(--font-heading-family));
+  font-weight: var(--font-heading-h2-weight, var(--font-heading-weight));
 }
 h3,
 .h3 {
-  font-family: var(--font-heading-h2-family) !important;
-  font-weight: var(--font-heading-h3-weight) !important;
+  font-family: var(--font-heading-h2-family, var(--font-heading-family)) !important;
+  font-weight: var(--font-heading-h3-weight, var(--font-heading-weight)) !important;
 }
 
 .hxl {
