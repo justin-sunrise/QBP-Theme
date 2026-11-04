@@ -40,7 +40,7 @@
       assign ratio = 1
     endif
   -%}
-  <div class="card-wrapper product-card-wrapper underline-links-hover" role="group" aria-label="product">
+  <div class="card-wrapper product-card-wrapper underline-links-hover">
     <div
       class="
         card card--{{ settings.card_style }}
@@ -73,7 +73,7 @@
                 "
                 src="{{ card_product.featured_media | image_url: width: 533 }}"
                 sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
-                alt="{% comment %} {{ card_product.featured_media.alt | escape }} {% endcomment %}"
+                alt="{{ card_product.featured_media.alt | escape }}"
                 class="motion-reduce"
                 {% unless lazy_load == false %}
                   loading="lazy"
@@ -124,7 +124,6 @@
               </a>
             </h3>
           </div>
-          {% unless card_product.tags contains 'Archived Bikes' %}
           <div class="card__badge {{ settings.badge_position }}">
             {%- if card_product.metafields.custom.coming_soon -%}
               <span
@@ -134,6 +133,20 @@
                 Coming Soon
               </span>
             {% endif %}
+            {%- liquid
+              assign on_sale = false
+              assign is_clearance = false
+              for variant in card_product.variants
+                if variant.compare_at_price > variant.price
+                  assign on_sale = true
+                endif
+                  assign discount_type = variant.metafields.custom.discount_type.value
+                  if discount_type contains 'Clearance' or discount_type contains 'Final Sale'
+                    assign is_clearance = true
+                  endif
+              endfor
+            -%}
+
             {%- if card_product.available == false and settings.sold_out_badge_visibility == 'show' -%}
               <span
                 id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
@@ -141,16 +154,33 @@
               >
                 {{- 'products.product.sold_out' | t -}}
               </span>
-            {%- elsif card_product.compare_at_price > card_product.price -%}
-              <span
-                id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
-                class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
-              >
-                {{- 'products.product.on_sale' | t -}}
-              </span>
+            {%- elsif on_sale or is_clearance -%}
+              {%- assign is_sellable = card_product.metafields.custom.product_is_sellable.value -%}
+              {%- if is_sellable == true or is_sellable == 'true' -%}
+                <span
+                  id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
+                  class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
+                >
+                  {%- if is_clearance -%}
+                    Clearance
+                  {%- else -%}
+                    {{- 'products.product.on_sale' | t -}}
+                  {%- endif -%}
+                </span>
+              {%- else -%}
+                <span
+                  id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
+                  class="badge badge--bottom-left"
+                  style="background-color:#336b41; color:#fff;"
+                >
+                  Shop Local
+                </span>
+              {%- endif -%}
             {%- endif -%}
+            {% if card_product.metafields.custom.product_is_sellable and card_product.title contains 'frameset' %}
+              <span>Available Online!</span>
+            {% endif %}
           </div>
-          {% endunless %}
         </div>
       </div>
       <div class="card__content">
@@ -213,8 +243,15 @@
                 </span>
               </p>
             {%- endif -%}
-            {% unless card_product.tags contains 'Archived Bikes' %}
+
             {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
+            {% comment %}
+            {% if card_product.metafields.custom.product_is_sellable.value == false %}
+              <p><small>Find this product near you</small></p>
+            {% elsif card_product.metafields.custom.product_is_sellable.value != blank %}
+              <p><small>Sold Online</small></p>
+            {% endif %}
+            {% endcomment %}
             {%- if card_product.quantity_price_breaks_configured? -%}
               {% if card_product.variants.size == 1 and quick_add == 'bulk' %}
                 {% liquid
@@ -236,6 +273,7 @@
                   <span class="caption">{{ 'products.product.volume_pricing.note' | t }}</span>
                 </div>
               {% endif %}
+              
               {% if card_product.variants.size == 1 and quick_add == 'bulk' %}
                 <div
                   class="global-settings-popup quantity-popover__info"
@@ -301,7 +339,6 @@
                 {{ card_product.metafields.custom.product_card_features_list | metafield_tag }}
               </div>
             {% endif %}
-            {% endunless %}
           </div>
         </div>
         {% assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id %}
@@ -589,12 +626,16 @@
             >
               {{- 'products.product.sold_out' | t -}}
             </span>
-          {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
+          {%- elsif on_sale or is_clearance -%}
             <span
               id="Badge-{{ section_id }}-{{ card_product.id }}"
               class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
             >
-              {{- 'products.product.on_sale' | t -}} 12
+              {%- if is_clearance -%}
+                Clearance
+              {%- else -%}
+                {{- 'products.product.on_sale' | t -}}
+              {%- endif -%}
             </span>
           {%- endif -%}
         </div>

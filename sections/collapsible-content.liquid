@@ -107,6 +107,37 @@
     </div>
   </div>
 </div>
+{%- if section.settings.enable_faq_schema -%}
+  {%- liquid
+    assign faq_count = 0
+  -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign question = block.settings.heading | default: block.settings.page.title | strip_html | strip
+            assign answer = block.settings.row_content | default: block.settings.page.content
+          -%}
+          {%- if question != blank and answer != blank -%}
+            {%- if faq_count > 0 -%},{%- endif -%}
+            {
+              "@type": "Question",
+              "name": {{ question | json }},
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": {{ answer | json }}
+              }
+            }
+            {%- assign faq_count = faq_count | plus: 1 -%}
+          {%- endif -%}
+        {%- endfor -%}
+      ]
+    }
+  </script>
+{%- endif -%}
 {% endif %}
 {% schema %}
 {
@@ -214,6 +245,13 @@
       "id": "open_first_collapsible_row",
       "default": false,
       "label": "t:sections.collapsible_content.settings.open_first_collapsible_row.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_faq_schema",
+      "default": false,
+      "label": "Enable FAQ schema (JSON-LD)",
+      "info": "Outputs structured data for rich results. Enable only if this section contains genuine FAQs."
     },
     {
       "type": "header",

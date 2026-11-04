@@ -141,7 +141,7 @@
 
 .table--label {
   width: 100%;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 0px;
 }
 
@@ -204,35 +204,31 @@
   border-spacing: 0;
   table-layout: auto;
   width: max-content;
-
-  thead tr {
+}
+.geometry-table-container thead tr {
     font-size: .8rem;
     font-weight: 500;
     text-align: left;
-
-    th {
+}
+.geometry-table-container th {
       padding: 0.75rem 1.5rem;
       vertical-align: middle;
     }
-  }
+.geometry-table-container tbody td{
+    text-align: left;
+    padding: 1.5rem 1.5rem;
+    vertical-align: middle;
+}
 
-  tbody {
-    td {
-      text-align: left;
-      padding: 1.5rem 1.5rem;
-      vertical-align: middle;
-    }
-  }
-
-  tr>th:first-child,
-  tr>td:first-child {
-    position: sticky;
-    left: 0;
-    padding: 16px 0;
-    background: rgb(var(--color-background));
-    background: var(--gradient-background);
-    border-right: .1rem solid rgba(var(--color-foreground), .08);
-  }
+.geometry-table-container tr>th:first-child,
+.geometry-table-container tr>td:first-child {
+  position: sticky;
+  left: 0;
+  font-weight: 600;
+  padding: 16px 0;
+  background: rgb(var(--color-background));
+  background: var(--gradient-background);
+  border-right: .1rem solid rgba(var(--color-foreground), .08);
 }
 .geometry-table-container th,
 .geometry-table-container td{
@@ -240,10 +236,10 @@
 }
 @media screen and (min-width: 750px) {
   .geometry-image {
-    width: 33%;
+    width: 60%;
   }
   .geometry-table{
-    width: 70%;
+    width: 100%;
   }
   .geometry-table-container {
     overflow-x: hidden;
@@ -259,7 +255,7 @@
   }
 
   .bike-geometry {
-    flex-direction: row;
+    flex-direction: column;
   }
 
   .table--label {

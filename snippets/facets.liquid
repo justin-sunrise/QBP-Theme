@@ -7,6 +7,12 @@
   - enable_sorting: {Boolean} Show sorting when true
   - filter_type: {String} Type of filter
   - paginate: {Object}
+  - qbp_quiz_filters: {Boolean} Show QBP quiz answer filter button (logged-in customers)
+  - qbp_app_api_url: {String} QBP app API base URL
+  - qbp_quiz_button_label: {String}
+  - qbp_quiz_toggle_off_label: {String}
+  - qbp_quiz_customize_label: {String}
+  - qbp_quiz_customize_url: {String}
 
   Usage:
   {% render 'facets', results: collection, enable_filtering: true, enable_sorting: true, filter_type: 'vertical', paginate: paginate %}
@@ -107,6 +113,16 @@
               </div>
             {%- endif -%}
 
+            {%- if qbp_quiz_filters and customer and enable_filtering -%}
+              {% render 'qbp-quiz-collection-filters',
+                qbp_app_api_url: qbp_app_api_url,
+                qbp_quiz_button_label: qbp_quiz_button_label,
+                qbp_quiz_toggle_off_label: qbp_quiz_toggle_off_label,
+                qbp_quiz_customize_label: qbp_quiz_customize_label,
+                qbp_quiz_customize_url: qbp_quiz_customize_url
+              %}
+            {%- endif -%}
+
             <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
             {% comment %} Filters for both horizontal and vertical filter {% endcomment %}
             {%- for filter in results.filters -%}
@@ -188,9 +204,9 @@
                             assign sorted_values = active_filter_values | concat: inactive_filter_values
                           endif
                         -%}
-                        <div
+                        <ul
                           class="{{ visual_layout_class }}{% if filter_type == 'vertical' %} facets__list--vertical{% else %} facets__list{% endif %} list-unstyled"
-                          role="presentation"
+                          role="list"
                         >
                           {%- for value in sorted_values -%}
                             {% liquid
@@ -219,7 +235,7 @@
                               </span>
                             {%- endcapture -%}
 
-                            <div class="list-menu__item facets__item{% if forloop.index > show_more_number and filter_type == 'vertical' %} show-more-item hidden{% endif %}">
+                            <li class="list-menu__item facets__item{% if forloop.index > show_more_number and filter_type == 'vertical' %} show-more-item hidden{% endif %}">
                               {%- if presentation == 'swatch' -%}
                                 <div class="{{ label_class }}">
                                   <div class="swatch-input-wrapper">
@@ -273,9 +289,9 @@
                                   {{ text_value }}
                                 </label>
                               {%- endif -%}
-                            </div>
+                            </li>
                           {%- endfor -%}
-                        </div>
+                        </ul>
                       </fieldset>
                       {%- if filter.values.size > show_more_number and filter_type == 'vertical' -%}
                         <show-more-button>
@@ -507,6 +523,15 @@
               id="FacetsWrapperMobile"
               class="mobile-facets__main has-submenu gradient"
             >
+              {%- if qbp_quiz_filters and customer and enable_filtering -%}
+                {% render 'qbp-quiz-collection-filters',
+                  qbp_app_api_url: qbp_app_api_url,
+                  qbp_quiz_button_label: qbp_quiz_button_label,
+                  qbp_quiz_toggle_off_label: qbp_quiz_toggle_off_label,
+                  qbp_quiz_customize_label: qbp_quiz_customize_label,
+                  qbp_quiz_customize_url: qbp_quiz_customize_url
+                %}
+              {%- endif -%}
               {%- if enable_filtering -%}
                 {%- for filter in results.filters -%}
                   {% liquid

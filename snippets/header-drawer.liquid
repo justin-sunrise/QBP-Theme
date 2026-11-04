@@ -1,125 +1,56 @@
 {% comment %}
-  Renders a header drawer menu for mobile and desktop using button-based navigation.
+  Renders a header drawer menu for mobile and desktop.
 
   Usage:
   {% render 'header-drawer' %}
 {% endcomment %}
 
-<style>
-  /* Menu drawer visibility */
-
-
-  #menu-drawer {
-    visibility: hidden;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease, visibility 0.3s;
-  }
-
-  #menu-drawer[data-open="true"] {
-    visibility: visible;
-    transform: translateX(0);
-  }
-
-  /* Toggle button icon states */
-  .header__icon--menu svg:first-child {
-    display: block;
-  }
-
-  .header__icon--menu svg:last-child {
-    display: none;
-  }
-
-  .header__icon--menu[data-expanded="true"] svg:first-child {
-    display: none;
-  }
-
-  .header__icon--menu[data-expanded="true"] svg:last-child {
-    display: block;
-  }
-
-  /* Submenu visibility */
-  .menu-drawer__submenu {
-    visibility: hidden;
-    transform: translateX(100%);
-    transition: transform 0.3s ease, visibility 0.3s;
-  }
-
-  .menu-drawer__submenu[data-open="true"] {
-    visibility: visible;
-    transform: translateX(0);
-  }
-</style>
-
 <header-drawer data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}">
-  <div id="menu-drawer-container" class="menu-drawer-container">
-    <button
-      id="MenuDrawer-toggle"
+  <details id="Details-menu-drawer-container" class="menu-drawer-container">
+    <summary
       class="header__icon header__icon--menu header__icon--summary link focus-inset"
       aria-label="{{ 'sections.header.menu' | t }}"
-      data-expanded="false"
     >
       <span>
         {{- 'icon-hamburger.svg' | inline_asset_content -}}
-        {{- 'icon-hamburger.svg' | inline_asset_content -}}
+        {{- 'icon-close.svg' | inline_asset_content -}}
       </span>
       <span class="sr-only">Menu</span>
-    </button>
-    
-    <div 
-      id="menu-drawer" 
-      class="gradient menu-drawer motion-reduce color-{{ section.settings.menu_color_scheme }}" 
-      role="dialog" 
-      aria-modal="true" 
-      aria-label="Menu Drawer"
-      data-open="false"
-    >
+    </summary>
+    <div id="menu-drawer" class="gradient menu-drawer motion-reduce color-{{ section.settings.menu_color_scheme }}" role="dialog" aria-modal="true">
       <div class="menu-drawer__inner-container">
         <div class="menu-drawer__navigation-container">
           <nav class="menu-drawer__navigation">
-            <button 
-              id="close-button-in-drawer"
-              class="menu-drawer__close-main menu-drawer__menu-item link link--text focus-inset" 
-              style="justify-self: end; padding: 1.1rem 3rem; text-decoration: none;  font-size: 1.8rem; text-align: end;"
-              aria-label="Close menu"
-              tabindex="0"
-            >
-              Close
-            </button>
-            
+            <button class="menu-drawer__menu-item list-menu__item link link--text focus-inset" style="justify-self: end;" onclick="closeMenuDrawer()">Close</button>
             <ul class="menu-drawer__menu has-submenu list-menu" role="list">
               {%- for link in section.settings.menu.links -%}
                 <li>
                   {%- if link.links != blank -%}
-                    <div class="menu-drawer__item-wrapper" data-menu-item="{{ forloop.index }}">
-                      <button
+                    <details id="Details-menu-drawer-menu-item-{{ forloop.index }}">
+                      <summary
                         id="HeaderDrawer-{{ link.handle }}"
                         class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.child_active %} menu-drawer__menu-item--active{% endif %}"
-                        data-controls="submenu-{{ link.handle | escape }}"
-                        data-expanded="false"
                       >
                         {{ link.title | escape }} 
                         <span class="svg-wrapper">
                           {{- 'icon-arrow.svg' | inline_asset_content -}}
                         </span>
-                      </button>
-                      
+                        <span class="svg-wrapper">
+                          {{- 'icon-caret.svg' | inline_asset_content -}}
+                        </span>
+                      </summary>
                       <div
-                        id="submenu-{{ link.handle | escape }}"
+                        id="link-{{ link.handle | escape }}"
                         class="menu-drawer__submenu has-submenu gradient motion-reduce"
                         tabindex="-1"
-                        data-open="false"
                       >
                         <div class="menu-drawer__inner-submenu">
-                          <button 
-                            class="menu-drawer__close-button link link--text focus-inset"
-                            aria-label="Close {{ link.title | escape }} menu"
-                          >
+                          <button class="menu-drawer__close-button link link--text focus-inset">
                             <span class="svg-wrapper">
                               {{- 'icon-arrow.svg' | inline_asset_content -}}
                             </span>
                             {{ link.title | escape }}
                           </button>
-                          
                           <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
                             {%- for childlink in link.links -%}
                               <li>
@@ -135,12 +66,10 @@
                                     {{ childlink.title | escape }}
                                   </a>
                                 {%- else -%}
-                                  <div class="menu-drawer__item-wrapper" data-menu-item="{{ link.handle }}-{{ childlink.handle }}">
-                                    <button
+                                  <details id="Details-menu-drawer-{{ link.handle }}-{{ childlink.handle }}">
+                                    <summary
                                       id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
                                       class="menu-drawer__menu-item link link--text list-menu__item focus-inset"
-                                      data-controls="submenu-{{ link.handle }}-{{ childlink.handle | escape }}"
-                                      data-expanded="false"
                                     >
                                       {{ childlink.title | escape }}
                                       <span class="svg-wrapper">
@@ -149,23 +78,20 @@
                                       <span class="svg-wrapper">
                                         {{- 'icon-caret.svg' | inline_asset_content -}}
                                       </span>
-                                    </button>
-                                    
+                                    </summary>
                                     <div
-                                      id="submenu-{{ link.handle }}-{{ childlink.handle | escape }}"
+                                      id="childlink-{{ childlink.handle | escape }}"
                                       class="menu-drawer__submenu has-submenu gradient motion-reduce"
-                                      data-open="false"
                                     >
                                       <button
                                         class="menu-drawer__close-button link link--text focus-inset"
-                                        aria-label="Close {{ childlink.title | escape }} menu"
+                                        aria-expanded="true"
                                       >
                                         <span class="svg-wrapper">
                                           {{- 'icon-arrow.svg' | inline_asset_content -}}
                                         </span>
                                         {{ childlink.title | escape }}
                                       </button>
-                                      
                                       <ul
                                         class="menu-drawer__menu list-menu"
                                         role="list"
@@ -187,14 +113,14 @@
                                         {%- endfor -%}
                                       </ul>
                                     </div>
-                                  </div>
+                                  </details>
                                 {%- endif -%}
                               </li>
                             {%- endfor -%}
                           </ul>
                         </div>
                       </div>
-                    </div>
+                    </details>
                   {%- else -%}
                     <a
                       id="HeaderDrawer-{{ link.handle }}"
@@ -211,7 +137,6 @@
               {%- endfor -%}
             </ul>
           </nav>
-          
           <div class="menu-drawer__utility-links">
             {%- if shop.customer_accounts_enabled -%}
               <a
@@ -243,7 +168,6 @@
                 -%}
               </a>
             {%- endif -%}
-            
             {%- if localization.available_countries or localization.available_languages -%}
               <div class="menu-drawer__localization header-localization">
                 {%- if localization.available_countries and localization.available_countries.size > 1 -%}
@@ -273,7 +197,6 @@
                 {%- endif -%}
               </div>
             {%- endif -%}
-            
             <ul class="list list-social list-unstyled" role="list">
               {%- if settings.social_twitter_link != blank -%}
                 <li class="list-social__item">
@@ -370,5 +293,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </details>
 </header-drawer>

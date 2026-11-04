@@ -84,3 +84,6 @@
 .rich-text__blocks.right .rich-text__buttons {
   justify-content: flex-end;
 }
+.page-width > .rich-text__blocks{
+  max-width:100%;
+}

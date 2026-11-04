@@ -99,3 +99,60 @@
   text-transform: uppercase;
   color: rgba(var(--color-foreground), 0.7);
 }
+
+/* Clearance price treatment — append to assets/component-price.css */
+
+.price--clearance .price__clearance {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0 0 1.2rem;
+}
+
+.price--clearance .price__clearance-was {
+  margin: 0;
+  font-size: 1.6rem;
+  line-height: 1.2;
+  letter-spacing: 0;
+  color: rgba(var(--color-foreground), 0.65);
+}
+
+.price--clearance .price__clearance-was .price-item {
+  margin: 0;
+  font-size: inherit;
+  color: inherit;
+}
+
+.price--clearance .price__clearance-now {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.6rem;
+}
+
+.price--clearance .price__clearance-label {
+  font-size: 1.8rem;
+  line-height: 1;
+  letter-spacing: 0;
+  color: rgb(var(--color-foreground));
+}
+
+.price--clearance .price__clearance-amount {
+  margin: 0;
+  font-size: 1.8rem;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  color: rgb(var(--color-foreground));
+}
+
+.price--clearance .price__badge-clearance {
+  display: inline-block;
+  padding: .5rem 1.3rem .6rem;
+  border-radius: 999px;
+  background: #ff0016;
+  color: #fff;
+  font-size: 1.2rem;
+  letter-spacing: .1rem;
+  line-height: 1;
+  letter-spacing: 0;
+}

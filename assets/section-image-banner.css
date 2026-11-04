@@ -350,14 +350,18 @@
 }
 
 .banner--mobile-bottom .banner__box {
-  padding: 4rem 3.5rem;
+  padding: 4rem 2rem;
 }
-
+.banner--mobile-bottom .banner__box h1{
+  font-size: calc(var(--font-heading-scale)* 2rem);
+}
 @media screen and (min-width: 750px) {
   .banner__box {
     padding: 4rem 3.5rem;
   }
-
+  .banner--mobile-bottom .banner__box h1{
+        font-size: calc(var(--font-heading-scale)* 4rem);
+  }
   .banner--desktop-transparent .banner__box {
     padding: 4rem 0;
     background: transparent;
@@ -394,7 +398,13 @@
   width: 100%;
   height: 100%;
 }
-
+.overlay-banner-image::after{
+  background-image: url('https://cdn.shopify.com/s/files/1/0735/9787/8295/files/SUR_DistressedHeaderFrame-overlay.svg?v=1743434853');
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-position-y: bottom;
+  background-size: cover;
+}
 .banner__box > * + .banner__text {
   margin-top: 1.5rem;
 }

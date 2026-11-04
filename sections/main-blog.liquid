@@ -57,27 +57,27 @@
             <div class="blog-filter"  aria-label="Filters" role="region">
               <div class="list-group">
                 <p class="sr-only">Activating this element will cause content on the page to be updated.</p>
-                <div>
-                  <p class="sr-only">Filter Blogs by tag</p>
-                  <div class="tag-list">
-                    <div>
+                <fieldset>
+                  <legend class="sr-only">Filter Blogs by tag</legend>
+                  <ul class="tag-list">
+                    <li>
                       <input type="checkbox" data-target="{{ blog.url }}" id="mobile-all-articles">
                       <label class="blog-filter-checkbox checkbox-label" for="mobile-all-articles"></label>
                       <label for="mobile-all-articles" class="tag-name-label checkbox-label">
                         {{ 'All Articles' }}
                       </label>
-                    </div>
+                    </li>
                     {% for tag in blog.all_tags %}
-                      <div>
+                      <li>
                         <input type="checkbox" data-target="{{ blog.url }}/tagged/{{ tag | handleize }}" id="mobile-{{ tag | handleize }}">
                         <label class="blog-filter-checkbox checkbox-label" for="mobile-{{ tag | handleize }}"></label>
                         <label for="mobile-{{ tag | handleize }}" class="tag-name-label checkbox-label">
                         {{ tag }}
                         </label>
-                      </div>
+                      </li>
                     {% endfor %}
-                  </div>
-                </div>
+                  </ul>
+                </fieldset>
               </div>
             </div>
           {% endif %}
@@ -96,27 +96,27 @@
             <div class="blog-filter">
               <div class="list-group">
                 <p class="sr-only">Activating this element will cause content on the page to be updated.</p>
-                <div class="blog-filter-fieldset">
-                  <p class="sr-only">Filter Blogs by tag</p>
-                  <div class="tag-list">
-                    <div>
+                <fieldset class="blog-filter-fieldset">
+                  <legend class="sr-only">Filter Blogs by tag</legend>
+                  <ul class="tag-list">
+                    <li>
                       <input type="checkbox" data-target="{{ blog.url }}" id="desktop-all-articles">
                       <label class="blog-filter-checkbox checkbox-label" for="desktop-all-articles"></label>
                       <label for="desktop-all-articles" class="tag-name-label checkbox-label">
                         {{ 'All Articles' }}
                       </label>
-                    </div>
+                    </li>
                     {% for tag in blog.all_tags %}
-                      <div>
+                      <li>
                         <input type="checkbox" data-target="{{ blog.url }}/tagged/{{ tag | handleize }}" id="desktop-{{ tag | handleize }}">
                         <label class="blog-filter-checkbox checkbox-label" for="desktop-{{ tag | handleize }}"></label>
                         <label for="desktop-{{ tag | handleize }}" class="tag-name-label checkbox-label">
                         {{ tag }}
                         </label>
-                      </div>
+                      </li>
                     {% endfor %}
-                  </div>
-                </div>
+                  </ul>
+                </fieldset>
               </div>
             </div>
           {% endif %}

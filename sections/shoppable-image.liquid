@@ -25,11 +25,11 @@
   endif
 
   if template.name == "product"
-    assign object_loop = product.metafields.custom.hotspot_products.value
-    assign product_loop = product.metafields.custom.hotspot_products.value
+    assign object_loop = product.metafields.custom.hotspot_features.value
+    assign product_loop = product.metafields.custom.hotspot_features.value
   else 
-    assign object_loop = collection.metafields.custom.hotspot_products.value
-    assign product_loop = collection.metafields.custom.hotspot_products.value
+    assign object_loop = collection.metafields.custom.hotspot_features.value
+    assign product_loop = collection.metafields.custom.hotspot_features.value
   endif
 -%}
 
@@ -91,7 +91,7 @@
                           left: {{ hotspot.position_y }}%
                         }
                       #spot-modal-{{ section.id }}-{{ forloop.index }}{
-                         transform: translate(-{{ hotspot.position_y }}%, -{{ hotspot.position_x | plus: 15 }}%);
+                         transform: translate(-{{ hotspot.position_y }}%, -{{ hotspot.position_x }}%);
                        }
                       @media screen and (min-width: 750px) {
                        #spot-modal-{{ section.id }}-{{ forloop.index }}{
@@ -110,7 +110,7 @@
                           <button class="feature-close" onclick="closeModal(this)">Close</button>
                           <a href="{{ hotspot.hotspot_features.value.system.url }}">
                             <div class="spot-product-title">{{ hotspot.hotspot_features.value.title.value }}</div>
-                            <div class="spot-product-price">{{ hotspot.hotspot_features.value.description }}</div>
+                            <div class="spot-product-price">{{ hotspot.hotspot_features.value.feature_description | metafield_tag }}</div>
                           </a>
                         </div>
                       </div>

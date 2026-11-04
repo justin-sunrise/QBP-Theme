@@ -62,7 +62,7 @@
               </div>
             </div>
           {% endif %}
-          <div class="grid__item" role="tablist">
+          <div class="grid__item">
             {%- for block in section.blocks -%}
               {%- case block.type -%}
                 {%- when 'collapsible_row' -%}
@@ -73,7 +73,7 @@
                         {% if section.settings.open_first_collapsible_row and forloop.first %}
                         open
                         {% endif %}>
-                        <summary id="Summary-{{ block.id }}-{{ section.id }}" role="tab">
+                        <summary id="Summary-{{ block.id }}-{{ section.id }}">
                           {% unless block.settings.icon == 'diagram' %}
                           {% render 'icon-accordion', icon: block.settings.icon %}
                           {% endunless %}
@@ -92,7 +92,7 @@
                               <div class="geometry-image">
                                 {% assign image_url = product.metafields.custom.geometric_diagram %}
                                 {% if image_url != blank %} 
-                                <img src="{{ image_url.value | image_url }}" alt="Geometry Diagram">
+                                <img src="{{ image_url.value | image_url }}" alt="Geometry Diagram" />
                                 {% endif %}
                               </div>
                               <div class="geometry-table">
@@ -110,14 +110,14 @@
 
                   {% endif %}
                 {%- when 'custom' -%}
-                   {% if block.settings.snippet == 'documents' and product.metafields.custom.supportive_documents.value != blank %}
+                  {% if block.settings.snippet == 'build-kit' %}
                     <div class="accordion{% if section.settings.layout == 'row' %} content-container color-{{ section.settings.container_color_scheme }} gradient{% endif %}" {{ block.shopify_attributes }}>
                       <details
                         id="Details-{{ block.id }}-{{ section.id }}"
                         {% if section.settings.open_first_collapsible_row and forloop.first %}
                         open
                         {% endif %}>
-                        <summary id="Summary-{{ block.id }}-{{ section.id }}" role="tab">
+                        <summary id="Summary-{{ block.id }}-{{ section.id }}">
                           <h3 class="accordion__title inline-richtext h4">
                             {{ block.settings.head | default: block.settings.page.title | escape }}
                           </h3>
@@ -126,9 +126,31 @@
                         <div
                           class="accordion__content rte"
                           id="CollapsibleAccordion-{{ block.id }}-{{ section.id }}"
-                          role="tabpanel"
+                          role="region"
                           aria-labelledby="Summary-{{ block.id }}-{{ section.id }}">
-                            <h3>Support Document links</h3>
+                            {% render 'build-kit-list' %}
+                        </div>
+                      </details>
+                    </div>
+                  {% endif %}
+                  {% if block.settings.snippet == 'documents' and product.metafields.custom.supportive_documents.value != blank %}
+                    <div class="accordion{% if section.settings.layout == 'row' %} content-container color-{{ section.settings.container_color_scheme }} gradient{% endif %}" {{ block.shopify_attributes }}>
+                      <details
+                        id="Details-{{ block.id }}-{{ section.id }}"
+                        {% if section.settings.open_first_collapsible_row and forloop.first %}
+                        open
+                        {% endif %}>
+                        <summary id="Summary-{{ block.id }}-{{ section.id }}">
+                          <h3 class="accordion__title inline-richtext h4">
+                            {{ block.settings.head | default: block.settings.page.title | escape }}
+                          </h3>
+                          {{- 'icon-caret.svg' | inline_asset_content -}}
+                        </summary>
+                        <div
+                          class="accordion__content rte"
+                          id="CollapsibleAccordion-{{ block.id }}-{{ section.id }}"
+                          role="region"
+                          aria-labelledby="Summary-{{ block.id }}-{{ section.id }}">
                             <ul>
                             {% for block in product.metafields.custom.supportive_documents.value %}
                              <li> <a class="document-list-item" target="_blank" href="{{ block.url }}">
@@ -147,31 +169,6 @@
                       </details>
                     </div>
                   {% endif %}
-                  {% if block.settings.snippet == 'build-kit' %}
-                    <div class="accordion{% if section.settings.layout == 'row' %} content-container color-{{ section.settings.container_color_scheme }} gradient{% endif %}" {{ block.shopify_attributes }}>
-                      <details
-                        id="Details-{{ block.id }}-{{ section.id }}"
-                        {% if section.settings.open_first_collapsible_row and forloop.first %}
-                        open
-                        {% endif %}>
-                        <summary id="Summary-{{ block.id }}-{{ section.id }}" role="tab">
-                          <h3 class="accordion__title inline-richtext h4">
-                            {{ block.settings.head | default: block.settings.page.title | escape }}
-                          </h3>
-                          {{- 'icon-caret.svg' | inline_asset_content -}}
-                        </summary>
-                        <div
-                          class="accordion__content rte"
-                          id="CollapsibleAccordion-{{ block.id }}-{{ section.id }}"
-                          role="tabpanel"
-                          aria-labelledby="Summary-{{ block.id }}-{{ section.id }}">
-                          {% if block.settings.snippet == 'build-kit' %}
-                            {% render 'build-kit-list' %}
-                          {% endif %}
-                        </div>
-                      </details>
-                    </div>
-                  {% endif %}
                   {% if block.settings.snippet == 'frame-spec' %}
                     <div class="accordion{% if section.settings.layout == 'row' %} content-container color-{{ section.settings.container_color_scheme }} gradient{% endif %}" {{ block.shopify_attributes }}>
                       <details
@@ -179,7 +176,7 @@
                         {% if section.settings.open_first_collapsible_row and forloop.first %}
                         open
                         {% endif %}>
-                        <summary id="Summary-{{ block.id }}-{{ section.id }}" role="tab">
+                        <summary id="Summary-{{ block.id }}-{{ section.id }}">
                           <h3 class="accordion__title inline-richtext h4">
                             {{ block.settings.head | default: block.settings.page.title | escape }}
                           </h3>
@@ -188,7 +185,7 @@
                         <div
                           class="accordion__content rte"
                           id="CollapsibleAccordion-{{ block.id }}-{{ section.id }}"
-                          role="tabpanel"
+                          role="region"
                           aria-labelledby="Summary-{{ block.id }}-{{ section.id }}">
                             {% for inclusion in product.metafields.custom.frame_specs.value %}
                                 <p>{{ inclusion.title.value }}</p>
@@ -207,7 +204,7 @@
                         {% if section.settings.open_first_collapsible_row and forloop.first %}
                         open
                         {% endif %}>
-                        <summary id="Summary-{{ block.id }}-{{ section.id }}" role="tab">
+                        <summary id="Summary-{{ block.id }}-{{ section.id }}">
                           <h3 class="accordion__title inline-richtext h4">
                             {{ block.settings.head | default: block.settings.page.title | escape }}
                           </h3>
@@ -216,7 +213,7 @@
                         <div
                           class="accordion__content rte"
                           id="CollapsibleAccordion-{{ block.id }}-{{ section.id }}"
-                          role="tabpanel"
+                          role="region"
                           aria-labelledby="Summary-{{ block.id }}-{{ section.id }}">
 
                             <div class="bike-geometry">
@@ -242,7 +239,6 @@
                                   {% endif %}
                                 </div>
                             </div>
-         
                         </div>
                       </details>
                     </div>
@@ -643,8 +639,8 @@ This file has been rewritten to preserve the original behavior.
 Changes:
 - from: "{% render 'build-kit-list' product %}"
   to: "{% render 'build-kit-list' %}"
-  position: 10376..10405
+  position: 7947..7976
 - from: "{% render 'geometry-table' product %}"
   to: "{% render 'geometry-table' %}"
-  position: 14174..14203
+  position: 13926..13955
 {%- endcomment -%}

@@ -22,7 +22,7 @@
     assign show_mobile_slider = true
   endif
 -%}
-{% if section.blocks.first.settings.title != blank %}
+
 <div class="multicolumn color-{{ section.settings.color_scheme }} gradient{% unless section.settings.background_style == 'none' and settings.text_boxes_border_thickness > 0 or settings.text_boxes_shadow_opacity > 0 %} background-{{ section.settings.background_style }}{% endunless %}{% if section.settings.title == blank %} no-heading{% endif %}">
   <div
     class="page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -44,21 +44,14 @@
     {%- endunless -%}
     <section 
       {% if show_mobile_slider or section.settings.swipe_on_desktop %}
-        {% if section.blocks.size > section.settings.columns_desktop %}
         role="carousel"
-        {% endif %}
       {% endif %}
     >
-    <slider-component role="region" class="slider-mobile-gutter" aria-label="carousel {{ section.settings.content_label }}">
-      
+    <slider-component class="slider-mobile-gutter">
       <ul
         class="multicolumn-list contains-content-container grid grid--{{ section.settings.columns_mobile }}-col-tablet-down grid--{{ section.settings.columns_desktop }}-col-desktop{% if show_mobile_slider %} slider slider--tablet grid--peek{% endif %}{% if section.settings.swipe_on_desktop %} slider-active-desktop{% endif %}"
         id="Slider-{{ section.id }}"
-        {% if show_mobile_slider or section.settings.swipe_on_desktop %}
-        role="presentation"
-        {% else %}
         role="list"
-        {% endif %}
       >
         {%- liquid
           assign highest_ratio = 0
@@ -82,24 +75,20 @@
             id="Slide-{{ section.id }}-{{ forloop.index }}"
             class="multicolumn-list__item grid__item{% if section.settings.swipe_on_mobile %} slider__slide{% endif %}{% if section.settings.column_alignment == 'center' %} center{% endif %}{{ empty_column }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
             {{ block.shopify_attributes }}
-            
             {% if settings.animations_reveal_on_scroll %}
               data-cascade
               style="--animation-order: {{ forloop.index }};"
             {% endif %}
-            {% if show_mobile_slider or section.settings.swipe_on_desktop and section.blocks.size > columns_mobile_int %}
-              role="group"
+            {% if show_mobile_slider or section.settings.swipe_on_desktop %}
+              role="presentation"
               aria-label="slide {{ forloop.index }} of {{ section.blocks.size }}"
               {% if forloop.index > section.settings.columns_desktop %}
                 aria-hidden="true"
                 tabindex="-1"
-                data-shown="false"
-              {% else %}
-                data-shown="true"
               {% endif %}
             {% endif %}
           >
-            <div class="multicolumn-card content-container" aria-label="{{ section.settings.content_label }}">
+            <div class="multicolumn-card content-container" role="group" aria-label="{{ section.settings.content_label }}">
               {%- if block.settings.image != blank -%}
                 {% if section.settings.image_ratio == 'adapt' or section.settings.image_ratio == 'circle' %}
                   {% assign spaced_image = true %}
@@ -169,13 +158,8 @@
           </li>
         {%- endfor -%}
       </ul>
-      {% if show_mobile_slider or section.settings.swipe_on_desktop %}
-        {% if section.blocks.size > section.settings.columns_desktop %}
-        <p style="font-size:14px;text-align:center;">Use the previous and next buttons to traverse through the carousel.</p>
-        {% endif %}
-      {% endif %}
+
       {%- if show_mobile_slider or section.settings.swipe_on_desktop -%}
-        {%- if section.blocks.size > section.settings.columns_desktop -%}
         <div class="slider-buttons{% if section.settings.swipe_on_desktop %} desktop-carousel{% else %} large-up-hide{% endif %}">
           <button
             type="button"
@@ -200,7 +184,6 @@
             <span class="svg-wrapper">{{ 'icon-caret.svg' | inline_asset_content }}</span>
           </button>
         </div>
-        {%- endif -%}
       {%- endif -%}
     </slider-component>
     </section>
@@ -220,7 +203,7 @@
     </div>
   </div>
 </div>
-{% endif %}
+
 {% schema %}
 {
   "name": "t:sections.multicolumn.name",

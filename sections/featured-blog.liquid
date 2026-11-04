@@ -24,6 +24,23 @@
     assign posts_displayed = section.settings.post_limit
   endif
 -%}
+
+{%- liquid
+  assign count_check = 0
+  assign test_count = 0
+  if section.settings.filter != blank
+    for article in section.settings.blog.articles
+      assign test_count = test_count | plus: 1        
+      if article.tags contains section.settings.filter and count_check < section.settings.post_limit
+        assign count_check = count_check | plus: 1   
+      endif
+    endfor
+  else
+    assign count_check = 1    
+  endif
+-%}
+    
+{% unless count_check == 0 %}
 <div class="blog color-{{ section.settings.color_scheme }} gradient{% if section.settings.heading == blank %} no-heading{% endif %}">
   <div class="page-width-desktop isolate{% if posts_displayed < 3 %} page-width-tablet{% endif %} section-{{ section.id }}-padding">
     {%- unless section.settings.heading == blank -%}
@@ -59,26 +76,103 @@
         role="list"
       >
         {%- if section.settings.blog != blank and section.settings.blog.articles_count > 0 -%}
-          {%- for article in section.settings.blog.articles limit: section.settings.post_limit -%}
-            <li
-              id="Slide-{{ section.id }}-{{ forloop.index }}"
-              class="blog__post grid__item article slider__slide slider__slide--full-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-              {% if settings.animations_reveal_on_scroll %}
-                data-cascade
-                style="--animation-order: {{ forloop.index }};"
+          {% if section.settings.filter != blank %}
+          {% assign limit_count = section.settings.post_limit %}
+          {% assign skip_count = 0 %}
+          {%- for article in section.settings.blog.articles -%}
+            {% if section.settings.filter != blank %}
+              {% if article.tags contains section.settings.filter and skip_count < section.settings.post_limit %}
+                <li
+                  id="Slide-{{ section.id }}-{{ forloop.index }}"
+                  class="blog__post grid__item article slider__slide slider__slide--full-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                  {% if settings.animations_reveal_on_scroll %}
+                    data-cascade
+                    style="--animation-order: {{ forloop.index }};"
+                  {% endif %}
+                >
+                  {% render 'article-card',
+                    blog: section.settings.blog,
+                    article: article,
+                    media_aspect_ratio: 1.66,
+                    show_image: section.settings.show_image,
+                    show_date: section.settings.show_date,
+                    show_author: section.settings.show_author,
+                    show_excerpt: true
+                  %}
+                </li>
+              {% else %}
+                {% assign skip_count = 0 | plus: 1 %}
+                {% assign limit_count = limit_count | plus: 1 %}
               {% endif %}
-            >
-              {% render 'article-card',
-                blog: section.settings.blog,
-                article: article,
-                media_aspect_ratio: 1.66,
-                show_image: section.settings.show_image,
-                show_date: section.settings.show_date,
-                show_author: section.settings.show_author,
-                show_excerpt: true
-              %}
-            </li>
+            {% else %}
+              <li
+                id="Slide-{{ section.id }}-{{ forloop.index }}"
+                class="blog__post grid__item article slider__slide slider__slide--full-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                {% if settings.animations_reveal_on_scroll %}
+                  data-cascade
+                  style="--animation-order: {{ forloop.index }};"
+                {% endif %}
+              >
+                {% render 'article-card',
+                  blog: section.settings.blog,
+                  article: article,
+                  media_aspect_ratio: 1.66,
+                  show_image: section.settings.show_image,
+                  show_date: section.settings.show_date,
+                  show_author: section.settings.show_author,
+                  show_excerpt: true
+                %}
+              </li>
+            {% endif %}
           {%- endfor -%}
+          {% else %}
+              {%- for article in section.settings.blog.articles limit: section.settings.post_limit -%}
+                {% if section.settings.filter != blank %}
+                  {% if article.tags contains section.settings.filter and skip_count < section.settings.post_limit %}
+                    <li
+                      id="Slide-{{ section.id }}-{{ forloop.index }}"
+                      class="blog__post grid__item article slider__slide slider__slide--full-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                      {% if settings.animations_reveal_on_scroll %}
+                        data-cascade
+                        style="--animation-order: {{ forloop.index }};"
+                      {% endif %}
+                    >
+                      {% render 'article-card',
+                        blog: section.settings.blog,
+                        article: article,
+                        media_aspect_ratio: 1.66,
+                        show_image: section.settings.show_image,
+                        show_date: section.settings.show_date,
+                        show_author: section.settings.show_author,
+                        show_excerpt: true
+                      %}
+                    </li>
+                  {% else %}
+                    {% assign skip_count = 0 | plus: 1 %}
+                    {% assign limit_count = limit_count | plus: 1 %}
+                  {% endif %}
+                {% else %}
+                  <li
+                    id="Slide-{{ section.id }}-{{ forloop.index }}"
+                    class="blog__post grid__item article slider__slide slider__slide--full-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                    {% if settings.animations_reveal_on_scroll %}
+                      data-cascade
+                      style="--animation-order: {{ forloop.index }};"
+                    {% endif %}
+                  >
+                    {% render 'article-card',
+                      blog: section.settings.blog,
+                      article: article,
+                      media_aspect_ratio: 1.66,
+                      show_image: section.settings.show_image,
+                      show_date: section.settings.show_date,
+                      show_author: section.settings.show_author,
+                      show_excerpt: true
+                    %}
+                  </li>
+                {% endif %}
+              {%- endfor -%}
+          {% endif %}
         {%- else -%}
           {% for i in (1..section.settings.post_limit) -%}
             {%- assign placeholder_image_index = forloop.index0 | modulo: 3 | plus: 1 -%}
@@ -189,7 +283,7 @@
     {%- endif -%}
   </div>
 </div>
-
+{% endunless %}
 {% schema %}
 {
   "name": "t:sections.featured-blog.name",
@@ -286,6 +380,11 @@
       "id": "show_view_all",
       "default": true,
       "label": "t:sections.featured-blog.settings.show_view_all.label"
+    },
+    {
+      "type": "text",
+      "id": "filter",
+      "label": "Filter Blogs By Tag"
     },
     {
       "type": "header",

@@ -20,8 +20,6 @@
   assign product_form_id = 'product-form-' | append: section.id
 -%}
 
-
-  
 {%- for value in option.values -%}
   {%- liquid
     assign swatch_focal_point = null
@@ -133,5 +131,5 @@ Changes:
     value.swatch, product_form_id: product_form_id, checked: value.selected, visually_disabled:
     option_disabled, shape: block.settings.swatch_shape, help_text: help_text, additional_props:
     input_dataset %}"
-  position: 1855..2136
+  position: 1851..2132
 {% endcomment %}

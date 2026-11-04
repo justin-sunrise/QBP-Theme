@@ -220,3 +220,55 @@ cart-items {
     gap: 1rem;
   }
 }
+
+.free-delivery {
+  padding-bottom: 1.5rem;
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  margin-bottom: 1rem;
+  --fd-low: 220, 38, 38;    /* red */
+  --fd-near: 217, 119, 6;   /* amber */
+  --fd-met: 22, 163, 74;    /* green */
+}
+
+.free-delivery--page {
+  max-width: 60rem;
+  margin: 0 auto 3rem;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.free-delivery-text {
+  margin: 0 0 0.8rem;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.free-delivery--page .free-delivery-text {
+  font-size: 1.6rem;
+}
+
+.free-delivery-track {
+  height: 0.6rem;
+  border-radius: 1rem;
+  background: rgba(var(--color-foreground), 0.12);
+  overflow: hidden;
+}
+
+.free-delivery--low .free-delivery-fill  { background: rgb(var(--fd-low)); }
+.free-delivery--near .free-delivery-fill { background: rgb(var(--fd-near)); }
+.free-delivery--met .free-delivery-fill  { background: rgb(var(--fd-met)); }
+
+.free-delivery-fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: rgb(var(--color-button));
+  transition: width 0.4s ease, background-color 0.4s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .free-delivery-fill {
+    transition: none;
+  }
+}

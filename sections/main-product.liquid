@@ -78,13 +78,13 @@
 
   {% for variant in product.variants %}
     {% if variant.barcode != '' and variant.barcode != null %}
-
+      
         {% if product.variants.last %}
           {% assign barcodes = barcodes | append: variant.barcode | append: ',' %}
         {% else %}
           {% assign barcodes = barcodes | append: variant.barcode %}
         {% endif %}
-
+      
     {% endif %}
   {% endfor %}
 
@@ -227,6 +227,7 @@
               {%- when 'custom_liquid' -%}
                 {{ block.settings.custom_liquid }}
               {%- when 'collapsible_tab' -%}
+               {% if block.settings.content != blank or block.settings.page.content != blank %}
                 <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
                   <details id="Details-{{ block.id }}-{{ section.id }}">
                     <summary>
@@ -244,6 +245,7 @@
                     </div>
                   </details>
                 </div>
+                {% endif %}
               {%- when 'quantity_selector' -%}
                 <div
                   id="Quantity-Form-{{ section.id }}"
@@ -481,17 +483,17 @@
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
-              {% if product.metafield.custom.product_is_sellable or product.metafield.custom.product_is_sellable == blank %}
-                {%- render 'buy-buttons',
-                  block: block,
-                  product: product,
-                  product_form_id: product_form_id,
-                  section_id: section.id,
-                  show_pickup_availability: true
-                -%}
+                {% if product.metafield.custom.product_is_sellable or product.metafield.custom.product_is_sellable == blank %}
+                  {%- render 'buy-buttons',
+                    block: block,
+                    product: product,
+                    product_form_id: product_form_id,
+                    section_id: section.id,
+                    show_pickup_availability: true
+                  -%}
                 {% endif %}
               {%- when 'locally_button' -%}
-                  <!-- LOCALLY.COM WIDGET EMBED CODE -->
+                <!-- LOCALLY.COM WIDGET EMBED CODE -->
                   <div class="product-form__buttons buy-locally-button-container">
                     <div id="lcly-button-0"
                       data-switchlive="true" 
@@ -563,6 +565,7 @@
                       height: 60px;
                     }
                   </style>
+                  {% render 'final-sale-notice', product: product, section_id: section.id %}
               {%- when 'rating' -%}
                 {%- if product.metafields.reviews.rating.value != blank -%}
                   <div class="rating-wrapper">
@@ -761,9 +764,7 @@
         </section>
       </div>
     </div>
-    {% if product.metafields.custom.product_is_sellable or product.metafields.custom.product_is_sellable == blank %}
-      {% render 'sticky-atc', product: product, section: section %}
-    {% endif %}
+
     {% render 'product-media-modal', variant_images: variant_images %}
 
     {% assign popups = section.blocks | where: 'type', 'popup' %}
@@ -812,6 +813,11 @@
       endif
     -%}
 
+    <script type="application/ld+json">
+      {{ product | structured_data }}
+    </script>
+
+
   </div>
 </product-info>
 
@@ -829,7 +835,7 @@
       "name": "t:sections.main-product.blocks.text.name",
       "settings": [
         {
-          "type": "inline_richtext",
+          "type": "richtext",
           "id": "text",
           "default": "t:sections.main-product.blocks.text.settings.text.default",
           "label": "t:sections.main-product.blocks.text.settings.text.label"

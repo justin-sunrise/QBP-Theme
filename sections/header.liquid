@@ -131,7 +131,7 @@
     -%}
 
     {%- if section.settings.logo_position != 'middle-center' -%}
-      {%- if request.page_type == 'index' and settings.logo == blank -%}
+      {%- if request.page_type == 'index' -%}
         <h1 class="header__heading">
       {%- endif -%}
           <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
@@ -155,7 +155,7 @@
               <span class="h2">{{ shop.name }}</span>
             {%- endif -%}
           </a>
-      {%- if request.page_type == 'index' and settings.logo == blank  -%}
+      {%- if request.page_type == 'index' -%}
         </h1>
       {%- endif -%}
     {%- endif -%}
@@ -206,7 +206,7 @@
           <localization-form class="small-hide medium-hide" data-prevent-hide>
             {%- form 'localization', id: 'HeaderCountryForm', class: 'localization-form' -%}
               <div>
-                <p class="visually-hidden" id="HeaderCountryLabel">{{ 'localization.country_label' | t }}</p>
+                <h2 class="visually-hidden" id="HeaderCountryLabel">{{ 'localization.country_label' | t }}</h2>
                 {%- render 'country-localization', localPosition: 'HeaderCountry' -%}
               </div>
             {%- endform -%}
@@ -391,7 +391,7 @@
 
     closeSearchModal() {
       this.searchModal = this.searchModal || this.header.querySelector('details-modal');
-      // this.searchModal.close(false);
+      this.searchModal.close(false);
     }
   }
 

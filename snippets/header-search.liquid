@@ -7,68 +7,28 @@
   Usage:
   {% render 'header-search', input_id: 'My-Id'%}
 {% endcomment %}
-<style>
-  /* Hide modal by default */
-.search-modal[data-open="false"],
-.search-modal:not([data-open="true"]) {
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
-}
 
-.search-modal[data-open="true"] {
-  visibility: visible;
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* Toggle icons */
-.header__icon--search .svg-wrapper:first-child {
-  display: block;
-}
-
-.header__icon--search .header__icon-close {
-  display: none;
-}
-
-.header__icon--search[data-expanded="true"] .svg-wrapper:first-child {
-  display: none;
-}
-
-.header__icon--search[data-expanded="true"] .header__icon-close {
-  display: block;
-}
-
-.header__icon-open > .icon.icon-search{
-  height:4rem;
-}
-</style>
-<search-modal class="header__search">
-  <div class="search-modal-container">
-    <button
+<details-modal class="header__search">
+  <details>
+    <summary
       class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle"
+      
       aria-label="{{ 'general.search.search' | t }}"
-      aria-expanded="false"
-      aria-controls="search-modal"
     >
       <span>
-        <span class="svg-wrapper header__icon-open">
+        <span class="svg-wrapper">
           {{- 'icon-search.svg' | inline_asset_content -}}
         </span>
         <span class="svg-wrapper header__icon-close">
           {{- 'icon-close.svg' | inline_asset_content -}}
         </span>
       </span>
-    </button>
-    
+    </summary>
     <div
-      id="search-modal"
       class="search-modal modal__content gradient"
       role="dialog"
       aria-modal="true"
       aria-label="{{ 'general.search.search' | t }}"
-      data-open="false"
-      aria-hidden="true"
     >
       <div class="modal-overlay"></div>
       <div
@@ -145,5 +105,5 @@
         </button>
       </div>
     </div>
-  </div>
-</search-modal>
+  </details>
+</details-modal>
