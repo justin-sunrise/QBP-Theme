@@ -28,7 +28,6 @@
 
     <div
       class="product-media-modal__content color-{{ section.settings.color_scheme }} gradient"
-      role="document"
       aria-label="{{ 'products.modal.label' | t }}"
       tabindex="0"
     >
@@ -38,8 +37,9 @@
           render 'product-media', media: media, loop: section.settings.enable_video_looping, variant_image: section.settings.hide_variants
         endif
       -%}
-
+      <ul style="list-style: none;">
       {%- for media in product.media -%}
+        <li>
         {%- liquid
           if section.settings.hide_variants and variant_images contains media.src or variant_images contains media.id
             assign variant_image = true
@@ -51,7 +51,9 @@
             render 'product-media', media: media, loop: section.settings.enable_video_looping, variant_image: variant_image
           endunless
         -%}
+        </li>
       {%- endfor -%}
+    </ul>
     </div>
   </div>
 </product-modal>

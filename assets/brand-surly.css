@@ -1,0 +1,127 @@
+/*
+  Surly brand overrides. Loaded after base.css when Theme settings > Brand > Store brand is "Surly".
+  Fonts come from the Adobe Typekit kit set in Theme settings > Brand.
+
+  Section stylesheets load later than this file, so overrides of section CSS
+  are prefixed with "body" to win on specificity.
+*/
+
+/* Shopify Dawn Custom Adobe Fonts by codeandtonic.com */
+:root {
+  --font-heading-h1-family: "quatro-slab", Helvetica, sans-serif !important;
+  --font-heading-h1-weight: 900  !important;
+  --font-heading-h2-family: "quatro-slab", Helvetica, sans-serif !important;
+  --font-heading-h2-weight: 600  !important;
+  --font-heading-h3-weight: 600  !important;
+  --font-heading-family: "quatro-slab", Helvetica, sans-serif !important;
+  --font-heading-weight: 600  !important;
+  --font-body-family: "quatro-slab", Helvetica, sans-serif  !important;
+  --font-body-weight: 400  !important;
+}
+
+/* Headings (base.css) */
+h1,
+h2,
+h3,
+h4,
+h5,
+.h0,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+  letter-spacing: .8px;
+}
+
+h1,
+.h1 {
+  font-family: var(--font-heading-h1-family);
+  font-weight: var(--font-heading-h1-weight);
+  text-transform: uppercase;
+}
+h2,
+.h2 {
+  font-family: var(--font-heading-h2-family);
+  font-weight: var(--font-heading-h2-weight);
+}
+h3,
+.h3 {
+  font-family: var(--font-heading-h2-family) !important;
+  font-weight: var(--font-heading-h3-weight) !important;
+}
+
+.hxl {
+  font-size: calc(var(--font-heading-scale) * 5rem);
+}
+
+@media only screen and (min-width: 750px) {
+  .hxxl {
+    font-size: clamp(calc(var(--font-heading-scale) * 7.6rem), 14vw, calc(var(--font-heading-scale) * 10rem));
+  }
+  .hxl {
+    font-size: calc(var(--font-heading-scale) * 6.2rem);
+  }
+  h1,
+  .h1 {
+    font-size: calc(var(--font-heading-scale) * 4.4rem);
+  }
+}
+
+.subtitle {
+  color: rgba(var(--color-foreground), 1);
+}
+
+/* Bike geometry and spec tables (collapsible-content.css) */
+body .table--label,
+body .geometry-table-container tr > th:first-child,
+body .geometry-table-container tr > td:first-child {
+  font-weight: 600;
+}
+
+@media screen and (min-width: 750px) {
+  body .geometry-image {
+    width: 60%;
+  }
+  body .geometry-table {
+    width: 100%;
+  }
+  body .bike-geometry {
+    flex-direction: column;
+  }
+}
+
+/* Image banner (section-image-banner.css) */
+body .banner--mobile-bottom .banner__box {
+  padding: 4rem 2rem;
+}
+body .banner--mobile-bottom .banner__box h1 {
+  font-size: calc(var(--font-heading-scale) * 2rem);
+}
+@media screen and (min-width: 750px) {
+  body .banner--mobile-bottom .banner__box h1 {
+    font-size: calc(var(--font-heading-scale) * 4rem);
+  }
+}
+.overlay-banner-image::after {
+  background-image: url('https://cdn.shopify.com/s/files/1/0735/9787/8295/files/SUR_DistressedHeaderFrame-overlay.svg?v=1743434853');
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-position-y: bottom;
+  background-size: cover;
+}
+
+/* Keep the sale badge visible on sold-out products (section-main-product.css hides it) */
+body .product .price--sold-out.price--on-sale .price__badge-sale {
+  display: inline-block;
+}
+
+/* Rich text (section-rich-text.css) */
+body .page-width > .rich-text__blocks {
+  max-width: 100%;
+}
+
+/* Divider pattern (sections/divider.liquid) */
+.divider-container .repeat-horizontal {
+  background-size: contain;
+}

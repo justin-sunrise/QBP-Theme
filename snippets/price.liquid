@@ -48,8 +48,26 @@
   assign is_clearance = false
   assign clearance_variant = product.selected_or_first_available_variant
   assign discount_type = clearance_variant.metafields.custom.discount_type.value
-  if discount_type contains 'Clearance' or discount_type contains 'Final Sale'
-    assign is_clearance = true
+  if settings.enable_clearance_shop_local
+    if discount_type contains 'Clearance' or discount_type contains 'Final Sale'
+      assign is_clearance = true
+    endif
+  endif
+
+  # Non-sellable (Shop Local) products only count as sold out when clearance/Shop Local is enabled
+  assign show_sold_out = false
+  if available == false
+    if settings.enable_clearance_shop_local or product.metafields.custom.product_is_sellable.value != false
+      assign show_sold_out = true
+    endif
+  endif
+
+  assign show_sale_badge = show_badges
+  if settings.sale_badge_product_pages_only
+    assign show_sale_badge = false
+    if compare_at_price > price and template contains 'product'
+      assign show_sale_badge = true
+    endif
   endif
 
   assign show_clearance_layout = false
@@ -75,15 +93,15 @@
     class="
       price
       {%- if price_class %} {{ price_class }}{% endif -%}
-      {%- if available == false %} price--sold-out{% endif -%}
+      {%- if show_sold_out %} price--sold-out{% endif -%}
       {%- if show_clearance_layout %} price--clearance{% endif -%}
       {%- if show_clearance_layout == false and compare_at_price > price and product.quantity_price_breaks_configured? != true %} price--on-sale{% endif -%}
       {%- if show_clearance_layout == false and compare_at_price > price and product.quantity_price_breaks_configured? %} volume-pricing--sale-badge{% endif -%}
       {%- if product.price_varies == false and product.compare_at_price_varies %} price--no-compare{% endif -%}
-      {% if show_badges %} price--show-badge{% endif %}
+      {%- if show_badges %} price--show-badge{% endif -%}
     "
   >
-    {% unless product.metafields.custom.archived %}
+  {% unless product.metafields.custom.archived %}
     <div class="price__container">
       {%- if show_clearance_layout -%}
         {%- comment -%} Clearance: Was / Now layout {%- endcomment -%}
@@ -190,7 +208,7 @@
         Archived
       </span>
     {% endif %}
-    {%- if show_badges -%}
+    {%- if show_sale_badge -%}
       <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
         {{ 'products.product.on_sale' | t }}
       </span>

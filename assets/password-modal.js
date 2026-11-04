@@ -1,4 +1,4 @@
-class PasswordModal extends DetailsModal {
+class PasswordModal extends DetailsModal2 {
   constructor() {
     super();
 

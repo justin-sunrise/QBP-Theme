@@ -422,7 +422,9 @@ class MenuDrawer extends HTMLElement {
   constructor() {
     super();
 
-    this.mainDetailsToggle = this.querySelector('details');
+    this.mainToggle = this.querySelector('#MenuDrawer-toggle');
+    this.mainDrawer = this.querySelector('#menu-drawer');
+    this.mainCloseButton = this.querySelector('.menu-drawer__close-main');
 
     this.addEventListener('keyup', this.onKeyUp.bind(this));
     this.addEventListener('focusout', this.onFocusOut.bind(this));
@@ -430,159 +432,274 @@ class MenuDrawer extends HTMLElement {
   }
 
   bindEvents() {
-    this.querySelectorAll('summary').forEach((summary) =>
-      summary.addEventListener('click', this.onSummaryClick.bind(this))
-    );
+    // Main toggle button
+    if (this.mainToggle) {
+      this.mainToggle.addEventListener('click', this.onMainToggleClick.bind(this));
+    }
+
+    // All submenu toggle buttons
+    this.querySelectorAll('.menu-drawer__item-wrapper > button').forEach((button) => {
+      button.addEventListener('click', this.onSubmenuToggleClick.bind(this));
+    });
+
+    // All close buttons (excluding localization buttons)
     this.querySelectorAll(
-      'button:not(.localization-selector):not(.country-selector__close-button):not(.country-filter__reset-button)'
-    ).forEach((button) => button.addEventListener('click', this.onCloseButtonClick.bind(this)));
+      'button.menu-drawer__close-button, button.menu-drawer__close-main'
+    ).forEach((button) => {
+      button.addEventListener('click', this.onCloseButtonClick.bind(this));
+    });
   }
 
   onKeyUp(event) {
     if (event.code.toUpperCase() !== 'ESCAPE') return;
 
-    const openDetailsElement = event.target.closest('details[open]');
-    if (!openDetailsElement) return;
-
-    openDetailsElement === this.mainDetailsToggle
-      ? this.closeMenuDrawer(event, this.mainDetailsToggle.querySelector('summary'))
-      : this.closeSubmenu(openDetailsElement);
+    // Find the nearest open submenu
+    const openSubmenu = event.target.closest('.menu-drawer__submenu[data-open="true"]');
+    
+    if (openSubmenu) {
+      this.closeSubmenu(openSubmenu);
+    } else if (this.isDrawerOpen()) {
+      this.closeMenuDrawer(event, this.mainToggle);
+    }
   }
 
-  onSummaryClick(event) {
-    const summaryElement = event.currentTarget;
-    const detailsElement = summaryElement.parentNode;
-    const parentMenuElement = detailsElement.closest('.has-submenu');
-    const isOpen = detailsElement.hasAttribute('open');
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  onMainToggleClick(event) {
+    event.preventDefault();
+    const isOpen = this.isDrawerOpen();
 
-    function addTrapFocus() {
-      trapFocus(summaryElement.nextElementSibling, detailsElement.querySelector('button'));
-      summaryElement.nextElementSibling.removeEventListener('transitionend', addTrapFocus);
+    if (isOpen) {
+      this.closeMenuDrawer(event, this.mainToggle);
+    } else {
+      this.openMenuDrawer(this.mainToggle);
+      var closeButton = document.getElementById('close-button-in-drawer');
+      setTimeout(() => closeButton.focus(), 100);
+
     }
 
-    if (detailsElement === this.mainDetailsToggle) {
-      if (isOpen) event.preventDefault();
-      isOpen ? this.closeMenuDrawer(event, summaryElement) : this.openMenuDrawer(summaryElement);
+    if (window.matchMedia('(max-width: 990px)').matches) {
+      document.documentElement.style.setProperty('--viewport-height', `${window.innerHeight}px`);
+    }
+  }
 
-      if (window.matchMedia('(max-width: 990px)')) {
-        document.documentElement.style.setProperty('--viewport-height', `${window.innerHeight}px`);
-      }
+  onSubmenuToggleClick(event) {
+    event.preventDefault();
+    const button = event.currentTarget;
+    const submenuId = button.getAttribute('data-controls');
+    const submenu = document.getElementById(submenuId);
+    const parentMenu = button.closest('.has-submenu');
+    const isOpen = button.getAttribute('aria-expanded') === 'true';
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    if (!submenu) return;
+
+    if (isOpen) {
+      this.closeSubmenu(submenu);
     } else {
       setTimeout(() => {
-        detailsElement.classList.add('menu-opening');
-        summaryElement.setAttribute('aria-expanded', true);
-        parentMenuElement && parentMenuElement.classList.add('submenu-open');
-        !reducedMotion || reducedMotion.matches
-          ? addTrapFocus()
-          : summaryElement.nextElementSibling.addEventListener('transitionend', addTrapFocus);
+        this.openSubmenu(button, submenu, parentMenu, reducedMotion);
       }, 100);
     }
   }
 
-  openMenuDrawer(summaryElement) {
+  openMenuDrawer(toggleElement) {
+    // Add open state immediately for visibility
+    this.mainDrawer.setAttribute('data-open', 'true');
+    this.mainDrawer.removeAttribute('aria-hidden');
+    
+    // Add animation class after a small delay
     setTimeout(() => {
-      this.mainDetailsToggle.classList.add('menu-opening');
-    });
-    summaryElement.setAttribute('aria-expanded', true);
-    trapFocus(this.mainDetailsToggle, summaryElement);
+      this.mainDrawer.classList.add('menu-opening');
+    }, 10);
+    
+    toggleElement.setAttribute('aria-expanded', 'true');
+    toggleElement.setAttribute('data-expanded', 'true');
+    
+    if (typeof trapFocus === 'function') {
+      trapFocus(this.mainDrawer, toggleElement);
+    }
+    
     document.body.classList.add(`overflow-hidden-${this.dataset.breakpoint}`);
+    
   }
 
   closeMenuDrawer(event, elementToFocus = false) {
     if (event === undefined) return;
 
-    this.mainDetailsToggle.classList.remove('menu-opening');
-    this.mainDetailsToggle.querySelectorAll('details').forEach((details) => {
-      details.removeAttribute('open');
-      details.classList.remove('menu-opening');
+    this.mainDrawer.classList.remove('menu-opening');
+    this.mainDrawer.setAttribute('data-open', 'false');
+    this.mainDrawer.setAttribute('aria-hidden', 'true');
+    
+    // Close all open submenus
+    this.querySelectorAll('.menu-drawer__submenu[data-open="true"]').forEach((submenu) => {
+      const button = this.querySelector(`[data-controls="${submenu.id}"]`);
+      if (button) {
+        button.setAttribute('aria-expanded', 'false');
+        button.setAttribute('data-expanded', 'false');
+      }
+      submenu.setAttribute('data-open', 'false');
+      submenu.classList.remove('menu-opening');
     });
-    this.mainDetailsToggle.querySelectorAll('.submenu-open').forEach((submenu) => {
+    
+    this.querySelectorAll('.submenu-open').forEach((submenu) => {
       submenu.classList.remove('submenu-open');
     });
+    
     document.body.classList.remove(`overflow-hidden-${this.dataset.breakpoint}`);
-    removeTrapFocus(elementToFocus);
-    this.closeAnimation(this.mainDetailsToggle);
+    
+    if (typeof removeTrapFocus === 'function' && elementToFocus) {
+      removeTrapFocus(elementToFocus);
+    }
+    
+    if (this.mainToggle) {
+      // this.mainToggle.setAttribute('aria-expanded', 'false');
+      this.mainToggle.setAttribute('data-expanded', 'false');
+    }
 
-    if (event instanceof KeyboardEvent) elementToFocus?.setAttribute('aria-expanded', false);
+    if (event instanceof KeyboardEvent && elementToFocus) {
+      // elementToFocus.setAttribute('aria-expanded', 'false');
+      elementToFocus.setAttribute('data-expanded', 'false');
+    }
+  }
+
+  openSubmenu(button, submenu, parentMenu, reducedMotion) {
+    const addTrapFocus = () => {
+      const focusButton = submenu.querySelector('button');
+      if (typeof trapFocus === 'function' && focusButton) {
+        trapFocus(submenu, focusButton);
+      }
+      submenu.removeEventListener('transitionend', addTrapFocus);
+    };
+
+    submenu.classList.add('menu-opening');
+    submenu.setAttribute('data-open', 'true');
+    // button.setAttribute('aria-expanded', 'true');
+    button.setAttribute('data-expanded', 'true');
+    
+    if (parentMenu) {
+      parentMenu.classList.add('submenu-open');
+    }
+
+    if (!reducedMotion || reducedMotion.matches) {
+      addTrapFocus();
+    } else {
+      submenu.addEventListener('transitionend', addTrapFocus);
+    }
   }
 
   onFocusOut() {
     setTimeout(() => {
-      if (this.mainDetailsToggle.hasAttribute('open') && !this.mainDetailsToggle.contains(document.activeElement))
-        this.closeMenuDrawer();
+      if (this.isDrawerOpen() && !this.contains(document.activeElement)) {
+        this.closeMenuDrawer(new Event('focusout'));
+      }
     });
   }
 
   onCloseButtonClick(event) {
-    const detailsElement = event.currentTarget.closest('details');
-    this.closeSubmenu(detailsElement);
+    event.preventDefault();
+    const button = event.currentTarget;
+    
+    // Check if this is the main close button
+    if (button.classList.contains('menu-drawer__close-main')) {
+      this.closeMenuDrawer(event, this.mainToggle);
+      return;
+    }
+
+    // Otherwise, it's a submenu close button
+    const submenu = button.closest('.menu-drawer__submenu');
+    if (submenu) {
+      this.closeSubmenu(submenu);
+    }
   }
 
-  closeSubmenu(detailsElement) {
-    const parentMenuElement = detailsElement.closest('.submenu-open');
-    parentMenuElement && parentMenuElement.classList.remove('submenu-open');
-    detailsElement.classList.remove('menu-opening');
-    detailsElement.querySelector('summary').setAttribute('aria-expanded', false);
-    removeTrapFocus(detailsElement.querySelector('summary'));
-    this.closeAnimation(detailsElement);
+  closeSubmenu(submenu) {
+    const button = this.querySelector(`[data-controls="${submenu.id}"]`);
+    const parentMenu = submenu.closest('.submenu-open');
+    
+    if (parentMenu) {
+      parentMenu.classList.remove('submenu-open');
+    }
+    
+    submenu.classList.remove('menu-opening');
+    submenu.setAttribute('data-open', 'false');
+    
+    if (button) {
+      // button.setAttribute('aria-expanded', 'false');
+      button.setAttribute('data-expanded', 'false');
+      
+      if (typeof removeTrapFocus === 'function') {
+        removeTrapFocus(button);
+      }
+      
+      // Return focus to the button after a short delay
+      setTimeout(() => button.focus(), 100);
+    }
+
+    // Check if there's a parent submenu to trap focus on
+    const parentSubmenu = submenu.parentElement.closest('.menu-drawer__submenu[data-open="true"]');
+    if (parentSubmenu) {
+      const parentButton = this.querySelector(`[data-controls="${parentSubmenu.id}"]`);
+      if (parentButton && typeof trapFocus === 'function') {
+        trapFocus(parentSubmenu, parentButton);
+      }
+    }
   }
 
-  closeAnimation(detailsElement) {
-    let animationStart;
-
-    const handleAnimation = (time) => {
-      if (animationStart === undefined) {
-        animationStart = time;
-      }
-
-      const elapsedTime = time - animationStart;
-
-      if (elapsedTime < 400) {
-        window.requestAnimationFrame(handleAnimation);
-      } else {
-        detailsElement.removeAttribute('open');
-        if (detailsElement.closest('details[open]')) {
-          trapFocus(detailsElement.closest('details[open]'), detailsElement.querySelector('summary'));
-        }
-      }
-    };
-
-    window.requestAnimationFrame(handleAnimation);
+  isDrawerOpen() {
+    return this.mainDrawer && this.mainDrawer.getAttribute('data-open') === 'true';
   }
 }
 
 customElements.define('menu-drawer', MenuDrawer);
 
+// HeaderDrawer extends MenuDrawer with header-specific functionality
 class HeaderDrawer extends MenuDrawer {
   constructor() {
     super();
   }
 
-  openMenuDrawer(summaryElement) {
+  openMenuDrawer(toggleElement) {
     this.header = this.header || document.querySelector('.section-header');
     this.borderOffset =
       this.borderOffset || this.closest('.header-wrapper').classList.contains('header-wrapper--border-bottom') ? 1 : 0;
+    
     document.documentElement.style.setProperty(
       '--header-bottom-position',
       `${parseInt(this.header.getBoundingClientRect().bottom - this.borderOffset)}px`
     );
-    this.header.classList.add('menu-open');
+    
+    if (this.header) {
+      this.header.classList.add('menu-open');
+    }
 
+    // Add open state immediately for visibility
+    this.mainDrawer.setAttribute('data-open', 'true');
+    this.mainDrawer.removeAttribute('aria-hidden');
+    
+    // Add animation class after a small delay
     setTimeout(() => {
-      this.mainDetailsToggle.classList.add('menu-opening');
-    });
+      this.mainDrawer.classList.add('menu-opening');
+    }, 10);
 
-    summaryElement.setAttribute('aria-expanded', true);
+    toggleElement.setAttribute('data-expanded', 'true');
+    
+    
     window.addEventListener('resize', this.onResize);
-    trapFocus(this.mainDetailsToggle, summaryElement);
+    
+    if (typeof trapFocus === 'function') {
+      trapFocus(this.mainDrawer, toggleElement);
+    }
+    
     document.body.classList.add(`overflow-hidden-${this.dataset.breakpoint}`);
   }
 
   closeMenuDrawer(event, elementToFocus) {
     if (!elementToFocus) return;
     super.closeMenuDrawer(event, elementToFocus);
-    this.header.classList.remove('menu-open');
+    
+    if (this.header) {
+      this.header.classList.remove('menu-open');
+    }
+    
     window.removeEventListener('resize', this.onResize);
   }
 
@@ -597,6 +714,14 @@ class HeaderDrawer extends MenuDrawer {
 }
 
 customElements.define('header-drawer', HeaderDrawer);
+
+// Legacy function for compatibility
+function closeMenuDrawer() {
+  const drawer = document.querySelector('header-drawer') || document.querySelector('menu-drawer');
+  if (drawer && drawer.isDrawerOpen()) {
+    drawer.closeMenuDrawer(new Event('click'), drawer.mainToggle);
+  }
+}
 
 class ModalDialog extends HTMLElement {
   constructor() {
@@ -779,6 +904,9 @@ class SliderComponent extends HTMLElement {
       );
     }
 
+    // Update aria-hidden for all slides based on visibility
+    this.updateSlideAccessibility();
+
     if (this.enableSliderLooping) return;
 
     if (this.isSlideVisible(this.sliderItemsToShow[0]) && this.slider.scrollLeft === 0) {
@@ -792,11 +920,42 @@ class SliderComponent extends HTMLElement {
     } else {
       this.nextButton.removeAttribute('disabled');
     }
+
+
+  }
+
+  updateSlideAccessibility() {
+    
+    this.sliderItemsToShow.forEach((slide) => {
+      const isVisible = this.isSlideVisible(slide);
+      const links = slide.querySelectorAll('a, button');
+      if (isVisible) {
+        slide.setAttribute('aria-hidden', 'false');
+        slide.removeAttribute('tabindex');
+        // Make interactive elements focusable
+        links.forEach((link) => {
+          link.removeAttribute('tabindex');
+        });
+      } else {
+        slide.setAttribute('aria-hidden', 'true');
+        slide.setAttribute('tabindex', '-1');
+        // Make interactive elements non-focusable
+        links.forEach((link) => {
+          link.setAttribute('tabindex', '-1');
+        });
+      }
+    });
   }
 
   isSlideVisible(element, offset = 0) {
-    const lastVisibleSlide = this.slider.clientWidth + this.slider.scrollLeft - offset;
-    return element.offsetLeft + element.clientWidth <= lastVisibleSlide && element.offsetLeft >= this.slider.scrollLeft;
+    const sliderLeft = this.slider.scrollLeft + offset;
+    const sliderRight = this.slider.scrollLeft + this.slider.clientWidth - offset;
+    
+    const elementLeft = element.offsetLeft;
+    const elementRight = element.offsetLeft + element.clientWidth;
+    
+    // Check if there's ANY overlap between slider viewport and element
+    return elementLeft < sliderRight && elementRight > sliderLeft;
   }
 
   onButtonClick(event) {
@@ -923,6 +1082,7 @@ class SlideshowComponent extends SliderComponent {
     });
     this.sliderControlButtons[this.currentPage - 1].classList.add('slider-counter__link--active');
     this.sliderControlButtons[this.currentPage - 1].setAttribute('aria-current', true);
+
   }
 
   autoPlayToggle() {

@@ -1,0 +1,7 @@
+# Per-store files: each store branch keeps its own copy when main is merged in.
+# Requires the "ours" merge driver: git config merge.ours.driver true
+# The sync workflow also restores these paths after every merge (see .github/workflows/sync-store-branches.yml).
+templates/**/*.json       merge=ours
+config/settings_data.json merge=ours
+config/markets.json       merge=ours
+sections/*-group.json     merge=ours

@@ -13,7 +13,7 @@
     width: 100%; 
     height: {{section.settings.image_height}}px;
     background-repeat: repeat-x; /* Repeats the image horizontally */
-    background-size: contain;
+    background-size: auto; /* Keeps the original size of the image */
   }
   .repeat-horizontal.no-repeat-divider{
     transform: rotate(0deg);
@@ -40,9 +40,9 @@
     {
       "type": "range",
       "id": "image_height",
-      "min": 0,
-      "max": 400,
-      "step": 10,
+      "min": 50,
+      "max": 250,
+      "step": 2,
       "unit": "px",
       "label": "t:sections.divider-section.settings.image-height.label",
       "info": "t:sections.divider-section.settings.image-height.info",

@@ -1,0 +1,11 @@
+/*
+  Salsa brand overrides. Loaded after base.css when Theme settings > Brand > Store brand is "Salsa".
+  Fonts come from the Adobe Typekit kit set in Theme settings > Brand.
+*/
+
+/* Shopify Dawn Custom Adobe Fonts by codeandtonic.com */
+:root {
+  --font-heading-family: "sinter", sans-serif  !important;
+  --font-heading-weight: 800  !important;
+  --font-heading-style: normal  !important;
+}

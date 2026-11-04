@@ -24,13 +24,13 @@
     assign remove_color_classes = true
   endif
 
+  # Surly stores hotspots in custom.hotspot_features, Salsa in custom.hotspot_products
   if template.name == "product"
-    assign object_loop = product.metafields.custom.hotspot_features.value
-    assign product_loop = product.metafields.custom.hotspot_features.value
-  else 
-    assign object_loop = collection.metafields.custom.hotspot_features.value
-    assign product_loop = collection.metafields.custom.hotspot_features.value
+    assign object_loop = product.metafields.custom.hotspot_features.value | default: product.metafields.custom.hotspot_products.value
+  else
+    assign object_loop = collection.metafields.custom.hotspot_features.value | default: collection.metafields.custom.hotspot_products.value
   endif
+  assign product_loop = object_loop
 -%}
 
 {% if section.settings.image != blank %}
@@ -110,7 +110,11 @@
                           <button class="feature-close" onclick="closeModal(this)">Close</button>
                           <a href="{{ hotspot.hotspot_features.value.system.url }}">
                             <div class="spot-product-title">{{ hotspot.hotspot_features.value.title.value }}</div>
-                            <div class="spot-product-price">{{ hotspot.hotspot_features.value.feature_description | metafield_tag }}</div>
+                            <div class="spot-product-price">{%- if hotspot.hotspot_features.value.feature_description != blank -%}
+                              {{ hotspot.hotspot_features.value.feature_description | metafield_tag }}
+                            {%- else -%}
+                              {{ hotspot.hotspot_features.value.description }}
+                            {%- endif -%}</div>
                           </a>
                         </div>
                       </div>

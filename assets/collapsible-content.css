@@ -141,7 +141,7 @@
 
 .table--label {
   width: 100%;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 0px;
 }
 
@@ -204,31 +204,35 @@
   border-spacing: 0;
   table-layout: auto;
   width: max-content;
-}
-.geometry-table-container thead tr {
+
+  thead tr {
     font-size: .8rem;
     font-weight: 500;
     text-align: left;
-}
-.geometry-table-container th {
+
+    th {
       padding: 0.75rem 1.5rem;
       vertical-align: middle;
     }
-.geometry-table-container tbody td{
-    text-align: left;
-    padding: 1.5rem 1.5rem;
-    vertical-align: middle;
-}
+  }
 
-.geometry-table-container tr>th:first-child,
-.geometry-table-container tr>td:first-child {
-  position: sticky;
-  left: 0;
-  font-weight: 600;
-  padding: 16px 0;
-  background: rgb(var(--color-background));
-  background: var(--gradient-background);
-  border-right: .1rem solid rgba(var(--color-foreground), .08);
+  tbody {
+    td {
+      text-align: left;
+      padding: 1.5rem 1.5rem;
+      vertical-align: middle;
+    }
+  }
+
+  tr>th:first-child,
+  tr>td:first-child {
+    position: sticky;
+    left: 0;
+    padding: 16px 0;
+    background: rgb(var(--color-background));
+    background: var(--gradient-background);
+    border-right: .1rem solid rgba(var(--color-foreground), .08);
+  }
 }
 .geometry-table-container th,
 .geometry-table-container td{
@@ -236,10 +240,10 @@
 }
 @media screen and (min-width: 750px) {
   .geometry-image {
-    width: 60%;
+    width: 33%;
   }
   .geometry-table{
-    width: 100%;
+    width: 70%;
   }
   .geometry-table-container {
     overflow-x: hidden;
@@ -255,7 +259,7 @@
   }
 
   .bike-geometry {
-    flex-direction: column;
+    flex-direction: row;
   }
 
   .table--label {

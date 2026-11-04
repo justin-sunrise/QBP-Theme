@@ -78,13 +78,13 @@
 
   {% for variant in product.variants %}
     {% if variant.barcode != '' and variant.barcode != null %}
-      
+
         {% if product.variants.last %}
           {% assign barcodes = barcodes | append: variant.barcode | append: ',' %}
         {% else %}
           {% assign barcodes = barcodes | append: variant.barcode %}
         {% endif %}
-      
+
     {% endif %}
   {% endfor %}
 
@@ -493,7 +493,7 @@
                   -%}
                 {% endif %}
               {%- when 'locally_button' -%}
-                <!-- LOCALLY.COM WIDGET EMBED CODE -->
+                  <!-- LOCALLY.COM WIDGET EMBED CODE -->
                   <div class="product-form__buttons buy-locally-button-container">
                     <div id="lcly-button-0"
                       data-switchlive="true" 
@@ -764,7 +764,9 @@
         </section>
       </div>
     </div>
-
+    {% if product.metafields.custom.product_is_sellable or product.metafields.custom.product_is_sellable == blank %}
+      {% render 'sticky-atc', product: product, section: section %}
+    {% endif %}
     {% render 'product-media-modal', variant_images: variant_images %}
 
     {% assign popups = section.blocks | where: 'type', 'popup' %}
