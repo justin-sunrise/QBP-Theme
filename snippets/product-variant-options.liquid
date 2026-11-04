@@ -50,6 +50,7 @@
   {%- capture input_dataset -%}
     data-product-url="{{ value.product_url }}"
     data-option-value-id="{{ value.id }}"
+    data-gtin="{{ value.variant.barcode }}"
   {%- endcapture -%}
 
   {%- capture label_unavailable -%}
@@ -130,5 +131,5 @@ Changes:
     value.swatch, product_form_id: product_form_id, checked: value.selected, visually_disabled:
     option_disabled, shape: block.settings.swatch_shape, help_text: help_text, additional_props:
     input_dataset %}"
-  position: 1807..2088
+  position: 1851..2132
 {% endcomment %}

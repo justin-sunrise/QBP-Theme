@@ -56,3 +56,21 @@
 .accordion__content img {
   max-width: 100%;
 }
+
+.metafield-rich_text_field > ul{
+  list-style-type: none;
+}
+.accordion__content .metafield-rich_text_field > ul > li{
+  padding: 12px;
+  margin:0;
+  display: flex;
+  justify-content: space-between;
+}
+.accordion__content .metafield-rich_text_field > ul > li strong{
+  width: 65%;
+  display: flex;
+  justify-content: flex-start;
+}
+.metafield-rich_text_field > ul > li:nth-child(odd) {
+  background-color: rgba(0,0,0,0.1);
+}

@@ -1,0 +1,74 @@
+{% comment %}
+  Renders a "Final sale" notice when the selected variant's
+  custom.discount_type metafield contains 'Final Sale'.
+  Updates on variant change via Dawn's pubsub variantChange event.
+
+  Accepts:
+  - product: {Object} Product Liquid object
+  - section_id: {String} ID of the section rendering the product
+
+  Usage:
+  {% render 'final-sale-notice', product: product, section_id: section_id %}
+{% endcomment %}
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+  assign current_is_final = false
+  if current_variant.metafields.custom.discount_type.value contains 'Final Sale'
+    assign current_is_final = true
+  endif
+
+  assign final_sale_ids = ','
+  for v in product.variants
+    if v.metafields.custom.discount_type.value contains 'Final Sale'
+      assign final_sale_ids = final_sale_ids | append: v.id | append: ','
+    endif
+  endfor
+-%}
+<!-- Final Sale Snippet -->
+{%- if final_sale_ids != ',' -%}
+  <p
+    id="FinalSaleNotice-{{ section_id }}"
+    class="final-sale-notice"
+    data-final-sale-variants="{{ final_sale_ids }}"
+    role="status"
+    {% unless current_is_final %}
+      hidden
+    {% endunless %}
+  >
+    Final sale — no returns or exchanges
+  </p>
+
+  <style>
+    .final-sale-notice {
+      margin: 0 0 1.2rem;
+      padding: 0.8rem 1.2rem;
+      border-left: 3px solid #5a1a14;
+      background: rgba(90, 26, 20, 0.06);
+      color: rgb(var(--color-foreground));
+      font-size: 1.4rem;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    .final-sale-notice[hidden] {
+      display: none;
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (typeof subscribe !== 'function' || typeof PUB_SUB_EVENTS === 'undefined') return;
+
+      subscribe(PUB_SUB_EVENTS.variantChange, function (event) {
+        var data = event && event.data;
+        if (!data || !data.variant || data.sectionId !== '{{ section_id }}') return;
+
+        var notice = document.getElementById('FinalSaleNotice-{{ section_id }}');
+        if (!notice) return;
+
+        var ids = notice.dataset.finalSaleVariants || '';
+        notice.hidden = ids.indexOf(',' + data.variant.id + ',') === -1;
+      });
+    });
+  </script>
+{%- endif -%}
+<!-- Final Sale Snippet -->

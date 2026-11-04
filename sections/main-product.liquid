@@ -78,13 +78,13 @@
 
   {% for variant in product.variants %}
     {% if variant.barcode != '' and variant.barcode != null %}
-      {% if product.metafields.custom.product_is_sellable.value == false or product.metafields.custom.product_is_sellable.value == blank %}
+      
         {% if product.variants.last %}
           {% assign barcodes = barcodes | append: variant.barcode | append: ',' %}
         {% else %}
           {% assign barcodes = barcodes | append: variant.barcode %}
         {% endif %}
-      {% endif %}
+      
     {% endif %}
   {% endfor %}
 
@@ -227,6 +227,7 @@
               {%- when 'custom_liquid' -%}
                 {{ block.settings.custom_liquid }}
               {%- when 'collapsible_tab' -%}
+               {% if block.settings.content != blank or block.settings.page.content != blank %}
                 <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
                   <details id="Details-{{ block.id }}-{{ section.id }}">
                     <summary>
@@ -244,6 +245,7 @@
                     </div>
                   </details>
                 </div>
+                {% endif %}
               {%- when 'quantity_selector' -%}
                 <div
                   id="Quantity-Form-{{ section.id }}"
@@ -481,19 +483,89 @@
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
-              {% if product.metafield.custom.product_is_sellable or product.metafield.custom.product_is_sellable == blank %}
-                {%- render 'buy-buttons',
-                  block: block,
-                  product: product,
-                  product_form_id: product_form_id,
-                  section_id: section.id,
-                  show_pickup_availability: true
-                -%}
+                {% if product.metafield.custom.product_is_sellable or product.metafield.custom.product_is_sellable == blank %}
+                  {%- render 'buy-buttons',
+                    block: block,
+                    product: product,
+                    product_form_id: product_form_id,
+                    section_id: section.id,
+                    show_pickup_availability: true
+                  -%}
                 {% endif %}
-              {%- when 'buy_local_now_button' -%}
-                {% if barcodes != '' and barcodes != null %}
-                  <div id="buy-button-local-now-container"></div>
-                {% endif %}  
+              {%- when 'locally_button' -%}
+                <!-- LOCALLY.COM WIDGET EMBED CODE -->
+                  <div class="product-form__buttons buy-locally-button-container">
+                    <div id="lcly-button-0"
+                      data-switchlive="true" 
+                      data-switchlive-impression="true"
+                      data-switchlive-impression-id-PL="1"
+                      >
+                      <a id="lcly-link-0" 
+                        data-switchlive="true"
+                        data-switchlive-mode="auto"
+                        data-switchlive-id-PL="6"
+                        role="button"
+                        href="https://join.locally.com/for-brands" target="_blank">
+                        Product Locator by Locally
+                      </a>
+                    </div>
+                    <script id="lcly-script-0" async></script>
+                    <script id="lcly-config-0">
+                        var __lcly_channel_domain_0 = "locally";
+                        var lcly_config_0 = {
+                          "company_name": "{{ block.settings.locally_company_name }}",
+                          "button_text": "{{ block.settings.locally_button_text }}",
+                          "button_id": "HTML",
+                          "company_id": "{{ block.settings.locally_company_id }}",
+                          "css": "3",
+                          "color_0": "{{ block.settings.locally_color_0 }}",
+                          "color_1": "{{ block.settings.locally_color_1 }}",
+                          "hover_color_0": "{{ block.settings.locally_hover_color_0 }}",
+                          "n_buy_online_results": "3",
+                          "upc": "{{ product.selected_or_first_available_variant.barcode }}",
+                          "lang": "en-us",
+                          "n_dealers": "3",
+                          "no_link": "1",
+                          "link_opens_modal": "1"
+                        };
+                        var lcly_query_0 = Object.keys(lcly_config_0)
+                        .reduce(function(a, k) {a.push(encodeURIComponent(k) + '=' 
+                        + encodeURIComponent((typeof lcly_config_0[k] === 'object' && lcly_config_0[k] !== null)
+                        ? JSON.stringify(lcly_config_0[k])  : lcly_config_0[k]));return a;}, []).join('&');
+                        var lcly_endpoint_0 = 'https://{{ block.settings.locally_company_name | replace: ' ', '-' }}.locally.com/stores/map.js?' + lcly_query_0;
+                        document.getElementById('lcly-script-0').src = lcly_endpoint_0;     
+                    </script>
+                    <script>
+                      function selectBarcode() {
+                        document.querySelectorAll('input[data-gtin]').forEach((el) => {
+                          el.addEventListener('change', (event) => {
+                            const selectedGtin = event.target.dataset.gtin;
+                            console.log('selected barcode: '+selectedGtin);
+                            lcly_reload_0({ 'upc': selectedGtin });
+                            console.log(lcly_reload_0);
+                          });
+                        });
+                      }
+                    </script>
+                  </div>
+                  <style>
+                    a.lcly-primary-trigger span, button.lcly-primary-trigger{
+                      color:{{block.settings.locally_text_color}};
+                      border-radius: var(--buttons-radius-outset);
+                      font-size: 1.5rem;
+                      font-family: var(--font-heading-family);
+                      font-style: var(--font-heading-style);
+                      font-weight: var(--font-heading-weight);
+                      line-height: calc(1 + .2 / var(--font-body-scale));
+                      padding: 1.4rem;
+                      height: auto;
+                    }
+                    .buy-locally-button-container{
+                      display:block;
+                      height: 60px;
+                    }
+                  </style>
+                  {% render 'final-sale-notice', product: product, section_id: section.id %}
               {%- when 'rating' -%}
                 {%- if product.metafields.reviews.rating.value != blank -%}
                   <div class="rating-wrapper">
@@ -744,80 +816,8 @@
     <script type="application/ld+json">
       {{ product | structured_data }}
     </script>
-    <script type="text/javascript">
-        // Define the BuyLocal object if it doesn't exist
-        window.BuyLocal = window.BuyLocal || function() {
-            this.domain = 'buylocalbuynow.com';
-            this.isInited = false;
-            this.isLoaded = false;
-            this.snipQueue = [];
-            this.snipCount = 0;
-            var d = this;
 
-            this.load = function(a, b) {
-                try {
-                    if (!this.isInited) {
-                        a = a || 'https://' + this.domain + '/js/generate_v1.js';
-                        b = b || function() {};
-                        var c = document.createElement('script');
-                        c.type = 'text/javascript';
-                        if (c.readyState) {
-                            c.onreadystatechange = function() {
-                                if (c.readyState === "loaded" || c.readyState === "complete") {
-                                    d.onLoad();
-                                }
-                            };
-                        } else {
-                            c.onload = function() {
-                                d.onLoad();
-                            };
-                        }
-                        c.src = a;
-                        document.getElementsByTagName('head')[0].appendChild(c);
-                        this.isInited = true;
-                    }
-                } catch (e) {
-                    console.error('Error loading script:', e);
-                }
-            };
 
-            this.generate = function(a) {
-                try {
-                    a.id = this.snipCount++;
-                    if (!a.elementId || a.elementId.length === 0) {
-                        document.write('<div id="BLN' + a.id + '"></div>');
-                    }
-                    if (!this.isLoaded) {
-                        this.snipQueue.push(a);
-                    } else {
-                        this.display(a);
-                    }
-                } catch (e) {
-                    console.error('Error generating button:', e);
-                }
-            };
-        };
-
-        window.BLN = window.BLN || new window.BuyLocal();
-        window.BLN.load();
-    </script>
-    <script type="text/javascript">
-        // Call the generate function with valid parameters
-        window.BLN.generate({
-            accountId: 80, // Replace with a valid account ID
-            brandId: 95,   // Replace with a valid brand ID
-            supplierId: '', // Optional
-            gtins: [{{barcodes}}], // Replace with a valid GTIN
-            linkType: 'button', // Display a button
-            linkText: 'BUY LOCAL', // Text for the button
-            imageSrc: '', // Optional: Provide an image URL if needed
-            css: 'color:white; background:#CD202F; width:100%; padding:16px; border:none; cursor: pointer; max-width: 44rem', // Optional: Custom CSS
-            mode: 'layer', // Optional: Defaults to 'layer'
-            width: 800, // Optional: Default 800
-            height: 600, // Optional: Default 600
-            elementId: 'buy-button-local-now-container' // Target container
-        });
-    </script>
   </div>
 </product-info>
 
@@ -835,7 +835,7 @@
       "name": "t:sections.main-product.blocks.text.name",
       "settings": [
         {
-          "type": "inline_richtext",
+          "type": "richtext",
           "id": "text",
           "default": "t:sections.main-product.blocks.text.settings.text.default",
           "label": "t:sections.main-product.blocks.text.settings.text.label"
@@ -1013,15 +1013,49 @@
       ]
     },
     {
-      "type": "buy_local_now_button",
-      "name": "Buy local button",
+      "type": "locally_button",
+      "name": "Locally button",
       "limit": 1,
       "settings": [
         {
           "type": "text",
-          "id": "local_now_button_label",
-          "label": "Buy Local label",
+          "id": "locally_company_id",
+          "label": "Company ID",
         },
+        {
+          "type": "text",
+          "id": "locally_company_name",
+          "label": "Company Name",
+        },
+        {
+          "type":"text",
+          "id":"locally_button_text",
+          "label": "Button Text"
+        },
+        {
+          "type":"text",
+          "id":"locally_color_0",
+          "label":"Primary Color",
+          "info": "Enter color hex code."
+        },
+        {
+          "type":"text",
+          "id":"locally_text_color",
+          "label":"Button Text Color",
+          "info": "Enter color hex code."
+        },
+        {
+          "type":"text",
+          "id":"locally_color_1",
+          "label":"Secondary Color",
+          "info": "Enter color hex code."
+        },
+        {
+          "type":"text",
+          "id":"locally_hover_color_0",
+          "label":"Button Hover Color",
+          "info": "Enter color hex code."
+        }
       ]
     },
     {

@@ -9,6 +9,11 @@
   - price_class: {String} Adds a price class to the price element (optional)
   - show_compare_at_price: {Boolean} Renders the compare at price if the product matches the condition (optional)
 
+  Clearance treatment:
+  - If the selected (or first available) variant's custom.discount_type metafield
+    contains 'Clearance', renders "Was: [compare at]" / "Now: [price]" + Clearance badge
+    using that variant's pricing.
+
   Usage:
   {% render 'price', product: product %}
 {% endcomment %}
@@ -38,6 +43,31 @@
   if target == product and product.price_varies
     assign money_price = 'products.product.price.from_price_html' | t: price: money_price
   endif
+
+  # --- Clearance detection (variant-level metafield) ---
+  assign is_clearance = false
+  assign clearance_variant = product.selected_or_first_available_variant
+  assign discount_type = clearance_variant.metafields.custom.discount_type.value
+  if discount_type contains 'Clearance' or discount_type contains 'Final Sale'
+    assign is_clearance = true
+  endif
+
+  assign show_clearance_layout = false
+  if is_clearance and use_variant
+    assign show_clearance_layout = true
+  endif
+
+  if is_clearance
+    assign clearance_price = clearance_variant.price
+    assign clearance_compare = clearance_variant.compare_at_price
+    if settings.currency_code_enabled
+      assign money_clearance_price = clearance_price | money_with_currency
+      assign money_clearance_compare = clearance_compare | money_with_currency
+    else
+      assign money_clearance_price = clearance_price | money
+      assign money_clearance_compare = clearance_compare | money
+    endif
+  endif
 -%}
 
 {%- unless target == null and placeholder == null -%}
@@ -45,69 +75,89 @@
     class="
       price
       {%- if price_class %} {{ price_class }}{% endif -%}
-      {%- if available == false and product.metafields.custom.product_is_sellable.value != false %} price--sold-out{% endif -%}
-      {%- if compare_at_price > price and product.quantity_price_breaks_configured? != true %} price--on-sale{% endif -%}
-      {%- if compare_at_price > price and product.quantity_price_breaks_configured? %} volume-pricing--sale-badge{% endif -%}
+      {%- if available == false %} price--sold-out{% endif -%}
+      {%- if show_clearance_layout %} price--clearance{% endif -%}
+      {%- if show_clearance_layout == false and compare_at_price > price and product.quantity_price_breaks_configured? != true %} price--on-sale{% endif -%}
+      {%- if show_clearance_layout == false and compare_at_price > price and product.quantity_price_breaks_configured? %} volume-pricing--sale-badge{% endif -%}
       {%- if product.price_varies == false and product.compare_at_price_varies %} price--no-compare{% endif -%}
-      {%- if show_badges %} price--show-badge{% endif -%}
+      {% if show_badges %} price--show-badge{% endif %}
     "
   >
+    {% unless product.metafields.custom.archived %}
     <div class="price__container">
-      {%- comment -%}
-        Explanation of description list:
-          - div.price__regular: Displayed when there are no variants on sale
-          - div.price__sale: Displayed when a variant is a sale
-      {%- endcomment -%}
-      <div class="price__regular">
-        {%- if product.quantity_price_breaks_configured? -%}
-          {%- if show_compare_at_price and compare_at_price -%}
-            {%- unless product.price_varies == false and product.compare_at_price_varies %}
-              <span class="visually-hidden visually-hidden--inline">
-                {{- 'products.product.price.regular_price' | t -}}
-              </span>
-              <span>
-                <s class="price-item price-item--regular variant-item__old-price">
-                  {% if settings.currency_code_enabled %}
-                    {{ compare_at_price | money_with_currency }}
-                  {% else %}
-                    {{ compare_at_price | money }}
-                  {% endif %}
-                </s>
-              </span>
-            {%- endunless -%}
+      {%- if show_clearance_layout -%}
+        {%- comment -%} Clearance: Was / Now layout {%- endcomment -%}
+        <div class="price__clearance">
+          {%- if clearance_compare > clearance_price -%}
+            <p class="price__clearance-was">
+              Was: <span class="price-item price-item--regular">{{ money_clearance_compare }}</span>
+            </p>
           {%- endif -%}
-          <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
-          <span class="price-item price-item--regular">
-            {{-
-              'products.product.volume_pricing.price_range'
-              | t: minimum: money_price_min, maximum: money_price_max
-            -}}
-          </span>
-        {%- else -%}
-          <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
-          <span class="price-item price-item--regular">
+          <div class="price__clearance-now">
+            <span class="price__clearance-label">Now:</span>
+            <span class="price-item price-item--sale price-item--last price__clearance-amount">
+              {{- money_clearance_price -}}
+            </span>
+            <span class="price__badge-clearance">Clearance</span>
+          </div>
+        </div>
+      {%- else -%}
+        {%- comment -%}
+          Explanation of description list:
+            - div.price__regular: Displayed when there are no variants on sale
+            - div.price__sale: Displayed when a variant is a sale
+        {%- endcomment -%}
+        <div class="price__regular">
+          {%- if product.quantity_price_breaks_configured? -%}
+            {%- if show_compare_at_price and compare_at_price -%}
+              {%- unless product.price_varies == false and product.compare_at_price_varies %}
+                <span class="visually-hidden visually-hidden--inline">
+                  {{- 'products.product.price.regular_price' | t -}}
+                </span>
+                <span>
+                  <s class="price-item price-item--regular variant-item__old-price">
+                    {% if settings.currency_code_enabled %}
+                      {{ compare_at_price | money_with_currency }}
+                    {% else %}
+                      {{ compare_at_price | money }}
+                    {% endif %}
+                  </s>
+                </span>
+              {%- endunless -%}
+            {%- endif -%}
+            <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
+            <span class="price-item price-item--regular">
+              {{-
+                'products.product.volume_pricing.price_range'
+                | t: minimum: money_price_min, maximum: money_price_max
+              -}}
+            </span>
+          {%- else -%}
+            <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
+            <span class="price-item price-item--regular">
+              {{ money_price }}
+            </span>
+          {%- endif -%}
+        </div>
+        <div class="price__sale">
+          {%- unless product.price_varies == false and product.compare_at_price_varies %}
+            <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
+            <span>
+              <s class="price-item price-item--regular">
+                {% if settings.currency_code_enabled %}
+                  {{ compare_at_price | money_with_currency }}
+                {% else %}
+                  {{ compare_at_price | money }}
+                {% endif %}
+              </s>
+            </span>
+          {%- endunless -%}
+          <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
+          <span class="price-item price-item--sale price-item--last">
             {{ money_price }}
           </span>
-        {%- endif -%}
-      </div>
-      <div class="price__sale">
-        {%- unless product.price_varies == false and product.compare_at_price_varies %}
-          <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
-          <span>
-            <s class="price-item price-item--regular">
-              {% if settings.currency_code_enabled %}
-                {{ compare_at_price | money_with_currency }}
-              {% else %}
-                {{ compare_at_price | money }}
-              {% endif %}
-            </s>
-          </span>
-        {%- endunless -%}
-        <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
-        <span class="price-item price-item--sale price-item--last">
-          {{ money_price }}
-        </span>
-      </div>
+        </div>
+      {%- endif -%}
       <small class="unit-price caption{% if product.selected_or_first_available_variant.unit_price_measurement == nil %} hidden{% endif %}">
         <span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span>
         <span class="price-item price-item--last">
@@ -123,6 +173,7 @@
         </span>
       </small>
     </div>
+    {% endunless %}
     {%- if product.metafields.custom.coming_soon and show_badges -%}
       <span
         class="badge color-{{ settings.sold_out_badge_color_scheme }}"
@@ -131,11 +182,19 @@
         Coming Soon
       </span>
     {% endif %}
-    {%- if compare_at_price > price and template contains 'product' -%}
+    {%- if product.metafields.custom.archived and show_badges -%}
+      <span
+        class="badge color-{{ settings.sold_out_badge_color_scheme }}"
+        style="margin-left:8px"
+      >
+        Archived
+      </span>
+    {% endif %}
+    {%- if show_badges -%}
       <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
         {{ 'products.product.on_sale' | t }}
       </span>
-    {% endif %}
+    {%- endif -%}
     {%- if show_badges and settings.sold_out_badge_visibility == 'show' -%}
       <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">
         {{ 'products.product.sold_out' | t }}

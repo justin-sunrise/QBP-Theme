@@ -1,0 +1,56 @@
+{% comment %}
+  Logged-in shoppers: apply saved quiz answers as collection filters (QBP app API).
+
+  Accepts:
+  - qbp_app_api_url: {String}
+  - qbp_quiz_button_label: {String}
+  - qbp_quiz_toggle_off_label: {String}
+  - qbp_quiz_customize_label: {String}
+  - qbp_quiz_customize_url: {String}
+{% endcomment %}
+
+{%- liquid
+  assign qbp_api = qbp_app_api_url | strip
+  if qbp_api == blank
+    assign qbp_api = 'https://surly-shp-prod.sunrisedataburst.com'
+  endif
+  assign qbp_customize_url = qbp_quiz_customize_url | strip
+  assign qbp_customize_label = qbp_quiz_customize_label | strip
+  if qbp_customize_label == blank
+    assign qbp_customize_label = 'Customize my fit'
+  endif
+  assign qbp_toggle_off = qbp_quiz_toggle_off_label | strip
+  if qbp_toggle_off == blank
+    assign qbp_toggle_off = 'Turn off quiz answers'
+  endif
+-%}
+
+<div
+  class="qbp-collection-filters"
+  data-qbp-collection-filters
+  data-customer-id="{{ customer.id }}"
+  data-shop="{{ shop.permanent_domain | escape }}"
+  data-api-base="{{ qbp_api | escape }}"
+  data-apply-label="{{ qbp_quiz_button_label | escape }}"
+  data-toggle-off-label="{{ qbp_toggle_off | escape }}"
+  data-customize-url="{{ qbp_customize_url | escape }}"
+>
+  <button
+    type="button"
+    class="button button--secondary qbp-collection-filters__apply"
+    data-qbp-apply-quiz-filters
+    aria-pressed="false"
+  >
+    {{ qbp_quiz_button_label | escape }}
+  </button>
+  {%- if qbp_customize_url != blank -%}
+    <a class="qbp-collection-filters__customize link underlined-link" href="{{ qbp_customize_url }}">
+      {{ qbp_customize_label | escape }}
+    </a>
+  {%- endif -%}
+  <div class="qbp-collection-filters__active hidden" data-qbp-active-filters-wrap>
+    <p class="qbp-collection-filters__active-label caption">Filtering by your quiz answers:</p>
+    <ul class="qbp-collection-filters__chips" data-qbp-active-filters-list role="list"></ul>
+  </div>
+  <p class="qbp-collection-filters__status caption hidden" data-qbp-filter-status role="status"></p>
+</div>
