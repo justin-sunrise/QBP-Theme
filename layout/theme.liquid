@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="js" lang="{{ request.locale.iso_code }}">
+<html class="js{% if settings.typekit_kit_id != blank %} typekit-fonts{% endif %}" lang="{{ request.locale.iso_code }}">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -259,7 +259,9 @@
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {%- comment -%} Per-store brand overrides; must load after base.css {%- endcomment -%}
-    {{ 'brand-' | append: settings.store_brand | append: '.css' | asset_url | stylesheet_tag }}
+    {%- if settings.store_brand != 'none' -%}
+      {{ 'brand-' | append: settings.store_brand | append: '.css' | asset_url | stylesheet_tag }}
+    {%- endif -%}
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
     {%- if settings.cart_type == 'drawer' -%}
