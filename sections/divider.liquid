@@ -1,0 +1,90 @@
+{%- style -%}
+  .divider-container {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  .default-divider {
+    display: block;
+    width: 100%;
+    height: {{ section.settings.line_height }}px;
+  }
+  .repeat-horizontal {
+    display: block;
+    width: 100%; 
+    height: {{section.settings.image_height}}px;
+    background-image: url({{section.settings.image | image_url}});
+    background-repeat: repeat-x; /* Repeats the image horizontally */
+    background-size: auto; /* Keeps the original size of the image */
+  }
+{% endstyle %}
+<div class="divider-container">
+  {%- if section.settings.image != blank -%}
+    <span class="repeat-horizontal"></span>
+  {% else %}
+    <span class="default-divider color-{{ section.settings.color_scheme }}"></span>
+  {% endif %}   
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.divider-section.name",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.divider-section.settings.image.label"
+    },
+    {
+      "type": "range",
+      "id": "image_height",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.divider-section.settings.image-height.label",
+      "info": "t:sections.divider-section.settings.image-height.info",
+      "default": 100,
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "unit": "px",
+      "label": "t:sections.divider-section.settings.padding-top.label",
+      "default": 0,
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "unit": "px",
+      "label": "t:sections.divider-section.settings.padding-bottom.label",
+      "default": 0,
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.divider-section.settings.line-height.info",
+      "default": "scheme-4"
+    },
+    {
+      "type": "range",
+      "id": "line_height",
+      "min": 4,
+      "max": 20,
+      "unit": "px",
+      "label": "t:sections.divider-section.settings.line-height.label",
+      "info": "t:sections.divider-section.settings.line-height.info",
+      "default": 4,
+    },
+  ],
+  "presets": [
+    {
+      "name": "t:sections.divider-section.name",
+    }
+  ]
+}
+{% endschema %}

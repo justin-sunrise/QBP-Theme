@@ -1,0 +1,272 @@
+{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
+{{ 'section-main-blog-filters.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'section-main-blog-filters.js' | asset_url }}" defer></script>
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+
+  }
+{%- endstyle -%}
+
+{%- paginate blog.articles by 6 -%}
+  <div class="main-blog blog-articles-page-width section-{{ section.id }}-padding">
+    {% if section.settings.show_title %}
+      {% if section.settings.title_header %}
+      <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+        {{ blog.title | escape }}
+      </h1>
+      {% else %}
+        <h2 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+          {{ blog.title | escape }}
+        </h2>
+      {% endif %}
+    {% endif %}    
+    <div class="blog-with-filters-container">
+       {% if section.settings.show_filters %}
+        <div class="mobile-filters">
+        <div class="filters-title">
+          {% if section.settings.title_header %}
+              <h2>Filters</h2>
+            {% else %}
+              <h3>Filters</h3>
+            {% endif %}
+          <span>{{- 'icon-filter.svg' | inline_asset_content -}}</span></div>
+        <div class="mobile-filters-container hidden">
+          <div class="filters-header">
+            <div>
+            {% if section.settings.title_header %}
+              <h2>Filters</h2>
+            {% else %}
+              <h3>Filters</h3>
+            {% endif %}
+            </div>
+            <div class="close-filters">X</div>
+          </div>
+          {% if blog.all_tags.size > 0 %}
+            <div class="blog-filter"  aria-label="Filters" role="region">
+              <div class="list-group">
+                <p class="sr-only">Activating this element will cause content on the page to be updated.</p>
+                <div>
+                  <p class="sr-only">Filter Blogs by tag</p>
+                  <div class="tag-list">
+                    <div>
+                      <input type="checkbox" data-target="{{ blog.url }}" id="mobile-all-articles">
+                      <label class="blog-filter-checkbox checkbox-label" for="mobile-all-articles"></label>
+                      <label for="mobile-all-articles" class="tag-name-label checkbox-label">
+                        {{ 'All Articles' }}
+                      </label>
+                    </div>
+                    {% for tag in blog.all_tags %}
+                      <div>
+                        <input type="checkbox" data-target="{{ blog.url }}/tagged/{{ tag | handleize }}" id="mobile-{{ tag | handleize }}">
+                        <label class="blog-filter-checkbox checkbox-label" for="mobile-{{ tag | handleize }}"></label>
+                        <label for="mobile-{{ tag | handleize }}" class="tag-name-label checkbox-label">
+                        {{ tag }}
+                        </label>
+                      </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+        </div>
+       
+        <div class="blog-filters" aria-label="Filters" role="region">
+          <div class="filters-title">
+          {% if section.settings.title_header %}
+              <h2>Filters</h2>
+            {% else %}
+              <h3>Filters</h3>
+            {% endif %}
+          <span>{{- 'icon-filter.svg' | inline_asset_content -}}</span></div>
+          {% if blog.all_tags.size > 0 %}
+            <div class="blog-filter">
+              <div class="list-group">
+                <p class="sr-only">Activating this element will cause content on the page to be updated.</p>
+                <div class="blog-filter-fieldset">
+                  <p class="sr-only">Filter Blogs by tag</p>
+                  <div class="tag-list">
+                    <div>
+                      <input type="checkbox" data-target="{{ blog.url }}" id="desktop-all-articles">
+                      <label class="blog-filter-checkbox checkbox-label" for="desktop-all-articles"></label>
+                      <label for="desktop-all-articles" class="tag-name-label checkbox-label">
+                        {{ 'All Articles' }}
+                      </label>
+                    </div>
+                    {% for tag in blog.all_tags %}
+                      <div>
+                        <input type="checkbox" data-target="{{ blog.url }}/tagged/{{ tag | handleize }}" id="desktop-{{ tag | handleize }}">
+                        <label class="blog-filter-checkbox checkbox-label" for="desktop-{{ tag | handleize }}"></label>
+                        <label for="desktop-{{ tag | handleize }}" class="tag-name-label checkbox-label">
+                        {{ tag }}
+                        </label>
+                      </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+       {% endif %}
+        <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
+          {%- for article in blog.articles -%}
+            <div
+              class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+              {% if settings.animations_reveal_on_scroll %}
+                data-cascade
+                style="--animation-order: {{ forloop.index }};"
+              {% endif %}
+            >
+              {%- render 'article-card',
+                article: article,
+                media_height: section.settings.image_height,
+                media_aspect_ratio: article.image.aspect_ratio,
+                show_image: section.settings.show_image,
+                show_date: section.settings.show_date,
+                show_author: section.settings.show_author,
+                show_excerpt: true
+              -%}
+            </div>
+          {%- endfor -%}
+        </div>
+    </div>
+
+    {%- if paginate.pages > 1 -%}
+      {%- render 'pagination', paginate: paginate -%}
+    {%- endif -%}
+  </div>
+{%- endpaginate -%}
+
+{% schema %}
+{
+  "name": "t:sections.main-blog.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.main-blog.settings.header.content"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "grid",
+          "label": "t:sections.main-blog.settings.layout.options__1.label"
+        },
+        {
+          "value": "collage",
+          "label": "t:sections.main-blog.settings.layout.options__2.label"
+        }
+      ],
+      "default": "collage",
+      "label": "t:sections.main-blog.settings.layout.label",
+      "info": "t:sections.main-blog.settings.layout.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image",
+      "default": true,
+      "label": "t:sections.main-blog.settings.show_image.label"
+    },
+    {
+      "type": "select",
+      "id": "image_height",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.main-blog.settings.image_height.options__1.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.main-blog.settings.image_height.options__2.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.main-blog.settings.image_height.options__3.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.main-blog.settings.image_height.options__4.label"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.main-blog.settings.image_height.label",
+      "info": "t:sections.main-blog.settings.image_height.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_filters",
+      "default": true,
+      "label": "Show Blog Filters"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "default": true,
+      "label": "t:sections.main-blog.settings.show_date.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "default": false,
+      "label": "t:sections.main-blog.settings.show_author.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_title",
+      "default": true,
+      "label": "Show Blog Title"
+    },
+    {
+      "type": "checkbox",
+      "id": "title_header",
+      "default": true,
+      "label": "Make Title H1"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:sections.main-blog.settings.paragraph.content"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}
