@@ -1,1 +1,163 @@
-{"name":"t:sections.footer.name","type":"footer","sections":{"footer":{"type":"footer","blocks":{"image_Va8X9c":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/Salsa-Logo.svg","image_width":185,"alignment":"","image_url":"\/"}},"text_zpcz7V":{"type":"text","settings":{"heading":"","subtext":""}},"text_FQVKbd":{"type":"text","settings":{"heading":"","subtext":""}},"custom_liquid_t8FLtH":{"type":"custom_liquid","disabled":true,"settings":{"custom_liquid":"<script src=\"\/\/pages.qbp.com\/js\/forms2\/js\/forms2.min.js\"><\/script> <form id=\"mktoForm_1181\"><\/form> <script>MktoForms2.loadForm(\"\/\/pages.qbp.com\", \"796-XAK-811\", 1181);<\/script>"}},"custom_liquid_yKD4d7":{"type":"custom_liquid","settings":{"custom_liquid":"<div class=\"klaviyo-form-V5hAst\"><\/div>"}},"link_list_xGEYG6":{"type":"link_list","settings":{"heading":"Bikes","menu":"footer-shop-bikes"}},"link_list_Whybed":{"type":"link_list","settings":{"heading":"Gear Shop","menu":"footer-shop-gear"}},"link_list_BY3cFR":{"type":"link_list","settings":{"heading":"Salsa","menu":"footer"}},"link_list_bN89fn":{"type":"link_list","settings":{"heading":"Support","menu":"footer-safety-menu"}},"text_aVaWGK":{"type":"text","settings":{"heading":"","subtext":"<p>Customer Service <a href=\"tel:+18776686223\" title=\"tel:+18776686223\">(877) 668-6223<\/a><\/p><p>Hours 12-5pm Central Mon–Fri<\/p><p>6400 W. 105th Street<\/p><p>Bloomington, MN 55438<\/p>"}},"image_JhXmR6":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/QBP-Logo.svg","image_width":90,"alignment":"right","image_url":"https:\/\/www.qbp.com"}},"image_B7KXmi":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/B-Corp-Logo-Tagline-Lockup-Standards-White-RGB.png","image_width":190,"alignment":"right","image_url":"https:\/\/www.qbp.com\/b-corp"}},"image_bPkyze":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/Reviewed_by_Allyant_for_Accessibility_Badge_Black.svg","image_width":95,"alignment":"center","image_url":""}}},"block_order":["image_Va8X9c","text_zpcz7V","text_FQVKbd","custom_liquid_t8FLtH","custom_liquid_yKD4d7","link_list_xGEYG6","link_list_Whybed","link_list_BY3cFR","link_list_bN89fn","text_aVaWGK","image_JhXmR6","image_B7KXmi","image_bPkyze"],"settings":{"color_scheme":"scheme-3","newsletter_enable":false,"newsletter_heading":"Get the latest Salsa News!","enable_follow_on_shop":true,"show_social":true,"enable_country_selector":true,"enable_language_selector":true,"payment_enable":true,"show_policy":true,"margin_top":0,"padding_top":36,"padding_bottom":36}}},"order":["footer"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "rich_text_YYmVb3": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_ERJYR3": {
+          "type": "heading",
+          "settings": {
+            "heading": "Join Our Email List",
+            "heading_size": "h1",
+            "make_h1": "no"
+          }
+        },
+        "text_txTKrX": {
+          "type": "text",
+          "settings": {
+            "text": "<p>You'll get Teravail tech tips, stories, and the latest product releases in your inbox. Roll with us!</p>"
+          }
+        },
+        "button_FLwAtj": {
+          "type": "button",
+          "settings": {
+            "button_label": "SUBSCRIBE",
+            "button_link": "shopify://pages/subscribe",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_ERJYR3",
+        "text_txTKrX",
+        "button_FLwAtj"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-13b7e8a9-733f-443d-a851-4672e5f5536f",
+        "full_width": true,
+        "padding_top": 80,
+        "padding_bottom": 52
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "image_Va8X9c": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/teravial-logo-light.svg",
+            "image_width": 550,
+            "alignment": "",
+            "image_url": "/"
+          }
+        },
+        "link_list_BY3cFR": {
+          "type": "link_list",
+          "settings": {
+            "heading": "About Teravail",
+            "menu": "footer"
+          }
+        },
+        "link_list_Whybed": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Support",
+            "menu": "footer-shop"
+          }
+        },
+        "text_aVaWGK": {
+          "type": "text",
+          "settings": {
+            "heading": "",
+            "subtext": "<p><strong>Your Ride. Your Way.</strong></p><ul><li><a href=\"/pages/contact\" title=\"Contact\">Contact Us</a></li><li><a href=\"mailto:info@teravail.com\">info@teravail.com</a></li><li><a href=\"tel:1-866-892-9180\">(866) 892-9180</a>  12-5pm Central Mon–Fri</li></ul><p>6400 W. 105th Street</p><p>Bloomington, MN 55438</p>"
+          }
+        },
+        "custom_liquid_t8FLtH": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<script src=\"//pages.qbp.com/js/forms2/js/forms2.min.js\"></script> <form id=\"mktoForm_2231\"></form> <script>MktoForms2.loadForm(\"//pages.qbp.com\", \"796-XAK-811\", 2231);</script>"
+          }
+        },
+        "custom_liquid_6HVaxp": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"klaviyo-form-XsgL4x\"></div>"
+          }
+        },
+        "image_baAcNN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/QBP-Logo.svg",
+            "image_width": 100,
+            "alignment": "right",
+            "image_url": "https://www.qbp.com"
+          }
+        },
+        "image_B7KXmi": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/B-Corp-Logo-Tagline-Lockup-Standards-White-RGB.png",
+            "image_width": 190,
+            "alignment": "center",
+            "image_url": "https://www.qbp.com/b-corp"
+          }
+        },
+        "image_bPkyze": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Reviewed_by_Allyant_for_Accessibility_Badge_Black.svg",
+            "image_width": 115,
+            "alignment": "center",
+            "image_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_Va8X9c",
+        "link_list_BY3cFR",
+        "link_list_Whybed",
+        "text_aVaWGK",
+        "custom_liquid_t8FLtH",
+        "custom_liquid_6HVaxp",
+        "image_baAcNN",
+        "image_B7KXmi",
+        "image_bPkyze"
+      ],
+      "settings": {
+        "color_scheme": "scheme-3",
+        "newsletter_enable": false,
+        "newsletter_heading": "Get the latest Salsa News!",
+        "enable_follow_on_shop": true,
+        "show_social": true,
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "payment_enable": true,
+        "show_policy": true,
+        "margin_top": 0,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "rich_text_YYmVb3",
+    "footer"
+  ]
+}

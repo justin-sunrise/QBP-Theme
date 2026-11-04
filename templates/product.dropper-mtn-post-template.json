@@ -16,7 +16,7 @@
           "type": "text",
           "disabled": true,
           "settings": {
-            "text": "{{ product.vendor }}",
+            "text": "<p>{{ product.vendor }}</p>",
             "text_style": "uppercase"
           }
         },
@@ -94,7 +94,7 @@
         "text_CkKYjU": {
           "type": "text",
           "settings": {
-            "text": "{{ product.metafields.custom.legal_warning.value }}",
+            "text": "<p>{{ product.metafields.custom.legal_warning.value }}</p>",
             "text_style": "body"
           }
         }
