@@ -1,0 +1,194 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_LxFNi4": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_8LGzq9": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ collection.title }}",
+            "heading_size": "hxl",
+            "make_h1": "yes"
+          }
+        }
+      },
+      "block_order": [
+        "heading_8LGzq9"
+      ],
+      "settings": {
+        "image": "{{ collection.metafields.custom.collection_banner_image.value }}",
+        "image_overlay_opacity": 50,
+        "image_height": "small",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "rich_text_pwUnHQ": {
+      "type": "rich-text",
+      "blocks": {
+        "text_aFYRxn": {
+          "type": "text",
+          "settings": {
+            "text": "{{ collection.description }}"
+          }
+        }
+      },
+      "block_order": [
+        "text_aFYRxn"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-95ffe3d7-1bc1-4740-8759-f55fe54f44af",
+        "full_width": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 16,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "show_features_list": false,
+        "quick_add": "none",
+        "enable_filtering": true,
+        "filter_type": "vertical",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collection_list_EcbiRC": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_77CbBg": {
+          "type": "featured_collection",
+          "repeater": "{{ collection.metafields.custom.related_collection.value }}",
+          "settings": {
+            "collection": "{{ block.repeater.collection.value }}"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_77CbBg"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "image_ratio": "square",
+        "columns_desktop": 5,
+        "color_scheme": "",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_yi6rnw": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_cJQhQp": {
+          "type": "heading",
+          "settings": {
+            "heading": "FAQ",
+            "heading_size": "h2",
+            "make_h1": "no"
+          }
+        },
+        "text_ViWQVB": {
+          "type": "text",
+          "settings": {
+            "text": "{{ collection.metafields.custom.faq | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "heading_cJQhQp",
+        "text_ViWQVB"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "rich_text_R7QAcU": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_7GUDxm": {
+          "type": "heading",
+          "settings": {
+            "heading": "Warranty",
+            "heading_size": "h2",
+            "make_h1": "no"
+          }
+        },
+        "text_DEtV8K": {
+          "type": "text",
+          "settings": {
+            "text": "{{ collection.metafields.custom.warranty_info | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "heading_7GUDxm",
+        "text_DEtV8K"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "image_banner_LxFNi4",
+    "banner",
+    "rich_text_pwUnHQ",
+    "product-grid",
+    "collection_list_EcbiRC",
+    "rich_text_yi6rnw",
+    "rich_text_R7QAcU"
+  ]
+}

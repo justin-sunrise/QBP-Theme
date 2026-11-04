@@ -1,0 +1,169 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "multicolumn_dQthDb": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_ny4fyc": {
+          "type": "column",
+          "source": "{{ metaobjects.sponsored_riders[\"eric-house\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.sponsored_riders[\"eric-house\"].rider_banner_image.value }}",
+            "title": "{{ metaobjects.sponsored_riders[\"eric-house\"].name.value }}",
+            "text": "<p>{{ metaobjects.sponsored_riders[\"eric-house\"].location.value }}</p>",
+            "link_label": "Meet {{ metaobjects.sponsored_riders[\"eric-house\"].name.value }}",
+            "link": "{{ metaobjects.sponsored_riders[\"eric-house\"].system.url }}"
+          }
+        },
+        "column_9xw8tH": {
+          "type": "column",
+          "source": "{{ metaobjects.sponsored_riders[\"matt-acker\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.sponsored_riders[\"matt-acker\"].profile_image.value }}",
+            "title": "{{ metaobjects.sponsored_riders[\"matt-acker\"].name.value }}",
+            "text": "<p>{{ metaobjects.sponsored_riders[\"matt-acker\"].location.value }}</p>",
+            "link_label": "Meet {{ metaobjects.sponsored_riders[\"matt-acker\"].name.value }}",
+            "link": "{{ metaobjects.sponsored_riders[\"matt-acker\"].system.url }}"
+          }
+        },
+        "column_FQYKjR": {
+          "type": "column",
+          "source": "{{ metaobjects.sponsored_riders[\"jalen-bazile\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.sponsored_riders[\"jalen-bazile\"].profile_image.value }}",
+            "title": "{{ metaobjects.sponsored_riders[\"jalen-bazile\"].name.value }}",
+            "text": "<p>{{ metaobjects.sponsored_riders[\"jalen-bazile\"].location.value }}</p>",
+            "link_label": "Meet {{ metaobjects.sponsored_riders[\"jalen-bazile\"].name.value }}",
+            "link": "{{ metaobjects.sponsored_riders[\"jalen-bazile\"].system.url }}"
+          }
+        },
+        "column_3fCUmz": {
+          "type": "column",
+          "source": "{{ metaobjects.sponsored_riders[\"chelsea-strate\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.sponsored_riders[\"chelsea-strate\"].profile_image.value }}",
+            "title": "{{ metaobjects.sponsored_riders[\"chelsea-strate\"].name.value }}",
+            "text": "<p>{{ metaobjects.sponsored_riders[\"chelsea-strate\"].location.value }}</p>",
+            "link_label": "Meet {{ metaobjects.sponsored_riders[\"chelsea-strate\"].name.value }}",
+            "link": "{{ metaobjects.sponsored_riders[\"chelsea-strate\"].system.url }}"
+          }
+        },
+        "column_FeGxnc": {
+          "type": "column",
+          "source": "{{ metaobjects.sponsored_riders[\"jamie-bestwick\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.sponsored_riders[\"jamie-bestwick\"].profile_image.value }}",
+            "title": "{{ metaobjects.sponsored_riders[\"jamie-bestwick\"].name.value }}",
+            "text": "<p>{{ metaobjects.sponsored_riders[\"jamie-bestwick\"].location.value }}</p>",
+            "link_label": "Meet {{ metaobjects.sponsored_riders[\"jamie-bestwick\"].name.value }}",
+            "link": "{{ metaobjects.sponsored_riders[\"jamie-bestwick\"].system.url }}"
+          }
+        },
+        "column_Yc73e6": {
+          "type": "column",
+          "source": "{{ metaobjects.sponsored_riders[\"steve-bate\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.sponsored_riders[\"steve-bate\"].profile_image.value }}",
+            "title": "{{ metaobjects.sponsored_riders[\"steve-bate\"].name.value }}",
+            "text": "<p>{{ metaobjects.sponsored_riders[\"steve-bate\"].location.value }}</p>",
+            "link_label": "Meet {{ metaobjects.sponsored_riders[\"steve-bate\"].name.value }}",
+            "link": "{{ metaobjects.sponsored_riders[\"steve-bate\"].system.url }}"
+          }
+        },
+        "column_GwKf9k": {
+          "type": "column",
+          "source": "{{ metaobjects.sponsored_riders[\"evan-simula\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.sponsored_riders[\"evan-simula\"].profile_image.value }}",
+            "title": "{{ metaobjects.sponsored_riders[\"evan-simula\"].name.value }}",
+            "text": "<p>{{ metaobjects.sponsored_riders[\"evan-simula\"].location.value }}</p>",
+            "link_label": "Meet {{ metaobjects.sponsored_riders[\"evan-simula\"].name.value }}",
+            "link": "{{ metaobjects.sponsored_riders[\"evan-simula\"].system.url }}"
+          }
+        },
+        "column_9kcEGj": {
+          "type": "column",
+          "source": "{{ metaobjects.sponsored_riders[\"hannah-simon\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.sponsored_riders[\"hannah-simon\"].profile_image.value }}",
+            "title": "{{ metaobjects.sponsored_riders[\"hannah-simon\"].name.value }}",
+            "text": "<p>{{ metaobjects.sponsored_riders[\"hannah-simon\"].location.value }}</p>",
+            "link_label": "Meet {{ metaobjects.sponsored_riders[\"hannah-simon\"].name.value }}",
+            "link": "{{ metaobjects.sponsored_riders[\"hannah-simon\"].system.url }}"
+          }
+        },
+        "column_fxzH8B": {
+          "type": "column",
+          "source": "{{ metaobjects.sponsored_riders[\"jill-martindale\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.sponsored_riders[\"jill-martindale\"].profile_image.value }}",
+            "title": "{{ metaobjects.sponsored_riders[\"jill-martindale\"].name.value }}",
+            "text": "<p>{{ metaobjects.sponsored_riders[\"jill-martindale\"].location.value }}</p>",
+            "link_label": "Meet {{ metaobjects.sponsored_riders[\"jill-martindale\"].name.value }}",
+            "link": "{{ metaobjects.sponsored_riders[\"jill-martindale\"].system.url }}"
+          }
+        },
+        "column_bKC7DN": {
+          "type": "column",
+          "source": "{{ metaobjects.sponsored_riders[\"brian-geshel\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.sponsored_riders[\"brian-geshel\"].profile_image.value }}",
+            "title": "{{ metaobjects.sponsored_riders[\"brian-geshel\"].name.value }}",
+            "text": "<p>{{ metaobjects.sponsored_riders[\"brian-geshel\"].location.value }}</p>",
+            "link_label": "Meet {{ metaobjects.sponsored_riders[\"brian-geshel\"].name.value }}",
+            "link": "{{ metaobjects.sponsored_riders[\"brian-geshel\"].system.url }}"
+          }
+        }
+      },
+      "block_order": [
+        "column_ny4fyc",
+        "column_9xw8tH",
+        "column_FQYKjR",
+        "column_3fCUmz",
+        "column_FeGxnc",
+        "column_Yc73e6",
+        "column_GwKf9k",
+        "column_9kcEGj",
+        "column_fxzH8B",
+        "column_bKC7DN"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "content_label": "athlete",
+        "columns_desktop": 4,
+        "swipe_on_desktop": false,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "multicolumn_dQthDb"
+  ]
+}

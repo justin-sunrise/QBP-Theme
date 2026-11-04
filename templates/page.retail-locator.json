@@ -1,1 +1,135 @@
-{"sections":{"main":{"type":"main-page","disabled":true,"settings":{"padding_top":28,"padding_bottom":28}},"image_banner_GUcNFj":{"type":"image-banner","blocks":{"heading_cCV9RQ":{"type":"heading","settings":{"heading":"{{ page.title }}","heading_size":"h0"}}},"block_order":["heading_cCV9RQ"],"name":"t:sections.image-banner.presets.name","settings":{"image":"shopify:\/\/shop_images\/SAL_PageHeader_AdvByBike.jpg","image_overlay_opacity":40,"image_height":"small","desktop_content_position":"middle-center","show_text_box":false,"desktop_content_alignment":"center","color_scheme":"scheme-3","image_behavior":"none","mobile_content_alignment":"center","stack_images_on_mobile":true,"show_text_below":true}},"rich_text_XtwKHw":{"type":"rich-text","blocks":{"heading_GtyR7C":{"type":"heading","disabled":true,"settings":{"heading":"Adventure by Bike begins at your local Salsa retailer. Find the nearest friendly Salsa shop on the map below.","heading_size":"h2"}},"text_7z9xxe":{"type":"text","settings":{"text":"<p>Adventure by Bike begins at your local Salsa retailer. Find the nearest friendly Salsa shop on the map below.<\/p>"}}},"block_order":["heading_GtyR7C","text_7z9xxe"],"name":"t:sections.rich-text.presets.name","settings":{"desktop_content_position":"center","content_alignment":"center","color_scheme":"","full_width":true,"padding_top":24,"padding_bottom":16}},"custom_liquid_MgXQ78":{"type":"custom-liquid","name":"t:sections.custom-liquid.presets.name","settings":{"custom_liquid":"<div class=\"page-width\">\n<!-- LOCALLY.COM WIDGET EMBED CODE -->\n<div id=\"lcly-button-0\"\n  data-switchlive=\"true\" \n  data-switchlive-impression=\"true\"\n  data-switchlive-impression-id-PL=\"1\"\n  >\n  <a id=\"lcly-link-0\" \n    data-switchlive=\"true\"\n    data-switchlive-mode=\"auto\"\n    data-switchlive-id-PL=\"6\"\n    role=\"button\"\n    href=\"https:\/\/join.locally.com\/for-brands\" target=\"_blank\">\n    Store Locator by Locally\n  <\/a>\n<\/div>\n<script id=\"lcly-script-0\" async><\/script>\n<script id=\"lcly-config-0\">\n  var __lcly_channel_domain_0 = \"locally\";\n  var lcly_config_0 = {\n    \"inline\": \"1\",\n    \"company_id\": \"321748\",\n    \"company_name\": \"Salsa Cycles\"\n  };\n  var lcly_query_0 = Object.keys(lcly_config_0)\n  .reduce(function(a, k) {a.push(encodeURIComponent(k) + '=' \n  + encodeURIComponent((typeof lcly_config_0[k] === 'object' && lcly_config_0[k] !== null)\n  ? JSON.stringify(lcly_config_0[k])  : lcly_config_0[k]));return a;}, []).join('&');\n  var lcly_endpoint_0 = 'https:\/\/Salsa-Cycles.locally.com\/stores\/map.js?' + lcly_query_0;\n  document.getElementById('lcly-script-0').src = lcly_endpoint_0;\n<\/script>\n<\/div>","color_scheme":"","padding_top":52,"padding_bottom":52}}},"order":["main","image_banner_GUcNFj","rich_text_XtwKHw","custom_liquid_MgXQ78"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_bYJAri": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_JnLUFQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Shop Finder",
+            "heading_size": "h0",
+            "make_h1": "yes"
+          }
+        },
+        "text_HeQ3Xx": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        },
+        "buttons_qeXAnx": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_JnLUFQ",
+        "text_HeQ3Xx",
+        "buttons_qeXAnx"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/teravail-store-locator-banner-1920x720.jpg",
+        "image_overlay_opacity": 40,
+        "image_height": "small",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "rich_text_wE94qY": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_RU4fUN": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Talk about your brand",
+            "heading_size": "h1",
+            "make_h1": "no"
+          }
+        },
+        "text_VTRG6f": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Your ride your way: find your local Teravail dealer on the map below.</p>"
+          }
+        },
+        "button_CnbFgT": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_RU4fUN",
+        "text_VTRG6f",
+        "button_CnbFgT"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "custom_liquid_9J8t7q": {
+      "type": "custom-liquid",
+      "name": "Dealer Locations",
+      "settings": {
+        "custom_liquid": "<div class=\"page-width\">\n<!-- LOCALLY.COM WIDGET EMBED CODE -->\n<div id=\"lcly-button-0\"\n  data-switchlive=\"true\" \n  data-switchlive-impression=\"true\"\n  data-switchlive-impression-id-PL=\"1\"\n  >\n  <a id=\"lcly-link-0\" \n    data-switchlive=\"true\"\n    data-switchlive-mode=\"auto\"\n    data-switchlive-id-PL=\"6\"\n    role=\"button\"\n    href=\"https://join.locally.com/for-brands\" target=\"_blank\">\n    Store Locator by Locally\n  </a>\n</div>\n<script id=\"lcly-script-0\" async></script>\n<script id=\"lcly-config-0\">\n  var __lcly_channel_domain_0 = \"locally\";\n  var lcly_config_0 = {\n    \"inline\": \"1\",\n    \"company_id\": \"321805\",\n    \"company_name\": \"Teravail\"\n  };\n  var lcly_query_0 = Object.keys(lcly_config_0)\n  .reduce(function(a, k) {a.push(encodeURIComponent(k) + '=' \n  + encodeURIComponent((typeof lcly_config_0[k] === 'object' && lcly_config_0[k] !== null)\n  ? JSON.stringify(lcly_config_0[k])  : lcly_config_0[k]));return a;}, []).join('&');\n  var lcly_endpoint_0 = 'https://Teravail.locally.com/stores/map.js?' + lcly_query_0;\n  document.getElementById('lcly-script-0').src = lcly_endpoint_0;\n</script>\n</div>",
+        "color_scheme": "",
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_bYJAri",
+    "rich_text_wE94qY",
+    "custom_liquid_9J8t7q"
+  ]
+}

@@ -1,0 +1,204 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "rich_text_w4RxPx": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_HQE3Le": {
+          "type": "heading",
+          "settings": {
+            "heading": "Teravail Technology",
+            "heading_size": "h1",
+            "make_h1": "no"
+          }
+        },
+        "text_R76PCt": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_HQE3Le",
+        "text_R76PCt"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "multicolumn_3na6g4": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_gdTYmf": {
+          "type": "column",
+          "source": "{{ metaobjects.compound[\"grip-plus-compound\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.compound[\"grip-plus-compound\"].icon.value }}",
+            "title": "{{ metaobjects.compound[\"grip-plus-compound\"].title.value }}",
+            "text": "<p>{{ metaobjects.compound[\"grip-plus-compound\"].description | metafield_tag }}</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_73eApD": {
+          "type": "column",
+          "source": "{{ metaobjects.compound[\"grip-compound\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.compound[\"grip-compound\"].icon.value }}",
+            "title": "{{ metaobjects.compound[\"grip-compound\"].title.value }}",
+            "text": "<p>{{ metaobjects.compound[\"grip-compound\"].description | metafield_tag }}</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_jFdGdk": {
+          "type": "column",
+          "source": "{{ metaobjects.compound[\"fast-compound\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.compound[\"fast-compound\"].icon.value }}",
+            "title": "{{ metaobjects.compound[\"fast-compound\"].title.value }}",
+            "text": "<p>{{ metaobjects.compound[\"fast-compound\"].description | metafield_tag }}</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_gdTYmf",
+        "column_73eApD",
+        "column_jFdGdk"
+      ],
+      "settings": {
+        "title": "Compounds",
+        "heading_size": "h2",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "content_label": "compound",
+        "columns_desktop": 3,
+        "swipe_on_desktop": false,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_DWaaz6": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_CjJJK4": {
+          "type": "column",
+          "source": "{{ metaobjects.casting[\"ultra-durable-casing\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.casting[\"ultra-durable-casing\"].icon.value }}",
+            "title": "{{ metaobjects.casting[\"ultra-durable-casing\"].title.value }}",
+            "text": "<p>{{ metaobjects.casting[\"ultra-durable-casing\"].description | metafield_tag }}</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_EKtehG": {
+          "type": "column",
+          "source": "{{ metaobjects.casting[\"durable-plus-casing\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.casting[\"durable-plus-casing\"].icon.value }}",
+            "title": "{{ metaobjects.casting[\"durable-plus-casing\"].title.value }}",
+            "text": "<p>{{ metaobjects.casting[\"durable-plus-casing\"].description | metafield_tag }}</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_gkeCUM": {
+          "type": "column",
+          "source": "{{ metaobjects.casting[\"durable-casing\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.casting[\"durable-casing\"].icon.value }}",
+            "title": "{{ metaobjects.casting[\"durable-casing\"].title.value }}",
+            "text": "<p>{{ metaobjects.casting[\"durable-casing\"].description | metafield_tag }}</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_qfk3wj": {
+          "type": "column",
+          "source": "{{ metaobjects.casting[\"light-trail-casing\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.casting[\"light-trail-casing\"].icon.value }}",
+            "title": "{{ metaobjects.casting[\"light-trail-casing\"].title.value }}",
+            "text": "<p>{{ metaobjects.casting[\"light-trail-casing\"].description | metafield_tag }}</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_hdGHwq": {
+          "type": "column",
+          "source": "{{ metaobjects.casting[\"light-supple-casing\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.casting[\"light-supple-casing\"].icon.value }}",
+            "title": "{{ metaobjects.casting[\"light-supple-casing\"].title.value }}",
+            "text": "<p>{{ metaobjects.casting[\"light-supple-casing\"].description | metafield_tag }}</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_CjJJK4",
+        "column_EKtehG",
+        "column_gkeCUM",
+        "column_qfk3wj",
+        "column_hdGHwq"
+      ],
+      "settings": {
+        "title": "Casings",
+        "heading_size": "h2",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "content_label": "casing",
+        "columns_desktop": 3,
+        "swipe_on_desktop": false,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    }
+  },
+  "order": [
+    "rich_text_w4RxPx",
+    "multicolumn_3na6g4",
+    "multicolumn_DWaaz6",
+    "main"
+  ]
+}

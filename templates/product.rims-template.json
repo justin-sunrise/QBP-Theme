@@ -1,0 +1,609 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_installments": false
+          }
+        },
+        "custom_liquid_aYBBdc": {
+          "type": "custom_liquid",
+          "name": "Free Shipping Indicator",
+          "settings": {
+            "custom_liquid": "{%- liquid\n  assign threshold = 75\n  assign comparison = 'gte'\n  assign qualify_text = '✓ This item ships free'\n  assign show_progress = true\n  assign progress_text = 'Add [amount] more for free shipping'\n  assign qualify_color = '#fff'\n  assign background_color = '#1A7F37'\n  assign progress_color = '#444444'\n  assign progress_background_color = '#e0e0e0'\n  assign font_size = 14\n  assign font_weight = 600\n  assign alignment = 'left'\n  assign margin_top = 8\n  assign margin_bottom = 8\n-%}\n\n{%- if product -%}\n  {%- liquid\n    assign uid = product.id\n    assign threshold_cents = threshold | times: 100 | round\n    assign current_variant = product.selected_or_first_available_variant\n    assign current_price = current_variant.price\n\n    assign current_qualifies = false\n    if comparison == 'gt'\n      if current_price > threshold_cents\n        assign current_qualifies = true\n      endif\n    else\n      if current_price >= threshold_cents\n        assign current_qualifies = true\n      endif\n    endif\n  -%}\n\n  <style>\n    .ai-free-ship-{{ uid }} {\n      display: block;\n      text-align: {{ alignment }};\n      margin-top: {{ margin_top }}px;\n      margin-bottom: {{ margin_bottom }}px;\n      padding: 4px 12px;\n      border-radius: 16px;\n      width: fit-content;\n    }\n    .ai-free-ship__message-{{ uid }} {\n      display: inline-block;\n      font-size: {{ font_size }}px;\n   \n      font-weight: {{ font_weight }};\n      line-height: 1.4;\n      margin: 0;\n    }\n  .ai-free-ship__message-{{ uid }}[data-state=\"qualifies\"] { color: {{ qualify_color }}; }\n    .ai-free-ship__message-{{ uid }}[data-state=\"progress\"] { color: {{ progress_color }}; }\n    .ai-free-ship-{{ uid }}[data-state=\"qualifies\"] { background-color: {{ background_color }}; }\n    .ai-free-ship-{{ uid }}[data-state=\"progress\"] { background-color: {{ progress_background_color }}; }\n  </style>\n\n  <free-shipping-{{ uid }}\n    class=\"ai-free-ship-{{ uid }}\"\n    data-current-variant=\"{{ current_variant.id }}\"\n    data-state=\"{% if current_qualifies %}qualifies{% else %}progress{% endif %}\"\n  >\n    {%- if current_qualifies -%}\n      <p class=\"ai-free-ship__message-{{ uid }}\" data-message data-state=\"qualifies\">\n        {{ qualify_text }}\n      </p>\n    {%- else -%}\n      {%- if show_progress -%}\n        {%- assign remaining_cents = threshold_cents | minus: current_price -%}\n        {%- if comparison == 'gt' -%}\n          {%- assign remaining_cents = remaining_cents | plus: 1 -%}\n        {%- endif -%}\n        {%- assign remaining_money = remaining_cents | money -%}\n        <p class=\"ai-free-ship__message-{{ uid }}\" data-message data-state=\"progress\">\n          {{ progress_text | replace: '[amount]', remaining_money }}\n        </p>\n      {%- else -%}\n        <p class=\"ai-free-ship__message-{{ uid }}\" data-message data-state=\"progress\" style=\"display:none;\"></p>\n      {%- endif -%}\n    {%- endif -%}\n\n    <script type=\"application/json\" data-variant-shipping>\n      {\n        {%- for v in product.variants -%}\n          {%- liquid\n            assign v_qualifies = false\n            if comparison == 'gt'\n              if v.price > threshold_cents\n                assign v_qualifies = true\n              endif\n            else\n              if v.price >= threshold_cents\n                assign v_qualifies = true\n              endif\n            endif\n            assign v_remaining_cents = threshold_cents | minus: v.price\n            if comparison == 'gt'\n              assign v_remaining_cents = v_remaining_cents | plus: 1\n            endif\n            assign v_remaining_money = v_remaining_cents | money\n          -%}\n          \"{{ v.id }}\": {\n            \"qualifies\": {% if v_qualifies %}true{% else %}false{% endif %},\n            \"remaining\": {{ v_remaining_money | json }}\n          }{%- unless forloop.last -%},{%- endunless -%}\n        {%- endfor -%}\n      }\n    </script>\n  </free-shipping-{{ uid }}>\n\n  <script>\n    (function() {\n      if (customElements.get('free-shipping-{{ uid }}')) { return; }\n\n      class FreeShipping{{ uid }} extends HTMLElement {\n        connectedCallback() {\n          this.message = this.querySelector('[data-message]');\n          this.showProgress = {% if show_progress %}true{% else %}false{% endif %};\n          this.progressTemplate = {{ progress_text | json }};\n          this.qualifyText = {{ qualify_text | json }};\n\n          var dataEl = this.querySelector('[data-variant-shipping]');\n          try {\n            this.data = dataEl ? JSON.parse(dataEl.textContent) : {};\n          } catch (e) {\n            this.data = {};\n          }\n\n          this.onChange = this.onChange.bind(this);\n          document.addEventListener('change', this.onChange, true);\n          document.addEventListener('variant:update', this.onChange);\n          document.addEventListener('on:variant:change', this.onChange);\n        }\n\n        disconnectedCallback() {\n          document.removeEventListener('change', this.onChange, true);\n          document.removeEventListener('variant:update', this.onChange);\n          document.removeEventListener('on:variant:change', this.onChange);\n        }\n\n        currentVariantId() {\n          var input = document.querySelector('form[action*=\"/cart/add\"] [name=\"id\"]');\n          if (input && input.value) { return input.value; }\n          return this.dataset.currentVariant;\n        }\n\n        onChange() {\n          var self = this;\n          window.setTimeout(function() { self.render(self.currentVariantId()); }, 0);\n        }\n\n        render(variantId) {\n          if (!this.message) { return; }\n          var info = this.data[variantId];\n          if (!info) { return; }\n          if (info.qualifies) {\n            this.setAttribute('data-state', 'qualifies');\n            this.message.setAttribute('data-state', 'qualifies');\n            this.message.textContent = this.qualifyText;\n            this.message.style.display = '';\n          } else if (this.showProgress) {\n            this.setAttribute('data-state', 'progress');\n            this.message.setAttribute('data-state', 'progress');\n            this.message.textContent = this.progressTemplate.replace('[amount]', info.remaining);\n            this.message.style.display = '';\n          } else {\n            this.setAttribute('data-state', 'progress');\n            this.message.style.display = 'none';\n            this.message.textContent = '';\n          }\n        }\n      }\n\n      customElements.define('free-shipping-{{ uid }}', FreeShipping{{ uid }});\n    })();\n  </script>\n{%- endif -%}"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "square"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true
+          }
+        },
+        "locally_button_rhhThn": {
+          "type": "locally_button",
+          "settings": {
+            "locally_company_id": "321805",
+            "locally_company_name": "Teravail",
+            "locally_button_text": "FIND IT LOCALLY",
+            "locally_color_0": "#B2AAA0",
+            "locally_text_color": "#111921",
+            "locally_color_1": "",
+            "locally_hover_color_0": ""
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        },
+        "text_CkKYjU": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.custom.legal_warning.value }}",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "price",
+        "custom_liquid_aYBBdc",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "locally_button_rhhThn",
+        "description",
+        "share",
+        "text_CkKYjU"
+      ],
+      "custom_css": [
+        ".product__title h1 {text-transform: none;}"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "hide",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "video_F7TKJJ": {
+      "type": "video",
+      "settings": {
+        "heading": "{{ product.title }} in action",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video_url": "{{ product.metafields.custom.product_video.value }}",
+        "cover_image": "{{ product.metafields.custom.product_video_thumbnail.value }}",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 80,
+        "padding_bottom": 36
+      }
+    },
+    "product_collapsable_AcWHwd": {
+      "type": "product-collapsable",
+      "blocks": {
+        "custom_yhAn8H": {
+          "type": "custom",
+          "settings": {
+            "head": "Supportive Documents",
+            "snippet": "documents"
+          }
+        }
+      },
+      "block_order": [
+        "custom_yhAn8H"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "{{ product.title }} Info",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "scheme-29709ecc-3599-4b15-a0aa-8d3f664671a1",
+        "container_color_scheme": "scheme-29709ecc-3599-4b15-a0aa-8d3f664671a1",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "product_specs_table_LzgBtH": {
+      "type": "product-specs-table",
+      "blocks": {
+        "table_row_QDkdfc": {
+          "type": "table_row",
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.front_rear",
+            "metaobject": false,
+            "modal": false
+          }
+        },
+        "table_row_bchWdq": {
+          "type": "table_row",
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.size",
+            "metaobject": false,
+            "modal": false
+          }
+        },
+        "table_row_Vng8J4": {
+          "type": "table_row",
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.rim_material",
+            "metaobject": false,
+            "modal": false
+          }
+        },
+        "table_row_LVMaee": {
+          "type": "table_row",
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.spoke_count",
+            "metaobject": false,
+            "modal": false
+          }
+        },
+        "table_row_TR7bYC": {
+          "type": "table_row",
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.erd",
+            "metaobject": false,
+            "modal": false
+          }
+        },
+        "table_row_mfehxz": {
+          "type": "table_row",
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.inner_rim_width",
+            "metaobject": false,
+            "modal": false
+          }
+        },
+        "table_row_pxmw4M": {
+          "type": "table_row",
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.outer_rim_width",
+            "metaobject": false,
+            "modal": false
+          }
+        },
+        "table_row_M7fgjT": {
+          "type": "table_row",
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.rim_depth",
+            "metaobject": false,
+            "modal": false
+          }
+        },
+        "table_row_B9tmm6": {
+          "type": "table_row",
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.bead",
+            "metaobject": false,
+            "modal": false
+          }
+        },
+        "table_row_9QaVqg": {
+          "type": "table_row",
+          "disabled": true,
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.astm_rating",
+            "metaobject": false,
+            "modal": false
+          }
+        },
+        "table_row_V6d7C8": {
+          "type": "table_row",
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.brake_type",
+            "metaobject": false,
+            "modal": false
+          }
+        },
+        "table_row_NndhEq": {
+          "type": "table_row",
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.recommended_tire_range",
+            "metaobject": false,
+            "modal": false
+          }
+        },
+        "table_row_mwhCi4": {
+          "type": "table_row",
+          "disabled": true,
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.max_psi",
+            "metaobject": false,
+            "modal": false
+          }
+        },
+        "table_row_CNwE74": {
+          "type": "table_row",
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.tire_type",
+            "metaobject": false,
+            "modal": false
+          }
+        },
+        "table_row_UXtq7n": {
+          "type": "table_row",
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.weight",
+            "metaobject": false,
+            "modal": false
+          }
+        }
+      },
+      "block_order": [
+        "table_row_QDkdfc",
+        "table_row_bchWdq",
+        "table_row_Vng8J4",
+        "table_row_LVMaee",
+        "table_row_TR7bYC",
+        "table_row_mfehxz",
+        "table_row_pxmw4M",
+        "table_row_M7fgjT",
+        "table_row_B9tmm6",
+        "table_row_9QaVqg",
+        "table_row_V6d7C8",
+        "table_row_NndhEq",
+        "table_row_mwhCi4",
+        "table_row_CNwE74",
+        "table_row_UXtq7n"
+      ],
+      "settings": {
+        "heading": "Product Specifications",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "tabs": "Drilling",
+        "rows": "Position",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "shoppable_image_z8D9cN": {
+      "type": "shoppable-image",
+      "blocks": {
+        "heading_mHRUV3": {
+          "type": "heading",
+          "settings": {
+            "heading": "Tire Technology",
+            "heading_size": "h1"
+          }
+        },
+        "text_BDCHxW": {
+          "type": "text",
+          "settings": {
+            "text": "<p>{{ product.metafields.custom.hotspot_summary | metafield_tag }}</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_mHRUV3",
+        "text_BDCHxW"
+      ],
+      "settings": {
+        "image": "{{ product.metafields.custom.hotspot_image.value }}",
+        "spot_modal_alignment": "bottom-right",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "section_color_scheme": "scheme-29709ecc-3599-4b15-a0aa-8d3f664671a1",
+        "color_scheme": "scheme-29709ecc-3599-4b15-a0aa-8d3f664671a1",
+        "target_source": "metaobjects",
+        "meta_field": "Button label",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "slideshow_Tba6xj": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_MfLdff": {
+          "type": "slide",
+          "settings": {
+            "image": "{{ product.metafields.custom.action_image_1.value }}",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_9dHD8H": {
+          "type": "slide",
+          "settings": {
+            "image": "{{ product.metafields.custom.action_image_2.value }}",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": true,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_z73y8g": {
+          "type": "slide",
+          "settings": {
+            "image": "{{ product.metafields.custom.action_image_3.value }}",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_wJ33Wa": {
+          "type": "slide",
+          "settings": {
+            "image": "{{ product.metafields.custom.action_image_4.value }}",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_QjMEDV": {
+          "type": "slide",
+          "settings": {
+            "image": "{{ product.metafields.custom.action_image_5.value }}",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_MfLdff",
+        "slide_9dHD8H",
+        "slide_z73y8g",
+        "slide_wJ33Wa",
+        "slide_QjMEDV"
+      ],
+      "settings": {
+        "layout": "grid",
+        "slide_height": "medium",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "complimentary_products_9L8Mti": {
+      "type": "complimentary-products",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "products_per_page": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "enable_quick_add": false,
+        "show_rating": false,
+        "show_features_list": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "show_features_list": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_mDzKht": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_pyNe4e": {
+          "type": "heading",
+          "settings": {
+            "heading": "FAQ",
+            "heading_size": "h2",
+            "make_h1": "no"
+          }
+        },
+        "text_pj9hHM": {
+          "type": "text",
+          "settings": {
+            "text": "<p>{{ product.metafields.custom.faq | metafield_tag }}</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_pyNe4e",
+        "text_pj9hHM"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "rich_text_LLiPbD": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_inCdVr": {
+          "type": "heading",
+          "settings": {
+            "heading": "Warranty InFormation",
+            "heading_size": "h2",
+            "make_h1": "no"
+          }
+        },
+        "text_fahj49": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.custom.warranty_info.value.warranty_info | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "heading_inCdVr",
+        "text_fahj49"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "video_F7TKJJ",
+    "product_collapsable_AcWHwd",
+    "product_specs_table_LzgBtH",
+    "shoppable_image_z8D9cN",
+    "slideshow_Tba6xj",
+    "complimentary_products_9L8Mti",
+    "related-products",
+    "rich_text_mDzKht",
+    "rich_text_LLiPbD"
+  ]
+}

@@ -1,1 +1,173 @@
-{"sections":{"image_banner_GMRqmf":{"type":"image-banner","blocks":{"heading_Wgapyy":{"type":"heading","settings":{"heading":"{{ page.title }}","heading_size":"hxl"}}},"block_order":["heading_Wgapyy"],"settings":{"image":"shopify:\/\/shop_images\/SAL_PageHeader_About.jpg","image_overlay_opacity":40,"image_height":"small","desktop_content_position":"middle-center","show_text_box":false,"desktop_content_alignment":"center","color_scheme":"scheme-3","image_behavior":"none","mobile_content_alignment":"center","stack_images_on_mobile":true,"show_text_below":true}},"main":{"type":"main-page","disabled":true,"settings":{"padding_top":28,"padding_bottom":28}},"rich_text_X4MBBB":{"type":"rich-text","blocks":{"text_ccUagd":{"type":"text","settings":{"text":"{{ page.content }}"}}},"block_order":["text_ccUagd"],"settings":{"desktop_content_position":"center","content_alignment":"left","color_scheme":"","full_width":true,"padding_top":40,"padding_bottom":52}},"collage_jCQRFx":{"type":"collage","blocks":{"image_MKpYqY":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/About_1of3.jpg"}},"image_rWJ3Ty":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/About_2of3.jpg"}},"image_VGQQnP":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/About_3of3.jpg"}}},"block_order":["image_MKpYqY","image_rWJ3Ty","image_VGQQnP"],"settings":{"heading":"","heading_size":"h1","desktop_layout":"left","mobile_layout":"column","card_styles":"product-card-wrapper","color_scheme":"","padding_top":36,"padding_bottom":36}},"multicolumn_GtihV3":{"type":"multicolumn","blocks":{"column_DBeRhQ":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/RAR_Logo_Purple.svg","title":"","text":"","link_label":"Radical Adventure Riders","link":"https:\/\/radicaladventureriders.com\/"}},"column_YRtKN9":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/Salsa_About_Salsa_Supporter_BIOPOC_Bike_Adventure_Grant.png","title":"","text":"","link_label":"BIPOC adventure grant","link":"https:\/\/bikepackingroots.org\/the-bipoc-bike-adventure-grant\/"}},"column_Lnxr4U":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/GetHereGrant-Logo.png","title":"","text":"","link_label":"Get here Grant","link":"https:\/\/www.midsouthgravel.com\/get-here-grant"}}},"block_order":["column_DBeRhQ","column_YRtKN9","column_Lnxr4U"],"settings":{"title":"Salsa is a Proud Sponsor of","heading_size":"h1","image_width":"third","image_ratio":"adapt","content_label":"","columns_desktop":3,"swipe_on_desktop":false,"column_alignment":"center","background_style":"none","button_label":"","button_link":"","color_scheme":"","columns_mobile":"1","swipe_on_mobile":false,"padding_top":36,"padding_bottom":36}},"image_with_text_GeeCC9":{"type":"image-with-text","blocks":{"heading_WbPdec":{"type":"heading","disabled":true,"settings":{"heading":"Image with text","heading_size":"h1"}},"text_6qGBzM":{"type":"text","settings":{"text":"<p>As part of the Quality Bicycle Products (QBP) <a href=\"https:\/\/www.qbp.com\/brands\" target=\"_blank\">family of brands<\/a>, we’re fully invested in its ten-year <a href=\"https:\/\/www.qbp.com\/company\/diversity-inclusion\/10-year-commitment\" target=\"_blank\">Commitment to Inclusion plan<\/a>. Together, we’re working to make our company, community, and the bike industry as a whole more diverse and inviting.<\/p><p>Here are some of the ways we’re making it happen:<\/p><p>To learn more, check out:<a href=\"https:\/\/www.qbp.com\/commitment-to-inclusion\" target=\"_blank\">QBP's Commitment to Inclusion<\/a><\/p>","text_style":"body"}}},"block_order":["heading_WbPdec","text_6qGBzM"],"disabled":true,"settings":{"image":"shopify:\/\/shop_images\/About_Inclusion_1of2.jpg","height":"medium","desktop_image_width":"medium","layout":"text_first","desktop_content_position":"middle","desktop_content_alignment":"left","content_layout":"no-overlap","section_color_scheme":"","color_scheme":"","image_behavior":"none","mobile_content_alignment":"left","padding_top":36,"padding_bottom":36}},"image_with_text_4EqaQ8":{"type":"image-with-text","blocks":{"text_FeMB9q":{"type":"text","settings":{"text":"<ul><li>QBP provides regular employee education and provides regular employee education and training on DEI topics. We’ve also signed the CEO Outdoor Diversity Pledge and the Radical Adventure Riders’ <a href=\"https:\/\/radicaladventureriders.com\/cip\" target=\"_blank\">Cycling Industry Pledge<\/a> as part of our commitment to a better, more-diverse bike world.<\/li><li>Community support – To support our communities, we’re contributing to efforts such as the Bikepacking Roots BIPOC Adventure Grant and and <a href=\"https:\/\/radicaladventureriders.com\/\" target=\"_blank\" title=\"https:\/\/radicaladventureriders.com\/\">Radical Adventure Riders<\/a> mission to support gender inclusivity and racial equity in cycling and the outdoors, as well as providing our employees with more paid volunteer time so they can participate on the local level.<\/li><li>Ongoing initiatives – Internally, we’re addressing any problematic vocabulary used in our brand materials, diversifying our roster of sponsored riders and creative partners, and focusing on telling more inclusive stories.<\/li><\/ul>","text_style":"body"}}},"block_order":["text_FeMB9q"],"settings":{"image":"shopify:\/\/shop_images\/SAL_About_1500x844_0c15baaa-c198-4614-8b7f-ec7a8fc1eea5.jpg","height":"adapt","desktop_image_width":"medium","layout":"image_first","desktop_content_position":"top","desktop_content_alignment":"left","content_layout":"no-overlap","section_color_scheme":"","color_scheme":"","image_behavior":"none","mobile_content_alignment":"left","padding_top":36,"padding_bottom":36}}},"order":["image_banner_GMRqmf","main","rich_text_X4MBBB","collage_jCQRFx","multicolumn_GtihV3","image_with_text_GeeCC9","image_with_text_4EqaQ8"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_GMRqmf": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_Wgapyy": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ page.title }}",
+            "heading_size": "hxl",
+            "make_h1": "yes"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Wgapyy"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/teravail-site-banner_About_Teravail_1920x1080_15a2b7d2-0bd9-4493-b786-6a261ceed0ed.jpg",
+        "image_overlay_opacity": 40,
+        "image_height": "small",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_X4MBBB": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_cNz3qB": {
+          "type": "heading",
+          "settings": {
+            "heading": "Your ride. Your way.",
+            "heading_size": "h2",
+            "make_h1": "no"
+          }
+        },
+        "text_ccUagd": {
+          "type": "text",
+          "settings": {
+            "text": "{{ page.content }}"
+          }
+        }
+      },
+      "block_order": [
+        "heading_cNz3qB",
+        "text_ccUagd"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "collage_jCQRFx": {
+      "type": "collage",
+      "blocks": {
+        "image_MKpYqY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/4261800_TER_About_Webpage_Edits_Image_Left_1600x1387_4e6314ad-7795-4f3b-969e-de05587943e5.jpg"
+          }
+        },
+        "image_rWJ3Ty": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/4261800_TER_About_Webpage_Edits_Image_Right_Top_800x666_8ed36fa4-ae66-4a2b-8a7c-782f7411f7d1.jpg"
+          }
+        },
+        "image_VGQQnP": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/4261800_TER_About_Webpage_Edits_Image_Right_Bottom_800x666_1e880db5-5693-4064-a554-b55037bba7ee.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image_MKpYqY",
+        "image_rWJ3Ty",
+        "image_VGQQnP"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "desktop_layout": "left",
+        "mobile_layout": "column",
+        "card_styles": "product-card-wrapper",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_nCMJ3C": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_CzyjCd": {
+          "type": "heading",
+          "settings": {
+            "heading": "FINDING NEW ROADS SINCE 2015",
+            "heading_size": "h2",
+            "make_h1": "no"
+          }
+        },
+        "text_8makfM": {
+          "type": "text",
+          "settings": {
+            "text": "<p>It all started with a single tire, designed to excel on the courses shaping gravel cycling. The Teravail Cannonball introduced the world to a brand that knew there was way more terrain to touch. Since then, we’ve expanded our lineup with designs informed by real rides and products engineered by people who live and breathe adventure riding. We make the tools, you create the memories.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_CzyjCd",
+        "text_8makfM"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "video_UMYaAa": {
+      "type": "video",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video_url": "https://www.youtube.com/watch?v=LCN_dTPZUJY",
+        "cover_image": "shopify://shop_images/4261800_TER_About_Webpage_Edits_YT_Thumbnail_1920x1080_2b471d69-720b-499e-8d83-716309a0e10a.jpg",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "image_banner_GMRqmf",
+    "main",
+    "rich_text_X4MBBB",
+    "collage_jCQRFx",
+    "rich_text_nCMJ3C",
+    "video_UMYaAa"
+  ]
+}
