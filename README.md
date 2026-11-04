@@ -7,6 +7,7 @@ One Shopify theme (Dawn 15.2.0) shared by the QBP brand stores.
 | `main` | Shared theme code. All development happens here. |
 | `Salsa-Theme` | Connected to the Salsa store through Shopify's GitHub integration. |
 | `Surly-Theme` | Connected to the Surly store through Shopify's GitHub integration. |
+| `Teravail-Theme` | Connected to the Teravail store through Shopify's GitHub integration. |
 
 Every push to `main` runs [`.github/workflows/sync-store-branches.yml`](.github/workflows/sync-store-branches.yml), which merges `main` into each store branch. Shopify then deploys each branch to its store's connected theme.
 

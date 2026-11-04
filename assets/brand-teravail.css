@@ -1,0 +1,29 @@
+/*
+  Teravail brand overrides. Loaded after base.css when Theme settings > Brand > Store brand is "Teravail".
+  Teravail uses the fonts chosen under Theme settings > Typography (no Adobe Typekit kit).
+
+  Section stylesheets load later than this file, so overrides of section CSS
+  are prefixed with "body" to win on specificity.
+*/
+
+/* Embedded media (base.css) */
+iframe {
+  width: 100%;
+}
+
+/* Desktop carousels (component-slider.css) */
+@media screen and (min-width: 750px) {
+  body .slider-active-desktop {
+    scroll-padding-left: 1.5rem;
+  }
+}
+
+/* Product document links (collapsible-content.css) */
+body .document-list-item {
+  color: rgba(var(--color-button-text)) !important;
+}
+
+/* Keep the sale badge visible on sold-out products (section-main-product.css hides it) */
+body .product .price--sold-out.price--on-sale .price__badge-sale {
+  display: inline-block;
+}
