@@ -1,0 +1,282 @@
+<style>
+    .conversion-menu{
+        display: flex;
+        gap: 16px;
+        padding: 8px 16px;
+        justify-content: end;
+    }
+    .conversion-menu-item{
+        border-bottom: 2px solid transparent;
+        cursor: pointer;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        background: none;
+        font-size: 16px;
+    }
+    .conversion-menu-item.active{
+        border-bottom: 2px solid rgb(var(--color-button));
+        font-weight: bold;
+    }
+</style>
+
+<div class="geometry-table-container">
+    <div class="conversion-menu"><button id="metric-switch" class="conversion-menu-item active" onclick="inchesToMm()" aria-selected="true" role="tab" aria-controls="Display Metric">Metric</button><button id="imperial-switch" class="conversion-menu-item" aria-controls="Display Imperial" onclick="mmToInches()" aria-selected="false"  role="tab">Imperial</button></div>
+<div class="geo-table-container">
+<table id="geoTable">
+    <tr>
+        {%  for option in product.options_with_values %}
+            <th scope=“col”>{{ option.name }}</th>
+            {%- for value in option.values -%}
+                <th scope=“col”>{{ value }}</th>
+            {%- endfor -%}
+        {% endfor %}
+    </tr>
+    <tr>
+        <th scope=“row”>A. Effective Top Tube</th>
+        {% for variant in product.variants %}
+            <td>
+                {% for field in variant.metafields.custom.effective_top_tube.value %}
+                <span data-unit="mm">{{ field }}</span>{% unless forloop.last %}-{% endunless %}
+                {% endfor %}
+            </td>
+        {% endfor %}
+    </tr>
+    <tr>
+        <th scope=“row”>B. Stand Over</th>
+        {% for variant in product.variants %}
+            <td>
+                {% for field in variant.metafields.custom.stand_over.value %}
+                <span data-unit="mm">{{ field }}</span>{% unless forloop.last %}-{% endunless %}
+                {% endfor %}
+            </td>
+        {% endfor %}
+    </tr>
+    <tr>
+        <th scope=“row”>C. Reach</th>
+        {% for variant in product.variants %}
+            <td>
+                {% for field in variant.metafields.custom.reach.value %}
+                <span data-unit="mm">{{ field }}</span>{% unless forloop.last %}-{% endunless %}
+                {% endfor %}
+            </td>
+        {% endfor %}
+    </tr>
+    <tr>
+        <th scope=“row”>D. Stack</th>
+        {% for variant in product.variants %}
+            <td>
+                {% for field in variant.metafields.custom.stack.value %}
+                <span data-unit="mm">{{ field }}</span>{% unless forloop.last %}-{% endunless %}
+                {% endfor %}
+            </td>
+        {% endfor %}
+    </tr>
+    <tr>
+        <th scope=“row”>E. Total Seat Tube Length</th>
+        {% for variant in product.variants %}
+            <td>
+                {% for field in variant.metafields.custom.total_seat_tube_length.value %}
+                <span data-unit="mm">{{ field }}</span>{% unless forloop.last %}-{% endunless %}
+                {% endfor %}
+            </td>
+        {% endfor %}
+    </tr>
+    <tr>
+        <th scope=“row”>F. Headtube Length</th>
+        {% for variant in product.variants %}
+            <td>
+                {% for field in variant.metafields.custom.headtube_length.value %}
+                <span data-unit="mm">{{ field }}</span>{% unless forloop.last %}-{% endunless %}
+                {% endfor %}
+            </td>
+        {% endfor %}
+    </tr>
+    <tr>
+        <th scope=“row”>G. Headtube Angle</th>
+        {% for variant in product.variants %}
+            <td>
+                {% for field in variant.metafields.custom.headtube_angle.value %}
+                <div>{{ field }}</div>{% unless forloop.last %}-{% endunless %}
+                {% endfor %}
+            </td>
+        {% endfor %}
+    </tr>
+    <tr>
+        <th scope=“row”>H. Seat Tube Angle</th>
+        {% for variant in product.variants %}
+            <td>
+                {% for field in variant.metafields.custom.seat_tube_angle.value %}
+                <div>{{ field }}</div>{% unless forloop.last %}-{% endunless %}
+                {% endfor %}
+            </td>
+        {% endfor %}
+    </tr>
+    <tr>
+        <th scope=“row”>I. BB Drop</th>
+        {% for variant in product.variants %}
+            <td>
+                {% for field in variant.metafields.custom.bb_drop.value %}
+                <span data-unit="mm">{{ field }}</span>{% unless forloop.last %}-{% endunless %}
+                {% endfor %}
+            </td>
+        {% endfor %}
+    </tr>
+  {% if product.variants[0].metafields.custom.bb_height.value != blank %}
+    <tr>
+        <th scope=“row”>J. BB Height</th>
+        {% for variant in product.variants %}
+            <td>
+                {% for field in variant.metafields.custom.bb_height.value %}
+                <span data-unit="mm">{{ field }}</span>{% unless forloop.last %}-{% endunless %}
+                {% endfor %}
+            </td>
+        {% endfor %}
+    </tr>
+    {% endif %}
+    <tr>
+        <th scope=“row”>K. Chainstay Length</th>
+        {% for variant in product.variants %}
+            <td>
+                {% for field in variant.metafields.custom.chainstay_length.value %}
+                <span data-unit="mm">{{ field }}</span>{% unless forloop.last %}-{% endunless %}
+                {% endfor %}
+            </td>
+        {% endfor %}
+    </tr>
+    <tr>
+        <th scope=“row”>L. Fork Length Axle to Crown</th>
+        {% for variant in product.variants %}
+            <td><span data-unit="mm">{{ variant.metafields.custom.fork_length_axle_to_crown.value }}</span></td>
+        {% endfor %}
+    </tr>
+    <tr>
+        <th scope=“row”>M. Fork Offset</th>
+        {% for variant in product.variants %}
+            <td><span data-unit="mm">{{ variant.metafields.custom.fork_offset.value }}</span></td>
+        {% endfor %}
+    </tr>
+    <tr>
+        <th scope=“row”>N. Wheelbase</th>
+        {% for variant in product.variants %}
+            <td>
+                {% for field in variant.metafields.custom.wheelbase.value %}
+                <span data-unit="mm">{{ field }}</span>{% unless forloop.last %}-{% endunless %}
+                {% endfor %}
+            </td>
+        {% endfor %}
+    </tr>
+    <tr>
+        <th scope=“row”>Crank Arm Length</th>
+        {% for variant in product.variants %}
+            <td><span data-unit="mm">{{ variant.metafields.custom.crank_arm_length.value }}</span></td>
+        {% endfor %}
+    </tr>
+    <tr>
+        <th scope=“row”>Handlebar Width</th>
+        {% for variant in product.variants %}
+            <td><span data-unit="handle">{{ variant.metafields.custom.handlebar_width.value }}</span></td>
+        {% endfor %}
+    </tr>
+    <tr>
+        <th scope=“row”>Recommended Rider Height</th>
+        {% for variant in product.variants %}
+            <td>
+                {% for field in variant.metafields.custom.recommended_rider_height.value %}
+                    <span data-unit="cm">{{ field }}</span>{% unless forloop.last %} -{% endunless %}
+                {% endfor %}
+            </td>
+        {% endfor %}
+    </tr>
+    <tr>
+        <th scope=“row”>Stem Length</th>
+        {% for variant in product.variants %}
+            <td><span data-unit="mm">{{ variant.metafields.custom.stem_length.value }}</span></td>
+        {% endfor %}
+    </tr>
+</table>
+</div>
+</div>
+
+<script>
+var spans = [];
+var table = document.getElementById("geoTable");
+var metricSwitch = document.getElementById("metric-switch");
+var imperialSwitch = document.getElementById("imperial-switch");
+
+function mmToInches() {
+    metricSwitch.classList.toggle("active");
+    metricSwitch.setAttribute('aria-selected', 'false');
+   imperialSwitch.setAttribute('aria-selected', 'true');
+    imperialSwitch.classList.toggle("active");
+    if (table) {
+        const rows = table.querySelectorAll('tr'); // Get all rows in the table
+
+        for (const row of rows) {
+            const cells = row.querySelectorAll('td'); // Get all cells in the row
+
+            for (const cell of cells) {
+                const cellSpans = cell.querySelectorAll('span'); // Get all spans in the cell
+
+                for (const span of cellSpans) {
+                    // Get the content of the span element and convert it to a number
+                    
+                    if(span.textContent){
+                      let number = parseFloat(span.textContent);
+                      span.dataset.mmValue = number;
+                      if(span.dataset.unit == 'mm'){
+                        console.log('convert mm')
+                        number /= 25.4;
+                        span.innerHTML = parseFloat(number.toFixed(2))
+                      }
+                      else if(span.dataset.unit == 'handle'){
+                        if(number < 100){
+                            number *= 10;
+                            number /= 2.54;
+                            span.innerHTML = parseFloat(number.toFixed(2))
+                        }
+                      } else {
+                        number /= 2.54;
+                        span.innerHTML = parseFloat(number.toFixed(2))
+                      }
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+function inchesToMm() {
+    metricSwitch.classList.toggle("active");
+    imperialSwitch.classList.toggle("active");
+    metricSwitch.setAttribute('aria-selected', 'true');
+    imperialSwitch.setAttribute('aria-selected', 'false');
+    if (table) {
+        const rows = table.querySelectorAll('tr'); // Get all rows in the table
+
+        for (const row of rows) {
+            const cells = row.querySelectorAll('td'); // Get all cells in the row
+
+            for (const cell of cells) {
+                const cellSpans = cell.querySelectorAll('span'); // Get all spans in the cell
+
+                for (const span of cellSpans) {
+                    // Get the content of the span element and convert it to a number
+                    if(span.textContent){
+                        let number = parseFloat(span.textContent);
+
+                        // Multiply the number by 25.4
+                        // number *= 25.4;
+                        // span.innerHTML = parseFloat(number.toFixed(1))
+                        // console.log('MMs: ',number);
+
+                        span.innerHTML = span.dataset.mmValue;
+                    }
+                }
+            }
+        }
+    }
+}
+
+</script>

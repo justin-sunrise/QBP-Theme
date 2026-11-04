@@ -1,0 +1,363 @@
+<div class="build-kit-container">
+    {% if product.metafields.custom.frameset_frame.value != blank  or product.metafields.custom.frameset_color.value != blank or product.metafields.custom.frameset_fork.value != blank  or product.metafields.custom.frameset_suspension_fork.value != blank or product.metafields.custom.frameset_rear_shock.value != blank %}
+    <h3 class="heading-0-2-241">Frameset</h3>
+    <div class="container-data-list">
+    {% if product.metafields.custom.frameset_frame.value != blank  %}
+        <div class="data-list-row">
+            <p class="table--label">Frame</p>
+            <p>{{ product.metafields.custom.frameset_frame.value }}</p>
+        </div>
+    {% endif %}
+    {% if product.metafields.custom.frameset_color.value != blank  %}
+        <div class="data-list-row">
+            <p class="table--label">Color</p>
+            <p>{{ product.metafields.custom.frameset_color.value }}</p>
+        </div>
+    {% endif %}
+        {% if product.metafields.custom.frameset_fork.value != blank  %}
+        <div class="data-list-row">
+            <p class="table--label">Fork</p>
+            <p>{{ product.metafields.custom.frameset_fork.value }}</p>
+        </div>
+    {% endif %}
+        {% if product.metafields.custom.frameset_suspension_fork.value != blank  %}
+        <div class="data-list-row">
+            <p class="table--label">Suspension Fork</p>
+            <p>{{ product.metafields.custom.frameset_suspension_fork.value }}</p>
+        </div>
+    {% endif %}
+        {% if product.metafields.custom.frameset_rear_shock.value != blank  %}
+        <div class="data-list-row">
+            <p class="table--label">Rear Shock</p>
+            <p>{{ product.metafields.custom.frameset_rear_shock.value }}</p>
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
+    <h3 class="heading-0-2-241">Components</h3>
+    <div class="container-data-list">
+        {% if product.metafields.custom.components_headset.value != blank %}
+        <div class="data-list-row">
+            <p class="table--label">Headset</p>
+            <p>{{ product.metafields.custom.components_headset.value }}</p>
+        </div>
+        {% endif %}
+        {% if product.metafields.custom.components_seatpost_clamp.value != blank %}
+            <div class="data-list-row">
+                <p class="table--label">Seatpost Clamp</p>
+                <p>{{ product.metafields.custom.seatpost_clamp.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.components_seatpost.value != blank %}
+            <div class="data-list-row">
+                <p class="table--label">Seatpost</p>
+                <p>{{ product.metafields.custom.components_seatpost.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.components_stem.value != blank %}
+            <div class="data-list-row">
+                <p class="table--label">Stem</p>
+                <p>{{ product.metafields.custom.components_stem.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.components_grips_bar_tape.value != blank %}
+            <div class="data-list-row">
+                <p class="table--label">Grips/Bar Tape</p>
+                <p>{{ product.metafields.custom.components_grips_bar_tape.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.components_saddle.value != blank %}
+            <div class="data-list-row">
+                <p class="table--label">Saddle</p>
+                <p>{{ product.metafields.custom.components_saddle.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.components_front_rack.value != blank %}
+            <div class="data-list-row">
+                <p class="table--label">Front Rack</p>
+                <p>{{ product.metafields.custom.components_front_rack.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.components_rear_rack.value != blank %}
+            <div class="data-list-row">
+                <p class="table--label">Rear Rack</p>
+                <p>{{ product.metafields.custom.components_rear_rack.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.components_handlebar.value != blank %}
+            <div class="data-list-row">
+                <p class="table--label">Handlebar</p>
+                <p>{{ product.metafields.custom.components_handlebar.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.components_lights_included.value != blank %}
+            <div class="data-list-row">
+                <p class="table--label">Lights Included</p>
+                <p>{{ product.metafields.custom.components_lights_included.value }}</p>
+            </div>
+        {% endif %}
+    </div>
+    <h3 class="heading-0-2-241">Drivetrain</h3>
+    <div class="container-data-list">
+        {% if product.metafields.custom.drivetrain_front_derailleur.value != blank  %}
+        <div class="data-list-row">
+            <p class="table--label">Front Derailleur</p>
+            <p>{{ product.metafields.custom.drivetrain_front_derailleur.value }}</p>
+        </div>
+        {% endif %}
+        {% if product.metafields.custom.drivetrain_rear_derailleur.value != blank  %}
+            <div class="data-list-row">
+                <p class="table--label">Rear Derailleur</p>
+                <p>{{ product.metafields.custom.drivetrain_rear_derailleur.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.drivetrain_chain_guide.value != blank  %}
+            <div class="data-list-row">
+                <p class="table--label">Chain guide</p>
+                <p>{{ product.metafields.custom.drivetrain_chain_guide.value}}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.drivetrain_cassette.value != blank  %}
+            <div class="data-list-row">
+                <p class="table--label">Cassette</p>
+                <p>{{ product.metafields.custom.drivetrain_cassette.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.drivetrain_drive_type.value != blank  %}
+            <div class="data-list-row">
+                <p class="table--label">Drive Type</p>
+                <p>{{ product.metafields.custom.drivetrain_drive_type.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.drivetrain_chain.value != blank  %}
+            <div class="data-list-row">
+                <p class="table--label">Chain</p>
+                <p>{{ product.metafields.custom.drivetrain_chain.value}}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.drivetrain_crankset.value != blank  %}
+            <div class="data-list-row">
+                <p class="table--label">Crankset</p>
+                <p>{{ product.metafields.custom.drivetrain_crankset.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.drivetrain_shifter.value != blank  %}
+            <div class="data-list-row">
+                <p class="table--label">Shifter</p>
+                <p>{{ product.metafields.custom.drivetrain_shifter.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.drivetrain_brake_levers.value != blank  %}
+            <div class="data-list-row">
+                <p class="table--label">Brake Levers</p>
+                <p>{{ product.metafields.custom.drivetrain_brake_levers.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.drivetrain_brake_calipers.value != blank  %}
+            <div class="data-list-row">
+                <p class="table--label">Brake Calipers</p>
+                <p>{{ product.metafields.custom.drivetrain_brake_calipers.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.drivetrain_assist_levels.value != blank  %}
+            <div class="data-list-row">
+                <p class="table--label">Assist Levels</p>
+                <p>{{ product.metafields.custom.drivetrain_assist_levels.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.drivetrain_bottom_bracket.value != blank  %}
+            <div class="data-list-row">
+                <p class="table--label">Bottom Bracket</p>
+                <p>{{ product.metafields.custom.drivetrain_bottom_bracket.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.drivetrain_rotors.value != blank  %}
+            <div class="data-list-row">
+                <p class="table--label">Rotors</p>
+                <p>{{ product.metafields.custom.drivetrain_rotors.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.drivetrain_drive_unit.value != blank  %}
+            <div class="data-list-row">
+                <p class="table--label">Drive Unit</p>
+                <p>{{ product.metafields.custom.drivetrain_drive_unit.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.drivetrain_ebike_classification.value != blank  %}
+            <div class="data-list-row">
+                <p class="table--label">Ebike Classification</p>
+                <p>{{ product.metafields.custom.drivetrain_ebike_classification.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.drivetrain_max_assist_speed.value != blank  %}
+            <div class="data-list-row">
+                <p class="table--label">Max Assist Speed</p>
+                <p>{{ product.metafields.custom.drivetrain_max_assist_speed.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.drivetrain_motor_torque.value != blank  %}
+            <div class="data-list-row">
+                <p class="table--label">Motor Torque</p>
+                <p>{{ product.metafields.custom.drivetrain_motor_torque.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.drivetrain_max_motor_assist.value != blank  %}
+            <div class="data-list-row">
+                <p class="table--label">Max Motor Assist</p>
+                <p>{{ product.metafields.custom.drivetrain_max_motor_assist.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.drivetrain_battery_capacity_watt_hours.value != blank  %}
+            <div class="data-list-row">
+                <p class="table--label">Battery Capacity Watt Hours</p>
+                <p>{{ product.metafields.custom.drivetrain_battery_capacity_watt_hours.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.drivetrain_battery_type.value != blank  %}
+            <div class="data-list-row">
+                <p class="table--label">Battery Type</p>
+                <p>{{ product.metafields.custom.drivetrain_battery_type.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.drivetrain_removable_battery.value != blank  %}
+            <div class="data-list-row">
+                <p class="table--label">Removable Battery</p>
+                <p>{{ product.metafields.custom.drivetrain_removable_battery.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.drivetrain_battery_power_volts.value != blank  %}
+            <div class="data-list-row">
+                <p class="table--label">Battery Power Volts</p>
+                <p>{{ product.metafields.custom.drivetrain_battery_power_volts.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.drivetrain_battery_capacity_amp_hours.value != blank  %}
+            <div class="data-list-row">
+                <p class="table--label">Battery Capacity Amp Hours</p>
+                <p>{{ product.metafields.custom.drivetrain_battery_capacity_amp_hours.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.drivetrain_estimated_charge_time.value != blank  %}
+            <div class="data-list-row">
+                <p class="table--label">Estimated Charge Time</p>
+                <p>{{ product.metafields.custom.drivetrain_estimated_charge_time.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.drivetrain_charger_included.value != blank  %}
+            <div class="data-list-row">
+                <p class="table--label">Charger Included</p>
+                <p>{{ product.metafields.custom.drivetrain_charger_included.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.drivetrain_range_estimate.value != blank  %}
+            <div class="data-list-row">
+                <p class="table--label">Range Estimate</p>
+                <p>{{ product.metafields.custom.drivetrain_range_estimate.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.drivetrain_gross_payload.value != blank  %}
+            <div class="data-list-row">
+                <p class="table--label">Gross Payload</p>
+                <p>{{ product.metafields.custom.drivetrain_gross_payload.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.drivetrain_throttle.value != blank  %}
+            <div class="data-list-row">
+                <p class="table--label">Throttle</p>
+                <p>{{ product.metafields.custom.drivetrain_throttle.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.drivetrain_platform.value != blank  %}
+            <div class="data-list-row">
+                <p class="table--label">Platform</p>
+                <p>{{ product.metafields.custom.drivetrain_platform.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.drivetrain_walk_assist.value != blank  %}
+            <div class="data-list-row">
+                <p class="table--label">Walk Assist</p>
+                <p>{{ product.metafields.custom.drivetrain_walk_assist.value }}</p>
+            </div>
+        {% endif %}
+    </div>
+    <h3 class="heading-0-2-241">Wheels</h3>
+    <div class="container-data-list">
+        {% if product.metafields.custom.wheels_front_wheel.value != blank %}
+        <div class="data-list-row">
+            <p class="table--label">Front Wheel</p>
+            <p>{{ product.metafields.custom.wheels_front_wheel.value }}</p>
+        </div>
+        {% endif %}
+        {% if product.metafields.custom.wheels_rear_wheel.value != blank %}
+            <div class="data-list-row">
+                <p class="table--label">Rear Wheel</p>
+                <p>{{ product.metafields.custom.wheels_rear_wheel.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.wheels_front_tire.value != blank %}
+            <div class="data-list-row">
+                <p class="table--label">Front Tire</p>
+                <p>{{ product.metafields.custom.wheels_front_tire.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.wheels_rear_tire.value != blank %}
+            <div class="data-list-row">
+                <p class="table--label">Rear Tire</p>
+                <p>{{ product.metafields.custom.wheels_rear_tire.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.wheels_front_hub.value != blank %}
+            <div class="data-list-row">
+                <p class="table--label">Front Hub</p>
+                <p>{{ product.metafields.custom.wheels_front_hub.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.wheels_rear_hub.value != blank %}
+            <div class="data-list-row">
+                <p class="table--label">Rear Hub</p>
+                <p>{{ product.metafields.custom.wheels_rear_hub.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.wheels_front_axle.value != blank %}
+            <div class="data-list-row">
+                <p class="table--label">Front Axle</p>
+                <p>{{ product.metafields.custom.wheels_front_axle.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.wheels_rear_axle.value != blank %}
+            <div class="data-list-row">
+                <p class="table--label">Rear Axle</p>
+                <p>{{ product.metafields.custom.wheels_rear_axle.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.wheels_spoke.value != blank %}
+            <div class="data-list-row">
+                <p class="table--label">Spoke</p>
+                <p>{{ product.metafields.custom.wheels_spoke.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.wheels_rim.value != blank %}
+            <div class="data-list-row">
+                <p class="table--label">Rim</p>
+                <p>{{ product.metafields.custom.wheels_rim.value }}</p>
+            </div>
+        {% endif %}
+    </div>
+    {% if product.metafields.custom.weight_complete_bike.value != blank or product.metafields.custom.weight_frame.value != blank %}
+    <h3 class="heading-0-2-241">Weight</h3>
+    <div class="container-data-list">
+        {% if product.metafields.custom.weight_complete_bike.value != blank %}
+            <div class="data-list-row">
+                <p class="table--label">Complete Bike</p>
+                <p>{{ product.metafields.custom.weight_complete_bike.value }}</p>
+            </div>
+        {% endif %}
+        {% if product.metafields.custom.weight_frame.value != blank %}
+            <div class="data-list-row">
+                <p class="table--label">Frame</p>
+                <p>{{ product.metafields.custom.weight_frame.value }}</p>
+            </div>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>

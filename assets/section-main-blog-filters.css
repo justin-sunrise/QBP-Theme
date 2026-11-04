@@ -1,0 +1,171 @@
+  .blog-articles-page-width {
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .blog-with-filters-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .blog-filter {
+    padding: 2.4rem 0;
+    font-size: 1.6rem;
+  }
+
+  .blog-filter li {
+    display:flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 0;
+  }
+
+  .blog-filter li .tag-name-label {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  .mobile-filters-container .blog-filter {
+    padding: 2.4rem 3rem;
+  }
+
+  .blog-filter input[type="checkbox"] {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important
+  }
+
+  .blog-filter .blog-filter-checkbox {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 2px;
+    border: 1px solid var(--Primary_Button, #0D5A5E);
+    background-color: white;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .blog-filter input[type="checkbox"]:checked + .blog-filter-checkbox {
+    background-color: black;
+  }
+
+  .blog-filter input[type="checkbox"]:checked + .blog-filter-checkbox::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    top: 0px;
+    left: 4px;
+  }
+
+
+  .mobile-filters {
+    display:inline-block;
+  }
+
+  .filters-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+  }
+
+  .filters-title span {
+    width: 20px;
+    display: inline-block;
+    height: 20px;
+    margin-left: 5px;
+  }
+
+  .mobile-filters .filters-title {
+    padding: 2rem 0;
+    cursor: pointer;
+  }
+
+  .mobile-filters-container {    
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 200;
+    overflow: auto;
+    background-color: var(--gradient-background);
+  }
+
+  .mobile-filters-container .filters-header {
+    padding: 1rem 3rem;
+    border-bottom: 1px solid;
+    display: flex;
+    font-size: 1.8rem;
+    font-weight: bold;
+    justify-content: space-between;
+    align-items: center
+  }
+
+  .mobile-filters-container .filters-header .close-filters {
+    font-size: 2rem;
+    font-weight: 100;
+    cursor: pointer;
+  }
+
+  .hidden {
+    transform: translateX(100%); /* Starts off-screen to the right */
+    visibility: hidden;
+    transition: transform 0.5s ease-in-out, visibility 0s 0.5s; /* Delay visibility change */
+  }
+
+  .visible {
+    transform: translateX(0); /* Moves into view */
+    visibility: visible;
+    transition: transform 0.5s ease-in-out, visibility 0s; /* No delay for visibility */
+  }
+
+  .tag-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .blog-filters {
+    display: none;
+  }
+
+  @media screen and (min-width: 750px) {
+    .blog-articles-page-width {
+      padding: 0 5rem;
+    }
+
+    .blog-with-filters-container {
+      flex-direction: row;
+    }
+
+    .mobile-filters {
+      display: none;
+    }
+
+    .blog-filters {
+      display: inline-block;
+      width: 40rem;
+    }
+  }
+
+.blog-filter-fieldset{
+  border:none;
+  padding:0px;
+}
