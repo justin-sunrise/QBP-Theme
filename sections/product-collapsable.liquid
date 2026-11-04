@@ -172,6 +172,42 @@
                       </details>
                     </div>
                   {% endif %}
+                  {% if block.settings.snippet == 'prod_specs' %}
+                    <div class="accordion{% if section.settings.layout == 'row' %} content-container color-{{ section.settings.container_color_scheme }} gradient{% endif %}" {{ block.shopify_attributes }}>
+                      <details
+                        id="Details-{{ block.id }}-{{ section.id }}"
+                        {% if section.settings.open_first_collapsible_row and forloop.first %}
+                        open
+                        {% endif %}>
+                        <summary id="Summary-{{ block.id }}-{{ section.id }}" role="tab">
+                          <h3 class="accordion__title inline-richtext h4">
+                            {{ block.settings.head | default: block.settings.page.title | escape }}
+                          </h3>
+                          {{- 'icon-caret.svg' | inline_asset_content -}}
+                        </summary>
+                        <div
+                          class="accordion__content rte"
+                          id="CollapsibleAccordion-{{ block.id }}-{{ section.id }}"
+                          role="tabpanel"
+                          aria-labelledby="Summary-{{ block.id }}-{{ section.id }}">
+                          {%- liquid
+                            assign unique_values = ''
+                            for option in product.options_with_values
+                              if option.name == 'Size'
+                                for value in option.values
+                                  assign sizes = value | split: 'x'
+                                  assign item = sizes | first
+                                  assign unique_values = unique_values | append: item | append: ','
+                                endfor
+                              endif
+                            endfor
+                            assign unique_array = unique_values | split: ','
+                          -%}
+                          {% render 'teravail-spec-table', options_with_values: product.options_with_values, unique_array: unique_array, product_variants: product.variants %}
+                        </div>
+                      </details>
+                    </div>
+                  {% endif %}
                   {% if block.settings.snippet == 'frame-spec' %}
                     <div class="accordion{% if section.settings.layout == 'row' %} content-container color-{{ section.settings.container_color_scheme }} gradient{% endif %}" {{ block.shopify_attributes }}>
                       <details
@@ -608,6 +644,10 @@
               {
                 "value": "documents",
                 "label": "Documents List"
+              },
+              {
+                "value": "prod_specs",
+                "label": "Product Specifications"
               },
               {
                 "value": "geometry",

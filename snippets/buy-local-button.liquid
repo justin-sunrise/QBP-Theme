@@ -1,0 +1,128 @@
+{%- comment -%}
+  Buy Local button (buylocalbuynow.com), rendered by the "Buy local button" block in
+  main-product and featured-product. The script only loads on pages that use the block.
+  Shows for products that are not sold online (custom.product_is_sellable false or blank).
+
+  Accepts:
+  - block: {Object} The buy_local_now_button block
+  - product: {Object} Product object
+  - section_id: {String} Section ID, used to keep the container ID unique
+  - initial_variant_only: {Boolean} Start with only the selected variant's barcode instead of all barcodes (optional)
+
+  Usage:
+  {% render 'buy-local-button', block: block, product: product, section_id: section.id, initial_variant_only: true %}
+{%- endcomment -%}
+
+{%- liquid
+  assign gtins = ''
+  assign is_sellable = product.metafields.custom.product_is_sellable.value
+  if is_sellable == false or is_sellable == blank
+    for variant in product.variants
+      if variant.barcode != blank
+        assign gtins = gtins | append: variant.barcode | append: ','
+      endif
+    endfor
+  endif
+
+  assign initial_gtins = gtins
+  assign selected_barcode = product.selected_or_first_available_variant.barcode
+  if initial_variant_only and selected_barcode != blank
+    assign initial_gtins = selected_barcode
+  endif
+
+  assign container_id = 'buy-local-now-' | append: section_id
+  assign label = block.settings.local_now_button_label | default: 'BUY LOCAL'
+-%}
+
+{%- if gtins != blank -%}
+  <div id="{{ container_id }}" class="buy-local-now-container" {{ block.shopify_attributes }}></div>
+  <script>
+    (function () {
+      window.BuyLocal =
+        window.BuyLocal ||
+        function () {
+          this.domain = 'buylocalbuynow.com';
+          this.isInited = false;
+          this.isLoaded = false;
+          this.snipQueue = [];
+          this.snipCount = 0;
+          var d = this;
+          this.load = function (a, b) {
+            try {
+              if (!this.isInited) {
+                a = a || 'https://' + this.domain + '/js/generate_v1.js';
+                b = b || function () {};
+                var c = document.createElement('script');
+                c.type = 'text/javascript';
+                if (c.readyState) {
+                  c.onreadystatechange = function () {
+                    if (c.readyState === 'loaded' || c.readyState === 'complete') {
+                      d.onLoad();
+                    }
+                  };
+                } else {
+                  c.onload = function () {
+                    d.onLoad();
+                  };
+                }
+                c.src = a;
+                document.getElementsByTagName('head')[0].appendChild(c);
+                this.isInited = true;
+              }
+            } catch (e) {
+              console.error('Error loading Buy Local script:', e);
+            }
+          };
+          this.generate = function (a) {
+            try {
+              a.id = this.snipCount++;
+              if (!this.isLoaded) {
+                this.snipQueue.push(a);
+              } else {
+                this.display(a);
+              }
+            } catch (e) {
+              console.error('Error generating Buy Local button:', e);
+            }
+          };
+        };
+      window.BLN = window.BLN || new window.BuyLocal();
+      window.BLN.load();
+
+      var containerId = {{ container_id | json }};
+
+      function generate(gtins) {
+        var container = document.getElementById(containerId);
+        if (!container) return;
+        container.innerHTML = '';
+        window.BLN.generate({
+          accountId: {{ block.settings.buy_local_account_id | default: 80 }},
+          brandId: {{ block.settings.buy_local_brand_id | default: 95 }},
+          supplierId: '',
+          gtins: gtins
+            .map(function (gtin) {
+              return parseInt(gtin, 10);
+            })
+            .filter(function (gtin) {
+              return !isNaN(gtin);
+            }),
+          linkType: 'button',
+          linkText: {{ label | json }},
+          imageSrc: '',
+          css: 'color:{{ block.settings.buy_local_text_color | default: '#111921' }}; background:{{ block.settings.buy_local_background_color | default: '#B2AAA0' }}; font-weight:bold; width:100%; padding:16px; border:none; cursor: pointer; max-width: 44rem; border-radius: var(--buttons-radius-outset);',
+          mode: 'layer',
+          width: 800,
+          height: 600,
+          elementId: containerId,
+        });
+      }
+
+      generate({{ initial_gtins | split: ',' | json }});
+
+      document.addEventListener('change', function (event) {
+        var gtin = event.target && event.target.dataset ? event.target.dataset.gtin : null;
+        if (gtin) generate([gtin]);
+      });
+    })();
+  </script>
+{%- endif -%}
