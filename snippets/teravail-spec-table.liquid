@@ -1,0 +1,320 @@
+<style>
+  /* Style the tab */
+  .tab {
+    overflow: hidden;
+  }
+  
+  /* Style the buttons that are used to open the tab content */
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: rgba(var(--color-button), 1);
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: rgba(var(--color-button), .3);
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    border-top: none;
+    overflow-x: scroll;
+  }
+  .tabcontent {
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+  }
+  .tabcontent table {
+    width: max-content;
+    text-align: left;
+  }
+  .object-title{
+    display:block;
+  }
+  .object-title{
+    text-decoration: underline;
+    border:none;
+    background:none;
+  }
+  .object-title:hover{
+    color:#000;
+    cursor: pointer;
+  }
+  /* Go from zero to full opacity */
+  @keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+  .row-wide{
+    width:180px;
+  }
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    overflow: auto; /* Enable scroll if needed */
+    filter: drop-shadow(4px 5px 10px #000000);
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  .modal-content h4 {
+    margin-bottom: 0px;
+  }
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+</style>
+
+<div class="tab">
+  {% for item in unique_array %}
+    <button class="tablinks" role="tab" onclick="openCity(event, '{{ item | handleize }}')" {% if unique_array.first %} id="defaultOpen"{% endif %}>{{ item }}</button>
+  {% endfor %}
+</div>
+{% for item in unique_array %}
+  <div id="{{ item | handleize }}" class="tabcontent">
+  
+  <table>
+    <tr>
+      <th scope=“col”>Size</th>
+      <th scope=“col”>Casing</th>
+      <th scope=“col”>Color</th>
+      <th scope=“col”>Compound</th>
+      <th scope=“col”>TPI</th>
+      <th scope=“col”>Rim Diameter</th>
+      <th scope=“col”>Rim Width</th>
+      <th scope=“col”>PSI</th>
+      <th scope=“col”>Tubless Compatable</th>
+      <th scope=“col”>Bead</th>
+      <th scope=“col”>Weight</th>
+    </tr>
+    {% for option in options_with_values %}
+      {% if option.name == "Size" %}
+        {% for value in option.values %}
+          {% if value contains item %}
+            {% for optn in options_with_values %}
+              {% if optn.name == "Color" %}
+                {% for val in optn.values %}
+                    <tr>
+                      <td>{{ value }}</td>
+                      {% assign stop_casing = false %}
+                      {% for variant in product_variants %}
+                        {% if variant.options contains value %}
+                          {% unless stop_casing %}
+                          {% assign stop_casing = true %}
+                          <td class="row-wide">
+                            {% if variant.metafields.custom.casting.value != blank %}
+                            <img src="{{ variant.metafields.custom.casting.value.icon | image_url: width: variant.metafields.custom.casting.value.icon.width, height: variant.metafields.custom.casting.value.icon.height }}" alt="{{ variant.metafields.custom.casting.value.title }}" height="40" width="40" /> 
+                            <button class="object-title" onclick="openMod(event, '{{ variant.metafields.custom.casting.value.title | handleize }}')">{{ variant.metafields.custom.casting.value.title }}</button>
+                            <div id="myModal-{{ variant.metafields.custom.casting.value.title | handleize }}" class="modal">
+                              <div class="modal-content">
+                                <button class="close" onclick="closeMod(event, '{{ variant.metafields.custom.casting.value.title | handleize }}')" role="close" aria-label="Close Modal">&times;</button>
+                                <img src="{{ variant.metafields.custom.casting.value.icon | image_url: width: variant.metafields.custom.casting.value.icon.width, height: variant.metafields.custom.casting.value.icon.height }}" alt="{{ variant.metafields.custom.casting.value.title }}" height="40" width="40" />
+                                <h4>{{ variant.metafields.custom.casting.value.title }}</h4>
+                                <p>{{ variant.metafields.custom.casting.value.description }}</p>
+                              </div>
+                            </div>
+                          {% endif %}
+                          </td>
+                          {% endunless %}
+                        {% endif %}
+                      {% endfor %}
+          
+                           <td>
+                            {{ val }}
+                           </td>
+          
+                      {% assign stop_compound = false %}
+                      {% for variant in product_variants %}
+                        {% if variant.options contains value %}
+                          {% unless stop_compound %}
+                          {% assign stop_compound = true %}
+                           <td class="row-wide">
+                            {% if variant.metafields.custom.compound.value != blank %}
+                            <img src="{{ variant.metafields.custom.compound.value.icon | image_url: width: variant.metafields.custom.compound.value.icon.width, height: variant.metafields.custom.compound.value.icon.height }}" alt="{{ variant.metafields.custom.compound.value.title }}" height="40" width="40" /> 
+                            <button class="object-title" onclick="openMod(event, '{{ variant.metafields.custom.compound.value.title | handleize }}')">{{ variant.metafields.custom.compound.value.title }}</button>
+                            <div id="myModal-{{ variant.metafields.custom.compound.value.title | handleize }}" class="modal" role="dialog">
+                              <div class="modal-content">
+                                <button class="close" onclick="closeMod(event, '{{ variant.metafields.custom.compound.value.title | handleize }}')" role="close" aria-label="Close Modal">&times;</button>
+                                <img src="{{ variant.metafields.custom.compound.value.icon | image_url: width: variant.metafields.custom.compound.value.icon.width, height: variant.metafields.custom.compound.value.icon.height }}" alt="{{ variant.metafields.custom.compound.value.title }} icon" height="40" width="40" />
+                                <h4 aria-labelledby="{{ variant.metafields.custom.compound.value.title }}">{{ variant.metafields.custom.compound.value.title }}</h4>
+                                <p>{{ variant.metafields.custom.compound.value.description }}</p>
+                              </div>
+                            </div>
+                            {% endif %}
+                           </td>
+                          {% endunless %}
+                        {% endif %}
+                      {% endfor %}
+                      {% assign stop_tpi = false %}
+                      {% for variant in product_variants %}
+                        {% if variant.options contains value %}
+                          {% unless stop_tpi %}
+                          {% assign stop_tpi = true %}
+                           <td>
+                            {{ variant.metafields.custom.tpi.value }}
+                           </td>
+                          {% endunless %}
+                        {% endif %}
+                      {% endfor %}
+                      {% assign stop_diameter = false %}
+                      {% for variant in product_variants %}
+                        {% if variant.options contains value %}
+                          {% unless stop_diameter %}
+                          {% assign stop_diameter = true %}
+                           <td>
+                            {{ variant.metafields.custom.rim_diameter.value }}
+                           </td>
+                          {% endunless %}
+                        {% endif %}
+                      {% endfor %}
+                      {% assign stop_width = false %}
+                      {% for variant in product_variants %}
+                        {% if variant.options contains value %}
+                          {% unless stop_width %}
+                          {% assign stop_width = true %}
+                           <td>
+                            {{ variant.metafields.custom.rim_width.value }}
+                           </td>
+                          {% endunless %}
+                        {% endif %}
+                      {% endfor %}
+                      {% assign stop_psi = false %}
+                      {% for variant in product_variants %}
+                        {% if variant.options contains value %}
+                          {% unless stop_psi %}
+                          {% assign stop_psi = true %}
+                           <td>
+                            {{ variant.metafields.custom.psi.value }}
+                           </td>
+                          {% endunless %}
+                        {% endif %}
+                      {% endfor %}
+                      {% assign stop_tubeless = false %}
+                      {% for variant in product_variants %}
+                        {% if variant.options contains value %}
+                          {% unless stop_tubeless %}
+                          {% assign stop_tubeless = true %}
+                           <td>
+                             <img src="{{ variant.metafields.custom.tubeless_compatible.value.icon | image_url: width: variant.metafields.custom.tubeless_compatible.value.icon.width, height: variant.metafields.custom.tubeless_compatible.value.icon.height }}" alt="{{ variant.metafields.custom.tubeless_compatible.value.title }}" height="40" width="40" /> 
+                             <p style="margin-top:0;">{{ variant.metafields.custom.tubeless_compatible.value.title.value }}</p>
+                             {% comment %}
+                             <button class="object-title" onclick="openMod(event, '{{ variant.metafields.custom.tubeless_compatible.value.title | handleize }}')">{{ variant.metafields.custom.tubeless_compatible.value.title }}</button>
+                            <div id="myModal-{{ variant.metafields.custom.tubeless_compatible.value.title | handleize }}" class="modal">
+                              <div class="modal-content">
+                                <button class="close" onclick="closeMod(event, '{{ variant.metafields.custom.tubeless_compatible.value.title | handleize }}')" role="close" aria-label="Close Modal">&times;</button>
+                                <img src="{{ variant.metafields.custom.tubeless_compatible.value.icon | image_url: width: variant.metafields.custom.tubeless_compatible.value.icon.width, height: variant.metafields.custom.tubeless_compatible.value.icon.height }}" alt="{{ variant.metafields.custom.tubeless_compatible.value.title }}" height="40" width="40" />
+                                <h4>{{ variant.metafields.custom.tubeless_compatible.value.title }}</h4>
+                                <p>{{ variant.metafields.custom.tubeless_compatible.value.description }}</p>
+                              </div>
+                            </div>
+                            {% endcomment %}
+                           </td>
+                          {% endunless %}
+                        {% endif %}
+                      {% endfor %}
+                      {% assign stop_bead = false %}
+                      {% for variant in product_variants %}
+                        {% if variant.options contains value %}
+                          {% unless stop_bead %}
+                          {% assign stop_bead = true %}
+                           <td>
+                            {{ variant.metafields.custom.bead.value }}
+                           </td>
+                          {% endunless %}
+                        {% endif %}
+                      {% endfor %}
+                      {% assign stop_weight = false %}
+                      {% for variant in product_variants %}
+                        {% if variant.options contains value %}
+                          {% unless stop_weight %}
+                          {% assign stop_weight = true %}
+                           <td>
+                            {{ variant.metafields.custom.weight.value }}
+                           </td>
+                          {% endunless %}
+                        {% endif %}
+                      {% endfor %}
+                  </tr>
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
+           {% endif %}
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+      </table>
+
+  </div>
+{% endfor %}
+
+
+<script>
+  function openCity(evt, cityName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+  
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+  
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+  
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+
+  function openMod(evt, modalName) {
+    console.log(modalName);
+    var modal = document.getElementById('myModal-'+modalName);
+    modal.style.display = "block";
+  }
+
+   function closeMod(evt, modalName) {
+     var modal = document.getElementById('myModal-'+modalName);
+    modal.style.display = "none";
+  }
+
+  document.getElementById("defaultOpen").click();
+</script>
