@@ -23,7 +23,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        branch: [Salsa-Theme, Surly-Theme]
+        branch: [Salsa-Theme, Surly-Theme, Teravail-Theme]
     steps:
       - uses: actions/checkout@v4
         with:

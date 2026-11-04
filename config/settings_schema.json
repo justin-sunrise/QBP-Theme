@@ -17,7 +17,8 @@
         "info": "Loads the matching assets/brand-<store>.css stylesheet.",
         "options": [
           { "value": "salsa", "label": "Salsa" },
-          { "value": "surly", "label": "Surly" }
+          { "value": "surly", "label": "Surly" },
+          { "value": "teravail", "label": "Teravail" }
         ],
         "default": "salsa"
       },
