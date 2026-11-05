@@ -1319,6 +1319,19 @@
         "label": "Enable clearance pricing and Shop Local badges",
         "info": "Uses the variant custom.discount_type and product custom.product_is_sellable metafields. Shows Was/Now clearance pricing, Clearance and Shop Local badges, and marks non-sellable products as sold out.",
         "default": false
+      },
+      {
+        "type": "color",
+        "id": "shop_local_badge_background",
+        "label": "Shop Local badge background",
+        "default": "#336b41"
+      },
+      {
+        "type": "color",
+        "id": "shop_local_badge_text",
+        "label": "Shop Local badge text",
+        "info": "Keep a contrast ratio of at least 4.5:1 with the background.",
+        "default": "#ffffff"
       }
     ]
   },
