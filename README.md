@@ -8,6 +8,8 @@ One Shopify theme (Dawn 15.2.0) shared by the QBP brand stores.
 | `Salsa-Theme` | Connected to the Salsa store through Shopify's GitHub integration. |
 | `Surly-Theme` | Connected to the Surly store through Shopify's GitHub integration. |
 | `Teravail-Theme` | Connected to the Teravail store through Shopify's GitHub integration. |
+| `All-City-Theme` | Connected to the All-City Cycles store (`all-city-cycles-f1hgmwbq`) through Shopify's GitHub integration. |
+| `MSW-Theme` | Connected to the MSW Bikes store (`msw-bikes-pk64zuha`) through Shopify's GitHub integration. |
 | `Surly-Sandbox` | Connected to an unpublished theme in the Surly store, for testing and client review. |
 | `feature/*` | New work, branched from `main`. |
 

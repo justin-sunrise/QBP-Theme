@@ -19,7 +19,9 @@
           { "value": "none", "label": "None" },
           { "value": "salsa", "label": "Salsa" },
           { "value": "surly", "label": "Surly" },
-          { "value": "teravail", "label": "Teravail" }
+          { "value": "teravail", "label": "Teravail" },
+          { "value": "all-city", "label": "All-City Cycles" },
+          { "value": "msw", "label": "MSW Bikes" }
         ],
         "default": "none"
       },

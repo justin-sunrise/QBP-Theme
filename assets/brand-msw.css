@@ -1,0 +1,7 @@
+/*
+  MSW Bikes brand overrides. Loaded after base.css when Theme settings > Brand > Store brand is "MSW Bikes".
+  Add brand-specific CSS here. Prefer theme editor settings for anything a setting already controls.
+
+  Section stylesheets load later than this file, so overrides of section CSS
+  need a higher specificity (for example, prefix the selector with `body`).
+*/
