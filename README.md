@@ -24,7 +24,7 @@ Every push to `main` runs [`.github/workflows/sync-store-branches.yml`](.github/
 | `sections/*-group.json` | **Per store.** Header and footer content. Never overwritten. |
 | `config/markets.json` | **Per store.** Never overwritten. |
 
-The per-store files on `main` are Salsa's and act as a baseline for new stores.
+The per-store files on `main` are a clean starter (Dawn 15.2.0's stock templates, settings and header/footer, with an empty home page) for new stores that have no theme yet. Deleting or changing a template on `main` never touches a store: the sync restores every store's own templates after merging.
 
 ## Rules for shared code
 
@@ -57,8 +57,10 @@ When the client approves, merge the **feature branch** (never the sandbox) into 
 ## Adding a store
 
 1. Add an option to `store_brand` in `config/settings_schema.json` and create `assets/brand-<store>.css`.
-2. Create the store branch from `main`, then replace its templates, `settings_data.json`, section groups and `markets.json` with the store's own (`shopify theme pull --only ...`).
-3. Set `store_brand` and `typekit_kit_id` in that branch's `settings_data.json`. Both default to empty (`none` / blank), which gives plain theme-editor styling and fonts.
+2. Create the store branch from `main`.
+   - **New store (no theme yet):** keep `main`'s clean starter files. The client builds the pages in the theme editor.
+   - **Existing store:** replace its templates, `settings_data.json`, section groups and `markets.json` with the store's own (`shopify theme pull --only ...`).
+3. Optionally set `store_brand` and `typekit_kit_id` in that branch's `settings_data.json` (or later in the theme editor). Both default to empty (`none` / blank), which gives plain theme-editor styling and fonts.
 4. Add the branch to the `matrix.branch` list in the sync workflow.
 5. Connect the branch in Shopify (*Online Store → Themes → Add theme → Connect from GitHub*), review the new theme, then publish.
 
@@ -67,3 +69,5 @@ When the client approves, merge the **feature branch** (never the sandbox) into 
 ```bash
 git config merge.ours.driver true   # needed for .gitattributes when merging main into a store branch by hand
 ```
+
+To merge `main` into a store branch by hand (for example after the sync reports a conflict), use `scripts/merge-main.sh` on that branch, **not** `git merge main`. A plain merge would delete the store's templates that `main` doesn't have.
