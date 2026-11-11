@@ -1,10 +1,71 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
+    "image_banner_YDQgdr": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_KzNzyd": {
+          "type": "heading",
+          "settings": {
+            "heading": "Uh Oh!",
+            "heading_size": "h1"
+          }
+        },
+        "text_rWVYp3": {
+          "type": "text",
+          "settings": {
+            "text": "The page you are looking for seems to be missing.",
+            "text_style": "body"
+          }
+        },
+        "buttons_F7cKd6": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Return Home",
+            "button_link_1": "/",
+            "button_style_secondary_1": false,
+            "button_label_2": "Try Searching",
+            "button_link_2": "/search",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_KzNzyd",
+        "text_rWVYp3",
+        "buttons_F7cKd6"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/pexels-lastly-808465.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "top-left",
+        "show_text_box": true,
+        "show_overlay": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "image_behavior": "ambient",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
     "main": {
-      "type": "main-404"
+      "type": "main-404",
+      "disabled": true,
+      "settings": {}
     }
   },
   "order": [
+    "image_banner_YDQgdr",
     "main"
   ]
 }

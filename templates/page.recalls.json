@@ -1,0 +1,80 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "rich_text_9rbCPN": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_qPt8Cx": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ page.title }}",
+            "heading_size": "h1",
+            "make_h1": "no"
+          }
+        },
+        "text_hK37na": {
+          "type": "text",
+          "settings": {
+            "text": "{{ page.content }}"
+          }
+        }
+      },
+      "block_order": [
+        "heading_qPt8Cx",
+        "text_hK37na"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_J3Gqyi": {
+      "type": "rich-text",
+      "blocks": {
+        "text_MBNCyW": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>For more information, call:</strong><br/><strong>(877) 946-9333</strong><br/><strong>OR</strong><br/><strong>Visit: </strong><a href=\"http://www.surlybikes.com/\"><strong>www.surlybikes.com/</strong></a><br/><strong>Surly Bikes, a wholly-owned brand of Quality Bicycle Products</strong></p><p>* The Consumer Product Safety Commission will monitor the effectiveness of this recall. *</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_MBNCyW"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "rich_text_9rbCPN",
+    "main",
+    "rich_text_J3Gqyi"
+  ]
+}

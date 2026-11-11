@@ -1,4 +1,399 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  "sections": {},
-  "order": []
+  "sections": {
+    "image_banner_JQ7QGP": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_6ajiQx": {
+          "type": "heading",
+          "settings": {
+            "heading": "Winter: We're Here For It",
+            "heading_size": "h1"
+          }
+        },
+        "text_yFxjmr": {
+          "type": "text",
+          "settings": {
+            "text": "Will you join us?",
+            "text_style": "subtitle"
+          }
+        },
+        "buttons_GEVfhe": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Now",
+            "button_link_1": "shopify://collections",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_6ajiQx",
+        "text_yFxjmr",
+        "buttons_GEVfhe"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/45nrth-home-banner-2-3544551-1920x640.jpg",
+        "image_overlay_opacity": 30,
+        "image_height": "medium",
+        "desktop_content_position": "middle-left",
+        "show_text_box": false,
+        "show_overlay": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-4",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "image_banner_MQRJG3": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_Tcqjg3": {
+          "type": "heading",
+          "settings": {
+            "heading": "Winter-Ready Upgrades",
+            "heading_size": "h1"
+          }
+        },
+        "text_MCnJ7b": {
+          "type": "text",
+          "settings": {
+            "text": "Everything you need to stay rolling all winter long",
+            "text_style": "subtitle"
+          }
+        },
+        "buttons_RVMH8g": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Now",
+            "button_link_1": "shopify://products/levitas-rim",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_Tcqjg3",
+        "text_MCnJ7b",
+        "buttons_RVMH8g"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/4198252_45_CY26_Levitas_Rim_Launch_Homepage_Banner_1920x720_1.jpg",
+        "image_overlay_opacity": 30,
+        "image_height": "medium",
+        "desktop_content_position": "middle-left",
+        "show_text_box": false,
+        "show_overlay": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-4",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "image_banner_hLgEzj": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_LDh7nN": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Winter Cyber Sale is Here",
+            "heading_size": "h1"
+          }
+        },
+        "text_kjXzUw": {
+          "type": "text",
+          "settings": {
+            "text": "Winter commuter tires, gloves, apparel, and boots are up to 70% off. Gear up so you can ride in comfort, whatever the weather.",
+            "text_style": "subtitle"
+          }
+        },
+        "buttons_hKdfiD": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop the Sale",
+            "button_link_1": "shopify://products/levitas-rim",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_LDh7nN",
+        "text_kjXzUw",
+        "buttons_hKdfiD"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/4386950_45N_CY26_Cyber_Sale_Banner_Images_Homepage_1920x800_58ca8250-0cdc-49d3-a36d-b04833622e19.jpg",
+        "image_overlay_opacity": 30,
+        "image_height": "medium",
+        "desktop_content_position": "middle-left",
+        "show_text_box": false,
+        "show_overlay": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-4",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": true
+      }
+    },
+    "image_banner_NqYQjK": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_cVFyFm": {
+          "type": "heading",
+          "settings": {
+            "heading": "Up to 60% off",
+            "heading_size": "h1"
+          }
+        },
+        "text_H68tPf": {
+          "type": "text",
+          "settings": {
+            "text": "Boots, tires, jackets, and more",
+            "text_style": "body"
+          }
+        },
+        "buttons_tnzBN4": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop and Save by December 19",
+            "button_link_1": "shopify://collections/cyber-sale",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_cVFyFm",
+        "text_H68tPf",
+        "buttons_tnzBN4"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/3865400_45N_Cyber_Sale_Banner_Images_Homepage_Dark_Blue_1920x800_f982b4f0-d8e1-4e6c-8c75-6a059d8e6321.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-left",
+        "show_text_box": false,
+        "show_overlay": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-4",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "custom_css": [
+        ".title.inline-richtext {font-size: 32px;}"
+      ],
+      "settings": {
+        "title": "Studded Tires. Be Ready For Anything.",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "studded-bike-tires",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "scheme-c393169a-972d-4d4d-a7d4-a41e46d68cd0",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "show_features_list": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "collage_YB3naD": {
+      "type": "collage",
+      "blocks": {
+        "video_tKBary": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "description": "Describe the video"
+          }
+        },
+        "product_6C4KLr": {
+          "type": "product",
+          "settings": {
+            "product": "gravdal-tire",
+            "second_image": true
+          }
+        },
+        "collection_Vz9cGE": {
+          "type": "collection",
+          "settings": {
+            "collection": "footwear"
+          }
+        }
+      },
+      "block_order": [
+        "video_tKBary",
+        "product_6C4KLr",
+        "collection_Vz9cGE"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Multimedia collage",
+        "heading_size": "h2",
+        "desktop_layout": "left",
+        "mobile_layout": "column",
+        "card_styles": "product-card-wrapper",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_Dkz6wG": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_GD7heN": {
+          "type": "heading",
+          "settings": {
+            "heading": "Winter. We're here for it.",
+            "heading_size": "h2",
+            "make_h1": "no"
+          }
+        },
+        "text_RJmhbN": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We believe winter riding is magical. From the quieter trails to the crisp, cold air to the beauty of a new snowfall, we're here for winter and everything that comes with it.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_GD7heN",
+        "text_RJmhbN"
+      ],
+      "custom_css": [
+        ".rich-text__text {max-width: 72rem; margin: auto;}"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-f36279f5-617a-4fe1-a9a0-f22778a44829",
+        "full_width": true,
+        "padding_top": 72,
+        "padding_bottom": 32
+      }
+    },
+    "video_nFPKwr": {
+      "type": "video",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video_url": "https://www.youtube.com/watch?v=5s_bJPQcKu0",
+        "cover_image": "shopify://shop_images/3544551_45N_YT_Thumbnails_WWHFI_1920x1080_aa6b5278-8e9d-49ef-807d-df5ccfab9dea.jpg",
+        "description": "45NRTH Winter We're Here For It YouTube video",
+        "full_width": false,
+        "color_scheme": "scheme-f36279f5-617a-4fe1-a9a0-f22778a44829",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "collection_list_YiMr4V": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_KyTQCh": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "tires"
+          }
+        },
+        "featured_collection_8Md8i6": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "footwear"
+          }
+        },
+        "featured_collection_6WDJ7a": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "apparel"
+          }
+        },
+        "featured_collection_NpVXXd": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "accessories"
+          }
+        },
+        "featured_collection_Lr4Bjr": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "socks"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_KyTQCh",
+        "featured_collection_8Md8i6",
+        "featured_collection_6WDJ7a",
+        "featured_collection_NpVXXd",
+        "featured_collection_Lr4Bjr"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 5,
+        "color_scheme": "",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    }
+  },
+  "order": [
+    "image_banner_JQ7QGP",
+    "image_banner_MQRJG3",
+    "image_banner_hLgEzj",
+    "image_banner_NqYQjK",
+    "featured_collection",
+    "collage_YB3naD",
+    "rich_text_Dkz6wG",
+    "video_nFPKwr",
+    "collection_list_YiMr4V"
+  ]
 }

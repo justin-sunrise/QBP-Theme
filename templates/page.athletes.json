@@ -1,0 +1,198 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_xAVdMc": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_Wn6KXN": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ page.title }}",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Wn6KXN"
+      ],
+      "settings": {
+        "image": "{{ page.metafields.custom.banner_image.value }}",
+        "image_overlay_opacity": 40,
+        "image_height": "medium",
+        "desktop_content_position": "bottom-left",
+        "show_text_box": false,
+        "show_overlay": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-2",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_zkwXz8": {
+      "type": "rich-text",
+      "blocks": {
+        "text_3x6rQe": {
+          "type": "text",
+          "settings": {
+            "text": "{{ page.content }}"
+          }
+        }
+      },
+      "block_order": [
+        "text_3x6rQe"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": false,
+        "padding_top": 8,
+        "padding_bottom": 32
+      }
+    },
+    "multicolumn_ztqAxz": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_pLRRcr": {
+          "type": "column",
+          "source": "{{ metaobjects.sponsored_riders[\"brian-geshel\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.sponsored_riders[\"brian-geshel\"].profile_image.value }}",
+            "title": "{{ metaobjects.sponsored_riders[\"brian-geshel\"].name.value }}",
+            "text": "",
+            "link_label": "View Profile",
+            "link": "{{ metaobjects.sponsored_riders[\"brian-geshel\"].system.url }}"
+          }
+        },
+        "column_zRHWKF": {
+          "type": "column",
+          "source": "{{ metaobjects.sponsored_riders[\"chelsea-strate\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.sponsored_riders[\"chelsea-strate\"].profile_image.value }}",
+            "title": "{{ metaobjects.sponsored_riders[\"chelsea-strate\"].name.value }}",
+            "text": "",
+            "link_label": "View Profile",
+            "link": "{{ metaobjects.sponsored_riders[\"chelsea-strate\"].system.url }}"
+          }
+        },
+        "column_6gzj38": {
+          "type": "column",
+          "source": "{{ metaobjects.sponsored_riders[\"evan-simula\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.sponsored_riders[\"evan-simula\"].profile_image.value }}",
+            "title": "{{ metaobjects.sponsored_riders[\"evan-simula\"].name.value }}",
+            "text": "",
+            "link_label": "View Profile",
+            "link": "{{ metaobjects.sponsored_riders[\"evan-simula\"].system.url }}"
+          }
+        },
+        "column_6XNUkN": {
+          "type": "column",
+          "source": "{{ metaobjects.sponsored_riders[\"jill-martindale\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.sponsored_riders[\"jill-martindale\"].profile_image.value }}",
+            "title": "{{ metaobjects.sponsored_riders[\"jill-martindale\"].name.value }}",
+            "text": "",
+            "link_label": "View Profile",
+            "link": "{{ metaobjects.sponsored_riders[\"jill-martindale\"].system.url }}"
+          }
+        },
+        "column_xTjkwb": {
+          "type": "column",
+          "source": "{{ metaobjects.sponsored_riders[\"matt-acker\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.sponsored_riders[\"matt-acker\"].profile_image.value }}",
+            "title": "{{ metaobjects.sponsored_riders[\"matt-acker\"].name.value }}",
+            "text": "",
+            "link_label": "View Profile",
+            "link": "{{ metaobjects.sponsored_riders[\"matt-acker\"].system.url }}"
+          }
+        },
+        "column_emLEwP": {
+          "type": "column",
+          "source": "{{ metaobjects.sponsored_riders[\"steve-bate\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.sponsored_riders[\"steve-bate\"].profile_image.value }}",
+            "title": "{{ metaobjects.sponsored_riders[\"steve-bate\"].name.value }}",
+            "text": "",
+            "link_label": "View Profile",
+            "link": "{{ metaobjects.sponsored_riders[\"steve-bate\"].system.url }}"
+          }
+        },
+        "column_7dijqy": {
+          "type": "column",
+          "source": "{{ metaobjects.sponsored_riders[\"jalen-bazile\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.sponsored_riders[\"jalen-bazile\"].profile_image.value }}",
+            "title": "{{ metaobjects.sponsored_riders[\"jalen-bazile\"].name.value }}",
+            "text": "",
+            "link_label": "View Profile",
+            "link": "{{ metaobjects.sponsored_riders[\"jalen-bazile\"].system.url }}"
+          }
+        },
+        "column_YHfzNg": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/3866050_45N_CY26_Sponsored_Athletes_Eric_House_Thumbnail_650x460_9bf5a4e2-e38c-45ab-9540-181f6c793314.jpg",
+            "title": "Eric House",
+            "text": "",
+            "link_label": "View Profile",
+            "link": "shopify://metaobjects/sponsored_riders/eric-house"
+          }
+        }
+      },
+      "block_order": [
+        "column_pLRRcr",
+        "column_zRHWKF",
+        "column_6gzj38",
+        "column_6XNUkN",
+        "column_xTjkwb",
+        "column_emLEwP",
+        "column_7dijqy",
+        "column_YHfzNg"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "content_label": "",
+        "columns_desktop": 4,
+        "swipe_on_desktop": false,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "image_banner_xAVdMc",
+    "main",
+    "rich_text_zkwXz8",
+    "multicolumn_ztqAxz"
+  ]
+}

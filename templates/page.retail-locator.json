@@ -1,0 +1,88 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_GMRqmf": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_Wgapyy": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ page.title }}",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Wgapyy"
+      ],
+      "settings": {
+        "image": "{{ page.metafields.custom.banner_image.value }}",
+        "image_overlay_opacity": 40,
+        "image_height": "small",
+        "desktop_content_position": "bottom-left",
+        "show_text_box": false,
+        "show_overlay": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-2",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_X4MBBB": {
+      "type": "rich-text",
+      "blocks": {
+        "text_ccUagd": {
+          "type": "text",
+          "settings": {
+            "text": "{{ page.content }}"
+          }
+        }
+      },
+      "block_order": [
+        "text_ccUagd"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": false,
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    },
+    "custom_liquid_WAHBKz": {
+      "type": "custom-liquid",
+      "name": "Dealer Locations",
+      "settings": {
+        "custom_liquid": "<div class=\"page-width\">\n<!-- LOCALLY.COM WIDGET EMBED CODE -->\n<div id=\"lcly-button-0\"\n  data-switchlive=\"true\" \n  data-switchlive-impression=\"true\"\n  data-switchlive-impression-id-PL=\"1\"\n  >\n  <a id=\"lcly-link-0\" \n    data-switchlive=\"true\"\n    data-switchlive-mode=\"auto\"\n    data-switchlive-id-PL=\"6\"\n    role=\"button\"\n    href=\"https://join.locally.com/for-brands\" target=\"_blank\">\n    Store Locator by Locally\n  </a>\n</div>\n<script id=\"lcly-script-0\" async></script>\n<script id=\"lcly-config-0\">\n  var __lcly_channel_domain_0 = \"locally\";\n  var lcly_config_0 = {\n    \"inline\": \"1\",\n    \"company_id\": \"321747\",\n    \"company_name\": \"45nrth\"\n  };\n  var lcly_query_0 = Object.keys(lcly_config_0)\n  .reduce(function(a, k) {a.push(encodeURIComponent(k) + '=' \n  + encodeURIComponent((typeof lcly_config_0[k] === 'object' && lcly_config_0[k] !== null)\n  ? JSON.stringify(lcly_config_0[k])  : lcly_config_0[k]));return a;}, []).join('&');\n  var lcly_endpoint_0 = 'https://45nrth.locally.com/stores/map.js?' + lcly_query_0;\n  document.getElementById('lcly-script-0').src = lcly_endpoint_0;\n</script>\n</div>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "image_banner_GMRqmf",
+    "main",
+    "rich_text_X4MBBB",
+    "custom_liquid_WAHBKz"
+  ]
+}

@@ -1,0 +1,580 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "inventory_734GiU": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 10,
+            "show_inventory_quantity": false
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true
+          }
+        },
+        "locally_button_UMQpx7": {
+          "type": "locally_button",
+          "settings": {
+            "locally_company_id": "321747",
+            "locally_company_name": "45nrth",
+            "locally_button_text": "",
+            "locally_color_0": "#FF8300",
+            "locally_text_color": "#000000",
+            "locally_color_1": "",
+            "locally_hover_color_0": ""
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "text_V4Admw": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.custom.legal_extended | metafield_tag }}",
+            "text_style": "body"
+          }
+        },
+        "collapsible_tab_RhikU3": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping & Returns",
+            "icon": "none",
+            "content": "<p>Orders of $75 or more pre-tax ship free. All orders under $75 pre-tax carry a $10 flat-rate shipping fee. <a href=\"https://www.45nrth.com/policies/shipping-policy\" title=\"Shipping Policy\">Read the full shipping policy here.</a></p><p>45NRTH offers a 30-day return period on all items ordered directly from 45nrth.com. <a href=\"https://www.45nrth.com/policies/refund-policy\" title=\"Refund Policy\">Read the full return policy here.</a></p>",
+            "page": ""
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "variant_picker",
+        "inventory_734GiU",
+        "quantity_selector",
+        "buy_buttons",
+        "locally_button_UMQpx7",
+        "description",
+        "text_V4Admw",
+        "collapsible_tab_RhikU3",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "hide",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "video_j3XM9w": {
+      "type": "video",
+      "settings": {
+        "heading": "{{ product.title }} in action",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video_url": "{{ product.metafields.custom.product_video.value }}",
+        "cover_image": "{{ product.metafields.custom.product_video_poster.value }}",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "shoppable_image_achxez": {
+      "type": "shoppable-image",
+      "blocks": {
+        "heading_rLtgCa": {
+          "type": "heading",
+          "settings": {
+            "heading": "Tire Features",
+            "heading_size": "h1"
+          }
+        },
+        "text_DWbcYy": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.custom.hotspot_summary | metafield_tag }}",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_rLtgCa",
+        "text_DWbcYy"
+      ],
+      "settings": {
+        "image": "{{ product.metafields.custom.hotspot_image.value }}",
+        "spot_modal_alignment": "bottom-right",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "target_source": "metaobjects",
+        "meta_field": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "product_specs_table_qqrHfz": {
+      "type": "product-specs-table",
+      "blocks": {
+        "table_row_erpHab": {
+          "type": "table_row",
+          "settings": {
+            "value_type": "option",
+            "value": "Size",
+            "metaobject": false,
+            "modal": false
+          }
+        },
+        "table_row_Yx68qz": {
+          "type": "table_row",
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.color",
+            "metaobject": false,
+            "modal": false
+          }
+        },
+        "table_row_XUCzAi": {
+          "type": "table_row",
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.tpi",
+            "metaobject": false,
+            "modal": false
+          }
+        },
+        "table_row_bX9N96": {
+          "type": "table_row",
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.suggested_rim_width",
+            "metaobject": false,
+            "modal": false
+          }
+        },
+        "table_row_TxVwED": {
+          "type": "table_row",
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.psi",
+            "metaobject": false,
+            "modal": false
+          }
+        },
+        "table_row_68VHTN": {
+          "type": "table_row",
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.tubeless_compatible",
+            "metaobject": false,
+            "modal": false
+          }
+        },
+        "table_row_qtPEaf": {
+          "type": "table_row",
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.bead",
+            "metaobject": false,
+            "modal": false
+          }
+        },
+        "table_row_TNjeix": {
+          "type": "table_row",
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.tire_studs",
+            "metaobject": false,
+            "modal": false
+          }
+        },
+        "table_row_k773NG": {
+          "type": "table_row",
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.weight",
+            "metaobject": false,
+            "modal": false
+          }
+        }
+      },
+      "block_order": [
+        "table_row_erpHab",
+        "table_row_Yx68qz",
+        "table_row_XUCzAi",
+        "table_row_bX9N96",
+        "table_row_TxVwED",
+        "table_row_68VHTN",
+        "table_row_qtPEaf",
+        "table_row_TNjeix",
+        "table_row_k773NG"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Product Specifications",
+        "heading_size": "h0",
+        "heading_alignment": "center",
+        "color_scheme": "scheme-c393169a-972d-4d4d-a7d4-a41e46d68cd0",
+        "open_first_collapsible_row": true,
+        "tabs": "Size",
+        "rows": "Color",
+        "padding_top": 32,
+        "padding_bottom": 32
+      }
+    },
+    "spec_table_simple_G4BLMp": {
+      "type": "spec-table-simple",
+      "blocks": {
+        "table_row_NVEwt4": {
+          "type": "table_row",
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.tire_size",
+            "metaobject": false,
+            "modal": false
+          }
+        },
+        "table_row_NpbVYt": {
+          "type": "table_row",
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.color",
+            "metaobject": false,
+            "modal": false
+          }
+        },
+        "table_row_GaUFqJ": {
+          "type": "table_row",
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.tpi",
+            "metaobject": false,
+            "modal": false
+          }
+        },
+        "table_row_4Vp8wz": {
+          "type": "table_row",
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.suggested_rim_width",
+            "metaobject": false,
+            "modal": false
+          }
+        },
+        "table_row_hF4grY": {
+          "type": "table_row",
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.psi",
+            "metaobject": false,
+            "modal": false
+          }
+        },
+        "table_row_eXDfNd": {
+          "type": "table_row",
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.tubeless_compatible",
+            "metaobject": false,
+            "modal": false
+          }
+        },
+        "table_row_zFLXqC": {
+          "type": "table_row",
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.bead",
+            "metaobject": false,
+            "modal": false
+          }
+        },
+        "table_row_yehiRy": {
+          "type": "table_row",
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.tire_studs",
+            "metaobject": false,
+            "modal": false
+          }
+        },
+        "table_row_pWrih4": {
+          "type": "table_row",
+          "settings": {
+            "value_type": "metafield",
+            "value": "custom.weight",
+            "metaobject": false,
+            "modal": false
+          }
+        }
+      },
+      "block_order": [
+        "table_row_NVEwt4",
+        "table_row_NpbVYt",
+        "table_row_GaUFqJ",
+        "table_row_4Vp8wz",
+        "table_row_hF4grY",
+        "table_row_eXDfNd",
+        "table_row_zFLXqC",
+        "table_row_yehiRy",
+        "table_row_pWrih4"
+      ],
+      "settings": {
+        "heading": "Product Specifications",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "color_scheme": "scheme-c393169a-972d-4d4d-a7d4-a41e46d68cd0",
+        "open_first_collapsible_row": false,
+        "tabs": "Size",
+        "rows": "tire_size",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "slideshow_xfK7Rj": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_ckLJbj": {
+          "type": "slide",
+          "settings": {
+            "image": "{{ product.metafields.custom.action_image_1.value }}",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_w8T49P": {
+          "type": "slide",
+          "settings": {
+            "image": "{{ product.metafields.custom.action_image_2.value }}",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_cQiX4K": {
+          "type": "slide",
+          "settings": {
+            "image": "{{ product.metafields.custom.action_image_3.value }}",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_GAnQLN": {
+          "type": "slide",
+          "settings": {
+            "image": "{{ product.metafields.custom.action_image_4.value }}",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_whFdiJ": {
+          "type": "slide",
+          "settings": {
+            "image": "{{ product.metafields.custom.action_image_5.value }}",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_ckLJbj",
+        "slide_w8T49P",
+        "slide_cQiX4K",
+        "slide_GAnQLN",
+        "slide_whFdiJ"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "product_collapsable_ipUPbg": {
+      "type": "product-collapsable",
+      "blocks": {
+        "custom_fxF4de": {
+          "type": "custom",
+          "settings": {
+            "head": "Supportive Documents",
+            "snippet": "documents"
+          }
+        },
+        "collapsible_row_AchYHe": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Warranty",
+            "icon": "none",
+            "row_content": "{{ product.metafields.custom.warranty_info.value.warranty_info | metafield_tag }}",
+            "page": ""
+          }
+        },
+        "collapsible_row_jVh7zy": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "FAQs",
+            "icon": "check_mark",
+            "row_content": "{{ product.metafields.custom.faq | metafield_tag }}",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "custom_fxF4de",
+        "collapsible_row_AchYHe",
+        "collapsible_row_jVh7zy"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "Additional Info",
+        "heading_size": "h2",
+        "heading_alignment": "left",
+        "layout": "none",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "show_features_list": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    }
+  },
+  "order": [
+    "main",
+    "video_j3XM9w",
+    "shoppable_image_achxez",
+    "product_specs_table_qqrHfz",
+    "spec_table_simple_G4BLMp",
+    "slideshow_xfK7Rj",
+    "product_collapsable_ipUPbg",
+    "related-products"
+  ]
+}

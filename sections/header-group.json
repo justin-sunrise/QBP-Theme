@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.header.name",
   "type": "header",
@@ -5,29 +14,66 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
-        "announcement-bar-0": {
+        "announcement_FKxG4r": {
           "type": "announcement",
           "settings": {
-            "text": "Welcome to our store",
+            "text": "Free Standard Shipping On Orders over $75",
+            "link": ""
+          }
+        },
+        "announcement_knFPXJ": {
+          "type": "announcement",
+          "settings": {
+            "text": "Ordering will be temporarily unavailable beginning 10/29. Place your order today to avoid delays.",
+            "link": ""
+          }
+        },
+        "announcement_caAjrr": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "Orders ship within 2 business days. See our shipping policy",
+            "link": "https://www.45nrth.com/policies/shipping-policy"
+          }
+        },
+        "announcement_KWjm9V": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "Order Processing Delays: We are currently experiencing delays in processing orders. Thank you for your patience.",
             "link": ""
           }
         }
       },
       "block_order": [
-        "announcement-bar-0"
-      ]
+        "announcement_FKxG4r",
+        "announcement_knFPXJ",
+        "announcement_caAjrr",
+        "announcement_KWjm9V"
+      ],
+      "settings": {
+        "color_scheme": "scheme-3",
+        "show_line_separator": true,
+        "show_social": false,
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
     },
     "header": {
       "type": "header",
       "settings": {
-        "color_scheme": "scheme-1",
-        "logo_position": "middle-left",
+        "logo_position": "top-center",
         "menu": "main-menu",
-        "menu_type_desktop": "dropdown",
-        "sticky_header_type": "on-scroll-up",
+        "menu_type_desktop": "drawer",
+        "sticky_header_type": "none",
         "show_line_separator": true,
+        "color_scheme": "scheme-2",
+        "menu_color_scheme": "scheme-2",
         "enable_country_selector": true,
         "enable_language_selector": true,
+        "enable_customer_avatar": true,
         "mobile_logo_position": "center",
         "margin_bottom": 0,
         "padding_top": 20,

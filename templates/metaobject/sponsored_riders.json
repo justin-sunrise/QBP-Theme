@@ -1,0 +1,164 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_with_text_z7MV4Y": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_pkEDEp": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ metaobject.name.value }}",
+            "heading_size": "h1"
+          }
+        },
+        "text_dHCVDK": {
+          "type": "text",
+          "settings": {
+            "text": "{{ metaobject.about | metafield_tag }}<p></p><p><strong>FAVORITE, OR MOST NOTABLE, WINTER FAT BIKE ACCOMPLISHMENT OR EXPERIENCE: </strong><br/></p>{{ metaobject.favorite_or_most_notable_experience | metafield_tag }}<p></p><p></p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_pkEDEp",
+        "text_dHCVDK"
+      ],
+      "settings": {
+        "image": "{{ metaobject.rider_banner_image.value }}",
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_Pkk4YA": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_y9WwfA": {
+          "type": "heading",
+          "settings": {
+            "heading": "Favorite Gear",
+            "heading_size": "h2",
+            "make_h1": "no"
+          }
+        },
+        "text_PkG4bL": {
+          "type": "text",
+          "settings": {
+            "text": "<p>{{ metaobject.favorite_tire_description | metafield_tag }}</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_y9WwfA",
+        "text_PkG4bL"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "scheme-6019d050-6317-467d-9997-94d8641fec89",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "featured_product_QyUPJK": {
+      "type": "featured-product",
+      "blocks": {
+        "text_3yGyd3": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_f77kzU": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_mywBVP": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_Ne6gTP": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_6nTUFY": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_Fg9jgE": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true
+          }
+        },
+        "buy_local_now_button_H9XXfe": {
+          "type": "buy_local_now_button",
+          "settings": {
+            "local_now_button_label": "Buy Local"
+          }
+        },
+        "share_UjE7r8": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_3yGyd3",
+        "title_f77kzU",
+        "price_mywBVP",
+        "variant_picker_Ne6gTP",
+        "quantity_selector_6nTUFY",
+        "buy_buttons_Fg9jgE",
+        "buy_local_now_button_H9XXfe",
+        "share_UjE7r8"
+      ],
+      "settings": {
+        "product": "{{ metaobject.favorite_45nrth_piece_of_non_rubber_gear.value }}",
+        "color_scheme": "",
+        "background_image_opacity": 1,
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "image_with_text_z7MV4Y",
+    "rich_text_Pkk4YA",
+    "featured_product_QyUPJK"
+  ]
+}

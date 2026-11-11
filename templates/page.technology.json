@@ -1,0 +1,295 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_XKYJUf": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_RdyyW3": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ page.title }}",
+            "heading_size": "h1"
+          }
+        },
+        "text_pkymjz": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_RdyyW3",
+        "text_pkymjz"
+      ],
+      "settings": {
+        "image": "{{ page.metafields.custom.banner_image.value }}",
+        "image_overlay_opacity": 40,
+        "image_height": "small",
+        "desktop_content_position": "bottom-left",
+        "show_text_box": false,
+        "show_overlay": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "multicolumn_WmrtTr": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_UXECzD": {
+          "type": "column",
+          "source": "{{ metaobjects.technology[\"concave-studs\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.technology[\"concave-studs\"].icon.value }}",
+            "title": "{{ metaobjects.technology[\"concave-studs\"].title.value }}",
+            "text": "<p>{{ metaobjects.technology[\"concave-studs\"].description | metafield_tag }}</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_kBNVp7": {
+          "type": "column",
+          "disabled": true,
+          "source": "{{ metaobjects.technology[\"carbide-aluminum-studs\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.technology[\"carbide-aluminum-studs\"].icon.value }}",
+            "title": "{{ metaobjects.technology[\"carbide-aluminum-studs\"].title.value }}",
+            "text": "{{ metaobjects.technology[\"carbide-aluminum-studs\"].description | metafield_tag }}",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_UfAhWd": {
+          "type": "column",
+          "disabled": true,
+          "source": "{{ metaobjects.technology[\"steel-carbide-studs\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.technology[\"steel-carbide-studs\"].icon.value }}",
+            "title": "{{ metaobjects.technology[\"steel-carbide-studs\"].title.value }}",
+            "text": "{{ metaobjects.technology[\"steel-carbide-studs\"].description | metafield_tag }}",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_PwTfDp": {
+          "type": "column",
+          "source": "{{ metaobjects.technology[\"xl-concave-studs\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.technology[\"xl-concave-studs\"].icon.value }}",
+            "title": "{{ metaobjects.technology[\"xl-concave-studs\"].title.value }}",
+            "text": "{{ metaobjects.technology[\"xl-concave-studs\"].description | metafield_tag }}",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_jACVpc": {
+          "type": "column",
+          "source": "{{ metaobjects.technology[\"aerogel-insulation\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.technology[\"aerogel-insulation\"].icon.value }}",
+            "title": "{{ metaobjects.technology[\"aerogel-insulation\"].title.value }}",
+            "text": "{{ metaobjects.technology[\"aerogel-insulation\"].description | metafield_tag }}",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_fFJrCE": {
+          "type": "column",
+          "source": "{{ metaobjects.technology[\"waterproof-breathable-membrane\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.technology[\"waterproof-breathable-membrane\"].icon.value }}",
+            "title": "{{ metaobjects.technology[\"waterproof-breathable-membrane\"].title.value }}",
+            "text": "{{ metaobjects.technology[\"waterproof-breathable-membrane\"].description | metafield_tag }}",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_UcWfBm": {
+          "type": "column",
+          "source": "{{ metaobjects.technology[\"anti-slip-microglass-rubber\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.technology[\"anti-slip-microglass-rubber\"].icon.value }}",
+            "title": "{{ metaobjects.technology[\"anti-slip-microglass-rubber\"].title.value }}",
+            "text": "{{ metaobjects.technology[\"anti-slip-microglass-rubber\"].description | metafield_tag }}",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_pCbCxe": {
+          "type": "column",
+          "source": "{{ metaobjects.technology.siping }}",
+          "settings": {
+            "image": "{{ metaobjects.technology.siping.icon.value }}",
+            "title": "{{ metaobjects.technology.siping.title.value }}",
+            "text": "{{ metaobjects.technology.siping.description | metafield_tag }}",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_Pnkynx": {
+          "type": "column",
+          "source": "{{ metaobjects.technology[\"merino-wool\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.technology[\"merino-wool\"].icon.value }}",
+            "title": "{{ metaobjects.technology[\"merino-wool\"].title.value }}",
+            "text": "{{ metaobjects.technology[\"merino-wool\"].description | metafield_tag }}",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_gHJwrj": {
+          "type": "column",
+          "source": "{{ metaobjects.technology[\"tubeless-ready\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.technology[\"tubeless-ready\"].icon.value }}",
+            "title": "{{ metaobjects.technology[\"tubeless-ready\"].title.value }}",
+            "text": "{{ metaobjects.technology[\"tubeless-ready\"].description | metafield_tag }}",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_Jwbxnt": {
+          "type": "column",
+          "source": "{{ metaobjects.technology[\"softshell-protection\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.technology[\"softshell-protection\"].icon.value }}",
+            "title": "{{ metaobjects.technology[\"softshell-protection\"].title.value }}",
+            "text": "{{ metaobjects.technology[\"softshell-protection\"].description | metafield_tag }}",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_3Eb6GU": {
+          "type": "column",
+          "source": "{{ metaobjects.technology[\"lightweight-design\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.technology[\"lightweight-design\"].icon.value }}",
+            "title": "{{ metaobjects.technology[\"lightweight-design\"].title.value }}",
+            "text": "{{ metaobjects.technology[\"lightweight-design\"].description | metafield_tag }}",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_mceKE6": {
+          "type": "column",
+          "source": "{{ metaobjects.technology[\"heat-regulating\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.technology[\"heat-regulating\"].icon.value }}",
+            "title": "{{ metaobjects.technology[\"heat-regulating\"].title.value }}",
+            "text": "{{ metaobjects.technology[\"heat-regulating\"].description | metafield_tag }}",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_CHXe8j": {
+          "type": "column",
+          "source": "{{ metaobjects.technology[\"premium-insulation\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.technology[\"premium-insulation\"].icon.value }}",
+            "title": "{{ metaobjects.technology[\"premium-insulation\"].title.value }}",
+            "text": "{{ metaobjects.technology[\"premium-insulation\"].description | metafield_tag }}",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_Ff9aUF": {
+          "type": "column",
+          "source": "{{ metaobjects.technology[\"flat-sole\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.technology[\"flat-sole\"].icon.value }}",
+            "title": "{{ metaobjects.technology[\"flat-sole\"].title.value }}",
+            "text": "{{ metaobjects.technology[\"flat-sole\"].description | metafield_tag }}",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_k4VDJY": {
+          "type": "column",
+          "source": "{{ metaobjects.technology[\"carbon-fiber-outsole\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.technology[\"carbon-fiber-outsole\"].icon.value }}",
+            "title": "{{ metaobjects.technology[\"carbon-fiber-outsole\"].title.value }}",
+            "text": "{{ metaobjects.technology[\"carbon-fiber-outsole\"].description | metafield_tag }}",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_RD6kir": {
+          "type": "column",
+          "source": "{{ metaobjects.technology[\"braced-lugs\"] }}",
+          "settings": {
+            "image": "{{ metaobjects.technology[\"braced-lugs\"].icon.value }}",
+            "title": "{{ metaobjects.technology[\"braced-lugs\"].title.value }}",
+            "text": "{{ metaobjects.technology[\"braced-lugs\"].description | metafield_tag }}",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_UXECzD",
+        "column_kBNVp7",
+        "column_UfAhWd",
+        "column_PwTfDp",
+        "column_jACVpc",
+        "column_fFJrCE",
+        "column_UcWfBm",
+        "column_pCbCxe",
+        "column_Pnkynx",
+        "column_gHJwrj",
+        "column_Jwbxnt",
+        "column_3Eb6GU",
+        "column_mceKE6",
+        "column_CHXe8j",
+        "column_Ff9aUF",
+        "column_k4VDJY",
+        "column_RD6kir"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "content_label": "",
+        "columns_desktop": 3,
+        "swipe_on_desktop": false,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "image_banner_XKYJUf",
+    "main",
+    "multicolumn_WmrtTr"
+  ]
+}

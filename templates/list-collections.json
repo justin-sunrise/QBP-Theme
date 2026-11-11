@@ -1,15 +1,144 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
+    "image_banner_4qzrDV": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_inKeCf": {
+          "type": "heading",
+          "settings": {
+            "heading": "Ebikes",
+            "heading_size": "hxl"
+          }
+        },
+        "text_p9eJbL": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        },
+        "buttons_e9BED9": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "View Bikes",
+            "button_link_1": "shopify://collections/test-bikes",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_inKeCf",
+        "text_p9eJbL",
+        "buttons_e9BED9"
+      ],
+      "disabled": true,
+      "settings": {
+        "image_overlay_opacity": 40,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "show_overlay": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-4",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
     "main": {
       "type": "main-list-collections",
       "settings": {
-        "title": "Collections",
-        "sort": "alphabetical",
-        "image_ratio": "square"
+        "title": "Shop by Category",
+        "sort": "date",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "columns_mobile": "2"
+      }
+    },
+    "divider_Jgt78N": {
+      "type": "divider",
+      "settings": {
+        "image": "shopify://shop_images/Screenshot_2025-04-10_at_1.21.50_PM.png",
+        "image_height": 40,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "color_scheme": "",
+        "line_height": 4,
+        "rotate_degree": 0,
+        "negative_rotate": false,
+        "no_repeat": false
+      }
+    },
+    "rich_text_8Fi63m": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_MmigRd": {
+          "type": "heading",
+          "settings": {
+            "heading": "Want to Learn More?",
+            "heading_size": "h1",
+            "make_h1": "no"
+          }
+        },
+        "text_zzbErx": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Check out the 45NRTH Blog</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_MmigRd",
+        "text_zzbErx"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 32,
+        "padding_bottom": 8
+      }
+    },
+    "featured_blog_fJkFwm": {
+      "type": "featured-blog",
+      "name": "t:sections.featured-blog.presets.name",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "blog": "blog",
+        "post_limit": 3,
+        "columns_desktop": 3,
+        "color_scheme": "scheme-c393169a-972d-4d4d-a7d4-a41e46d68cd0",
+        "show_image": true,
+        "show_date": true,
+        "show_author": false,
+        "show_view_all": true,
+        "filter": "",
+        "padding_top": 12,
+        "padding_bottom": 36
       }
     }
   },
   "order": [
-    "main"
+    "image_banner_4qzrDV",
+    "main",
+    "divider_Jgt78N",
+    "rich_text_8Fi63m",
+    "featured_blog_fJkFwm"
   ]
 }

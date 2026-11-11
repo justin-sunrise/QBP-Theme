@@ -1,53 +1,126 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "divider_rrBWDr": {
+      "type": "divider",
+      "name": "t:sections.divider-section.name",
+      "settings": {
+        "image": "shopify://shop_images/3544551_45N_Shopify_Site_Scandi_Divider_Pattern_785x100_5ec38396-dcfe-47a9-a2e2-b33d0d46ee1a.png",
+        "image_height": 50,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "color_scheme": "",
+        "line_height": 4,
+        "rotate_degree": 0,
+        "negative_rotate": false,
+        "no_repeat": false
+      }
+    },
     "footer": {
       "type": "footer",
       "blocks": {
-        "footer-0": {
+        "image_Va8X9c": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/45NRTH_logo_white_orange.svg",
+            "image_width": 265,
+            "alignment": "",
+            "image_url": "/"
+          }
+        },
+        "link_list_BY3cFR": {
           "type": "link_list",
           "settings": {
-            "heading": "Quick links",
+            "heading": "About Us",
             "menu": "footer"
           }
         },
-        "footer-1": {
+        "link_list_bN89fn": {
           "type": "link_list",
           "settings": {
-            "heading": "Info",
-            "menu": "footer"
+            "heading": "Shop",
+            "menu": "footer-menu-2"
           }
         },
-        "footer-2": {
+        "text_aVaWGK": {
           "type": "text",
           "settings": {
-            "heading": "Our mission",
-            "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>"
+            "heading": "",
+            "subtext": "<p><strong>Unparalleled Cold Weather Performance</strong></p><p><a href=\"/pages/contact\" title=\"Contact\">Contact Us</a></p><ul><li><a href=\"mailto:info@45nrth.com\">info@45nrth.com</a></li><li><a href=\"tel:1-855-450-4545\">855-450-4545</a></li></ul><p><strong>Customer Service Hours:</strong> <br/>12-5pm CST Monday-Friday</p><p>6400 W. 105th Street</p><p>Bloomington, MN 55438</p>"
+          }
+        },
+        "custom_liquid_t8FLtH": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"klaviyo-form-QNEm4A\"></div>"
+          }
+        },
+        "image_JhXmR6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/QBP-Logo.svg",
+            "image_width": 90,
+            "alignment": "right",
+            "image_url": "https://www.qbp.com"
+          }
+        },
+        "image_B7KXmi": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/B-Corp-Logo-Tagline-Lockup-Standards-White-RGB.png",
+            "image_width": 190,
+            "alignment": "right",
+            "image_url": "https://www.qbp.com/b-corp"
+          }
+        },
+        "image_bPkyze": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Reviewed_by_Allyant_for_Accessibility_Badge_Black.svg",
+            "image_width": 95,
+            "alignment": "center",
+            "image_url": ""
           }
         }
       },
       "block_order": [
-        "footer-0",
-        "footer-1",
-        "footer-2"
+        "image_Va8X9c",
+        "link_list_BY3cFR",
+        "link_list_bN89fn",
+        "text_aVaWGK",
+        "custom_liquid_t8FLtH",
+        "image_JhXmR6",
+        "image_B7KXmi",
+        "image_bPkyze"
       ],
       "settings": {
-        "color_scheme": "scheme-1",
-        "newsletter_enable": true,
-        "newsletter_heading": "Subscribe to our emails",
+        "color_scheme": "scheme-2",
+        "newsletter_enable": false,
+        "newsletter_heading": "Get the latest Salsa News!",
+        "enable_follow_on_shop": true,
         "show_social": true,
-        "enable_country_selector": false,
-        "enable_language_selector": false,
+        "enable_country_selector": true,
+        "enable_language_selector": true,
         "payment_enable": true,
-        "show_policy": false,
-        "margin_top": 48,
+        "show_policy": true,
+        "margin_top": 0,
         "padding_top": 36,
         "padding_bottom": 36
       }
     }
   },
   "order": [
+    "divider_rrBWDr",
     "footer"
   ]
 }
