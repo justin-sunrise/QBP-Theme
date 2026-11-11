@@ -1,0 +1,107 @@
+/*
+  45NRTH brand overrides. Loaded after base.css when Theme settings > Brand > Store brand is "45NRTH".
+  Fonts come from the Adobe Typekit kit set in Theme settings > Brand.
+
+  Section stylesheets load later than this file, so overrides of section CSS
+  are prefixed with "body" to win on specificity.
+*/
+
+/* Shopify Dawn Custom Adobe Fonts by codeandtonic.com
+   Only applies when an Adobe Typekit kit ID is set (theme.liquid adds .typekit-fonts);
+   otherwise the fonts chosen under Theme settings > Typography are used. */
+:root.typekit-fonts {
+  --font-heading-family: microgramma-extended, sans-serif !important;
+  --font-heading-weight: 700  !important;
+  --font-body-family: "trade-gothic-next", sans-serif  !important;
+  --font-body-weight: 400  !important;
+}
+
+/* Headings (base.css): H1 uses the heading font, other headings the body font at heading weight */
+h1,
+h2,
+h3,
+h4,
+h5,
+.h0,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+  letter-spacing: .8px;
+  font-family: var(--font-body-family);
+  font-weight: var(--font-heading-weight);
+}
+
+h1,
+.h1 {
+  font-family: var(--font-heading-family);
+  text-transform: uppercase;
+}
+
+.hxl {
+  font-size: calc(var(--font-heading-scale) * 5rem);
+}
+
+@media only screen and (min-width: 750px) {
+  .hxxl {
+    font-size: clamp(calc(var(--font-heading-scale) * 7.6rem), 14vw, calc(var(--font-heading-scale) * 10rem));
+  }
+  .hxl {
+    font-size: calc(var(--font-heading-scale) * 6.2rem);
+  }
+  h1,
+  .h1 {
+    font-size: calc(var(--font-heading-scale) * 4.4rem);
+  }
+}
+
+.subtitle {
+  color: rgba(var(--color-foreground), 1);
+}
+
+/* Desktop carousels (component-slider.css) */
+@media screen and (min-width: 750px) {
+  body .slider-active-desktop {
+    scroll-padding-left: 1.5rem;
+  }
+}
+
+/* Bike geometry and spec tables (collapsible-content.css) */
+body .table--label,
+body .geometry-table-container tr > th:first-child,
+body .geometry-table-container tr > td:first-child {
+  font-weight: 600;
+}
+
+@media screen and (min-width: 750px) {
+  body .geometry-image {
+    width: 60%;
+  }
+  body .geometry-table {
+    width: 100%;
+  }
+  body .bike-geometry {
+    flex-direction: column;
+  }
+}
+
+/* Image banner (section-image-banner.css) */
+body .banner--mobile-bottom .banner__box {
+  padding: 4rem 2.6rem;
+}
+
+/* Keep the sale badge visible on sold-out products (section-main-product.css hides it) */
+body .product .price--sold-out.price--on-sale .price__badge-sale {
+  display: inline-block;
+}
+
+/* Rich text (section-rich-text.css) */
+body .page-width > .rich-text__blocks {
+  max-width: 100%;
+}
+
+/* Divider pattern (sections/divider.liquid) */
+.divider-container .repeat-horizontal {
+  background-size: contain;
+}
