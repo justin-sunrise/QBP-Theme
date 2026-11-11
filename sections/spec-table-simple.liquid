@@ -1,0 +1,531 @@
+{{ 'component-accordion.css' | asset_url | stylesheet_tag }}
+{{ 'collapsible-content.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<style>
+  /* Style the tab */
+  .tab {
+    overflow: hidden;
+  }
+  
+  /* Style the buttons that are used to open the tab content */
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: rgba(var(--color-button), 1);
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: rgba(var(--color-button), .3);
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    border-top: none;
+    overflow-x: scroll;
+  }
+  .tabcontent {
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+  }
+  .tabcontent table {
+    width: max-content;
+    text-align: left;
+  }
+  .object-title{
+    display:block;
+  }
+  .object-title{
+    text-decoration: underline;
+    border:none;
+    background:none;
+  }
+  .object-title:hover{
+    color:#000;
+    cursor: pointer;
+  }
+  /* Go from zero to full opacity */
+  @keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+  .row-wide{
+    width:180px;
+  }
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: absolute; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 80px;
+    width: 100%; /* Full width */
+    overflow: auto; /* Enable scroll if needed */
+    filter: drop-shadow(4px 5px 10px #000000);
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  .modal-content h4 {
+    margin-bottom: 0px;
+  }
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+</style>
+{%- liquid
+ assign unique_values = ""
+ for option in product.options_with_values
+  if option.name == section.settings.tabs
+    for value in option.values
+      assign sizes = value | split: 'x'
+      assign item = sizes | first
+      unless unique_values contains item
+        assign unique_values = unique_values | append: item | append: ","
+      endunless
+     endfor
+   endif
+ endfor
+ assign unique_array = unique_values | split: ","
+-%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="collapsible-content collapsible-{{ section.settings.layout }}-layout isolate{% if section.settings.layout == 'section' %} page-width{% elsif section.settings.layout == 'none' %} content-container content-container--full-width{% endif %}">
+    <div class="collapsible-content-wrapper-narrow section-{{ section.id }}-padding{% if section.settings.layout == 'section' %} content-container color-{{ section.settings.container_color_scheme }} gradient{% endif %}">
+      <div class="">
+        <div class="grid grid--1-col grid--2-col-tablet collapsible-content__grid{% if section.settings.desktop_layout == 'image_second' %} collapsible-content__grid--reverse{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+          <div class="grid__item">
+            
+              <div
+                class="accordion{% if section.settings.layout == 'row' %} content-container color-{{ section.settings.container_color_scheme }} gradient{% endif %}"
+                
+              >
+                <details
+                  id="Details-{{ section.id }}-{{ section.id }}"
+                >
+                  <summary id="Summary-{{ section.id }}-{{ section.id }}">
+                    <h3 class="accordion__title inline-richtext h4">
+                      {{ section.settings.heading | default: section.settings.heading | escape }}
+                    </h3>
+                    {{- 'icon-caret.svg' | inline_asset_content -}}
+                  </summary>
+                  <div
+                    class="accordion__content rte specifications-table-container"
+                    id="CollapsibleAccordion-{{ section.id }}-{{ section.id }}"
+                    role="region"
+                    aria-labelledby="Summary-{{ section.id }}-{{ section.id }}"
+                  >
+                      <div class="tab">
+                        {% for item in unique_array %}
+                          <button class="tablinks" role="tab" onclick="openTab(event, '{{ item | handleize }}')" {% if unique_array.first %} id="defaultOpen"{% endif %}>{{ item }}</button>
+                        {% endfor %}
+                      </div>
+                    {% if product.variants.size > 1 %}
+                      {% for item in unique_array %}
+                        <div id="{{ item | handleize }}" class="tabcontent">
+                            <table>
+                              <tr>
+                                {% for block in section.blocks %}
+                                  {% if block.settings.value_type == 'metafield' %}
+                                    {%- liquid
+                                      if block.settings.value contains '.'
+                                        assign parts = block.settings.value | split: '.'
+                                        assign metafield_name = parts | last
+                                        assign metafield_key = parts | last
+                                        assign metafield_namespace = parts | first
+                                      endif
+                                    -%}
+                                         <th>
+                                           {{ metafield_name | replace: '_', ' ' | upcase }}
+                                         </th>
+                                  {% elsif block.settings.value_type == 'option' %}
+                                      <th>
+                                        {{ block.settings.value | upcase }}
+                                      </th>
+                                  {% endif %}
+                                {% endfor %}
+                              </tr>
+                              {% for variant in product.variants %}
+
+                                          {% if variant.metafields.custom[section.settings.rows].value contains item %}
+                                            <tr data-something="{{ variant.metafields.custom[section.settings.rows].value }}" data-somethingelse="{{ variant.options }}">
+                                              {% for block in section.blocks %}
+                                                {% if block.settings.value_type == 'metafield' %}
+                                                  {%- liquid
+                                                    if block.settings.value contains '.'
+                                                      assign parts = block.settings.value | split: '.'
+                                                      assign metafield_key = parts | last
+                                                      assign metafield_namespace = parts | first
+                                                    endif
+                                                  -%}
+
+                                                        
+                                                       <td {% if block.settings.metaobject %}class="row-wide"{% endif %}>
+                                                        {% if block.settings.metaobject %}
+                                                          {% if block.settings.modal %}
+                                                            {% if  variant.metafields[metafield_namespace][metafield_key] != blank %}
+                                                            <img src="{{ variant.metafields[metafield_namespace][metafield_key].value.icon | image_url: width: variant.metafields[metafield_namespace][metafield_key].value.icon.width, height: variant.metafields[metafield_namespace][metafield_key].value.icon.height }}" alt="{{ variant.metafields[metafield_namespace][metafield_key].value.title }}" height="40" width="40" /> 
+                                                            <button class="object-title" onclick="openMod(event, '{{ variant.metafields[metafield_namespace][metafield_key].value.title | handleize }}')">{{ variant.metafields[metafield_namespace][metafield_key].value.title }}</button>
+                                                            <div id="myModal-{{ variant.metafields[metafield_namespace][metafield_key].value.title | handleize }}" class="modal" role="dialog">
+                                                              <div class="modal-content">
+                                                                <button class="close" onclick="closeMod(event, '{{ variant.metafields[metafield_namespace][metafield_key].value.title | handleize }}')" role="close" aria-label="Close Modal">&times;</button>
+                                                                <img src="{{ variant.metafields[metafield_namespace][metafield_key].value.icon | image_url: width: variant.metafields[metafield_namespace][metafield_key].value.icon.width, height: variant.metafields[metafield_namespace][metafield_key].value.icon.height }}" alt="{{ variant.metafields[metafield_namespace][metafield_key].value.title }} icon" height="40" width="40" />
+                                                                <h4 aria-labelledby="{{ variant.metafields[metafield_namespace][metafield_key].value.title }}">{{ variant.metafields[metafield_namespace][metafield_key].value.title }}</h4>
+                                                                <p>{{ variant.metafields[metafield_namespace][metafield_key].value.description }}</p>
+                                                              </div>
+                                                            </div>
+                                                            {% endif %}
+                                                          {% else %}
+                                                            {% if  variant.metafields[metafield_namespace][metafield_key] != blank %}
+                                                            <img src="{{ variant.metafields[metafield_namespace][metafield_key].value.icon | image_url: width: variant.metafields[metafield_namespace][metafield_key].value.icon.width, height: variant.metafields[metafield_namespace][metafield_key].value.icon.height }}" alt="{{ variant.metafields[metafield_namespace][metafield_key].value.title }}" height="40" width="40" /> 
+                                                            <p style="margin-top:0;">{{ variant.metafields[metafield_namespace][metafield_key].value.title.value }}</p>
+                                                            {% endif %}
+                                                          {% endif %}
+                                                        {% else %}
+                                                          {{ variant.metafields[metafield_namespace][metafield_key].value }}
+                                                        {% endif %}
+                                                       </td>
+                    
+                            
+                                               
+                                                {% endif %}
+                                              {% endfor %}
+                                            </tr>
+                                         {% endif %}
+                              {% endfor %}
+                            </table>
+                        </div>
+                    {% endfor %}
+                    {% else %}
+                      <table>
+                              <tr>
+                                {% for block in section.blocks %}
+                                  {% if block.settings.value_type == 'metafield' %}
+                                    {%- liquid
+                                      if block.settings.value contains '.'
+                                        assign parts = block.settings.value | split: '.'
+                                        assign metafield_name = parts | last
+                                        assign metafield_key = parts | last
+                                        assign metafield_namespace = parts | first
+                                      endif
+                                    -%}
+                                         <th>
+                                           {{ metafield_name | replace: '_', ' ' | upcase }}
+                                         </th>
+                                  {% elsif block.settings.value_type == 'option' %}
+                                      <th>
+                                        {{ block.settings.value | upcase }}
+                                      </th>
+                                  {% endif %}
+                                {% endfor %}
+                              </tr>
+                              {% for variant in product.variants %}
+                                    <tr data-something="{{ variant.metafields.custom[section.settings.rows].value }}" data-somethingelse="{{ variant.options }}">
+                                      {% for block in section.blocks %}
+                                        {% if block.settings.value_type == 'metafield' %}
+                                          {%- liquid
+                                            if block.settings.value contains '.'
+                                              assign parts = block.settings.value | split: '.'
+                                              assign metafield_key = parts | last
+                                              assign metafield_namespace = parts | first
+                                            endif
+                                          -%}    
+                                           <td {% if block.settings.metaobject %}class="row-wide"{% endif %}>
+                                            {% if block.settings.metaobject %}
+                                              {% if block.settings.modal %}
+                                                {% if  variant.metafields[metafield_namespace][metafield_key] != blank %}
+                                                <img src="{{ variant.metafields[metafield_namespace][metafield_key].value.icon | image_url: width: variant.metafields[metafield_namespace][metafield_key].value.icon.width, height: variant.metafields[metafield_namespace][metafield_key].value.icon.height }}" alt="{{ variant.metafields[metafield_namespace][metafield_key].value.title }}" height="40" width="40" /> 
+                                                <button class="object-title" onclick="openMod(event, '{{ variant.metafields[metafield_namespace][metafield_key].value.title | handleize }}')">{{ variant.metafields[metafield_namespace][metafield_key].value.title }}</button>
+                                                <div id="myModal-{{ variant.metafields[metafield_namespace][metafield_key].value.title | handleize }}" class="modal" role="dialog">
+                                                  <div class="modal-content">
+                                                    <button class="close" onclick="closeMod(event, '{{ variant.metafields[metafield_namespace][metafield_key].value.title | handleize }}')" role="close" aria-label="Close Modal">&times;</button>
+                                                    <img src="{{ variant.metafields[metafield_namespace][metafield_key].value.icon | image_url: width: variant.metafields[metafield_namespace][metafield_key].value.icon.width, height: variant.metafields[metafield_namespace][metafield_key].value.icon.height }}" alt="{{ variant.metafields[metafield_namespace][metafield_key].value.title }} icon" height="40" width="40" />
+                                                    <h4 aria-labelledby="{{ variant.metafields[metafield_namespace][metafield_key].value.title }}">{{ variant.metafields[metafield_namespace][metafield_key].value.title }}</h4>
+                                                    <p>{{ variant.metafields[metafield_namespace][metafield_key].value.description }}</p>
+                                                  </div>
+                                                </div>
+                                                {% endif %}
+                                              {% else %}
+                                                {% if  variant.metafields[metafield_namespace][metafield_key] != blank %}
+                                                <img src="{{ variant.metafields[metafield_namespace][metafield_key].value.icon | image_url: width: variant.metafields[metafield_namespace][metafield_key].value.icon.width, height: variant.metafields[metafield_namespace][metafield_key].value.icon.height }}" alt="{{ variant.metafields[metafield_namespace][metafield_key].value.title }}" height="40" width="40" /> 
+                                                <p style="margin-top:0;">{{ variant.metafields[metafield_namespace][metafield_key].value.title.value }}</p>
+                                                {% endif %}
+                                              {% endif %}
+                                            {% else %}
+                                              {{ variant.metafields[metafield_namespace][metafield_key].value }}
+                                            {% endif %}
+                                           </td>
+                                        {% endif %}
+                                      {% endfor %}
+                                    </tr>
+                              {% endfor %}
+                            </table>
+                    {% endif %}
+                  </div>
+                </details>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openTab(evt, tab) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+    
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+  
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+  
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(tab).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+
+  function openMod(evt, modalName) {
+    const container = document.getElementById("Details-{{ section.id }}-{{ section.id }}");
+    const scrollTop = document.getElementById('myModal-'+modalName);
+    var element = document.getElementById("Details-{{ section.id }}-{{ section.id }}");
+    var headerOffset = 45;
+    var elementPosition = element.getBoundingClientRect().top;
+    var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+
+    console.log(modalName);
+    var modal = document.getElementById('myModal-'+modalName);
+    modal.style.display = "block";
+  }
+
+   function closeMod(evt, modalName) {
+     var modal = document.getElementById('myModal-'+modalName);
+     modal.style.display = "none";
+  }
+
+  document.getElementById("defaultOpen").click();
+</script>
+
+{% schema %}
+{
+  "name": "Specification Row Simple",
+  "tag": "section",
+  "class": "section",
+  "enabled_on": {
+        "templates": ["product"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:sections.collapsible_content.settings.heading.label",
+      "default": "t:sections.collapsible_content.settings.heading.default"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "hxxl",
+          "label": "t:sections.all.heading_size.options__5.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "t:sections.collapsible_content.settings.heading_alignment.label",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.collapsible_content.settings.heading_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.collapsible_content.settings.heading_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.collapsible_content.settings.heading_alignment.options__3.label"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_first_collapsible_row",
+      "default": false,
+      "label": "t:sections.collapsible_content.settings.open_first_collapsible_row.label"
+    },
+    {
+      "type": "header",
+      "content": "Section Table Values metafield"
+    },
+    {
+      "type": "text",
+      "id": "tabs",
+      "label": "Vaue to control tab values"
+    },
+    {
+      "type": "text",
+      "id": "rows",
+      "label": "Repeated table row control."
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "table_row",
+      "name": "Specification Row",
+      "settings": [
+        {
+          "type": "select",
+          "id": "value_type",
+          "options": [
+            {
+              "value": "metafield",
+              "label": "Metafield"
+            },
+            {
+              "value": "option",
+              "label": "Product Option"
+            }
+          ],
+          "default": "metafield",
+          "label": "Object Value"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "default": "specification value",
+          "label": "Specification Value",
+          "info": "Enter metafield handle ie custom.value"
+        },
+        {
+          "type": "checkbox",
+          "id": "metaobject",
+          "default": false,
+          "label": "Value is a metaobject"
+        },
+        {
+          "type": "checkbox",
+          "id": "modal",
+          "default": false,
+          "label": "Table Cell needs a pop up for info"
+        },
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Specification Row Simple",
+      "blocks": [
+        {
+          "type": "table_row"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

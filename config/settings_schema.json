@@ -21,7 +21,8 @@
           { "value": "surly", "label": "Surly" },
           { "value": "teravail", "label": "Teravail" },
           { "value": "all-city", "label": "All-City Cycles" },
-          { "value": "msw", "label": "MSW Bikes" }
+          { "value": "msw", "label": "MSW Bikes" },
+          { "value": "45nrth", "label": "45NRTH" }
         ],
         "default": "none"
       },
@@ -1334,6 +1335,13 @@
         "label": "Shop Local badge text",
         "info": "Keep a contrast ratio of at least 4.5:1 with the background.",
         "default": "#ffffff"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_prop65_warning",
+        "label": "Show California Prop 65 warning",
+        "info": "Shows the Prop 65 warning on product pages for products with the custom.legal_warning metafield set.",
+        "default": false
       }
     ]
   },
