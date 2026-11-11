@@ -259,7 +259,8 @@
     },
     "store_brand": "45nrth",
     "typekit_kit_id": "bxh0vdq",
-    "sale_badge_product_pages_only": false
+    "sale_badge_product_pages_only": false,
+    "show_prop65_warning": true
   },
   "presets": {
     "Default": {
