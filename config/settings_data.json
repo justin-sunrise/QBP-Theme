@@ -9,6 +9,8 @@
  */
 {
   "current": {
+    "store_brand": "45nrth",
+    "typekit_kit_id": "bxh0vdq",
     "logo": "shopify://shop_images/45NRTH_logo_white_orange.svg",
     "logo_width": 180,
     "favicon": "shopify://shop_images/45NRTH-Favicon.png",
@@ -108,6 +110,9 @@
     "sale_badge_color_scheme": "scheme-5",
     "sold_out_badge_color_scheme": "scheme-3",
     "sold_out_badge_visibility": "hide",
+    "sale_badge_product_pages_only": false,
+    "enable_clearance_shop_local": true,
+    "show_prop65_warning": true,
     "brand_headline": "",
     "brand_description": "<p></p>",
     "brand_image_width": 100,
@@ -256,11 +261,7 @@
           "shadow": "#000000"
         }
       }
-    },
-    "store_brand": "45nrth",
-    "typekit_kit_id": "bxh0vdq",
-    "sale_badge_product_pages_only": false,
-    "show_prop65_warning": true
+    }
   },
   "presets": {
     "Default": {
