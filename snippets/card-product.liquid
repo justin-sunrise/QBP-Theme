@@ -130,14 +130,16 @@
             if card_product.compare_at_price > card_product.price
               assign on_sale = true
             endif
-            if settings.enable_clearance_shop_local
+            if settings.enable_clearance_shop_local or settings.enable_shop_local_badge
               for variant in card_product.variants
                 if variant.compare_at_price > variant.price
                   assign on_sale = true
                 endif
                 assign discount_type = variant.metafields.custom.discount_type.value
-                if discount_type contains 'Clearance' or discount_type contains 'Final Sale'
-                  assign is_clearance = true
+                if settings.enable_clearance_shop_local
+                  if discount_type contains 'Clearance' or discount_type contains 'Final Sale'
+                    assign is_clearance = true
+                  endif
                 endif
               endfor
             endif
@@ -161,7 +163,7 @@
               </span>
             {%- elsif on_sale or is_clearance -%}
               {%- assign is_sellable = card_product.metafields.custom.product_is_sellable.value -%}
-              {%- if settings.enable_clearance_shop_local == false or is_sellable == true or is_sellable == 'true' -%}
+              {%- if settings.enable_shop_local_badge == false or is_sellable == true or is_sellable == 'true' -%}
                 <span
                   id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
                   class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
@@ -182,7 +184,7 @@
                 </span>
               {%- endif -%}
             {%- endif -%}
-            {% if settings.enable_clearance_shop_local and card_product.metafields.custom.product_is_sellable and card_product.title contains 'frameset' %}
+            {% if settings.enable_shop_local_badge and card_product.metafields.custom.product_is_sellable and card_product.title contains 'frameset' %}
               <span>Available Online!</span>
             {% endif %}
           </div>
