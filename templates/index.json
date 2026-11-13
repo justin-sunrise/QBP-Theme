@@ -66,7 +66,7 @@
         "heading_LDEd4a": {
           "type": "heading",
           "settings": {
-            "heading": "NEW MERMAID FADE",
+            "heading": "SPLATTER IS BACK",
             "heading_size": "hxxl",
             "make_h1": "yes"
           }
@@ -74,14 +74,14 @@
         "text_iGzx4g": {
           "type": "text",
           "settings": {
-            "text": "Our beloved Cosmic Stallion frameset has a new coat of paint.",
+            "text": "Surprise! Limited edition Gorilla framesets just dropped.",
             "text_style": "body"
           }
         },
         "buttons_dkr3GD": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "GIMME",
+            "button_label_1": "WANT/NEED",
             "button_link_1": "",
             "button_style_secondary_1": false,
             "button_label_2": "",
@@ -97,7 +97,7 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/all-city-cosmic-stallion-frameset-hp-banner-1400x700.jpg",
+        "image": "shopify://shop_images/all-city-gorilla-frameset-hp-banner-1400x700.jpg",
         "image_overlay_opacity": 0,
         "image_height": "medium",
         "desktop_content_position": "middle-center",
