@@ -16,7 +16,8 @@
           "type": "heading",
           "settings": {
             "heading": "Winter: We're Here For It",
-            "heading_size": "h1"
+            "heading_size": "h1",
+            "make_h1": "yes"
           }
         },
         "text_yFxjmr": {
@@ -66,7 +67,8 @@
           "type": "heading",
           "settings": {
             "heading": "Winter-Ready Upgrades",
-            "heading_size": "h1"
+            "heading_size": "h1",
+            "make_h1": "yes"
           }
         },
         "text_MCnJ7b": {
@@ -115,7 +117,8 @@
           "type": "heading",
           "settings": {
             "heading": "The Winter Cyber Sale is Here",
-            "heading_size": "h1"
+            "heading_size": "h1",
+            "make_h1": "yes"
           }
         },
         "text_kjXzUw": {
@@ -165,7 +168,8 @@
           "type": "heading",
           "settings": {
             "heading": "Up to 60% off",
-            "heading_size": "h1"
+            "heading_size": "h1",
+            "make_h1": "yes"
           }
         },
         "text_H68tPf": {
@@ -208,6 +212,54 @@
         "show_text_below": true
       }
     },
+    "multicolumn_fptpmX": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_QpKaPz": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/wolvhammer-hp-block.png",
+            "title": "Wolvhammer Leather",
+            "text": "<p>Engineered for ultimate protection from the elements with premium leather construction</p>",
+            "link_label": "Shop Wolvhammer",
+            "link": "shopify://products/2026-wolvhammer-boa-cycling-boot"
+          }
+        },
+        "column_MV9hcX": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/ragnarok-hp-block.png",
+            "title": "Ragnarok",
+            "text": "<p>Designed for all-day comfort on chilly and damp rides</p>",
+            "link_label": "Shop Ragnarok",
+            "link": "shopify://products/2026-ragnarok-boa-cycling-boot"
+          }
+        }
+      },
+      "block_order": [
+        "column_QpKaPz",
+        "column_MV9hcX"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "New Boots for Cold Temps",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "content_label": "",
+        "columns_desktop": 2,
+        "swipe_on_desktop": false,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "custom_css": [
@@ -238,47 +290,6 @@
         "swipe_on_mobile": false,
         "padding_top": 48,
         "padding_bottom": 48
-      }
-    },
-    "collage_YB3naD": {
-      "type": "collage",
-      "blocks": {
-        "video_tKBary": {
-          "type": "video",
-          "settings": {
-            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-            "description": "Describe the video"
-          }
-        },
-        "product_6C4KLr": {
-          "type": "product",
-          "settings": {
-            "product": "gravdal-tire",
-            "second_image": true
-          }
-        },
-        "collection_Vz9cGE": {
-          "type": "collection",
-          "settings": {
-            "collection": "footwear"
-          }
-        }
-      },
-      "block_order": [
-        "video_tKBary",
-        "product_6C4KLr",
-        "collection_Vz9cGE"
-      ],
-      "disabled": true,
-      "settings": {
-        "heading": "Multimedia collage",
-        "heading_size": "h2",
-        "desktop_layout": "left",
-        "mobile_layout": "column",
-        "card_styles": "product-card-wrapper",
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
       }
     },
     "rich_text_Dkz6wG": {
@@ -390,8 +401,8 @@
     "image_banner_MQRJG3",
     "image_banner_hLgEzj",
     "image_banner_NqYQjK",
+    "multicolumn_fptpmX",
     "featured_collection",
-    "collage_YB3naD",
     "rich_text_Dkz6wG",
     "video_nFPKwr",
     "collection_list_YiMr4V"
