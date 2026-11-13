@@ -141,11 +141,11 @@
     "color_schemes": {
       "scheme-1": {
         "settings": {
-          "background": "#ffffff",
+          "background": "#000000",
           "background_gradient": "",
-          "text": "#121212",
-          "button": "#121212",
-          "button_label": "#ffffff",
+          "text": "#FFFFFF",
+          "button": "#FFFFFF",
+          "button_label": "#000000",
           "secondary_button_label": "#121212",
           "shadow": "#121212"
         }
@@ -174,12 +174,12 @@
       },
       "scheme-4": {
         "settings": {
-          "background": "#121212",
+          "background": "#FFFFFF",
           "background_gradient": "",
-          "text": "#ffffff",
-          "button": "#ffffff",
+          "text": "#000000",
+          "button": "#000000",
           "button_label": "#121212",
-          "secondary_button_label": "#ffffff",
+          "secondary_button_label": "#000000",
           "shadow": "#121212"
         }
       },
