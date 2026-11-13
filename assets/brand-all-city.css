@@ -5,3 +5,86 @@
   Section stylesheets load later than this file, so overrides of section CSS
   need a higher specificity (for example, prefix the selector with `body`).
 */
+:root.typekit-fonts {
+  --font-heading-h1-family: "proxima-nova", sans-serif !important;
+  --font-heading-h1-weight: 700  !important;
+  --font-heading-h2-family: "proxima-nova", sans-serif !important;
+  --font-heading-h2-weight: 700  !important;
+  --font-heading-h3-weight: 700  !important;
+  --font-heading-family: "proxima-nova", sans-serif !important;
+  --font-heading-weight: 400  !important;
+  --font-body-family: "proxima-nova", sans-serif  !important;
+  --font-body-weight: 400  !important;
+}
+
+/* Headings (base.css) */
+h1,
+h2,
+h3,
+h4,
+h5,
+.h0,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+  letter-spacing: .8px;
+}
+
+h1,
+.h1 {
+  font-family: var(--font-heading-h1-family, var(--font-heading-family));
+  font-weight: var(--font-heading-h1-weight, var(--font-heading-weight));
+  text-transform: uppercase;
+}
+h2,
+.h2 {
+  font-family: var(--font-heading-h2-family, var(--font-heading-family));
+  font-weight: var(--font-heading-h2-weight, var(--font-heading-weight));
+}
+h3,
+.h3 {
+  font-family: var(--font-heading-h2-family, var(--font-heading-family)) !important;
+  font-weight: var(--font-heading-h3-weight, var(--font-heading-weight)) !important;
+}
+
+.hxl {
+  font-size: calc(var(--font-heading-scale) * 5rem);
+}
+
+@media only screen and (min-width: 750px) {
+  .hxxl {
+    font-size: clamp(calc(var(--font-heading-scale) * 7.6rem), 14vw, calc(var(--font-heading-scale) * 10rem));
+  }
+  .hxl {
+    font-size: calc(var(--font-heading-scale) * 6.2rem);
+  }
+  h1,
+  .h1 {
+    font-size: calc(var(--font-heading-scale) * 4.4rem);
+  }
+}
+
+.subtitle {
+  color: rgba(var(--color-foreground), 1);
+}
+
+/* Bike geometry and spec tables (collapsible-content.css) */
+body .table--label,
+body .geometry-table-container tr > th:first-child,
+body .geometry-table-container tr > td:first-child {
+  font-weight: 600;
+}
+
+@media screen and (min-width: 750px) {
+  body .geometry-image {
+    width: 60%;
+  }
+  body .geometry-table {
+    width: 100%;
+  }
+  body .bike-geometry {
+    flex-direction: column;
+  }
+}
