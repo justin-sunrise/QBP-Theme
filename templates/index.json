@@ -1,4 +1,56 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  "sections": {},
-  "order": []
+  "sections": {
+    "image_with_text_enwFjE": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_tjyrLt": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image with text",
+            "heading_size": "h1",
+            "make_h1": false
+          }
+        },
+        "text_nf8wDt": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Life is better with the extras. The same goes for bicycles. Upgrade your bike and complete your experience with accessories from MSW. We make a good bike ride great.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_tjyrLt",
+        "text_nf8wDt"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/hero_riders.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "image_with_text_enwFjE"
+  ]
 }
