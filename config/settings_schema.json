@@ -1319,8 +1319,15 @@
       {
         "type": "checkbox",
         "id": "enable_clearance_shop_local",
-        "label": "Enable clearance pricing and Shop Local badges",
-        "info": "Uses the variant custom.discount_type and product custom.product_is_sellable metafields. Shows Was/Now clearance pricing, Clearance and Shop Local badges, and marks non-sellable products as sold out.",
+        "label": "Enable clearance pricing and badges",
+        "info": "Uses the variant custom.discount_type metafield. Shows Was/Now clearance pricing and Clearance badges.",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_shop_local_badge",
+        "label": "Enable Shop Local badges",
+        "info": "Uses the product custom.product_is_sellable metafield. Discounted products that are not sold online show a Shop Local badge instead of a sale badge, and non-sellable products show as sold out.",
         "default": false
       },
       {
