@@ -16,7 +16,7 @@
           "type": "heading",
           "settings": {
             "heading": "NEW MERMAID FADE",
-            "heading_size": "h1",
+            "heading_size": "hxxl",
             "make_h1": "yes"
           }
         },
@@ -53,7 +53,7 @@
         "show_text_box": true,
         "show_overlay": false,
         "desktop_content_alignment": "center",
-        "color_scheme": "scheme-4",
+        "color_scheme": "scheme-d5ac76d5-c56f-4ccd-97dc-c4c738a24361",
         "image_behavior": "none",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
