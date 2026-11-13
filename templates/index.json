@@ -59,9 +59,61 @@
         "stack_images_on_mobile": true,
         "show_text_below": true
       }
+    },
+    "image_banner_egKdbr": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_LDEd4a": {
+          "type": "heading",
+          "settings": {
+            "heading": "NEW MERMAID FADE",
+            "heading_size": "hxxl",
+            "make_h1": "yes"
+          }
+        },
+        "text_iGzx4g": {
+          "type": "text",
+          "settings": {
+            "text": "Our beloved Cosmic Stallion frameset has a new coat of paint.",
+            "text_style": "body"
+          }
+        },
+        "buttons_dkr3GD": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "GIMME",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_LDEd4a",
+        "text_iGzx4g",
+        "buttons_dkr3GD"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/all-city-cosmic-stallion-frameset-hp-banner-1400x700.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "show_overlay": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-d5ac76d5-c56f-4ccd-97dc-c4c738a24361",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
     }
   },
   "order": [
-    "image_banner_AHePNX"
+    "image_banner_AHePNX",
+    "image_banner_egKdbr"
   ]
 }
