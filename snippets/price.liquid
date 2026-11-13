@@ -54,6 +54,19 @@
     endif
   endif
 
+  # Clearance prices never show a struck-through compare-at price. Product-level
+  # pricing (product cards) can mix variants, so any clearance variant counts.
+  assign hide_compare_at = is_clearance
+  if settings.enable_clearance_shop_local and use_variant != true
+    for variant in product.variants
+      assign variant_discount_type = variant.metafields.custom.discount_type.value
+      if variant_discount_type contains 'Clearance' or variant_discount_type contains 'Final Sale'
+        assign hide_compare_at = true
+        break
+      endif
+    endfor
+  endif
+
   # Non-sellable (Shop Local) products only count as sold out when Shop Local is enabled
   assign show_sold_out = false
   if available == false
@@ -127,7 +140,7 @@
         {%- endcomment -%}
         <div class="price__regular">
           {%- if product.quantity_price_breaks_configured? -%}
-            {%- if show_compare_at_price and compare_at_price -%}
+            {%- if show_compare_at_price and compare_at_price and hide_compare_at == false -%}
               {%- unless product.price_varies == false and product.compare_at_price_varies %}
                 <span class="visually-hidden visually-hidden--inline">
                   {{- 'products.product.price.regular_price' | t -}}
@@ -158,17 +171,19 @@
           {%- endif -%}
         </div>
         <div class="price__sale">
-          {%- unless product.price_varies == false and product.compare_at_price_varies %}
-            <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
-            <span>
-              <s class="price-item price-item--regular">
-                {% if settings.currency_code_enabled %}
-                  {{ compare_at_price | money_with_currency }}
-                {% else %}
-                  {{ compare_at_price | money }}
-                {% endif %}
-              </s>
-            </span>
+          {%- unless hide_compare_at -%}
+            {%- unless product.price_varies == false and product.compare_at_price_varies %}
+              <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
+              <span>
+                <s class="price-item price-item--regular">
+                  {% if settings.currency_code_enabled %}
+                    {{ compare_at_price | money_with_currency }}
+                  {% else %}
+                    {{ compare_at_price | money }}
+                  {% endif %}
+                </s>
+              </span>
+            {%- endunless -%}
           {%- endunless -%}
           <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
           <span class="price-item price-item--sale price-item--last">
