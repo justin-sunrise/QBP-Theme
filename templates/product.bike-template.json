@@ -9,6 +9,329 @@
  */
 {
   "sections": {
+    "slideshow_Dy7WNK": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_NiebTm": {
+          "type": "slide",
+          "settings": {
+            "image": "{{ product.metafields.custom.action_image_1.value }}",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "bottom-left",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_L7bhjT": {
+          "type": "slide",
+          "settings": {
+            "image": "{{ product.metafields.custom.action_image_2.value }}",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_wbPrU6": {
+          "type": "slide",
+          "settings": {
+            "image": "{{ product.metafields.custom.action_image_3.value }}",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_eEDXbG": {
+          "type": "slide",
+          "settings": {
+            "image": "{{ product.metafields.custom.action_image_4.value }}",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_w9EJaN": {
+          "type": "slide",
+          "settings": {
+            "image": "{{ product.metafields.custom.action_image_5.value }}",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_NiebTm",
+        "slide_L7bhjT",
+        "slide_wbPrU6",
+        "slide_eEDXbG",
+        "slide_w9EJaN"
+      ],
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "rich_text_MWyNAg": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_A39hCR": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ product.title }}",
+            "heading_size": "h1",
+            "make_h1": "no"
+          }
+        },
+        "button_BGGkzp": {
+          "type": "button",
+          "settings": {
+            "button_label": "Overview",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "Specs & Geo",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_A39hCR",
+        "button_BGGkzp"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "rich_text_dNReLM": {
+      "type": "rich-text",
+      "blocks": {
+        "text_43VmAJ": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.description }}"
+          }
+        }
+      },
+      "block_order": [
+        "text_43VmAJ"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_banner_yzCHfF": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_7abMfj": {
+          "type": "heading",
+          "settings": {
+            "heading": "Lively, Spirited, Stable",
+            "heading_size": "h2",
+            "make_h1": "yes"
+          }
+        },
+        "text_wWij6V": {
+          "type": "text",
+          "settings": {
+            "text": "The All-City Cosmic Stallion is a thoroughly-modern and classically-styled, lightweight, disc-brake frameset. With the latest development of fork-mounted cargo solutions, the Cosmic Stallion frameset brings uncluttered potential to gravel riders and beyond. From fast sprints to all-day epics, this steel frame and carbon fork set a new standard for beauty and functionality.",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_7abMfj",
+        "text_wWij6V"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-left",
+        "show_text_box": true,
+        "show_overlay": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "multicolumn_9dzp4U": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_3EQUmB": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_hyekme": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_z3pNzq": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_3EQUmB",
+        "column_hyekme",
+        "column_z3pNzq"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "Performance",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "content_label": "",
+        "columns_desktop": 2,
+        "swipe_on_desktop": false,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_TU9L7N": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_Nrct96": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_DH6aLR": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_Y97VmN": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_Nrct96",
+        "column_DH6aLR",
+        "column_Y97VmN"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "Multicolumn",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "content_label": "",
+        "columns_desktop": 3,
+        "swipe_on_desktop": false,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-5",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -32,12 +355,15 @@
         },
         "price": {
           "type": "price",
-          "settings": {}
+          "settings": {
+            "show_installments": true
+          }
         },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
-            "picker_type": "button"
+            "picker_type": "button",
+            "swatch_shape": "circle"
           }
         },
         "quantity_selector": {
@@ -115,9 +441,13 @@
       ],
       "settings": {
         "enable_sticky_info": true,
+        "color_scheme": "",
         "media_size": "large",
         "constrain_to_viewport": true,
+        "media_fit": "contain",
         "gallery_layout": "stacked",
+        "media_position": "left",
+        "image_zoom": "lightbox",
         "mobile_thumbnails": "hide",
         "hide_variants": true,
         "enable_video_looping": false,
@@ -125,80 +455,48 @@
         "padding_bottom": 12
       }
     },
-    "image-with-text": {
-      "type": "image-with-text",
+    "product_collapsable_XkXtkd": {
+      "type": "product-collapsable",
       "blocks": {
-        "image-with-text-0": {
-          "type": "heading",
+        "custom_T4tGH3": {
+          "type": "custom",
           "settings": {
-            "heading": "Image with text",
-            "heading_size": "h1"
+            "head": "Build Specs",
+            "snippet": "build-kit"
           }
         },
-        "image-with-text-1": {
-          "type": "text",
+        "custom_RzyDJj": {
+          "type": "custom",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "text_style": "body"
+            "head": "Geometry",
+            "snippet": "geometry"
+          }
+        },
+        "custom_pghBHn": {
+          "type": "custom",
+          "settings": {
+            "head": "Frame Specs",
+            "snippet": "frame-spec"
           }
         }
       },
       "block_order": [
-        "image-with-text-0",
-        "image-with-text-1"
+        "custom_T4tGH3",
+        "custom_RzyDJj",
+        "custom_pghBHn"
       ],
+      "name": "Product Collapsable Content",
       "settings": {
-        "height": "small",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "color_scheme": "scheme-2",
-        "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "multicolumn": {
-      "type": "multicolumn",
-      "blocks": {
-        "column-0": {
-          "type": "column",
-          "settings": {
-            "title": "Free Shipping",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column-1": {
-          "type": "column",
-          "settings": {
-            "title": "Hassle-Free Exchanges",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column-0",
-        "column-1"
-      ],
-      "settings": {
-        "title": "",
+        "caption": "",
+        "heading": "Specifciations",
         "heading_size": "h1",
-        "image_width": "full",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "scheme-2",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": false,
         "image_ratio": "adapt",
-        "columns_desktop": 2,
-        "column_alignment": "left",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "scheme-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
+        "desktop_layout": "image_second",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -208,12 +506,15 @@
       "settings": {
         "heading": "You may also like",
         "heading_size": "h2",
+        "products_to_show": 4,
         "columns_desktop": 4,
         "color_scheme": "scheme-1",
         "image_ratio": "square",
+        "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
+        "show_features_list": false,
         "columns_mobile": "2",
         "padding_top": 36,
         "padding_bottom": 28
@@ -221,9 +522,14 @@
     }
   },
   "order": [
+    "slideshow_Dy7WNK",
+    "rich_text_MWyNAg",
+    "rich_text_dNReLM",
+    "image_banner_yzCHfF",
+    "multicolumn_9dzp4U",
+    "multicolumn_TU9L7N",
     "main",
-    "image-with-text",
-    "multicolumn",
+    "product_collapsable_XkXtkd",
     "related-products"
   ]
 }
