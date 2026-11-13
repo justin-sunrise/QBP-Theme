@@ -54,10 +54,10 @@
     endif
   endif
 
-  # Non-sellable (Shop Local) products only count as sold out when clearance/Shop Local is enabled
+  # Non-sellable (Shop Local) products only count as sold out when Shop Local is enabled
   assign show_sold_out = false
   if available == false
-    if settings.enable_clearance_shop_local or product.metafields.custom.product_is_sellable.value != false
+    if settings.enable_shop_local_badge or product.metafields.custom.product_is_sellable.value != false
       assign show_sold_out = true
     endif
   endif
