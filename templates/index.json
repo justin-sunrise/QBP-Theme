@@ -9,71 +9,48 @@
  */
 {
   "sections": {
-    "image_with_text_enwFjE": {
-      "type": "image-with-text",
-      "blocks": {
-        "image_WjxKE9": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/hero_top_left_product1.png",
-            "image_width": 100,
-            "image_alt": "",
-            "link": ""
-          }
-        },
-        "text_nf8wDt": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Life is better with the extras. The same goes for bicycles. Upgrade your bike and complete your experience with accessories from MSW. We make a good bike ride great.</p>",
-            "text_style": "body"
-          }
-        }
-      },
-      "block_order": [
-        "image_WjxKE9",
-        "text_nf8wDt"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/hero_riders.png",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "section_color_scheme": "scheme-5",
-        "color_scheme": "scheme-4",
-        "image_behavior": "none",
-        "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "collage_hqKggR": {
       "type": "collage",
       "blocks": {
         "image_VcHdJ9": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/hero_top_left_product1.png"
+          }
+        },
+        "text_VBm96Y": {
+          "type": "text",
+          "settings": {
+            "heading": "",
+            "heading_size": "h2",
+            "text": "<p>Life is better with the extras. The same goes for bicycles. Upgrade your bike and complete your experience with accessories from MSW. We make a good bike ride great.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style_secondary": false,
+            "alignment": "left",
+            "color_scheme": "scheme-4"
+          }
         },
         "image_nnQfiz": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/hero_riders.png"
+          }
         }
       },
       "block_order": [
         "image_VcHdJ9",
+        "text_VBm96Y",
         "image_nnQfiz"
       ],
       "name": "t:sections.collage.presets.name",
       "settings": {
-        "heading": "Multimedia collage",
+        "heading": "",
         "heading_size": "h1",
         "desktop_layout": "right",
         "mobile_layout": "column",
         "card_styles": "product-card-wrapper",
-        "color_scheme": "",
+        "color_scheme": "scheme-5",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -110,7 +87,6 @@
     }
   },
   "order": [
-    "image_with_text_enwFjE",
     "collage_hqKggR",
     "featured_collection_zUaqtF"
   ]
