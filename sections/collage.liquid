@@ -208,6 +208,33 @@
                   </div>
                 </modal-dialog>
               </div>
+            {%- when 'text' -%}
+              <div class="collage-card collage-card--text {% if section.settings.card_styles == 'none' %}global-media-settings{% else %}{{ section.settings.card_styles }}{% endif %} color-{{ block.settings.color_scheme }} gradient">
+                <div class="collage-text collage-text--{{ block.settings.alignment }}">
+                  {%- if block.settings.heading != blank -%}
+                    <h3 class="collage-text__heading inline-richtext {{ block.settings.heading_size }}">
+                      {{ block.settings.heading }}
+                    </h3>
+                  {%- endif -%}
+                  {%- if block.settings.text != blank -%}
+                    <div class="collage-text__text rte">
+                      {{ block.settings.text }}
+                    </div>
+                  {%- endif -%}
+                  {%- if block.settings.button_label != blank -%}
+                    <a
+                      {% if block.settings.button_link == blank %}
+                        role="link" aria-disabled="true"
+                      {% else %}
+                        href="{{ block.settings.button_link }}"
+                      {% endif %}
+                      class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
+                    >
+                      {{ block.settings.button_label | escape }}
+                    </a>
+                  {%- endif -%}
+                </div>
+              </div>
           {%- endcase -%}
         </div>
       {%- endfor -%}
@@ -403,6 +430,91 @@
           "default": "t:sections.collage.blocks.video.settings.description.default",
           "label": "t:sections.collage.blocks.video.settings.description.label",
           "info": "t:sections.collage.blocks.video.settings.description.info"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Heading",
+          "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h4",
+              "label": "Small"
+            },
+            {
+              "value": "h3",
+              "label": "Medium"
+            },
+            {
+              "value": "h2",
+              "label": "Large"
+            },
+            {
+              "value": "h1",
+              "label": "Extra large"
+            }
+          ],
+          "default": "h2",
+          "label": "Heading size"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Share details about your brand, a product or a promotion.</p>",
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "info": "Leave blank to hide the button."
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_style_secondary",
+          "default": false,
+          "label": "Use outline button style"
+        },
+        {
+          "type": "select",
+          "id": "alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center",
+          "label": "Alignment"
+        },
+        {
+          "type": "color_scheme",
+          "id": "color_scheme",
+          "label": "Background color scheme",
+          "default": "scheme-1"
         }
       ]
     }
