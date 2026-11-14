@@ -12,6 +12,15 @@
     "image_with_text_enwFjE": {
       "type": "image-with-text",
       "blocks": {
+        "image_WjxKE9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/hero_top_left_product1.png",
+            "image_width": 100,
+            "image_alt": "",
+            "link": ""
+          }
+        },
         "text_nf8wDt": {
           "type": "text",
           "settings": {
@@ -21,6 +30,7 @@
         }
       },
       "block_order": [
+        "image_WjxKE9",
         "text_nf8wDt"
       ],
       "name": "t:sections.image-with-text.presets.name",
