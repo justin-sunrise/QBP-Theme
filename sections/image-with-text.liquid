@@ -96,6 +96,44 @@
                   <div class="image-with-text__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
                     {{ block.settings.text }}
                   </div>
+                {%- when 'image' -%}
+                  {%- if block.settings.image != blank -%}
+                    {%- liquid
+                      assign block_image_alt = block.settings.image_alt | default: block.settings.image.alt | escape
+                      assign half_page_width = settings.page_width | divided_by: 2
+                    -%}
+                    {%- capture block_image_sizes -%}
+                      (min-width: {{ settings.page_width }}px) {{ half_page_width }}px, (min-width: 750px) 50vw, 100vw
+                    {%- endcapture -%}
+                    {%- if block.settings.link != blank -%}
+                      <a
+                        href="{{ block.settings.link }}"
+                        class="image-with-text__image"
+                        style="width: {{ block.settings.image_width }}%;"
+                        {{ block.shopify_attributes }}
+                      >
+                    {%- else -%}
+                      <div
+                        class="image-with-text__image"
+                        style="width: {{ block.settings.image_width }}%;"
+                        {{ block.shopify_attributes }}
+                      >
+                    {%- endif -%}
+                    {{
+                      block.settings.image
+                      | image_url: width: 1500
+                      | image_tag:
+                        loading: 'lazy',
+                        alt: block_image_alt,
+                        sizes: block_image_sizes,
+                        widths: '165, 360, 535, 750, 1070, 1500'
+                    }}
+                    {%- if block.settings.link != blank -%}
+                      </a>
+                    {%- else -%}
+                      </div>
+                    {%- endif -%}
+                  {%- endif -%}
                 {%- when 'button' -%}
                   {%- if block.settings.button_label != blank -%}
                     <a
@@ -458,6 +496,39 @@
           ],
           "default": "body",
           "label": "t:sections.image-with-text.blocks.text.settings.text_style.label"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "range",
+          "id": "image_width",
+          "min": 10,
+          "max": 100,
+          "step": 5,
+          "unit": "%",
+          "default": 100,
+          "label": "Width",
+          "info": "Percentage of the text area's width."
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Alt text",
+          "info": "Describe the image for screen readers. Leave blank to use the alt text from Files."
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
         }
       ]
     },
