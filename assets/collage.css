@@ -200,3 +200,51 @@
   outline: none;
   box-shadow: none;
 }
+
+/* Text block: content sits centered in the tile, colored by the block's color scheme */
+.collage-card--text {
+  display: flex;
+  min-height: 20rem;
+}
+
+.collage-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  padding: 3rem 2.5rem;
+  word-break: break-word;
+}
+
+.collage-text > * {
+  margin: 0;
+}
+
+.collage-text > * + * {
+  margin-top: 1.5rem;
+}
+
+.collage-text > .button {
+  margin-top: 2.5rem;
+}
+
+.collage-text--left {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.collage-text--center {
+  align-items: center;
+  text-align: center;
+}
+
+.collage-text--right {
+  align-items: flex-end;
+  text-align: right;
+}
+
+@media screen and (min-width: 990px) {
+  .collage-text {
+    padding: 4rem;
+  }
+}
