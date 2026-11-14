@@ -415,3 +415,15 @@
     row-gap: var(--grid-desktop-vertical-spacing);
   }
 }
+
+/* Image block in the text area; the content alignment rules above position it */
+.image-with-text__image {
+  display: block;
+  max-width: 100%;
+}
+
+.image-with-text__image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
