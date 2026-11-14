@@ -12,14 +12,6 @@
     "image_with_text_enwFjE": {
       "type": "image-with-text",
       "blocks": {
-        "heading_tjyrLt": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image with text",
-            "heading_size": "h1",
-            "make_h1": false
-          }
-        },
         "text_nf8wDt": {
           "type": "text",
           "settings": {
@@ -29,7 +21,6 @@
         }
       },
       "block_order": [
-        "heading_tjyrLt",
         "text_nf8wDt"
       ],
       "name": "t:sections.image-with-text.presets.name",
@@ -41,8 +32,8 @@
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "content_layout": "no-overlap",
-        "section_color_scheme": "",
-        "color_scheme": "",
+        "section_color_scheme": "scheme-5",
+        "color_scheme": "scheme-4",
         "image_behavior": "none",
         "mobile_content_alignment": "left",
         "padding_top": 36,
