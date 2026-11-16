@@ -450,7 +450,7 @@
         "price": {
           "type": "price",
           "settings": {
-            "show_installments": true
+            "show_installments": false
           }
         },
         "variant_picker": {
@@ -458,17 +458,6 @@
           "settings": {
             "picker_type": "button",
             "swatch_shape": "circle"
-          }
-        },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
           }
         },
         "description": {
@@ -524,8 +513,6 @@
         "caption",
         "price",
         "variant_picker",
-        "quantity_selector",
-        "buy_buttons",
         "description",
         "collapsible-row-0",
         "collapsible-row-1",
@@ -535,7 +522,7 @@
       ],
       "settings": {
         "enable_sticky_info": true,
-        "color_scheme": "",
+        "color_scheme": "scheme-4",
         "media_size": "large",
         "constrain_to_viewport": true,
         "media_fit": "contain",
@@ -545,8 +532,8 @@
         "mobile_thumbnails": "hide",
         "hide_variants": true,
         "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 12
+        "padding_top": 72,
+        "padding_bottom": 72
       }
     },
     "product_collapsable_XkXtkd": {
@@ -582,11 +569,11 @@
       "name": "Product Collapsable Content",
       "settings": {
         "caption": "",
-        "heading": "Specifciations",
+        "heading": "Specs & GEO",
         "heading_size": "h1",
         "heading_alignment": "center",
         "layout": "none",
-        "color_scheme": "scheme-2",
+        "color_scheme": "scheme-4",
         "container_color_scheme": "",
         "open_first_collapsible_row": true,
         "image_ratio": "adapt",
