@@ -249,8 +249,8 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/all-city-cosmic-stallion-GRX-ace-tubing_68d620f0-f73b-4a1f-8988-3bcc99fa803d.jpg",
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "title": "WHISKY NO.9 CX Disc 12 Tapered Fork",
+            "text": "<p>Lightweight with generous tire clearance and precise handling capabilities, Whisky’s gorgeous carbon fork accommodates 12mm thru-axles and flat-mount disc brakes.</p>",
             "link_label": "",
             "link": ""
           }
@@ -258,8 +258,29 @@
         "column_z3pNzq": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "image": "shopify://shop_images/all-city-cosmic-stallion-GRX-ace-tubing_68d620f0-f73b-4a1f-8988-3bcc99fa803d.jpg",
+            "title": "Tire Clearance",
+            "text": "<p>Built with versatility in mind, it accommodates tire sizes 700 x 42mm or 650b x 47mm (both with or without fenders).</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_Q8wRck": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/all-city-cosmic-stallion-GRX-ace-tubing_68d620f0-f73b-4a1f-8988-3bcc99fa803d.jpg",
+            "title": "Di2 Routing Options",
+            "text": "<p>Outfitted to make your dreams of accurate and effortless electronic shifting a hassle-free reality.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_RG4LKC": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/all-city-cosmic-stallion-GRX-ace-tubing_68d620f0-f73b-4a1f-8988-3bcc99fa803d.jpg",
+            "title": "Rear Rack and Fender Mounts",
+            "text": "<p>Ready to run mudguards with the ability to mount a bag or two in the back to keep you comfy on those long rides.</p>",
             "link_label": "",
             "link": ""
           }
@@ -268,7 +289,9 @@
       "block_order": [
         "column_3EQUmB",
         "column_hyekme",
-        "column_z3pNzq"
+        "column_z3pNzq",
+        "column_Q8wRck",
+        "column_RG4LKC"
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
@@ -290,14 +313,47 @@
         "padding_bottom": 36
       }
     },
+    "rich_text_KMzTmp": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_UyrPHh": {
+          "type": "heading",
+          "settings": {
+            "heading": "Signature Details",
+            "heading_size": "h1",
+            "make_h1": "no"
+          }
+        },
+        "text_P4836z": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our mission is to bring beauty back to production bicycles. This means investing in custom touches that elevate the whole. We devote time and resources to signature details that turn heads and signify high-quality craftsmanship. These elements tell a cohesive visual story and form a distinct silhouette so that even if your unique bike were stripped down to bare metal, it would still be instantly identifiable as an All-City bicycle. <a href=\"https://web.archive.org/web/20260116182929/https://allcitycycles.com/design/signature_details\">Learn more</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_UyrPHh",
+        "text_P4836z"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-5",
+        "full_width": true,
+        "padding_top": 100,
+        "padding_bottom": 16
+      }
+    },
     "multicolumn_TU9L7N": {
       "type": "multicolumn",
       "blocks": {
         "column_Nrct96": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "image": "shopify://shop_images/all-city-cosmic-stallion-GRX-ace-tubing_68d620f0-f73b-4a1f-8988-3bcc99fa803d.jpg",
+            "title": "Custom Dropouts",
+            "text": "<p>All-City’s signature engraved logo shines with classic style.</p>",
             "link_label": "",
             "link": ""
           }
@@ -305,8 +361,9 @@
         "column_DH6aLR": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "image": "shopify://shop_images/all-city-cosmic-stallion-GRX-ace-tubing_68d620f0-f73b-4a1f-8988-3bcc99fa803d.jpg",
+            "title": "Signature Seat Collar",
+            "text": "<p>Train your eyes on that timeless and tasteful brazed-on seat collar, elegantly designed around the All-City logo.</p>",
             "link_label": "",
             "link": ""
           }
@@ -314,8 +371,29 @@
         "column_Y97VmN": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "image": "shopify://shop_images/all-city-cosmic-stallion-GRX-ace-tubing_68d620f0-f73b-4a1f-8988-3bcc99fa803d.jpg",
+            "title": "Reinforced Bottle Bosses",
+            "text": "<p>Beautiful stars reinforce the bottle bosses and our obsessive attention to detail.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_xJidVk": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/all-city-cosmic-stallion-GRX-ace-tubing_68d620f0-f73b-4a1f-8988-3bcc99fa803d.jpg",
+            "title": "Liquid Paint and E.D. Coat",
+            "text": "<p>Our topnotch wet paint finish sparkles with depth and luster, while an E.D. coating protects against rust. <a href=\"https://web.archive.org/web/20260116182929/https://allcitycycles.com/design/paint\">Learn more about our paint</a></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_gGraHY": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/all-city-cosmic-stallion-GRX-ace-tubing_68d620f0-f73b-4a1f-8988-3bcc99fa803d.jpg",
+            "title": "Pantographed Bottom Bracket",
+            "text": "<p>Upside-down and inside-out, AC’s signature style is stamped into the steel.</p>",
             "link_label": "",
             "link": ""
           }
@@ -324,18 +402,20 @@
       "block_order": [
         "column_Nrct96",
         "column_DH6aLR",
-        "column_Y97VmN"
+        "column_Y97VmN",
+        "column_xJidVk",
+        "column_gGraHY"
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
-        "title": "Multicolumn",
+        "title": "",
         "heading_size": "h1",
         "image_width": "full",
         "image_ratio": "adapt",
         "content_label": "",
         "columns_desktop": 3,
         "swipe_on_desktop": false,
-        "column_alignment": "left",
+        "column_alignment": "center",
         "background_style": "none",
         "button_label": "",
         "button_link": "",
@@ -542,6 +622,7 @@
     "image_banner_yzCHfF",
     "rich_text_Ah6W8U",
     "multicolumn_9dzp4U",
+    "rich_text_KMzTmp",
     "multicolumn_TU9L7N",
     "main",
     "product_collapsable_XkXtkd",
