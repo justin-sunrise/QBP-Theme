@@ -10,7 +10,7 @@
 {
   "current": {
     "store_brand": "all-city",
-    "typekit_kit_id": "ikk6xzi",
+    "typekit_kit_id": "",
     "logo": "shopify://shop_images/hdr_allcity_logo.png",
     "logo_width": 90,
     "type_header_font": "mono",
@@ -147,7 +147,7 @@
           "text": "#ffffff",
           "button": "#ffffff",
           "button_label": "#000000",
-          "secondary_button_label": "#FFFFFF",
+          "secondary_button_label": "#ffffff",
           "shadow": "#121212"
         }
       },
