@@ -9,50 +9,55 @@
  */
 {
   "sections": {
-    "collage_hqKggR": {
-      "type": "collage",
+    "image_banner_iBbYT9": {
+      "type": "image-banner",
       "blocks": {
-        "image_VcHdJ9": {
-          "type": "image",
+        "heading_Nrw7Ub": {
+          "type": "heading",
           "settings": {
-            "image": "shopify://shop_images/hero_top_left_product1.png"
+            "heading": "A GOOD RIDE.MADE GREAT.",
+            "heading_size": "hxl",
+            "make_h1": "yes"
           }
         },
-        "text_VBm96Y": {
+        "text_FCQfmq": {
           "type": "text",
           "settings": {
-            "heading": "",
-            "heading_size": "h2",
-            "text": "<p>Life is better with the extras. The same goes for bicycles. Upgrade your bike and complete your experience with accessories from MSW. We make a good bike ride great.</p>",
-            "button_label": "",
-            "button_link": "",
-            "button_style_secondary": false,
-            "alignment": "left",
-            "color_scheme": "scheme-4"
+            "text": "Practical gear. More possibility.Make every mile your own with MSW.",
+            "text_style": "body"
           }
         },
-        "image_nnQfiz": {
-          "type": "image",
+        "buttons_CENNEa": {
+          "type": "buttons",
           "settings": {
-            "image": "shopify://shop_images/hero_riders.png"
+            "button_label_1": "View All Gear",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "Explore the Extras",
+            "button_link_2": "shopify://collections/frontpage",
+            "button_style_secondary_2": true
           }
         }
       },
       "block_order": [
-        "image_VcHdJ9",
-        "text_VBm96Y",
-        "image_nnQfiz"
+        "heading_Nrw7Ub",
+        "text_FCQfmq",
+        "buttons_CENNEa"
       ],
-      "name": "t:sections.collage.presets.name",
+      "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "desktop_layout": "right",
-        "mobile_layout": "column",
-        "card_styles": "product-card-wrapper",
-        "color_scheme": "scheme-5",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "image": "shopify://shop_images/homepage-hero-image.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-left",
+        "show_text_box": false,
+        "show_overlay": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-2ad2ea27-4141-4881-8012-35bab28cdffb",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
       }
     },
     "featured_collection_zUaqtF": {
@@ -87,7 +92,7 @@
     }
   },
   "order": [
-    "collage_hqKggR",
+    "image_banner_iBbYT9",
     "featured_collection_zUaqtF"
   ]
 }
