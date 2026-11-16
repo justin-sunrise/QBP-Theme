@@ -11,8 +11,8 @@
   "current": {
     "store_brand": "msw",
     "typekit_kit_id": "ikk6xzi",
-    "logo": "shopify://shop_images/msw_logo_small_2x_a32f91cf-f845-4e63-85b4-352d182c0fdc.png",
-    "logo_width": 220,
+    "logo": "shopify://shop_images/msw-logo-black.svg",
+    "logo_width": 180,
     "type_header_font": "sans_serif_n4",
     "heading_scale": 100,
     "type_body_font": "sans_serif_n4",
@@ -163,7 +163,7 @@
       },
       "scheme-3": {
         "settings": {
-          "background": "#242833",
+          "background": "#20201F",
           "background_gradient": "",
           "text": "#ffffff",
           "button": "#ffffff",
@@ -174,11 +174,11 @@
       },
       "scheme-4": {
         "settings": {
-          "background": "#6ea400",
+          "background": "#96CA4F",
           "background_gradient": "",
           "text": "#ffffff",
           "button": "#ffffff",
-          "button_label": "#6ea400",
+          "button_label": "#96CA4F",
           "secondary_button_label": "#ffffff",
           "shadow": "#121212"
         }
@@ -199,7 +199,7 @@
           "background": "#ffffff",
           "background_gradient": "linear-gradient(90deg, rgba(0, 0, 0, 1), rgba(2, 2, 2, 0) 100%)",
           "text": "#FFFFFF",
-          "button": "#84CE2E",
+          "button": "#96CA4F",
           "button_label": "#000000",
           "secondary_button_label": "#FFFFFF",
           "shadow": "#121212"

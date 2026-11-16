@@ -15,7 +15,7 @@
         "heading_Nrw7Ub": {
           "type": "heading",
           "settings": {
-            "heading": "A GOOD RIDE.MADE GREAT.",
+            "heading": "A GOOD RIDE. MADE GREAT.",
             "heading_size": "hxl",
             "make_h1": "yes"
           }
@@ -89,10 +89,43 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "rich_text_HrqgDE": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_6ictJU": {
+          "type": "heading",
+          "settings": {
+            "heading": "LIFE IS BETTER WITH THE EXTRAS.",
+            "heading_size": "h1",
+            "make_h1": "no"
+          }
+        },
+        "text_YwRHLy": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The same goes for bicycles. Upgrade your bike and complete your experience<br/>with accessories from MSW. We make a good bike ride great.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_6ictJU",
+        "text_YwRHLy"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
     "image_banner_iBbYT9",
-    "featured_collection_zUaqtF"
+    "featured_collection_zUaqtF",
+    "rich_text_HrqgDE"
   ]
 }
