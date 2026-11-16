@@ -575,7 +575,7 @@
         "layout": "none",
         "color_scheme": "scheme-4",
         "container_color_scheme": "",
-        "open_first_collapsible_row": true,
+        "open_first_collapsible_row": false,
         "image_ratio": "adapt",
         "desktop_layout": "image_second",
         "padding_top": 36,
