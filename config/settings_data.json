@@ -146,7 +146,7 @@
           "text": "#ffffff",
           "button": "#ffffff",
           "button_label": "#000000",
-          "secondary_button_label": "#121212",
+          "secondary_button_label": "#FFFFFF",
           "shadow": "#121212"
         }
       },

@@ -184,32 +184,12 @@
     },
     "image_banner_yzCHfF": {
       "type": "image-banner",
-      "blocks": {
-        "heading_7abMfj": {
-          "type": "heading",
-          "settings": {
-            "heading": "Lively, Spirited, Stable",
-            "heading_size": "h2",
-            "make_h1": "yes"
-          }
-        },
-        "text_wWij6V": {
-          "type": "text",
-          "settings": {
-            "text": "The All-City Cosmic Stallion is a thoroughly-modern and classically-styled, lightweight, disc-brake frameset. With the latest development of fork-mounted cargo solutions, the Cosmic Stallion frameset brings uncluttered potential to gravel riders and beyond. From fast sprints to all-day epics, this steel frame and carbon fork set a new standard for beauty and functionality.",
-            "text_style": "body"
-          }
-        }
-      },
-      "block_order": [
-        "heading_7abMfj",
-        "text_wWij6V"
-      ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
+        "image": "{{ product.metafields.custom.product_in_action_poster.value }}",
         "image_overlay_opacity": 0,
-        "image_height": "medium",
-        "desktop_content_position": "middle-left",
+        "image_height": "adapt",
+        "desktop_content_position": "bottom-center",
         "show_text_box": true,
         "show_overlay": false,
         "desktop_content_alignment": "left",
@@ -220,14 +200,47 @@
         "show_text_below": true
       }
     },
+    "rich_text_Ah6W8U": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_LxtnNw": {
+          "type": "heading",
+          "settings": {
+            "heading": "Lively, Spirited, Stable",
+            "heading_size": "h2",
+            "make_h1": "no"
+          }
+        },
+        "text_PpmjL8": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The All-City Cosmic Stallion GRX is thoroughly modern and classically styled – all on a lightweight disc-brake frameset. With the latest development of fork-mounted cargo solutions, the Cosmic Stallion GRX brings uncluttered potential to gravel riders and beyond. From fast sprints to all-day epics, this race-ready steel machine sets a new standard for beauty and functionality.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_LxtnNw",
+        "text_PpmjL8"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 32,
+        "padding_bottom": 100
+      }
+    },
     "multicolumn_9dzp4U": {
       "type": "multicolumn",
       "blocks": {
         "column_3EQUmB": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "image": "shopify://shop_images/all-city-cosmic-stallion-GRX-ace-tubing_68d620f0-f73b-4a1f-8988-3bcc99fa803d.jpg",
+            "title": "A.C.E. Tubing",
+            "text": "<p>Painstakingly crafted from our proprietary heat-treated, air-hardened, and custom-extruded A.C.E. steel tubing, there’s nothing else like it on Earth. <a href=\"https://web.archive.org/web/20260116182929/https://allcitycycles.com/design/ace-steel-tubing\">Learn more about A.C.E. Tubing</a></p>",
             "link_label": "",
             "link": ""
           }
@@ -235,6 +248,7 @@
         "column_hyekme": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/all-city-cosmic-stallion-GRX-ace-tubing_68d620f0-f73b-4a1f-8988-3bcc99fa803d.jpg",
             "title": "Column",
             "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
             "link_label": "",
@@ -526,6 +540,7 @@
     "rich_text_MWyNAg",
     "rich_text_dNReLM",
     "image_banner_yzCHfF",
+    "rich_text_Ah6W8U",
     "multicolumn_9dzp4U",
     "multicolumn_TU9L7N",
     "main",
