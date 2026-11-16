@@ -64,8 +64,8 @@
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
-        "title": "Featured collection",
-        "heading_size": "h1",
+        "title": "SMALL UPGRADES. BIG DIFFERENCE.",
+        "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
@@ -121,11 +121,95 @@
         "padding_top": 40,
         "padding_bottom": 52
       }
+    },
+    "collection_list_wzH8jL": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_VPVhQp": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "featured_collection_3QTRyP": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "featured_collection_zDx4pR": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "featured_collection_7fAcUC": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_VPVhQp",
+        "featured_collection_3QTRyP",
+        "featured_collection_zDx4pR",
+        "featured_collection_7fAcUC"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "YOUR BIKE. YOUR WAY.",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 4,
+        "color_scheme": "",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "newsletter_ymg8Xw": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_X3ymhW": {
+          "type": "heading",
+          "settings": {
+            "heading": "MORE GOOD THINGS.STRAIGHT TO YOUR INBOX.",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph_xVpENM": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>New gear, fresh ideas, and more reasons to ride.</p>"
+          }
+        },
+        "email_form_cXtYBx": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_X3ymhW",
+        "paragraph_xVpENM",
+        "email_form_cXtYBx"
+      ],
+      "name": "t:sections.newsletter.presets.name",
+      "settings": {
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
     "image_banner_iBbYT9",
     "featured_collection_zUaqtF",
-    "rich_text_HrqgDE"
+    "rich_text_HrqgDE",
+    "collection_list_wzH8jL",
+    "newsletter_ymg8Xw"
   ]
 }

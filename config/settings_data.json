@@ -106,6 +106,7 @@
     "badge_corner_radius": 40,
     "sale_badge_color_scheme": "scheme-5",
     "sold_out_badge_color_scheme": "scheme-3",
+    "sale_badge_product_pages_only": false,
     "social_facebook_link": "",
     "social_instagram_link": "",
     "social_youtube_link": "",
