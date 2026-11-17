@@ -9,6 +9,16 @@
  */
 {
   "sections": {
+    "custom_liquid_bPikNT": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
     "image_banner_xCECGx": {
       "type": "image-banner",
       "blocks": {
@@ -82,6 +92,7 @@
     }
   },
   "order": [
+    "custom_liquid_bPikNT",
     "image_banner_xCECGx",
     "banner",
     "product-grid"
