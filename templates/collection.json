@@ -77,7 +77,7 @@
         "show_features_list": false,
         "quick_add": "none",
         "enable_filtering": true,
-        "filter_type": "horizontal",
+        "filter_type": "vertical",
         "enable_sorting": true,
         "qbp_enable_quiz_filters": false,
         "qbp_app_api_url": "",
