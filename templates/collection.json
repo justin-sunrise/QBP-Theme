@@ -13,7 +13,7 @@
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
-        "custom_liquid": "",
+        "custom_liquid": "<style>\n.banner__media::after {\n  background: linear-gradient(\n    to right,\n    rgba(0, 0, 0, 0.7) 0%,\n    rgba(0, 0, 0, 0.35) 45%,\n    rgba(0, 0, 0, 0) 80%\n  );\n  opacity: 1;\n}\n\n\n.banner__box {\n  background: transparent;\n  padding: 0;\n}\n\n.banner__heading {\n  display: inline-block;\n  position: relative;\n  z-index: 0;\n  margin: 0;\n  padding: 0.3em 1.1em;\n  color: #fff;\n}\n\n.banner__heading::before {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  z-index: -1;\n  background: #E30075;\n  transform: skewX(-20deg);\n}\n</style>",
         "color_scheme": "",
         "padding_top": 0,
         "padding_bottom": 0
