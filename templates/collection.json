@@ -24,6 +24,10 @@
       "block_order": [
         "heading_pjHcFq"
       ],
+      "custom_css": [
+        ".banner__media::after {background: linear-gradient( to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.35) 45%, rgba(0, 0, 0, 0) 80% ); opacity: 1;}",
+        ".banner__heading {color: #fff;}"
+      ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "image": "shopify://shop_images/subhero_grass.jpg",
