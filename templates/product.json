@@ -9,18 +9,71 @@
  */
 {
   "sections": {
+    "image_banner_6dHRVn": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "{{ product.metafields.custom.product_in_action_poster.value }}",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "show_overlay": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "rich_text_GtdtMg": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_iWK44x": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ product.title }}",
+            "heading_size": "h1",
+            "make_h1": "no"
+          }
+        },
+        "button_DjiGCx": {
+          "type": "button",
+          "settings": {
+            "button_label": "Overview",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "Specs & Geo",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_iWK44x",
+        "button_DjiGCx"
+      ],
+      "custom_css": [
+        ".rich-text__blocks {display: flex; align-items: center; justify-content: space-between; max-width: 100%;}",
+        ".rich-text__buttons {margin-top: 0;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "full_width": true,
+        "padding_top": 12,
+        "padding_bottom": 12
+      }
+    },
     "main": {
       "type": "main-product",
       "blocks": {
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "text": "<p>{{ product.vendor }}</p>",
-            "text_style": "uppercase"
-          }
-        },
         "title": {
           "type": "title",
+          "disabled": true,
           "settings": {}
         },
         "caption": {
@@ -43,16 +96,9 @@
             "swatch_shape": "circle"
           }
         },
-        "quantity_selector": {
-          "type": "quantity_selector",
+        "description_HkUKz9": {
+          "type": "description",
           "settings": {}
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
-          }
         },
         "collapsible-row-0": {
           "type": "collapsible_tab",
@@ -89,35 +135,26 @@
             "content": "",
             "page": ""
           }
-        },
-        "share": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
-          }
         }
       },
       "block_order": [
-        "vendor",
         "title",
         "caption",
         "price",
         "variant_picker",
-        "quantity_selector",
-        "buy_buttons",
+        "description_HkUKz9",
         "collapsible-row-0",
         "collapsible-row-1",
         "collapsible-row-2",
-        "collapsible-row-3",
-        "share"
+        "collapsible-row-3"
       ],
       "settings": {
         "enable_sticky_info": true,
-        "color_scheme": "",
-        "media_size": "large",
+        "color_scheme": "scheme-4",
+        "media_size": "medium",
         "constrain_to_viewport": true,
         "media_fit": "contain",
-        "gallery_layout": "stacked",
+        "gallery_layout": "thumbnail_slider",
         "media_position": "left",
         "image_zoom": "lightbox",
         "mobile_thumbnails": "hide",
@@ -231,6 +268,8 @@
     }
   },
   "order": [
+    "image_banner_6dHRVn",
+    "rich_text_GtdtMg",
     "main",
     "image-with-text",
     "multicolumn",
