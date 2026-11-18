@@ -11,13 +11,78 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "image_banner_484eA6": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_wfKRCC": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ page.title }}",
+            "heading_size": "h0",
+            "make_h1": "yes"
+          }
+        }
+      },
+      "block_order": [
+        "heading_wfKRCC"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/parts_subheader.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-left",
+        "show_text_box": true,
+        "show_overlay": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-d5ac76d5-c56f-4ccd-97dc-c4c738a24361",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "image_with_text_XEjFNa": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_WDyFEg": {
+          "type": "text",
+          "settings": {
+            "text": "<p></p>{{ page.content }}",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "text_WDyFEg"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/ACT_Homepage_Header_Banner_VF.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-4",
+        "color_scheme": "scheme-4",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "image_banner_484eA6",
+    "image_with_text_XEjFNa"
   ]
 }
