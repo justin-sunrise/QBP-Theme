@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "banner": {
@@ -13,12 +22,23 @@
       "settings": {
         "products_per_page": 16,
         "columns_desktop": 4,
+        "color_scheme": "",
         "image_ratio": "adapt",
+        "image_shape": "default",
         "show_secondary_image": false,
         "show_vendor": false,
         "show_rating": false,
+        "show_features_list": false,
+        "quick_add": "none",
         "enable_filtering": true,
+        "filter_type": "vertical",
         "enable_sorting": true,
+        "qbp_enable_quiz_filters": false,
+        "qbp_app_api_url": "",
+        "qbp_quiz_button_label": "Use my quiz answers",
+        "qbp_quiz_toggle_off_label": "Turn off quiz answers",
+        "qbp_quiz_customize_label": "Customize my fit",
+        "qbp_quiz_customize_url": "",
         "columns_mobile": "2",
         "padding_top": 36,
         "padding_bottom": 36
