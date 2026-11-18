@@ -26,7 +26,7 @@
             "show_text_box": false,
             "text_alignment": "center",
             "image_overlay_opacity": 0,
-            "color_scheme": "",
+            "color_scheme": "scheme-1",
             "text_alignment_mobile": "center"
           }
         },
@@ -149,14 +149,18 @@
         "heading_A39hCR",
         "button_BGGkzp"
       ],
+      "custom_css": [
+        ".rich-text__blocks {display: flex; align-items: center; justify-content: space-between; max-width: 100%;}",
+        ".rich-text__buttons {margin-top: 0;}"
+      ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "scheme-3",
         "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
+        "padding_top": 12,
+        "padding_bottom": 12
       }
     },
     "rich_text_dNReLM": {
