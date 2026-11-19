@@ -83,30 +83,36 @@
               {% endif %}
               {% if section.settings.target_source == 'metaobjects' %}
                 <div class="spots-container">
+                  {%- comment %}<locksmith:b3b1>{% endcomment -%}
+                    {%- assign locksmith_b37f_forloop__size = 0 %}{% for hotspot in object_loop  %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: hotspot, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_b37f_forloop__size = locksmith_b37f_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_b37f_forloop__index = nil -%}
+                  {%- comment %}</locksmith:b3b1>{% endcomment -%}
                   {% for hotspot in object_loop  %}
+                    {%- comment %}<locksmith:8f60>{% endcomment -%}
+                      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: hotspot, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_b37f_forloop__index == nil %}{% assign locksmith_b37f_forloop__index = 1 %}{% assign locksmith_b37f_forloop__index0 = 0 %}{% else %}{% assign locksmith_b37f_forloop__index = locksmith_b37f_forloop__index | plus: 1 %}{% assign locksmith_b37f_forloop__index0 = locksmith_b37f_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_b37f_forloop__index == 1 %}{% assign locksmith_b37f_forloop__first = true %}{% else %}{% assign locksmith_b37f_forloop__first = false %}{% endif %}{% if locksmith_b37f_forloop__index == locksmith_b37f_forloop__size %}{% assign locksmith_b37f_forloop__last = true %}{% else %}{% assign locksmith_b37f_forloop__last = false %}{% endif %}{% assign locksmith_b37f_forloop__rindex = locksmith_b37f_forloop__size | minus: locksmith_b37f_forloop__index | minus: 1 %}{% assign locksmith_b37f_forloop__rindex0 = locksmith_b37f_forloop__size | minus: locksmith_b37f_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+                    {%- comment %}</locksmith:8f60>{% endcomment -%}
                     {%- style -%}
                       /* {{ hotspot.position_x }}% */
-                        .single-spot-position-{{ forloop.index }} {
+                        .single-spot-position-{{ locksmith_b37f_forloop__index }} {
                           top: {{ hotspot.position_x }}%;
                           left: {{ hotspot.position_y }}%
                         }
-                      #spot-modal-{{ section.id }}-{{ forloop.index }}{
+                      #spot-modal-{{ section.id }}-{{ locksmith_b37f_forloop__index }}{
                          transform: translate(-{{ hotspot.position_y }}%, -{{ hotspot.position_x }}%);
                        }
                       @media screen and (min-width: 750px) {
-                       #spot-modal-{{ section.id }}-{{ forloop.index }}{
+                       #spot-modal-{{ section.id }}-{{ locksmith_b37f_forloop__index }}{
                          transform: translate(0, 0);
                        }
                       }
                       {%- endstyle -%}
-                      <div class="single-spot single-spot-position-{{ forloop.index }}" role="button">
+                      <div class="single-spot single-spot-position-{{ locksmith_b37f_forloop__index }}" role="button">
                         <button class="single-spot-svg rotate-spot-0" onclick="addClassToSibling(this)"  aria-label="View Feature">
-                          <svg class="" data-target="spot-modal-{{ section.id }}-{{ forloop.index }}" xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21" fill="none">
+                          <svg class="" data-target="spot-modal-{{ section.id }}-{{ locksmith_b37f_forloop__index }}" xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21" fill="none">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M12.2263 9.29144V0.418396H9.4665V9.29144H0.592476V12.0512H9.4665V20.9262H12.2263V12.0512H21.1003V9.29144H12.2263Z" fill="white"/>
                           </svg>
                         </button>
                         
-                        <div id="spot-modal-{{ section.id }}-{{ forloop.index }}" class="hide-spot-modal spot-modal {{  section.settings.spot_modal_alignment }}">
+                        <div id="spot-modal-{{ section.id }}-{{ locksmith_b37f_forloop__index }}" class="hide-spot-modal spot-modal {{  section.settings.spot_modal_alignment }}">
                           <button class="feature-close" onclick="closeModal(this)">Close</button>
                           <a href="{{ hotspot.hotspot_features.value.system.url }}">
                             <div class="spot-product-title">{{ hotspot.hotspot_features.value.title.value }}</div>

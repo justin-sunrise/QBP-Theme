@@ -61,14 +61,20 @@
           <span class="slider-counter--total">{{ my_new_array.size }}</span>
         {%- else -%}
           <div class="slideshow__control-wrapper">
+            {%- comment %}<locksmith:acc5>{% endcomment -%}
+              {%- assign locksmith_bc43_forloop__size = 0 %}{%- for block in my_new_array -%}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_bc43_forloop__size = locksmith_bc43_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_bc43_forloop__index = nil -%}
+            {%- comment %}</locksmith:acc5>{% endcomment -%}
             {%- for block in my_new_array -%}
+              {%- comment %}<locksmith:b2da>{% endcomment -%}
+                {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_bc43_forloop__index == nil %}{% assign locksmith_bc43_forloop__index = 1 %}{% assign locksmith_bc43_forloop__index0 = 0 %}{% else %}{% assign locksmith_bc43_forloop__index = locksmith_bc43_forloop__index | plus: 1 %}{% assign locksmith_bc43_forloop__index0 = locksmith_bc43_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_bc43_forloop__index == 1 %}{% assign locksmith_bc43_forloop__first = true %}{% else %}{% assign locksmith_bc43_forloop__first = false %}{% endif %}{% if locksmith_bc43_forloop__index == locksmith_bc43_forloop__size %}{% assign locksmith_bc43_forloop__last = true %}{% else %}{% assign locksmith_bc43_forloop__last = false %}{% endif %}{% assign locksmith_bc43_forloop__rindex = locksmith_bc43_forloop__size | minus: locksmith_bc43_forloop__index | minus: 1 %}{% assign locksmith_bc43_forloop__rindex0 = locksmith_bc43_forloop__size | minus: locksmith_bc43_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+              {%- comment %}</locksmith:b2da>{% endcomment -%}
               <button
                 class="slider-counter__link slider-counter__link--{{ section.settings.slider_visual }} link"
-                aria-label="{{ 'sections.slideshow.load_slide' | t }} {{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
+                aria-label="{{ 'sections.slideshow.load_slide' | t }} {{ locksmith_bc43_forloop__index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
                 aria-controls="Slider-{{ section.id }}"
               >
                 {%- if section.settings.slider_visual == 'numbers' -%}
-                  {{ forloop.index -}}
+                  {{ locksmith_bc43_forloop__index -}}
                 {%- else -%}
                   <span class="dot"></span>
                 {%- endif -%}
@@ -114,19 +120,25 @@
     data-autoplay="{{ section.settings.auto_rotate }}"
     data-speed="{{ section.settings.change_slides_speed }}"
   >
+    {%- comment %}<locksmith:26aa>{% endcomment -%}
+      {%- assign locksmith_c502_forloop__size = 0 %}{%- for block in my_new_array -%}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_c502_forloop__size = locksmith_c502_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_c502_forloop__index = nil -%}
+    {%- comment %}</locksmith:26aa>{% endcomment -%}
     {%- for block in my_new_array -%}
+      {%- comment %}<locksmith:92ea>{% endcomment -%}
+        {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_c502_forloop__index == nil %}{% assign locksmith_c502_forloop__index = 1 %}{% assign locksmith_c502_forloop__index0 = 0 %}{% else %}{% assign locksmith_c502_forloop__index = locksmith_c502_forloop__index | plus: 1 %}{% assign locksmith_c502_forloop__index0 = locksmith_c502_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_c502_forloop__index == 1 %}{% assign locksmith_c502_forloop__first = true %}{% else %}{% assign locksmith_c502_forloop__first = false %}{% endif %}{% if locksmith_c502_forloop__index == locksmith_c502_forloop__size %}{% assign locksmith_c502_forloop__last = true %}{% else %}{% assign locksmith_c502_forloop__last = false %}{% endif %}{% assign locksmith_c502_forloop__rindex = locksmith_c502_forloop__size | minus: locksmith_c502_forloop__index | minus: 1 %}{% assign locksmith_c502_forloop__rindex0 = locksmith_c502_forloop__size | minus: locksmith_c502_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+      {%- comment %}</locksmith:92ea>{% endcomment -%}
       <style>
-        #Slide-{{ section.id }}-{{ forloop.index }} .banner__media::after {
+        #Slide-{{ section.id }}-{{ locksmith_c502_forloop__index }} .banner__media::after {
           opacity: {{ block.settings.image_overlay_opacity | divided_by: 100.0 }};
         }
       </style>
       <div
         class="slideshow__slide grid__item grid--1-col slider__slide"
-        id="Slide-{{ section.id }}-{{ forloop.index }}"
+        id="Slide-{{ section.id }}-{{ locksmith_c502_forloop__index }}"
         {{ block.shopify_attributes }}
         role="group"
         aria-roledescription="{{ 'sections.slideshow.slide' | t }}"
-        aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
+        aria-label="{{ locksmith_c502_forloop__index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
         tabindex="-1"
       >
         <div class="slideshow__media banner__media media{% if block.settings.image == blank %} placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}">
@@ -145,7 +157,7 @@
                 assign fetch_priority = 'high'
               endif
             -%}
-            {%- if forloop.first %}
+            {%- if locksmith_c502_forloop__first %}
               {{
                 block.settings.image
                 | image_url: width: 3840
@@ -160,7 +172,7 @@
             {%- endif -%}
           {%- else -%}
             {% comment %}
-            {%- assign placeholder_slide = forloop.index | modulo: 2 -%}
+            {%- assign placeholder_slide = locksmith_c502_forloop__index | modulo: 2 -%}
             {%- if placeholder_slide == 1 -%}
               {{ 'hero-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
             {%- else -%}
@@ -169,7 +181,7 @@
             {% endcomment %}
           {%- endif -%}
         </div>
-        <div class="slideshow__text-wrapper banner__content banner__content--{{ block.settings.box_align }} page-width{% if block.settings.show_text_box == false %} banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll and forloop.index == 1 %} scroll-trigger animate--slide-in{% endif %}">
+        <div class="slideshow__text-wrapper banner__content banner__content--{{ block.settings.box_align }} page-width{% if block.settings.show_text_box == false %} banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll and locksmith_c502_forloop__index == 1 %} scroll-trigger animate--slide-in{% endif %}">
           <div class="slideshow__text banner__box content-container content-container--full-width-mobile color-{{ block.settings.color_scheme }} gradient slideshow__text--{{ block.settings.text_alignment }} slideshow__text-mobile--{{ block.settings.text_alignment_mobile }}">
             {%- if block.settings.heading != blank -%}
               <h2 class="banner__heading inline-richtext {{ block.settings.heading_size }}">

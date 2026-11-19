@@ -1,3 +1,7 @@
+{%- comment %}<locksmith:ea22>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', variable: 'hide_add_to_cart', scope: 'subject', subject: product %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_access_granted = false %}{% else %}{% assign locksmith_access_granted = true %}{% endif %}{% if locksmith_access_granted -%}
+{%- comment %}</locksmith:ea22>{% endcomment -%}
+
 {% comment %}
   Renders product buy-buttons.
   Accepts:
@@ -149,3 +153,7 @@
     <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
   {%- endif -%}
 </div>
+
+{%- comment %}<locksmith:f085>{% endcomment -%}
+  {%- else %}{% render 'locksmith-variables', variable: 'section_replacement', scope: 'subject', subject: product %}{% endif -%}
+{%- comment %}</locksmith:f085>{% endcomment -%}

@@ -1,3 +1,7 @@
+{%- comment %}<locksmith:e88c>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', variable: 'hide_price', scope: 'subject', subject: product %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_access_granted = false %}{% else %}{% assign locksmith_access_granted = true %}{% endif %}{% if locksmith_access_granted -%}
+{%- comment %}</locksmith:e88c>{% endcomment -%}
+
 {% comment %}
   Renders a list of product's price (regular, sale)
 
@@ -235,3 +239,7 @@
     {%- endif -%}
   </div>
 {% endunless %}
+
+{%- comment %}<locksmith:6fc6>{% endcomment -%}
+  {%- endif -%}
+{%- comment %}</locksmith:6fc6>{% endcomment -%}

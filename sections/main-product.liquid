@@ -121,6 +121,9 @@
                   </a>
                 </div>
               {%- when 'price' -%}
+                {%- comment %}<locksmith:f406>{% endcomment -%}
+                  {%- capture var %}{% render 'locksmith-variables', variable: 'hide_price', scope: 'subject', subject: product %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_access_granted = false %}{% else %}{% assign locksmith_access_granted = true %}{% endif %}{% if locksmith_access_granted -%}
+                {%- comment %}</locksmith:f406>{% endcomment -%}
                 <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                   {%- render 'price',
                     product: product,
@@ -157,6 +160,9 @@
                   {%- endform -%}
                 </div>
                 {% endif %}
+                {%- comment %}<locksmith:b464>{% endcomment -%}
+                  {%- endif -%}
+                {%- comment %}</locksmith:b464>{% endcomment -%}
               {%- when 'inventory' -%}
                 <p
                   class="product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
@@ -247,6 +253,9 @@
                 </div>
                 {% endif %}
               {%- when 'quantity_selector' -%}
+                {%- comment %}<locksmith:062c>{% endcomment -%}
+                  {%- capture var %}{% render 'locksmith-variables', variable: 'hide_add_to_cart', scope: 'subject', subject: product %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_access_granted = false %}{% else %}{% assign locksmith_access_granted = true %}{% endif %}{% if locksmith_access_granted -%}
+                {%- comment %}</locksmith:062c>{% endcomment -%}
                 <div
                   id="Quantity-Form-{{ section.id }}"
                   class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
@@ -459,6 +468,9 @@
                     </volume-pricing>
                   {%- endif -%}
                 </div>
+                {%- comment %}<locksmith:fea5>{% endcomment -%}
+                  {%- endif -%}
+                {%- comment %}</locksmith:fea5>{% endcomment -%}
               {%- when 'popup' -%}
                 <modal-opener
                   class="product-popup-modal__opener quick-add-hidden"
@@ -483,6 +495,9 @@
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
+                {%- comment %}<locksmith:c0ea>{% endcomment -%}
+                  {%- capture var %}{% render 'locksmith-variables', variable: 'hide_add_to_cart', scope: 'subject', subject: product %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_access_granted = false %}{% else %}{% assign locksmith_access_granted = true %}{% endif %}{% if locksmith_access_granted -%}
+                {%- comment %}</locksmith:c0ea>{% endcomment -%}
                 {% if product.metafield.custom.product_is_sellable or product.metafield.custom.product_is_sellable == blank %}
                   {%- render 'buy-buttons',
                     block: block,
@@ -492,6 +507,9 @@
                     show_pickup_availability: true
                   -%}
                 {% endif %}
+                {%- comment %}<locksmith:d502>{% endcomment -%}
+                  {%- else %}{% render 'locksmith-variables', variable: 'section_replacement', scope: 'subject', subject: product %}{% endif -%}
+                {%- comment %}</locksmith:d502>{% endcomment -%}
               {%- when 'buy_local_now_button' -%}
                 {% render 'buy-local-button', block: block, product: product, section_id: section.id, initial_variant_only: true %}
               {%- when 'locally_button' -%}
@@ -776,6 +794,9 @@
 
     {% assign popups = section.blocks | where: 'type', 'popup' %}
     {%- for block in popups -%}
+      {%- comment %}<locksmith:3415>{% endcomment -%}
+        {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+      {%- comment %}</locksmith:3415>{% endcomment -%}
       <modal-dialog id="PopupModal-{{ block.id }}" class="product-popup-modal" {{ block.shopify_attributes }}>
         <div
           role="dialog"
