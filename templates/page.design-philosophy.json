@@ -23,7 +23,7 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/all-city_ACE_Tubing_thumbnail_600x400_9f7f3272-8fcc-4a1f-8351-f6440fad8dc8.jpg",
-            "title": "<a href=\"https://web.archive.org/web/20260213080701/https://allcitycycles.com/design/ace-steel-tubing\">Tubing: A.C.E. Steel</a>",
+            "title": "<a href=\"/pages/tubing-a-c-e-steel\" title=\"Tubing: A.C.E. Steel\">Tubing: A.C.E. Steel</a>",
             "text": "",
             "link_label": "",
             "link": ""
@@ -33,7 +33,7 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/oberon-titanium-tubing-600x400_4b156f5d-1a88-4150-8f3a-14e77ab9faf7.jpg",
-            "title": "<a href=\"https://web.archive.org/web/20260213080701/https://allcitycycles.com/design/oberon_titanium_tubing\">Tubing: Titanium</a>",
+            "title": "<a href=\"/pages/tubing-titanium\" title=\"Tubing: Titanium\">Tubing: Titanium</a>",
             "text": "",
             "link_label": "",
             "link": ""
@@ -43,7 +43,7 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/all-city-cosmic-stallion-force-ace-tubing.jpg",
-            "title": "<a href=\"https://web.archive.org/web/20260213080701/https://allcitycycles.com/design/tubing\">Tubing</a>",
+            "title": "<a href=\"/pages/tubing\" title=\"Tubing\">Tubing</a>",
             "text": "",
             "link_label": "",
             "link": ""
@@ -53,7 +53,7 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/NatureBoy_detail_07.jpg",
-            "title": "<a href=\"https://web.archive.org/web/20260213080701/https://allcitycycles.com/design/paint\">Paint</a>",
+            "title": "<a href=\"/pages/paint\" title=\"Paint\">Paint</a>",
             "text": "",
             "link_label": "",
             "link": ""
@@ -63,7 +63,7 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/BigBlock_detail_09.jpg",
-            "title": "<a href=\"https://web.archive.org/web/20260213080701/https://allcitycycles.com/design/signature_details\">Signature Details</a>",
+            "title": "<a href=\"/pages/signature-details\" title=\"Signature Details\">Signature Details</a>",
             "text": "",
             "link_label": "",
             "link": ""
