@@ -172,7 +172,7 @@
           "type": "heading",
           "settings": {
             "heading": "PRODUCT SPECS",
-            "heading_size": "h1",
+            "heading_size": "h2",
             "make_h1": "no"
           }
         },
