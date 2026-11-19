@@ -97,19 +97,6 @@
             "swatch_shape": "circle"
           }
         },
-        "text_iggUwD": {
-          "type": "text",
-          "settings": {
-            "text": "<p><strong>Part Number:</strong></p>",
-            "text_style": "body"
-          }
-        },
-        "sku_Cewj9G": {
-          "type": "sku",
-          "settings": {
-            "text_style": "body"
-          }
-        },
         "description_HkUKz9": {
           "type": "description",
           "settings": {}
@@ -156,8 +143,6 @@
         "caption",
         "price",
         "variant_picker",
-        "text_iggUwD",
-        "sku_Cewj9G",
         "description_HkUKz9",
         "collapsible-row-0",
         "collapsible-row-1",
@@ -212,6 +197,29 @@
         "padding_bottom": 52
       }
     },
+    "rich_text_zMbBE8": {
+      "type": "rich-text",
+      "blocks": {
+        "text_TXmKyg": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.custom.product_overview_text | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "text_TXmKyg"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "scheme-4",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -237,6 +245,7 @@
     "rich_text_GtdtMg",
     "main",
     "rich_text_QaxTwj",
+    "rich_text_zMbBE8",
     "related-products"
   ]
 }
