@@ -164,6 +164,9 @@
                     {%- endunless -%}
                   </h2>
                 {%- when 'price' -%}
+                  {%- comment %}<locksmith:a83e>{% endcomment -%}
+                    {%- capture var %}{% render 'locksmith-variables', variable: 'hide_price', scope: 'subject', subject: product %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_access_granted = false %}{% else %}{% assign locksmith_access_granted = true %}{% endif %}{% if locksmith_access_granted -%}
+                  {%- comment %}</locksmith:a83e>{% endcomment -%}
                   <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                     {%- render 'price',
                       product: product,
@@ -202,6 +205,9 @@
                     </div>
                     {% endif %}
                   {%- endunless -%}
+                  {%- comment %}<locksmith:0046>{% endcomment -%}
+                    {%- endif -%}
+                  {%- comment %}</locksmith:0046>{% endcomment -%}
                 {%- when 'sku' -%}
                   <p
                     class="product__sku{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
@@ -213,6 +219,9 @@
                     {{- product.selected_or_first_available_variant.sku -}}
                   </p>
                 {%- when 'quantity_selector' -%}
+                  {%- comment %}<locksmith:8251>{% endcomment -%}
+                    {%- capture var %}{% render 'locksmith-variables', variable: 'hide_add_to_cart', scope: 'subject', subject: product %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_access_granted = false %}{% else %}{% assign locksmith_access_granted = true %}{% endif %}{% if locksmith_access_granted -%}
+                  {%- comment %}</locksmith:8251>{% endcomment -%}
                   <div
                     id="Quantity-Form-{{ section.id }}"
                     class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
@@ -426,6 +435,9 @@
                       </volume-pricing>
                     {%- endif -%}
                   </div>
+                  {%- comment %}<locksmith:b3de>{% endcomment -%}
+                    {%- endif -%}
+                  {%- comment %}</locksmith:b3de>{% endcomment -%}
                 {%- when 'share' -%}
                   {% liquid
                     assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin
@@ -438,12 +450,18 @@
                     product_form_id: product_form_id
                   %}
                 {%- when 'buy_buttons' -%}
+                  {%- comment %}<locksmith:8c3b>{% endcomment -%}
+                    {%- capture var %}{% render 'locksmith-variables', variable: 'hide_add_to_cart', scope: 'subject', subject: product %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_access_granted = false %}{% else %}{% assign locksmith_access_granted = true %}{% endif %}{% if locksmith_access_granted -%}
+                  {%- comment %}</locksmith:8c3b>{% endcomment -%}
                   {%- render 'buy-buttons',
                     block: block,
                     product: product,
                     product_form_id: product_form_id,
                     section_id: section.id
                   -%}
+                  {%- comment %}<locksmith:9bba>{% endcomment -%}
+                    {%- else %}{% render 'locksmith-variables', variable: 'section_replacement', scope: 'subject', subject: product %}{% endif -%}
+                  {%- comment %}</locksmith:9bba>{% endcomment -%}
                 {%- when 'buy_local_now_button' -%}
                   {% render 'buy-local-button', block: block, product: product, section_id: section.id %}
                 {%- when 'custom_liquid' -%}
