@@ -194,7 +194,7 @@
         "text_tgpxKV": {
           "type": "text",
           "settings": {
-            "text": "{{ product.metafields.custom.pdp_faq | metafield_tag }}"
+            "text": "{{ product.metafields.custom.extended_copy_text | metafield_tag }}"
           }
         }
       },
