@@ -21,25 +21,27 @@
             "menu": "footer"
           }
         },
-        "footer-1": {
-          "type": "link_list",
-          "settings": {
-            "heading": "Lifestyle",
-            "menu": "lifestyle"
-          }
-        },
         "link_list_UKh3fd": {
           "type": "link_list",
           "settings": {
             "heading": "Support",
             "menu": "support"
           }
+        },
+        "image_cC9Kdn": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/A360-Badge.svg",
+            "image_width": 100,
+            "alignment": "right",
+            "image_url": "https://accessible360.com"
+          }
         }
       },
       "block_order": [
         "footer-0",
-        "footer-1",
-        "link_list_UKh3fd"
+        "link_list_UKh3fd",
+        "image_cC9Kdn"
       ],
       "settings": {
         "color_scheme": "scheme-3",
