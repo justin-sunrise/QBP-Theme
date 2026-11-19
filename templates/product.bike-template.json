@@ -138,10 +138,10 @@
           "settings": {
             "button_label": "Overview",
             "button_link": "#overview",
-            "button_style_secondary": false,
+            "button_style_secondary": true,
             "button_label_2": "Specs & Geo",
             "button_link_2": "#specs-geo",
-            "button_style_secondary_2": false
+            "button_style_secondary_2": true
           }
         }
       },
