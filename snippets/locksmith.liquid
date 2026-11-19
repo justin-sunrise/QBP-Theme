@@ -4,7 +4,7 @@
   Do not modify this file. Any changes will be reset the next time that
   Locksmith interacts with this theme.
 
-  Last updated: Thu, 19 Nov 2026 17:36:13 -0600 (CST)
+  Last updated: Thu, 19 Nov 2026 17:39:57 -0600 (CST)
 {% endcomment -%}
 
 {%include 'locksmith-variables', locksmith_scope: nil%}{%if locksmith_access_denied_content == blank%}{%capture locksmith_access_denied_content%}{%if locksmith_manual_lock%}{{content_for_layout}}{%elsif locksmith_remote_lock%}<div id="locksmith-content">
@@ -285,7 +285,9 @@
   </style>{%endif%}<script data-locksmith>
     var load = function () {
 {%unless _b%}
-          Locksmith.ping();
+          if (document.querySelectorAll('.locksmith-manual-trigger').length > 0) {
+            Locksmith.ping();
+          }
 {%endunless%}{%if locksmith_has_timeout%}
         Locksmith.timeoutMonitor();
 {%endif%}
