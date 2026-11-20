@@ -22,6 +22,7 @@
         "column_hCF7fU": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/24432_ACT_Annual_Vol8_vF-1.jpg",
             "title": "",
             "text": "",
             "link_label": "",
@@ -31,6 +32,7 @@
         "column_FkUhFA": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/Vol_7_thmb.jpg",
             "title": "",
             "text": "",
             "link_label": "",
@@ -40,6 +42,7 @@
         "column_VWJ69j": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/Vol_6-thmb.jpg",
             "title": "",
             "text": "",
             "link_label": "",
@@ -49,6 +52,7 @@
         "column_hrwnjK": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/Vol_5-thmb.jpg",
             "title": "",
             "text": "",
             "link_label": "",
@@ -58,6 +62,7 @@
         "column_C3AGf6": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/Vol_4.jpg",
             "title": "",
             "text": "",
             "link_label": "",
@@ -67,6 +72,7 @@
         "column_DmMbbG": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/Vol_3.jpg",
             "title": "",
             "text": "",
             "link_label": "",
@@ -76,6 +82,7 @@
         "column_wJXT6n": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/Vol_2.jpg",
             "title": "",
             "text": "",
             "link_label": "",
