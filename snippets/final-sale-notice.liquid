@@ -26,7 +26,7 @@
 -%}
 <!-- Final Sale Snippet -->
 {%- if final_sale_ids != ',' -%}
-  {%- comment %}<locksmith-lean:6eb6>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_price', scope: 'subject', subject: product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:6eb6>{% endcomment -%}<p
+  {%- comment %}<locksmith-lean:d564>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_price', scope: 'subject', subject: product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:d564>{% endcomment -%}<p
     id="FinalSaleNotice-{{ section_id }}"
     class="final-sale-notice"
     data-final-sale-variants="{{ final_sale_ids }}"
@@ -36,7 +36,7 @@
     {% endunless %}
   >
     Final sale — no returns or exchanges
-  </p>{%- comment %}<locksmith-lean:74f0>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:74f0>{% endcomment -%}
+  </p>{%- comment %}<locksmith-lean:ccc3>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:ccc3>{% endcomment -%}
 
   <style>
     .final-sale-notice {
