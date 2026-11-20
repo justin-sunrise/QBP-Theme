@@ -23,10 +23,10 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/24432_ACT_Annual_Vol8_vF-1.jpg",
-            "title": "",
+            "title": "2026 Annual",
             "text": "",
             "link_label": "Annual Vol. 8",
-            "link": ""
+            "link": "#"
           }
         },
         "column_FkUhFA": {
@@ -36,7 +36,7 @@
             "title": "",
             "text": "",
             "link_label": "Annual Vol. 7",
-            "link": ""
+            "link": "#"
           }
         },
         "column_VWJ69j": {
