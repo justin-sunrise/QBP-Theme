@@ -301,81 +301,23 @@
         "padding_bottom": 16
       }
     },
-    "multicolumn_TU9L7N": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_Nrct96": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/all-city-cosmic-stallion-GRX-ace-tubing_68d620f0-f73b-4a1f-8988-3bcc99fa803d.jpg",
-            "title": "Custom Dropouts",
-            "text": "<p>All-City’s signature engraved logo shines with classic style.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_DH6aLR": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/all-city-cosmic-stallion-GRX-ace-tubing_68d620f0-f73b-4a1f-8988-3bcc99fa803d.jpg",
-            "title": "Signature Seat Collar",
-            "text": "<p>Train your eyes on that timeless and tasteful brazed-on seat collar, elegantly designed around the All-City logo.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_Y97VmN": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/all-city-cosmic-stallion-GRX-ace-tubing_68d620f0-f73b-4a1f-8988-3bcc99fa803d.jpg",
-            "title": "Reinforced Bottle Bosses",
-            "text": "<p>Beautiful stars reinforce the bottle bosses and our obsessive attention to detail.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_xJidVk": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/all-city-cosmic-stallion-GRX-ace-tubing_68d620f0-f73b-4a1f-8988-3bcc99fa803d.jpg",
-            "title": "Liquid Paint and E.D. Coat",
-            "text": "<p>Our topnotch wet paint finish sparkles with depth and luster, while an E.D. coating protects against rust. <a href=\"https://web.archive.org/web/20260116182929/https://allcitycycles.com/design/paint\">Learn more about our paint</a></p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_gGraHY": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/all-city-cosmic-stallion-GRX-ace-tubing_68d620f0-f73b-4a1f-8988-3bcc99fa803d.jpg",
-            "title": "Pantographed Bottom Bracket",
-            "text": "<p>Upside-down and inside-out, AC’s signature style is stamped into the steel.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_Nrct96",
-        "column_DH6aLR",
-        "column_Y97VmN",
-        "column_xJidVk",
-        "column_gGraHY"
-      ],
-      "name": "t:sections.multicolumn.presets.name",
+    "multicolumn_metaobject_aUUeK7": {
+      "type": "multicolumn-metaobject",
+      "name": "Multicolumn (metafield)",
       "settings": {
+        "metafield": "custom.signature_details",
+        "title_field": "title",
+        "text_field": "text",
+        "image_field": "image",
         "title": "",
         "heading_size": "h1",
         "image_width": "full",
         "image_ratio": "adapt",
-        "content_label": "",
         "columns_desktop": 3,
         "swipe_on_desktop": false,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "scheme-5",
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 36,
@@ -577,7 +519,7 @@
     "rich_text_Ah6W8U",
     "multicolumn_metaobject_TVkJWb",
     "rich_text_KMzTmp",
-    "multicolumn_TU9L7N",
+    "multicolumn_metaobject_aUUeK7",
     "main",
     "custom_liquid_7CNnwG",
     "product_collapsable_XkXtkd",
