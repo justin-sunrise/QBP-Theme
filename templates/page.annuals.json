@@ -15,9 +15,117 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "multicolumn_HAyrfm": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_hCF7fU": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_FkUhFA": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_VWJ69j": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_hrwnjK": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_C3AGf6": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_DmMbbG": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_wJXT6n": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_6VfC4e": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Vol_1.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Annual Vol. 1",
+            "link": "https://cdn.shopify.com/s/files/1/0608/6403/6913/files/Vol_1.pdf?v=1795212148"
+          }
+        }
+      },
+      "block_order": [
+        "column_hCF7fU",
+        "column_FkUhFA",
+        "column_VWJ69j",
+        "column_hrwnjK",
+        "column_C3AGf6",
+        "column_DmMbbG",
+        "column_wJXT6n",
+        "column_6VfC4e"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "content_label": "",
+        "columns_desktop": 4,
+        "swipe_on_desktop": false,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "multicolumn_HAyrfm"
   ]
 }
