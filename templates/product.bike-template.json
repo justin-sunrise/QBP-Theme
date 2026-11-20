@@ -246,80 +246,22 @@
         "padding_bottom": 100
       }
     },
-    "multicolumn_9dzp4U": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_3EQUmB": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/all-city-cosmic-stallion-GRX-ace-tubing_68d620f0-f73b-4a1f-8988-3bcc99fa803d.jpg",
-            "title": "A.C.E. Tubing",
-            "text": "<p>Painstakingly crafted from our proprietary heat-treated, air-hardened, and custom-extruded A.C.E. steel tubing, there’s nothing else like it on Earth. <a href=\"https://web.archive.org/web/20260116182929/https://allcitycycles.com/design/ace-steel-tubing\">Learn more about A.C.E. Tubing</a></p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_hyekme": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/all-city-cosmic-stallion-GRX-ace-tubing_68d620f0-f73b-4a1f-8988-3bcc99fa803d.jpg",
-            "title": "WHISKY NO.9 CX Disc 12 Tapered Fork",
-            "text": "<p>Lightweight with generous tire clearance and precise handling capabilities, Whisky’s gorgeous carbon fork accommodates 12mm thru-axles and flat-mount disc brakes.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_z3pNzq": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/all-city-cosmic-stallion-GRX-ace-tubing_68d620f0-f73b-4a1f-8988-3bcc99fa803d.jpg",
-            "title": "Tire Clearance",
-            "text": "<p>Built with versatility in mind, it accommodates tire sizes 700 x 42mm or 650b x 47mm (both with or without fenders).</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_Q8wRck": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/all-city-cosmic-stallion-GRX-ace-tubing_68d620f0-f73b-4a1f-8988-3bcc99fa803d.jpg",
-            "title": "Di2 Routing Options",
-            "text": "<p>Outfitted to make your dreams of accurate and effortless electronic shifting a hassle-free reality.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_RG4LKC": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/all-city-cosmic-stallion-GRX-ace-tubing_68d620f0-f73b-4a1f-8988-3bcc99fa803d.jpg",
-            "title": "Rear Rack and Fender Mounts",
-            "text": "<p>Ready to run mudguards with the ability to mount a bag or two in the back to keep you comfy on those long rides.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_3EQUmB",
-        "column_hyekme",
-        "column_z3pNzq",
-        "column_Q8wRck",
-        "column_RG4LKC"
-      ],
-      "name": "t:sections.multicolumn.presets.name",
+    "multicolumn_metaobject_TVkJWb": {
+      "type": "multicolumn-metaobject",
+      "name": "Multicolumn (metafield)",
       "settings": {
-        "title": "Performance",
+        "metafield": "custom.performance_features",
+        "title_field": "title",
+        "text_field": "text",
+        "image_field": "image",
+        "title": "",
         "heading_size": "h1",
         "image_width": "full",
         "image_ratio": "adapt",
-        "content_label": "",
         "columns_desktop": 2,
         "swipe_on_desktop": false,
         "column_alignment": "left",
         "background_style": "primary",
-        "button_label": "",
-        "button_link": "",
         "color_scheme": "",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
@@ -633,7 +575,7 @@
     "rich_text_dNReLM",
     "image_banner_yzCHfF",
     "rich_text_Ah6W8U",
-    "multicolumn_9dzp4U",
+    "multicolumn_metaobject_TVkJWb",
     "rich_text_KMzTmp",
     "multicolumn_TU9L7N",
     "main",
