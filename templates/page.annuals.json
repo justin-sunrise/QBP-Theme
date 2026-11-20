@@ -11,9 +11,41 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
+      }
+    },
+    "image_banner_6KfLJt": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_ybbLT4": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ page.title }}",
+            "heading_size": "h1",
+            "make_h1": "yes"
+          }
+        }
+      },
+      "block_order": [
+        "heading_ybbLT4"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/parts_subheader.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-left",
+        "show_text_box": true,
+        "show_overlay": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-d5ac76d5-c56f-4ccd-97dc-c4c738a24361",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
       }
     },
     "multicolumn_HAyrfm": {
@@ -133,6 +165,7 @@
   },
   "order": [
     "main",
+    "image_banner_6KfLJt",
     "multicolumn_HAyrfm"
   ]
 }
