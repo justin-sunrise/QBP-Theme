@@ -150,8 +150,9 @@
         "button_BGGkzp"
       ],
       "custom_css": [
-        ".rich-text__blocks {display: flex; align-items: center; justify-content: space-between; max-width: 100%;}",
-        ".rich-text__buttons {margin-top: 0;}"
+        ".rich-text__blocks {display: block; align-items: center; justify-content: space-between; max-width: 100%;}",
+        ".rich-text__buttons {margin-top: 24px;}",
+        "@media only screen and (min-width: 750px) {.rich-text__blocks {display: flex; } .rich-text__buttons {margin-top: 0; }}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
@@ -263,7 +264,7 @@
         "column_alignment": "left",
         "background_style": "primary",
         "color_scheme": "",
-        "columns_mobile": "2",
+        "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 36,
         "padding_bottom": 36
@@ -318,7 +319,7 @@
         "column_alignment": "left",
         "background_style": "primary",
         "color_scheme": "scheme-5",
-        "columns_mobile": "2",
+        "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 36,
         "padding_bottom": 36
