@@ -87,7 +87,7 @@
                 {%- if cart_qty < volume_pricing_array.last.minimum_quantity -%}
                   {%- assign variant_price = variant.price | money -%}
                   <span class="price-per-item--current price">
-                    {%- comment %}<locksmith-lean:2bba>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_price', scope: 'subject', subject: product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:2bba>{% endcomment -%}{{- 'sections.quick_order_list.each' | t: money: variant_price -}}{%- comment %}<locksmith-lean:4a09>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:4a09>{% endcomment -%}
+                    {%- comment %}<locksmith-lean:537e>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_price', scope: 'subject', subject: product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:537e>{% endcomment -%}{{- 'sections.quick_order_list.each' | t: money: variant_price -}}{%- comment %}<locksmith-lean:aedb>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:aedb>{% endcomment -%}
                   </span>
                 {%- else -%}
                   {%- for price_break in volume_pricing_array -%}
@@ -123,7 +123,7 @@
             {%- if cart_qty < volume_pricing_array.last.minimum_quantity -%}
               {%- assign variant_price = variant.price | money -%}
               <span class="price-per-item--current price">
-                {%- comment %}<locksmith-lean:90a1>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_price', scope: 'subject', subject: product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:90a1>{% endcomment -%}{{- 'sections.quick_order_list.each' | t: money: variant_price -}}{%- comment %}<locksmith-lean:3e2d>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:3e2d>{% endcomment -%}
+                {%- comment %}<locksmith-lean:4a50>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_price', scope: 'subject', subject: product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:4a50>{% endcomment -%}{{- 'sections.quick_order_list.each' | t: money: variant_price -}}{%- comment %}<locksmith-lean:38eb>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:38eb>{% endcomment -%}
               </span>
             {%- else -%}
               {%- for price_break in volume_pricing_array -%}
@@ -257,7 +257,7 @@
                     <li>
                       <span>{{ variant.quantity_rule.min }}+</span>
                       {%- assign price = variant.price | money_with_currency -%}
-                      <span>{%- comment %}<locksmith-lean:3f78>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_price', scope: 'subject', subject: product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:3f78>{% endcomment -%}{{ 'sections.quick_order_list.each' | t: money: price }}{%- comment %}<locksmith-lean:57b9>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:57b9>{% endcomment -%}</span>
+                      <span>{%- comment %}<locksmith-lean:4ff4>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_price', scope: 'subject', subject: product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:4ff4>{% endcomment -%}{{ 'sections.quick_order_list.each' | t: money: price }}{%- comment %}<locksmith-lean:4add>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:4add>{% endcomment -%}</span>
                     </li>
                     {%- for price_break in variant.quantity_price_breaks -%}
                       <li>
@@ -266,7 +266,7 @@
                           <span aria-hidden="true">+</span></span
                         >
                         {%- assign price = price_break.price | money_with_currency -%}
-                        <span> {%- comment %}<locksmith-lean:bff7>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_price', scope: 'subject', subject: product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:bff7>{% endcomment -%}{{ 'sections.quick_order_list.each' | t: money: price }}{%- comment %}<locksmith-lean:ff80>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:ff80>{% endcomment -%}</span>
+                        <span> {%- comment %}<locksmith-lean:9934>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_price', scope: 'subject', subject: product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:9934>{% endcomment -%}{{ 'sections.quick_order_list.each' | t: money: price }}{%- comment %}<locksmith-lean:3963>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:3963>{% endcomment -%}</span>
                       </li>
                     {%- endfor -%}
                   </ul>
@@ -358,7 +358,7 @@
                 {%- if cart_qty < volume_pricing_array.last.minimum_quantity -%}
                   {%- assign variant_price = variant.price | money -%}
                   <span class="price-per-item--current price">
-                    {%- comment %}<locksmith-lean:3ea6>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_price', scope: 'subject', subject: product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:3ea6>{% endcomment -%}{{- 'sections.quick_order_list.each' | t: money: variant_price -}}{%- comment %}<locksmith-lean:b042>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:b042>{% endcomment -%}
+                    {%- comment %}<locksmith-lean:2aa3>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_price', scope: 'subject', subject: product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:2aa3>{% endcomment -%}{{- 'sections.quick_order_list.each' | t: money: variant_price -}}{%- comment %}<locksmith-lean:765b>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:765b>{% endcomment -%}
                   </span>
                 {%- else -%}
                   {%- for price_break in volume_pricing_array -%}
@@ -394,7 +394,7 @@
             {%- if cart_qty < volume_pricing_array.last.minimum_quantity -%}
               {%- assign variant_price = variant.price | money -%}
               <span class="price-per-item--current price">
-                {%- comment %}<locksmith-lean:8598>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_price', scope: 'subject', subject: product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:8598>{% endcomment -%}{{- 'sections.quick_order_list.each' | t: money: variant_price -}}{%- comment %}<locksmith-lean:0573>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:0573>{% endcomment -%}
+                {%- comment %}<locksmith-lean:f5a8>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_price', scope: 'subject', subject: product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:f5a8>{% endcomment -%}{{- 'sections.quick_order_list.each' | t: money: variant_price -}}{%- comment %}<locksmith-lean:75db>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:75db>{% endcomment -%}
               </span>
             {%- else -%}
               {%- for price_break in volume_pricing_array -%}
@@ -455,7 +455,7 @@
       <li>
         <span>{{ variant.quantity_rule.min }}</span>
         {%- assign price = variant.price | money -%}
-        <span data-text="{%- comment %}<locksmith-lean:55b4>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_price', scope: 'subject', subject: product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:55b4>{% endcomment -%}{{ price }}{%- comment %}<locksmith-lean:d1b4>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:d1b4>{% endcomment -%}">{%- comment %}<locksmith-lean:1efc>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_price', scope: 'subject', subject: product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:1efc>{% endcomment -%}{{ price }}{%- comment %}<locksmith-lean:1ab7>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:1ab7>{% endcomment -%}</span>
+        <span data-text="{%- comment %}<locksmith-lean:3384>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_price', scope: 'subject', subject: product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:3384>{% endcomment -%}{{ price }}{%- comment %}<locksmith-lean:b30a>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:b30a>{% endcomment -%}">{%- comment %}<locksmith-lean:8fdc>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_price', scope: 'subject', subject: product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:8fdc>{% endcomment -%}{{ price }}{%- comment %}<locksmith-lean:9e30>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:9e30>{% endcomment -%}</span>
       </li>
       {%- for price_break in variant.quantity_price_breaks -%}
         {%- assign price_break_price = price_break.price | money -%}
