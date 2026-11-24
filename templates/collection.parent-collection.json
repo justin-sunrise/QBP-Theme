@@ -54,8 +54,9 @@
       "blocks": {
         "featured_collection_MgjL7i": {
           "type": "featured_collection",
+          "repeater": "{{ collection.metafields.custom.child_collections.value }}",
           "settings": {
-            "collection": ""
+            "collection": "{{ block.repeater.platform_collection.value }}"
           }
         }
       },
@@ -67,7 +68,7 @@
         "title": "Collections",
         "heading_size": "h1",
         "image_ratio": "square",
-        "columns_desktop": 3,
+        "columns_desktop": 4,
         "color_scheme": "",
         "show_view_all": false,
         "columns_mobile": "1",
