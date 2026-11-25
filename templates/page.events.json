@@ -445,7 +445,7 @@
         "heading_4mmEQH": {
           "type": "heading",
           "settings": {
-            "heading": "April 15-18, 2027 9am-5pm (Sunday 9am-2pm)",
+            "heading": "March 11-13, 2027",
             "heading_size": "h1",
             "make_h1": false
           }
@@ -453,7 +453,7 @@
         "text_ygHGjq": {
           "type": "text",
           "settings": {
-            "text": "<h3>The Sea Otter Classic</h3><p>Monterey, CA</p><p>We're back at Booth S430 to show off our newest bikes. Stay tuned for more details.</p>",
+            "text": "<h3>The MidSouth</h3><p>Stillwater, OK</p><p>Kick off the season at one of our favorite events. The MidSouth is back for you to run, ride, or both! Stay tuned for more details but be sure to arrive by Thursday for our annual Denim Ride & Beer Release party at Stonecloud. The Chaise is excited to see you there.</p>",
             "text_style": "body"
           }
         },
@@ -461,7 +461,7 @@
           "type": "button",
           "settings": {
             "button_label": "Learn More",
-            "button_link": "https://www.seaotterclassic.com",
+            "button_link": "https://www.midsouthgravel.com/",
             "button_style_secondary": false
           }
         }
@@ -472,7 +472,7 @@
         "button_pPkLCX"
       ],
       "settings": {
-        "image": "shopify://shop_images/SAL_SOC_1200x1200_a82dffa8-249f-479c-9272-ec853deef99a.jpg",
+        "image": "shopify://shop_images/SAL_MidSouth_1200x1200_25632eb2-6d24-4e06-962e-5cf602bf130d.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -481,6 +481,150 @@
         "content_layout": "overlap",
         "section_color_scheme": "",
         "color_scheme": "scheme-2",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_iDtUFc": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_wbVbqR": {
+          "type": "heading",
+          "settings": {
+            "heading": "April 15-18, 2027 9am-5pm (Sunday 9am-2pm)",
+            "heading_size": "h1",
+            "make_h1": false
+          }
+        },
+        "text_d3cBEh": {
+          "type": "text",
+          "settings": {
+            "text": "<h3>The Sea Otter Classic</h3><p>Monterey, CA</p><p>We're back at Booth S430 to show off our newest bikes. Stay tuned for more details.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_FjDGzc": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn More",
+            "button_link": "https://www.seaotterclassic.com",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_wbVbqR",
+        "text_d3cBEh",
+        "button_FjDGzc"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/SAL_SOC_1200x1200_a82dffa8-249f-479c-9272-ec853deef99a.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "overlap",
+        "section_color_scheme": "",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_8VCXB6": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_WnBdXF": {
+          "type": "heading",
+          "settings": {
+            "heading": "June 2-5, 2027",
+            "heading_size": "h1",
+            "make_h1": false
+          }
+        },
+        "text_iBjyxV": {
+          "type": "text",
+          "settings": {
+            "text": "<h3>Gravel Cycling Hall of Fame Induction & Unbound</h3><p>Emporia, KS</p><p>Join The Chaise and its fellow Gravel Cycling Hall of Fame inductees for a shakeout ride before the ceremony Wednesday night. Then visit us at the Unbound expo to see what's new with the Salsa crew.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_HdrmYD": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn More",
+            "button_link": "https://www.gravelcyclinghof.com/",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_WnBdXF",
+        "text_iBjyxV",
+        "button_HdrmYD"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/SAL_Unbound_1200x1200_054719d2-ce4a-49b0-b98d-3773623913e1.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "overlap",
+        "section_color_scheme": "",
+        "color_scheme": "scheme-2",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_TCEVXX": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_jxRgA8": {
+          "type": "heading",
+          "settings": {
+            "heading": "September 22-26, 2027",
+            "heading_size": "h1",
+            "make_h1": false
+          }
+        },
+        "text_eDUbFP": {
+          "type": "text",
+          "settings": {
+            "text": "<h3>Bentonville Bike Fest</h3><p>Bentonville, AR</p><p>Join us for demos and fun at Bentonville Bike Fest (now in the fall!). We'll be showing off some of our newest MTBs and eMTBs. Trust us, you won't want to miss the first rides on these.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_tj6MDh": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn More",
+            "button_link": "https://www.bentonvillebikefest.com/",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_jxRgA8",
+        "text_eDUbFP",
+        "button_tj6MDh"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Events_BentonvilleBF-25.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "overlap",
+        "section_color_scheme": "",
+        "color_scheme": "scheme-3",
         "image_behavior": "none",
         "mobile_content_alignment": "left",
         "padding_top": 36,
@@ -566,6 +710,9 @@
     "image_with_text_q9rqqJ",
     "image_with_text_FFmCrJ",
     "image_with_text_xqbFxH",
+    "image_with_text_iDtUFc",
+    "image_with_text_8VCXB6",
+    "image_with_text_TCEVXX",
     "rich_text_KkQxhi",
     "rich_text_dtckF4"
   ]
