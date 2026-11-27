@@ -145,7 +145,7 @@
             endif
           -%}
           {% unless card_product.tags contains 'Archived Bikes' %}
-          {%- comment %}<locksmith-lean:9127>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_price', scope: 'subject', subject: card_product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:9127>{% endcomment -%}<div class="card__badge {{ settings.badge_position }}">
+          {%- comment %}<locksmith-lean:f003>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_price', scope: 'subject', subject: card_product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:f003>{% endcomment -%}<div class="card__badge {{ settings.badge_position }}">
             {%- if card_product.metafields.custom.coming_soon -%}
               <span
                 id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
@@ -187,7 +187,7 @@
             {% if settings.enable_shop_local_badge and card_product.metafields.custom.product_is_sellable and card_product.title contains 'frameset' %}
               <span>Available Online!</span>
             {% endif %}
-          </div>{%- comment %}<locksmith-lean:3004>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:3004>{% endcomment -%}
+          </div>{%- comment %}<locksmith-lean:062e>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:062e>{% endcomment -%}
           {% endunless %}
         </div>
       </div>
@@ -364,7 +364,7 @@
             {%- if card_product.variants.size > 1 or qty_rules -%}
               <modal-opener data-modal="#QuickAdd-{{ card_product.id }}">
                 {% if product_is_sellable != false %}
-                  {%- comment %}<locksmith-lean:4821>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_add_to_cart', scope: 'subject', subject: card_product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:4821>{% endcomment -%}<button
+                  {%- comment %}<locksmith-lean:6686>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_add_to_cart', scope: 'subject', subject: card_product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:6686>{% endcomment -%}<button
                     id="{{ product_form_id }}-submit"
                     type="submit"
                     name="add"
@@ -380,10 +380,10 @@
                       </span>
                     {%- endif -%}
                     {%- render 'loading-spinner' -%}
-                  </button>{%- comment %}<locksmith-lean:aa71>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:aa71>{% endcomment -%}
+                  </button>{%- comment %}<locksmith-lean:e910>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:e910>{% endcomment -%}
                 {% endif %}
               </modal-opener>
-              {%- comment %}<locksmith-lean:4b1d>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_add_to_cart', scope: 'subject', subject: card_product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:4b1d>{% endcomment -%}<quick-add-modal id="QuickAdd-{{ card_product.id }}" class="quick-add-modal">
+              {%- comment %}<locksmith-lean:64fa>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_add_to_cart', scope: 'subject', subject: card_product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:64fa>{% endcomment -%}<quick-add-modal id="QuickAdd-{{ card_product.id }}" class="quick-add-modal">
                 <div
                   role="dialog"
                   aria-label="{{ 'products.product.choose_product_options' | t: product_name: card_product.title | escape }}"
@@ -401,10 +401,10 @@
                   </button>
                   <div id="QuickAddInfo-{{ card_product.id }}" class="quick-add-modal__content-info"></div>
                 </div>
-              </quick-add-modal>{%- comment %}<locksmith-lean:6609>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:6609>{% endcomment -%}
+              </quick-add-modal>{%- comment %}<locksmith-lean:2b43>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:2b43>{% endcomment -%}
             {%- else -%}
               <product-form data-section-id="{{ section.id }}">
-                {%- comment %}<locksmith-lean:1ce0>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_add_to_cart', scope: 'subject', subject: card_product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:1ce0>{% endcomment -%}{%- form 'product',
+                {%- comment %}<locksmith-lean:ccee>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_add_to_cart', scope: 'subject', subject: card_product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:ccee>{% endcomment -%}{%- form 'product',
                   card_product,
                   id: product_form_id,
                   class: 'form',
@@ -452,14 +452,14 @@
                       {%- render 'loading-spinner' -%}
                     </button>
                   {% endif %}    
-                {%- endform -%}{%- comment %}<locksmith-lean:94ee>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:94ee>{% endcomment -%}
+                {%- endform -%}{%- comment %}<locksmith-lean:dd8b>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:dd8b>{% endcomment -%}
               </product-form>
             {%- endif -%}
           </div>
         {% elsif quick_add == 'bulk' %}
           {% if card_product.variants.size == 1 %}
             {% if product_is_sellable != false %}
-              {%- comment %}<locksmith-lean:828f>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_add_to_cart', scope: 'subject', subject: card_product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:828f>{% endcomment -%}<quick-add-bulk
+              {%- comment %}<locksmith-lean:a08d>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_add_to_cart', scope: 'subject', subject: card_product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:a08d>{% endcomment -%}<quick-add-bulk
                 data-min="{{ card_product.selected_or_first_available_variant.quantity_rule.min }}"
                 id="quick-add-bulk-{{ card_product.selected_or_first_available_variant.id }}-{{ section.id }}"
                 class="quick-add-bulk"
@@ -483,7 +483,7 @@
                 {% else %}
                   {% render 'quantity-input', variant: card_product.selected_or_first_available_variant, min: 0 %}
                 {% endif %}
-              </quick-add-bulk>{%- comment %}<locksmith-lean:29c1>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:29c1>{% endcomment -%}
+              </quick-add-bulk>{%- comment %}<locksmith-lean:f5ed>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:f5ed>{% endcomment -%}
             {% endif %}
           {% else %}
             <div class="quick-add no-js-hidden">
@@ -499,7 +499,7 @@
                 data-modal="#QuickAddBulk-{{ card_product.id }}-{{ section.id }}"
               >
                 {% if product_is_sellable != false %}
-                  {%- comment %}<locksmith-lean:b3d3>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_add_to_cart', scope: 'subject', subject: card_product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:b3d3>{% endcomment -%}<button
+                  {%- comment %}<locksmith-lean:64f8>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_add_to_cart', scope: 'subject', subject: card_product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:64f8>{% endcomment -%}<button
                     id="{{ product_form_id }}-submit"
                     type="submit"
                     name="add"
@@ -510,7 +510,7 @@
                   >
                     {{ 'products.product.choose_options' | t }}
                     {%- render 'loading-spinner' -%}
-                  </button>{%- comment %}<locksmith-lean:d56a>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:d56a>{% endcomment -%}
+                  </button>{%- comment %}<locksmith-lean:a77d>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:a77d>{% endcomment -%}
                 {% endif %}  
               </modal-opener>
               <modal-dialog
@@ -620,7 +620,7 @@
             </div>
           {% endif %}
         {% endif %}
-        {%- comment %}<locksmith-lean:2a21>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_price', scope: 'subject', subject: card_product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:2a21>{% endcomment -%}<div class="card__badge {{ settings.badge_position }}">
+        {%- comment %}<locksmith-lean:24f0>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_price', scope: 'subject', subject: card_product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:24f0>{% endcomment -%}<div class="card__badge {{ settings.badge_position }}">
           {%- if product.metafields.custom.coming_soon -%}
               <span
                 class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}"
@@ -647,7 +647,7 @@
               {%- endif -%}
             </span>
           {%- endif -%}
-        </div>{%- comment %}<locksmith-lean:38d8>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:38d8>{% endcomment -%}
+        </div>{%- comment %}<locksmith-lean:1dfa>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:1dfa>{% endcomment -%}
       </div>
     </div>
   </div>
