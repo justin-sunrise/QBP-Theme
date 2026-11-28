@@ -16,10 +16,10 @@
     <div class="sticky-atc__details">
       <span class="sticky-atc__title">{{ product.title | escape }}</span>
       <span class="sticky-atc__price">
-        {%- comment %}<locksmith-lean:7bb4>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_price', scope: 'subject', subject: product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:7bb4>{% endcomment -%}{{- product.selected_or_first_available_variant.price | money -}}{%- comment %}<locksmith-lean:7801>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:7801>{% endcomment -%}
+        {%- comment %}<locksmith-lean:2bff>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_price', scope: 'subject', subject: product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:2bff>{% endcomment -%}{{- product.selected_or_first_available_variant.price | money -}}{%- comment %}<locksmith-lean:e027>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:e027>{% endcomment -%}
       </span>
     </div>
-    {%- comment %}<locksmith-lean:48d6>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_add_to_cart', scope: 'subject', subject: product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:48d6>{% endcomment -%}<button type="button" class="button button--full-width sticky-atc__button">
+    {%- comment %}<locksmith-lean:e6f8>{% endcomment -%}{% capture var %}{% render 'locksmith-variables', variable: 'hide_add_to_cart', scope: 'subject', subject: product %}{% endcapture %}{% unless var == 'true' %}{%- comment %}</locksmith-lean:e6f8>{% endcomment -%}<button type="button" class="button button--full-width sticky-atc__button">
       <span>
         {%- if product.selected_or_first_available_variant.available -%}
           {{ 'products.product.add_to_cart' | t }}
@@ -27,7 +27,7 @@
           {{ 'products.product.sold_out' | t }}
         {%- endif -%}
       </span>
-    </button>{%- comment %}<locksmith-lean:71af>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:71af>{% endcomment -%}
+    </button>{%- comment %}<locksmith-lean:3a03>{% endcomment -%}{% endunless %}{%- comment %}</locksmith-lean:3a03>{% endcomment -%}
   </div>
 </sticky-atc-bar>
 
